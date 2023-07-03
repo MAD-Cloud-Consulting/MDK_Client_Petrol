@@ -1,0 +1,28 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Headers": {
+    	"OfflineOData.NonMergeable": true
+	},
+	"Target":{
+		"EntitySet": "PMMobileStatuses",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+		"MobileStatus": "/SAPAssetManager/Rules/MobileStatus/MobileStatusReceived.js",
+		"ObjectType": "/SAPAssetManager/Rules/MobileStatus/MobileStatusItemTaskObjectType.js",
+		"ObjectKey": "/SAPAssetManager/Rules/MobileStatus/MobileStatusSetReceivedObjectKey.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js"
+	},
+	"CreateLinks": [{
+        "Property": "NotifItemTask_Nav",
+        "Target": {
+			"EntitySet" : "MyNotificationItemTasks",
+			"ReadLink": "/SAPAssetManager/Rules/MobileStatus/MobileStatusLocalNotificationItemTaskReadLink.js"
+        }
+      }
+    ],
+	"OnFailure" : "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : " ",
+	"ActionResult" : {"_Name" : "MobileStatusItemTaskSetReceived"}
+}

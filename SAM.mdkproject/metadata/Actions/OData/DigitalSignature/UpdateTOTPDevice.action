@@ -1,0 +1,25 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":{
+		"Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+		"EntitySet":"TOTPDevices",
+        "ReadLink": "/SAPAssetManager/Rules/DigitalSignature/TOTPReadlink.js"
+	},
+	 "Properties":
+    {
+	    "DeviceId": "/SAPAssetManager/Rules/DigitalSignature/TOTPDeviceID.js",
+        "TOTP":"/SAPAssetManager/Rules/DigitalSignature/GetTOTPValue.js",
+        "Passphrase":"/SAPAssetManager/Rules/DigitalSignature/Passphrase.js",
+		"DefaultDeviceFlag":true
+    },
+	"RequestOptions":
+    {
+        "UpdateMode": "Replace"
+    },
+	"ShowActivityIndicator": true,
+	"ActionResult":{
+		"_Name": "result"
+	},
+    "OnSuccess":"/SAPAssetManager/Actions/OData/DigitalSignature/UserPrefsTOTPCreate.action",
+	"OnFailure":"/SAPAssetManager/Actions/OData/DigitalSignature/ValidateTOTPFailure.action"
+}

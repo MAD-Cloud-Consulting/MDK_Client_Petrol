@@ -1,0 +1,223 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/WorkOrders/WorkOrderListFilterResults.js",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [{
+                    "ReturnValue":"Priority",
+                    "DisplayValue":"$(L,priority)"
+                },
+                {
+                    "ReturnValue":"OrderDescription",
+                    "DisplayValue":"$(L,description)"
+                },
+                {
+                    "ReturnValue":"DueDate",
+                    "DisplayValue":"$(L,due_date)"
+                },
+                {
+                    "ReturnValue":"OrderId",
+                    "DisplayValue":"/SAPAssetManager/Rules/WorkOrders/WorkOrderIdDisplayValue.js"
+                }],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls":
+            [
+            {
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,filter_by)",
+                "FilterProperty":"/SAPAssetManager/Rules/WorkOrders/WorkOrderFavoritesFilter.js",
+                "_Name":"FavoriteFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            },
+            {
+                "_Name": "AssignmentFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,assignedto)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": false,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": "/SAPAssetManager/Rules/Supervisor/Assign/UserRolesFilterListPickerItems.js",
+                "Visible" : "/SAPAssetManager/Rules/Supervisor/isSupervisorFeatureEnabled.js"
+            },
+            {
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,filter_by)",
+                "FilterProperty":"/SAPAssetManager/Rules/WorkOrders/WorkOrderMyWorkordersFilter.js",
+                "_Name":"MyWorkordersFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true,
+                "IsVisible": "/SAPAssetManager/Rules/WorkOrders/WorkOrderMyWorkordersFilterVisible.js"
+            },
+            {
+                "_Name": "TypeFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,type)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": false,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Value": "{OrderType}",
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:OrderType}} - {{#Property:OrderTypeDesc}}",
+                    "ReturnValue": "{OrderType}",
+                    "Target": {
+                        "EntitySet": "OrderTypes",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrderTypesPickerItems.js"
+                    }
+                },
+                "FilterProperty": "OrderType"
+            },
+            {
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,mobile_status)",
+                "FilterProperty":"/SAPAssetManager/Rules/WorkOrders/WorkOrderMobileStatusFilter.js",
+                "_Name":"MobileStatusFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            },
+            {
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,priority)",
+                "FilterProperty": "/SAPAssetManager/Rules/Priority/PriorityFilter.js",
+                "_Name":"PriorityFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            },
+            {
+                "_Name": "PhaseFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,phase)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": false,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": "/SAPAssetManager/Rules/WorkOrders/WorkOrderPhaseModelFilterPickerItems.js",
+                "IsVisible" : "/SAPAssetManager/Rules/Common/IsPhaseModelEnabled.js"
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "_Type": "Control.Type.FormCell.Switch",
+                    "_Name": "RequestStartDateSwitch",
+                    "Caption":"$(L,request_start_date)",
+                    "Value": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/WorkOrderRequestStartDateFilter.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "ReqStartDateFilter",
+                    "Caption": "$(L,date_from)",
+                    "Mode": "Date",
+                    "IsVisible": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "ReqEndDateFilter",
+                    "Caption": "$(L,date_to)",
+                    "Mode": "Date",
+                    "IsVisible": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+                }
+            ]
+        },
+        {
+            "Controls": [
+                {
+                    "_Type": "Control.Type.FormCell.Switch",
+                    "_Name": "DueDateSwitch",
+                    "Caption":"$(L,due_date)",
+                    "Value": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDueDateFilter.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "DueStartDateFilter",
+                    "Caption": "$(L,date_from)",
+                    "Mode": "Date",
+                    "IsVisible": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "DueEndDateFilter",
+                    "Caption": "$(L,date_to)",
+                    "Mode": "Date",
+                    "IsVisible": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+                }
+            ]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrderListFilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"WorkOrderFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/WorkOrderFilterOnLoaded.js"
+}

@@ -1,0 +1,14 @@
+{
+	"Target":
+	{
+		"EntitySet": "UserTimeEntries",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/ClockInClockOut/UserTimeEntry/UserTimeEntryReadLink.js"
+	},
+	"Headers":
+	{
+
+	},
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

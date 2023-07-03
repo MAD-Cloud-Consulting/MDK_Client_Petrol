@@ -1,0 +1,18 @@
+{
+	"KeyAndValues": [
+        {
+			"KeyName": "$(L,user_status)",
+			"Value": "{UserStatusText}"
+		},
+        {
+			"KeyName": "$(L,system_status)",
+            "Value": "{SystemStatusText}"
+		}
+	],
+    "Layout": {
+        "NumberOfColumns": 2
+	},
+    "Target": "/SAPAssetManager/Rules/Common/DetailsPage/DetailsPageStatusesTable.js",
+    "_Type": "Section.Type.KeyValue",
+	"_Name": "UserSystemStatuses"
+}

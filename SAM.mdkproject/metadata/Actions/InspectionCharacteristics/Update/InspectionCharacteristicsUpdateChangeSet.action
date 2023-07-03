@@ -1,0 +1,10 @@
+{
+    "Actions": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsCreateActionsArray.js",
+    "OnSuccess": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsChangeSetOnSuccess.js",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": " ",
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

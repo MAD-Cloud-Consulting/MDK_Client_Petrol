@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+	"Message": "$(L,device_not_register)",
+	"Duration": 0
+}

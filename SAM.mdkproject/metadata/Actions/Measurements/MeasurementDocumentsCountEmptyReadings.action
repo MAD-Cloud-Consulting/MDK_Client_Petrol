@@ -1,0 +1,10 @@
+{
+    "Actions": "/SAPAssetManager/Rules/Measurements/Points/MeasurementDocumentsCountEmptyReadings.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": " ",
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

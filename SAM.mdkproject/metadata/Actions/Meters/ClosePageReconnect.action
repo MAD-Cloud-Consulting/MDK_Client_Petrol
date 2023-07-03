@@ -1,0 +1,6 @@
+{
+    "CancelPendingActions": false,
+    "OnSuccess": "/SAPAssetManager/Actions/Meters/ReconnectAllMessage.action",
+    "DismissModal": "Action.Type.ClosePage.Completed",
+    "_Type": "Action.Type.ClosePage"
+}

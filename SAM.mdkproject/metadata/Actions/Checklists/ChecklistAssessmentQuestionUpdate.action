@@ -1,0 +1,25 @@
+{
+    "Target":
+    {
+        "EntitySet": "ChecklistAssessmentQuestions",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "SelectedAnswerOptionId": "/SAPAssetManager/Rules/Checklists/SelectedAnswerOptionIdForUpdate.js",
+        "Comments": "#Control:Comments/#Value",
+        "Version": "#Property:Version",
+        "SortNumber": "#Property:SortNumber",
+        "ChecklistType": "#Property:ChecklistType"
+    },
+    "RequestOptions": {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "{{#Property:ChecklistBusObject_Nav/#Property:Form_Nav/#Property:FormId}}{{#Property:GroupId}}"
+    },
+    "ValidationRule": "/SAPAssetManager/Rules/Checklists/ChecklistValidation.js",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

@@ -1,0 +1,65 @@
+{
+	"Caption": "$(L, production_order_label)",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "right",
+				"_Name": "Sync",
+				"Caption": "Sync",
+				"IconText": "SyncIcon",
+				"Icon": "/SAPAssetManager/Rules/Sync/SyncIcon.js",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"DetailImageIsCircular": false,
+						"PreserveIconStackSpacing": false,
+						"HeadlineText": "{OrderId}",
+						"StatusText": "/SAPAssetManager/Rules/Inventory/Common/GetDocumentDateForInventoryHeader.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Inventory/ProductionOrder/GetComponentsCount.js",
+						"Description": "   ",
+						"Subhead": "/SAPAssetManager/Rules/Inventory/ProductionOrder/GetMaterialData.js",
+						"Tags": "/SAPAssetManager/Rules/Inventory/ProductionOrder/GetFormattedTags.js"
+					},
+					"_Name": "SectionObjectHeader",
+					"_Type": "Section.Type.ObjectHeader"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		},
+		{
+			"Items": [{
+				"_Name": "ComponentsListTab",
+				"Caption": "$(L, components)",
+				"PageToOpen" : "/SAPAssetManager/Pages/Inventory/ProductionOrder/ProductionOrderComponentsList.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "ItemsListTab",
+				"Caption": "$(L, items)",
+				"PageToOpen" : "/SAPAssetManager/Pages/Inventory/PurchaseOrder/PurchaseOrderItemsList.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "MaterialDocumentsListTab",
+				"Caption": "$(L, material_list_title_no_count)",
+				"PageToOpen" : "/SAPAssetManager/Pages/Inventory/PurchaseOrder/POMaterialDocItemsList.page",
+				"_Type": "Control.Type.TabItem"
+
+			}],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+  		}
+	],
+	"DataSubscriptions": ["ProductionOrderHeaders", "MaterialDocItems","MaterialDocuments","ProductionOrderItems","ProductionOrderComponents"],
+	"OnReturning": "/SAPAssetManager/Rules/Inventory/ProductionOrder/ProductionOrderDetailsPageOnReturn.js",
+	"_Name": "ProductionOrderDetails",
+	"_Type": "Page"
+}

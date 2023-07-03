@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,confirm)",
+    "Message": "$(L,forms_submit_confirm)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)"
+}

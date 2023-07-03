@@ -1,0 +1,27 @@
+{
+	"Properties":
+	{
+		"PriorityType" : "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdatePriorityValue.js",
+		"TechObject" : "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js",
+		"OrderId" : "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js",
+		"Equipment" : "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateEquipmentValue.js",
+		"FunctionalLocation" : "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateFuncLocValue.js",
+		"OrderDescription" : "#Page:WorkOrderCreateUpdatePage/#Control:DescriptionNote/#Value",
+		"OrderType" : "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateTypeValue.js",
+		"Priority": "3",
+    "PlanningPlant": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdatePlanningPlantValue.js",
+    "ReferenceType": "P"
+	},
+	"CreateLinks": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderHistoryLinks.js",
+	"Headers":
+	{
+		"OfflineOData.RemoveAfterUpload": "true",
+		"Transaction.Ignore" : "true"
+    },
+	"Target":
+	{
+		"EntitySet" : "WorkOrderHistories",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

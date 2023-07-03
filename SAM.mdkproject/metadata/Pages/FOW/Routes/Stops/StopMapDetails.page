@@ -1,0 +1,313 @@
+{
+    "Caption":"$(L,map)",
+    "Controls":
+    [
+        {
+            "_Type":"Control.Type.Extension",
+            "Module": "extension-MapFramework",
+            "Control": "MapExtensionWithContext",
+            "Class": "MapExtensionWithContext",
+            "_Name":"MapExtensionControl",
+            "ExtensionProperties":{
+                "Config": {
+                    "Target": {
+                        "EntitySet": "GISMapParameters",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "Properties": [],
+                        "KeyProperties": []
+                    },
+                    "ViewConfig": {
+                        "UseDynamicLayerDisplayPrefs": false,
+                        "EnableCurrentLocation": true,
+                        "EnableNearMe": false,
+                        "EnableDynamicLayers": false,
+                        "EnableFeatureLayers": false,
+                        "EnableBaseMaps": true,
+                        "ZoomOnLocationEnabled": false
+                    },
+                    "BaseMaps": [],
+                    "FeatureLayers": []
+                },
+                "TokenAuthentication": {
+				        "Action": "/SAPAssetManager/Rules/Extensions/TokenRequest.js"
+			    },
+                "MapToolsetIcons": [{
+                    "name": "search",
+                    "normalAssetName": "Search",
+                    "isVisible": true,
+                    "isEnabled": true
+                },
+                {
+                    "name": "settings",
+                    "normalAssetName": "Information",
+                    "isVisible": true,
+                    "isEnabled": true
+                },
+                {
+                    "name": "currentLocation",
+                    "normalAssetName": "Location",
+                    "selectedAssetName": "LocationEnabled",
+                    "isVisible": true,
+                    "isEnabled": true
+                },
+                {
+                    "name": "zoomExtents",
+                    "normalAssetName": "ZoomExtent",
+                    "isVisible": true,
+                    "isEnabled": true
+                }
+            ],
+            "SettingsControl": {
+                "Title": "$(L, settings)",
+                "CloseActionTitle": "$(L, map_settings_close)",
+                "BasemapsTitle": "$(L,bm_title)",
+                "FeatureLayersTitle": "$(L, fl_title)",
+                "DynamicLayersTitle": "$(L, dl_title)",
+                "NearMe": {
+                    "DistanceTitle": "$(L, map_nearme_dist_title)",
+                    "UnitsTitle": "$(L, map_nearme_unit_title)",
+                    "Distances": [0.5, 1.0, 2.0, 5.0],
+                    "Units": [{
+                            "Value": "Mi",
+                            "Display": "$(L, map_nearme_mi)"
+                        },
+                        {
+                            "Value": "Km",
+                            "Display": "$(L, map_nearme_km)"
+                        }
+                    ]
+                }
+            },
+            "SearchControl": {
+				"SearchPlaceholder": "$(L, map_search_placeholder)",
+				"SearchFields": [
+					"Title", "Footnote", "Subhead", "Description"
+				],
+				"IsResultTextDisplayed": true,
+				"ResultsPrefix": "$(L, map_search_results_pref)",
+				"ResultsSuffix": "$(L, map_search_results_sufx)",
+				"NearMeFilterName": "$(L, map_search_nearme)",
+				"QuickFilters": []
+			},
+                "BusinessObjects":[
+                    {
+                        "Type": "Equipment",
+                        "Title": "$(L, dl_equip)",
+                        "Legend": "IconEquipment",
+                        "Target": {
+                            "EntitySet": "MyEquipments",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$expand=EquipGeometries/Geometry&$filter=EquipGeometries/any(eg:sap.entityexists(eg/Geometry))",
+                            "Properties": [],
+                            "KeyProperties": []
+                        },
+                        "Enable": true,
+                        "ObjectScheme": {
+                            "Geometry": "EquipGeometries/Geometry/GeometryValue",
+                            "Layer": "Equipment",
+                            "Properties": {
+                                "ID": "{EquipId}",
+                                "Title": "{EquipDesc}",
+                                "Subhead": "$(L, equipment_x, {EquipId})",
+                                "StatusText": "/SAPAssetManager/Rules/Maps/PriorityStatusText.js",
+                                "StatusImage": "/SAPAssetManager/Rules/Maps/PriorityBadge.js",
+                                "SubstatusText": "/SAPAssetManager/Rules/Maps/PrioritySubstatusText.js",
+                                "Tags": [
+                                    "{EquipType}",
+                                    "{EquipCategory}"
+                                ],
+                                "BodyText": "/SAPAssetManager/Rules/Maps/MapEquipWorkCenter.js",
+                                "Directions": {
+									"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+									"ButtonText": "$(L, map_info_panel_directions)"
+								}
+                            },
+                            "Actions": [{
+                                    "Title": "$(L, action_view_equip)",
+                                    "Icon": "ActionView",
+                                    "Type": "View",
+                                    "CallbackInfo": {
+                                        "Action": "/SAPAssetManager/Actions/Equipment/EquipmentDetailsNav.action",
+                                        "Target": {
+                                            "EntitySet": "MyEquipments",
+                                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                            "QueryOptions": "$filter=EquipId eq '{EquipId}'&$expand=MeasuringPoints,MeasuringPoints/MeasurementDocs,EquipDocuments,WorkOrderHeader,FunctionalLocation,SystemStatuses_Nav/SystemStatus_Nav,UserStatuses_Nav/UserStatus_Nav",
+                                            "Properties": [],
+                                            "KeyProperties": []
+                                        }
+                                    }
+                                },
+                                {
+                                    "Title": "$(L, take_reading)",
+                                    "Icon": "ActionAdd",
+                                    "Type": "View",
+                                    "IsVisible": "/SAPAssetManager/Rules/Equipment/EquipmentTakeReadingIsVisible.js",
+                                    "CallbackInfo": {
+                                        "Action": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsDataEntryNavWrapper.js",
+                                        "Target": {
+                                            "EntitySet": "MyEquipments",
+                                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                            "QueryOptions": "$filter=EquipId eq '{EquipId}'&$expand=MeasuringPoints,MeasuringPoints/MeasurementDocs,EquipDocuments,WorkOrderHeader,FunctionalLocation",
+                                            "Properties": [],
+                                            "KeyProperties": []
+                                        }
+                                    }
+                                }
+                            ],
+                            "Symbol": {
+                                "marker": "/SAPAssetManager/Rules/Maps/Icons/EquipmentIcon.js",
+                                "lineColor": "FFA02B",
+                                "lineWidth": 2,
+                                "onSelect": {
+                                    "marker": "/SAPAssetManager/Rules/Maps/Icons/SelectedEquipmentIcon.js",
+                                    "lineWidth": 4
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "Type": "FunctionalLocation",
+                        "Title": "$(L, dl_floc)",
+                        "Legend": "IconFloc",
+                        "Target": {
+                            "EntitySet": "MyFunctionalLocations",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$expand=FuncLocGeometries/Geometry&$filter=FuncLocGeometries/any(fg:sap.entityexists(fg/Geometry))",
+                            "Properties": [],
+                            "KeyProperties": []
+                        },
+                        "Enable": true,
+                        "ObjectScheme": {
+                            "Geometry": "FuncLocGeometries/Geometry/GeometryValue",
+                            "Layer": "FunctionalLocation",
+                            "Properties": {
+                                "ID": "{FuncLocIdIntern}",
+                                "Title": "{FuncLocDesc}",
+                                "Subhead": "$(L, function_location_x, {FuncLocIdIntern})",
+                                "Tags": [
+                                    "{FuncLocType}"
+                                ],
+                                "BodyText": "/SAPAssetManager/Rules/Maps/MapFuncLocWorkCenter.js",
+                                "Directions": {
+									"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+									"ButtonText": "$(L, map_info_panel_directions)"
+								}
+                            },
+                            "Actions": [{
+                                    "Title": "$(L, action_view_floc)",
+                                    "Icon": "ActionView",
+                                    "Type": "View",
+                                    "CallbackInfo": {
+                                        "Action": "/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationDetailsNav.action",
+                                        "Target": {
+                                            "EntitySet": "MyFunctionalLocations",
+                                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                            "QueryOptions": "$filter=FuncLocIdIntern eq '{FuncLocIdIntern}'&$expand=WorkOrderHeader",
+                                            "Properties": [],
+                                            "KeyProperties": []
+                                        }
+                                    }
+                                },
+                                {
+                                    "Title": "$(L, take_reading)",
+                                    "Icon": "ActionAdd",
+                                    "Type": "View",
+                                    "IsVisible": "/SAPAssetManager/Rules/Equipment/EquipmentTakeReadingIsVisible.js",
+                                    "CallbackInfo": {
+                                        "Action": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsDataEntryNavWrapper.js",
+                                        "Target": {
+                                            "EntitySet": "MyFunctionalLocations",
+                                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                            "QueryOptions": "$filter=FuncLocIdIntern eq '{FuncLocIdIntern}'&$expand=WorkOrderHeader",
+                                            "Properties": [],
+                                            "KeyProperties": []
+                                        }
+                                    }
+                                }
+                            ],
+                            "Symbol": {
+                                "marker": "MarkerFunctionalLocation",
+                                "lineColor": "E9573E",
+                                "fillColor": "E9573E33",
+                                "lineWidth": 2,
+                                "onSelect": {
+                                    "marker": "MarkerFunctionalLocationSelected",
+                                    "lineWidth": 4
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "Type": "RouteStop",
+                        "Title": "$(L, fow_dl_stops)",
+                        "Legend": "IconRouteStop",
+                        "Target": {
+                            "EntitySet": "MyRouteStops",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$expand=Operation/OperationMobileStatus_Nav,FuncLoc/FuncLocGeometries/Geometry,Equipment/EquipGeometries/Geometry,TechObjects&$filter=FuncLoc/FuncLocGeometries/any(fg:sap.entityexists(fg/Geometry)) or Equipment/EquipGeometries/any(eg:sap.entityexists(eg/Geometry))",
+                            "Properties": [],
+                            "KeyProperties": []
+                        },
+                        "Enable": true,
+                        "ObjectScheme": {
+                            "Geometry": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopGeometry.js",
+                            "Layer": "RouteStop",
+                            "Properties": {
+                                "ID": "{RouteID}{StopID}",
+                                "RouteID": "{RouteID}",
+                                "StopID": "{StopID}",
+                                "Title":"{Description}",
+                                "Subhead":"$(L, fow_stop_with_stop_id, {StopID})",
+                                "Tags": ["/SAPAssetManager/Rules/Maps/FOW/Stops/StopTags.js"],
+                                "BodyText":"/SAPAssetManager/Rules/FOW/Routes/Stops/StopListAssetCountCaption.js",
+                                "Footnote": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopFootnote.js",
+                                "Directions": {
+									"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+									"ButtonText": "$(L, map_info_panel_directions)"
+								}
+                            },
+                            "GroupOf": {
+                                    "Equipment": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopEquipIds.js",
+                                    "FunctionalLocation": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopFuncLocIds.js"
+                            },
+                            "Actions": [
+                                {
+                                    "Title":"$(L, fow_map_view_stop_details)",
+                                    "Icon":"ActionView",
+                                    "Type":"View",
+                                    "CallbackInfo": {
+                                        "Action":"/SAPAssetManager/Rules/FOW/Routes/Stops/StopDetailsNav.js",
+                                        "Target":{
+                                            "EntitySet" : "MyRouteStops",
+                                            "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                            "QueryOptions": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopDetailsMapNavQueryOptions.js",
+                                            "Properties": [],
+                                            "KeyProperties": []
+                                        }
+                                    }
+                                }
+                            ],
+                            "Symbol": {
+                                "marker": "MarkerGroup",
+                                "Composite": {
+                                    "Text": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopAssetNumber.js",
+                                    "TextColor": "FFFFFF"
+                                },
+                                "onSelect": {
+                                    "marker": "MarkerGroupSelected",
+                                    "Composite": {
+                                        "Text": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopAssetNumber.js",
+                                        "TextColor": "FFFFFF",
+                                        "FontSize": 18
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "_Type":"Page",
+    "_Name":"StopMapDetailsPage"
+ }

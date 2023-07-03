@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Logout",
+    "Force": true,
+    "SkipReset": true,
+    "OnSuccess": "/SAPAssetManager/Rules/Common/CompleteReset.js"
+}

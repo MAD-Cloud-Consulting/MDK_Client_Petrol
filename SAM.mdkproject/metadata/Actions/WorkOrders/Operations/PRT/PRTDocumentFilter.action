@@ -1,0 +1,5 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/Operations/PRT/PRTDocumentFilter.page",
+    "Filterable" : "#Page:PRTDocumentsListView/#Control:SectionedTable"
+}

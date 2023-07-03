@@ -1,0 +1,116 @@
+{
+	"Collection": [
+		"MyNotificationItemCauses"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Item",
+			"_Type": "MyNotificationItems"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemCauseLongText",
+			"_Type": "MyNotifItemCauseLongTexts"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "CreationDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CauseText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Language",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CauseCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CauseCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CauseCatalogType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Quantity",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "PartyRespCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": true,
+			"_Name": "ItemNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "CauseSequenceNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemSortNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CauseSortNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedDate",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyNotificationItemCause"
+}

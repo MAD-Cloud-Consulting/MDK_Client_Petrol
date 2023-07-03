@@ -1,0 +1,10 @@
+{
+    "OnSuccess": "/SAPAssetManager/Actions/SignatureControl/Create/SignatureControlCreateSignature.action",
+    "OnFailure": "/SAPAssetManager/Rules/SignatureControl/SignatureControlRequiredOnFailure.js",
+    "RequiredFields": [
+        "SignatureCaptureFormCell"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

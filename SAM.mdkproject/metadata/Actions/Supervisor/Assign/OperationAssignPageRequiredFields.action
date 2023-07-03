@@ -1,0 +1,10 @@
+{
+    "RequiredFields":
+    [
+        "OperationLstPkr",
+        "AssignToLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "OnSuccess": "/SAPAssetManager/Rules/Supervisor/Assign/OperationAssignChangeSet.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js"
+}

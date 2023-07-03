@@ -1,0 +1,48 @@
+{
+	"Caption": "$(L,overview_recent)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L, no_documents_available)"
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"DetailImageIsCircular": false,
+						"OnPress": "/SAPAssetManager/Rules/Inventory/Item/MaterialDetailsNav.js",
+						"PreserveIconStackSpacing": false,
+						"StatusText": "/SAPAssetManager/Rules/Inventory/Overview/MaterialDocumentStatus.js",
+						"Subhead": "{UserName}",
+						"Footnote": "/SAPAssetManager/Rules/Inventory/Overview/MaterialDocumentType.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Inventory/Overview/GetMaterialDocumentDateText.js",
+						"Title": "{MaterialDocNumber}"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "MaterialDocuments",
+						"QueryOptions": "$filter=sap.islocal()&$orderby=MaterialDocNumber",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"DataSubscriptions": [
+						"MaterialDocItems",
+						"MaterialDocuments"
+					],
+					"_Name": "SectionObjectTable0",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/SetMaterialDocumentListRecentTitle.js",
+	"OnReturning": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/SetMaterialDocumentListRecentTitle.js",
+	"_Name": "MaterialDocumentRecentList",
+	"_Type": "Page"
+}

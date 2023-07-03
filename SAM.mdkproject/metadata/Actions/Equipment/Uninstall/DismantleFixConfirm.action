@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L, dismantle_equipment)",
+    "Message": "$(L, dismantle_equipment_Fix_Message)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)"
+}

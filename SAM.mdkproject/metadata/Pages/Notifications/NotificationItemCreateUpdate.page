@@ -1,0 +1,165 @@
+{
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "left",
+			"SystemItem": "Cancel",
+			"OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+		},
+		{
+			"Position": "right",
+			"SystemItem": "$(PLT,'Done','')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+			"OnPress": "/SAPAssetManager/Actions/Notifications/Item/NotificationItemCreateUpdateRequired.action"
+		}]
+	},
+	"OnLoaded" : "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateUpdateOnPageLoad.js",
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Controls":
+			[{
+				"Caption": "$(L,notification_item)",
+				"PlaceHolder": "$(L,item_description)",
+				"Value": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/ItemDefaultValue.js",
+				"OnValueChange": "/SAPAssetManager/Rules/Common/Validation/FormCellNoteValidation.js",
+				"_Name": "ItemDescription",
+				"_Type": "Control.Type.FormCell.Note"
+			}]
+		},
+		{
+			"Controls":
+			[{
+				"AllowMultipleSelection": false,
+				"IsPickerDismissedOnSelection": true,
+				"AllowDefaultValueIfOneItem": true,
+                "IsSearchCancelledAfterSelection": true,
+				"Search": {
+                   	"Enabled": true,
+   	               	"Delay": 500,
+					"MinimumCharacterThreshold": 3,
+					"Placeholder": "$(L,search)",
+					"BarcodeScanner": true
+                },
+				"Caption": "/SAPAssetManager/Rules/Notifications/Item/Details/PartGroupLabel.js",
+				"Value" : "{ObjectPartCodeGroup}",
+				"PickerItems": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemPartGroupPickerItems.js",
+				"OnValueChange" : "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateUpdatePart.js",
+				"_Name": "PartGroupLstPkr",
+				"_Type": "Control.Type.FormCell.ListPicker"
+			},
+			{
+				"AllowMultipleSelection": false,
+				"AllowDefaultValueIfOneItem": true,
+				"IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+				"Search": {
+                   	"Enabled": true,
+   	               	"Delay": 500,
+					"MinimumCharacterThreshold": 3,
+					"Placeholder": "$(L,search)",
+					"BarcodeScanner": true
+                },
+				"IsEditable" : false,
+				"Caption": "/SAPAssetManager/Rules/Notifications/Item/Details/PartLabel.js",
+				"Value" : "{ObjectPart}",
+				"PickerItems":
+				{
+					"DisplayValue" : "{{#Property:Code}} - {{#Property:CodeDescription}}",
+					"ReturnValue": "{Code}",
+					"Target":
+					{
+						"EntitySet" : "PMCatalogCodes",
+						"Service" : "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions" : "/SAPAssetManager/Rules/Notifications/Item/NotificationItemPartCodeQuery.js"
+					}
+				},
+				"_Name": "PartDetailsLstPkr",
+				"_Type": "Control.Type.FormCell.ListPicker"
+			}]
+		},
+		{
+			"Controls":
+			[{
+				"AllowMultipleSelection": false,
+				"IsPickerDismissedOnSelection": true,
+				"AllowDefaultValueIfOneItem": true,
+                "IsSearchCancelledAfterSelection": true,
+				"Search": {
+                   	"Enabled": true,
+   	               	"Delay": 500,
+					"MinimumCharacterThreshold": 3,
+					"Placeholder": "$(L,search)",
+					"BarcodeScanner": true
+                },
+				"Caption": "/SAPAssetManager/Rules/Notifications/Item/Details/DamageGroupLabel.js",
+				"Value" : "{CodeGroup}",
+				"PickerItems": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemPartGroupPickerItems.js",
+				"OnValueChange" : "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateUpdateDamage.js",
+				"_Name": "DamageGroupLstPkr",
+				"_Type": "Control.Type.FormCell.ListPicker"
+			},
+			{
+				"AllowMultipleSelection": false,
+				"AllowDefaultValueIfOneItem": true,
+				"IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+				"Search": {
+                   	"Enabled": true,
+   	               	"Delay": 500,
+					"MinimumCharacterThreshold": 3,
+					"Placeholder": "$(L,search)",
+					"BarcodeScanner": true
+                },
+				"IsEditable" : false,
+				"Caption": "/SAPAssetManager/Rules/Notifications/Item/Details/DamageLabel.js",
+				"Value" : "{DamageCode}",
+				"PickerItems":
+				{
+					"DisplayValue" : "{{#Property:Code}} - {{#Property:CodeDescription}}",
+					"ReturnValue": "{Code}",
+					"Target":
+					{
+						"EntitySet" : "PMCatalogCodes",
+						"Service" : "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions" : "/SAPAssetManager/Rules/Notifications/Item/NotificationItemDamageCodeQuery.js"
+					}
+				},
+				"_Name": "DamageDetailsLstPkr",
+				"_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+			"Controls":
+			[{
+				"Caption": "$(L, note)",
+			    "PlaceHolder": "$(L,note)",
+                "_Name": "LongTextNote",
+                "Value": "",
+			    "_Type": "Control.Type.FormCell.Note",
+				"IsVisible": "/SAPAssetManager/Rules/Common/IsOnCreate.js",
+				"IsAutoResizing": true,
+			    "IsEditable": true
+			}]
+		},
+		{
+			"Controls":
+			[{
+				"Title": "$(L,discard)",
+				 "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+				"IsVisible": "/SAPAssetManager/Rules/Common/IsDiscardButtonVisible.js",
+				"_Type": "Control.Type.FormCell.Button",
+				"ButtonType": "Text",
+				"Semantic": "Tint",
+				"_Name": "DiscardButton",
+                "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+			}]
+		}],
+		"_Name": "FormCellContainer",
+		"_Type": "Control.Type.FormCellContainer"
+	}],
+	"_Type": "Page",
+	"_Name": "NotificationItemAddPage"
+}

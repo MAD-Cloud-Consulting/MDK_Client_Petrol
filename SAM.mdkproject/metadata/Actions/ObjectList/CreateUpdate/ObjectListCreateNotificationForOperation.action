@@ -1,0 +1,21 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet" : "MyWorkOrderObjectLists",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+		"OfflineOData.TransactionID": "#Property:ObjectListNotificationID"
+    },
+	"Properties": {
+		"NotifNum": "#Property:ObjectListNotificationID",
+        "OrderId": "#Property:OrderId",
+		"OperationNo": "#Property:OperationNo",
+		"SubOperationNo": "/SAPAssetManager/Rules/ObjectList/ObjectListSubOperationNo.js",
+        "ObjectListNum": "/SAPAssetManager/Rules/ObjectList/ObjectListNum.js",
+		"ObjectListCounter": "/SAPAssetManager/Rules/ObjectList/ObjectListCounter.js"
+	},
+	"CreateLinks": "/SAPAssetManager/Rules/ObjectList/ObjectListCreateLinksNotifFromOperation.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

@@ -1,0 +1,7 @@
+{
+    "Message": "$(L, confirm_cancel)",
+    "OKCaption": "$(L,continue_text)",
+    "CancelCaption": "$(L,cancel)",
+    "OnOK": "/SAPAssetManager/Rules/Common/ChangeSet/ResetFlagsAndClosePage.js",
+    "_Type": "Action.Type.Message"
+}

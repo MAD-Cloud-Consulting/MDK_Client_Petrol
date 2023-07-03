@@ -1,0 +1,63 @@
+{
+    "Caption": "$(L,activity_log)",
+    "OnLoaded": "/SAPAssetManager/Rules/Log/UserLogSetting.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L,enable_logging)",
+                            "Value": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/Log/ToggleUserLogging.js",
+                            "_Name": "EnableLogSwitch",
+                            "_Type": "Control.Type.FormCell.Switch"
+                        },
+                        {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchEnabled": false,
+                            "Caption": "$(L,log_level)",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Log/SetUserLogLevel.js",
+                            "IsEditable": false,
+                            "PickerItems": "/SAPAssetManager/Rules/UserSupport/LogLevels.js",
+                            "_Name": "LogLevelLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": false,
+                            "IsSearchEnabled": false,
+                            "IsEditable": false,
+                            "IsVisible": false,
+                            "Caption": "$(L,log_categories)",
+                            "Value": "/SAPAssetManager/Rules/Log/GetLogCategories.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Log/SetLogCategories.js",
+                            "PickerItems": "/SAPAssetManager/Rules/Log/LogCategories.js",
+                            "_Name": "LogCategoriesLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        }
+                    ]
+                },
+                {
+                  "Controls": [
+                      {
+                        "Title": "$(L,send_activity_log)",
+                        "OnPress": "/SAPAssetManager/Rules/Log/SendLoggerUpdate.js",
+                        "IsVisible" : "/SAPAssetManager/Rules/Log/IsShowLogLevelButtonVisible.js",
+                        "_Type": "Control.Type.FormCell.Button",
+                        "ButtonType": "Text",
+                        "Semantic": "Tint",
+                        "_Name": "Send",
+                        "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                      }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }],
+    "_Type": "Page",
+    "_Name": "UserActivityLog"
+}

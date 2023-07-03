@@ -1,0 +1,8 @@
+{
+  "PopoverItems": 
+	[{
+		"Title" : "/SAPAssetManager/Rules/Notes/NotePopoverSelectionText.js",
+		"OnPress" : "/SAPAssetManager/Rules/Notes/NoteCreateNav.js"
+	}],
+	"_Type": "Action.Type.PopoverMenu"
+}

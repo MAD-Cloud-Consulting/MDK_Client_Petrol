@@ -1,0 +1,19 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "CrewLists",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "CrewId" : "/SAPAssetManager/Rules/Crew/Header/CrewListCrewId.js",
+        "SAPUserName" : "/SAPAssetManager/Rules/Crew/Header/CrewListSAPUserName.js",
+        "UserGuid" : "/SAPAssetManager/Rules/Crew/Header/CrewListUserGuid.js",
+        "OriginTimeStamp" : "/SAPAssetManager/Rules/Crew/Header/CrewListOriginTimeStamp.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Crew/Header/CrewListCrewId.js"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocuments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{#ClientData/#Property:TempHeader_MatDocReadLink}"
+    },
+    "Properties": {
+        "DocumentDate": "#ClientData/#Property:TempHeader_DocumentDate",
+        "MaterialDocYear": "#ClientData/#Property:TempHeader_MaterialDocYear",
+        "PostingDate": "#ClientData/#Property:TempHeader_PostingDate",
+        "RefDocumentNumber": "#ClientData/#Property:TempHeader_DeliveryNote",
+        "HeaderText": "#ClientData/#Property:TempHeader_HeaderText"
+    },
+	"RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#ClientData/#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

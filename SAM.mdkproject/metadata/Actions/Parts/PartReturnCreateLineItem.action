@@ -1,0 +1,26 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "MatDocItem":"/SAPAssetManager/Rules/Parts/Issue/LineItem/PartIssueLineItemLocalID.js",
+        "OrderNumber": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemOrderNumber.js",
+        "MovementType": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnLineItemMovementType.js",
+        "ReservationNumber": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemReservationNumber.js",
+        "ReservationItemNumber": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemReservationItemNumber.js",
+        "Material": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemMaterial.js",
+        "Plant": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemPlant.js",
+        "StorageLocation": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemStorageLocation.js",
+        "EntryQuantity": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnLineItemQuantity.js",
+        "EntryUOM": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemUOM.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#ClientData/#Property:LocalMatDocId"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueCreateLineItemLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnCreateLineItemSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

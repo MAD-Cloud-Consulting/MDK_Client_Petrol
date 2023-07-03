@@ -1,0 +1,19 @@
+{
+	"Headers": {
+        "OfflineOData.NonMergeable": true
+    },
+    "Properties": {
+        "ObjectKey": "",
+        "ObjectType": "",
+        "MobileStatus": "",
+        "EffectiveTimestamp": "",
+        "CreateUserGUID": "",
+        "CreateUserId": ""
+    },
+    "Target": {
+        "EntitySet": "PMMobileStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : ""
+    },
+	"_Type": "Action.Type.ODataService.UpdateEntity"
+}

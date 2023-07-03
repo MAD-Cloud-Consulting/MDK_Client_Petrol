@@ -1,0 +1,6 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/Inventory/PhysicalInventory/PhysicalInventoryCountUpdate.page",
+	"_Type": "Action.Type.Navigation",
+     "ModalPage": true,
+	 "ClearHistory": true
+}

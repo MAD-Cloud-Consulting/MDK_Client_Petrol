@@ -1,0 +1,82 @@
+{
+	"Caption": "$(L,operations_assign)",
+    "OnLoaded": "/SAPAssetManager/Rules/Supervisor/Assign/OperationAssignOnLoad.js",
+    "ActionBar": {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+        },
+        {
+            "Position": "right",
+            "Text": "/SAPAssetManager/Rules/Supervisor/Assign/OperationAssignButtonCaption.js",
+            "OnPress": "/SAPAssetManager/Rules/Supervisor/Assign/OperationAssignOnPress.js"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowMultipleSelection": true,
+                "Caption": "$(L,operation)",
+                "IsVisible": "/SAPAssetManager/Rules/Supervisor/Assign/OperationListPickerIsVisible.js",
+                "Value": "{@odata.readLink}",
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": {
+                    "ObjectCell":
+                    {
+                        "PreserveIconStackSpacing": false,
+                        "Title" : "{{#Property:OperationNo}}",
+                        "Subhead" : "{{#Property:OperationShortText}}",
+                        "Footnote" : "{{#Property:OrderId}}"
+                    },
+                    "ReturnValue" : "{@odata.readLink}",
+                    "Target":
+                    {
+                        "EntitySet" : "MyWorkOrderOperations",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$filter=PersonNum eq '00000000'&$orderby=OrderId,OperationNo asc"
+                    }
+                },
+                "Search":
+                {
+                    "Enabled": true
+                },
+                "_Name": "OperationLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L,assign_to)",
+                "IsEditable": true,
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": "/SAPAssetManager/Rules/Supervisor/Assign/UserRolesAssignListPickerItems.js",
+                "_Name": "AssignToLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "IsAutoResizing": false,
+                "IsEditable": true,
+                "Value": "",
+                "Caption": "$(L,notes)",
+                "PlaceHolder": "$(L,notes)",
+                "_Name": "TransferNote",
+                "_Type": "Control.Type.FormCell.Note"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+	"_Name": "OperationAssign",
+	"_Type": "Page"
+}

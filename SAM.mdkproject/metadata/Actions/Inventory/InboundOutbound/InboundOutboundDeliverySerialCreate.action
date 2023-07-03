@@ -1,0 +1,11 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet": "/SAPAssetManager/Globals/EmptyString.global",
+		"Service": "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink": ""
+	},
+	"Properties": {
+
+	}
+}  

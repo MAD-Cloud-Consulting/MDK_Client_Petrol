@@ -1,0 +1,10 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/Inventory/IssueOrReceipt/IssueOrReceiptCreateUpdateNav.action"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Inventory/InboundOrOutbound/UpdateHeaderCountItems.js",
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

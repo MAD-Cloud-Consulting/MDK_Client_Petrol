@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.Message",
+	"Message": "$(L, confirm_cancel)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)",
+    "OnOK": "/SAPAssetManager/Rules/Crew/ClearFlagsAndClose.js"
+}

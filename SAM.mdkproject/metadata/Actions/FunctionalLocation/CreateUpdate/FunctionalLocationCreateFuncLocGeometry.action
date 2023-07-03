@@ -1,0 +1,39 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet": "MyFuncLocGeometries",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+		"ObjectType": "IFL",
+		"ObjectKey": "#Page:FunctionalLocationDetails/#Property:FuncLocIdIntern",
+		"FuncLocIdIntern": "#Page:FunctionalLocationDetails/#Property:FuncLocIdIntern"
+	},
+	"Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+		"Transaction.Ignore": "true",
+        "OfflineOData.TransactionID": "#Page:FunctionalLocationDetails/#Property:FuncLocIdIntern"
+    },
+	"RequestOptions": {
+		"UnmodifiableRequest": true,
+		"SendEmptyUpdate": true
+	},
+	"CreateLinks": [{
+			"Property" : "Geometry",
+			"Target":
+			{
+				"EntitySet" : "Geometries",
+				"ReadLink" : "/SAPAssetManager/Rules/Geometries/GeometryReadLink.js"
+			}
+		},
+		{
+			"Property" : "FuncLoc_Nav",
+			"Target":
+			{
+				"EntitySet" : "MyFunctionalLocations",
+				"ReadLink" : "#Page:FunctionalLocationDetails/#Property:@odata.readLink"
+			}
+		}
+	],
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

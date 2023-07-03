@@ -1,0 +1,4 @@
+{
+    "PageToOpen" : "/SAPAssetManager/Pages/Equipment/EquipmentMapDetails.page",
+    "_Type" : "Action.Type.Navigation"
+}

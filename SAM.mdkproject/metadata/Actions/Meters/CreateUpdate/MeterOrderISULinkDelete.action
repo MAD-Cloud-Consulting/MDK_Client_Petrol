@@ -1,0 +1,22 @@
+{
+    "Target": {
+        "EntitySet": "OrderISULinks",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Control:MeterLstPkr/#Value/#First/#Property:ReturnValue",
+        "Transaction.Ignore": true
+    },
+    "DeleteLinks":
+    [{
+        "Property": "Device_Nav",
+        "Target":
+        {
+            "EntitySet": "Devices",
+            "QueryOptions": "$filter=EquipmentNum eq '{{#Property:EquipmentNum}}'"
+        }
+    }],
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action",
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

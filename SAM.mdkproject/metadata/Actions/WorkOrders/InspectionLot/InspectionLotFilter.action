@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/InspectionLot/InspectionLotFilter.page",
+    "Filterable" : "#Page:InspectionLotListViewPage/#Control:SectionedTable",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotListViewFilter.js",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

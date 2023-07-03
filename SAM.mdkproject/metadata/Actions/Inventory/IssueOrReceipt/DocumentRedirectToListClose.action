@@ -1,0 +1,6 @@
+{
+    "CancelPendingActions": false,
+    "DismissModal": "Action.Type.ClosePage.Completed",
+    "_Type": "Action.Type.ClosePage",
+    "OnSuccess": "/SAPAssetManager/Rules/Inventory/MaterialDocument/MaterialEmptyBindingIfRequired.js"
+}

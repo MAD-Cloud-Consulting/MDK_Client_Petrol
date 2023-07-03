@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderPartners",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:PartnerReadLink"
+    },
+    "Properties": {
+        "OrderId": "#ClientData/#Property:OrderId",
+        "Partner": "#ClientData/#Property:EmployeeTo",
+        "PartnerFunction": "#ClientData/#Property:PartnerFunction",
+        "PersonNum": "#ClientData/#Property:EmployeeTo"
+    },
+    "DeleteLinks":"/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderAssignPartnerLink.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+    
+}

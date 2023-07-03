@@ -1,0 +1,31 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "ChecklistAssessmentQuestions",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "TemplateId": "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionTemplateId.js",
+        "GroupId" : "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionGroupId.js",
+        "ObjectId": "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionObjectId.js",
+        "QuestionId" : "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionQuestionId.js",
+        "DisplayId" : "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionDisplayId.js",
+        "AnswerId" : "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionAnswerId.js",
+        "SortNumber": "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionSortNumber.js",
+        "SelectedAnswerOptionId" : "",
+        "Status" : "",
+        "Version" : ""
+	},
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "{{#ClientData/#Property:ChecklistFormId}}{{#ClientData/#Property:ChecklistGroupId}}",
+        "OfflineOData.RemoveAfterUpload": "true"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionCreateLinks.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "OnSuccess": "/SAPAssetManager/Rules/Checklists/Create/ChecklistAssessmentQuestionProcessLoop.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

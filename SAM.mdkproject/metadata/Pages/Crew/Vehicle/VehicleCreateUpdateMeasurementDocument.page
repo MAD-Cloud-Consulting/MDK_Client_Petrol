@@ -1,0 +1,88 @@
+{
+    "Caption": "$(L,edit_vehicle)",
+    "OnLoaded": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateUpdateMeasurementDocumentOnPageLoad.js",    
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "right",
+            "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+            "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+            "OnPress": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateUpdateSwitch.js"
+        },
+        {
+            "Position": "left",
+            "SystemItem":"Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "Caption" : "$(L,description)",
+                "Value" : "#Property:Fleet/#Property:EquipmentDesc",
+                "IsEditable" : false,
+                "_Name" : "VehicleDescription",
+                "_Type" : "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "Caption" : "$(L,license)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleLicensePlateNumber.js",
+                "IsEditable" : false,
+                "_Name" : "VehicleLicense",
+                "_Type" : "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "Caption" : "$(L,point)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPoint.js",
+                "IsVisible":"/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerEnable.js",
+                "IsEditable" : false,
+                "_Name" : "VehiclePoint",
+                "_Type" : "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "Caption" : "$(L,previous_reading)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPrevReading.js",
+                "IsVisible":"/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerEnable.js",
+                "IsEditable" : false,
+                "_Name" : "VehiclePreviousReading",
+                "_Type" : "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "Caption" : "$(L,previous_reading_date)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPrevReadingDate.js",
+                "IsVisible":"/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerEnable.js",
+                "IsEditable" : false,
+                "_Name" : "VehiclePreviousReadingDate",
+                "_Type" : "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "Caption" : "$(L,odometer)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerReadingDefault.js",
+                "KeyboardType" : "Number",
+                "IsVisible":"/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerEnable.js",
+                "IsEditable" : true,
+                "_Name" : "VehicleOdometer",
+                "_Type" : "Control.Type.FormCell.SimpleProperty"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "Title": "$(L,remove)",
+                "OnPress": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemRemoval.js",
+                "_Type": "Control.Type.FormCell.Button",
+                "_Name": "DiscardButton",
+                "ButtonType": "Text",
+                "Semantic": "Tint"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+    "_Type": "Page",
+    "_Name": "CrewVehicleUpdatePage"
+}

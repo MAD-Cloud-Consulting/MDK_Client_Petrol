@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MeasurementDocuments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },    
+    "Properties": {
+        "RecordedValue": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentRecordedValue.js",
+        "ReadingValue": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingValue.js",
+        "ReadingTime": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingTime.js",
+        "ShortText": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentShortTextNote.js",
+        "ValuationCode": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentValuationCode.js",
+        "CodeShortText":"/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentValuationCodeDescription.js",
+        "ReadBy": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadBy.js",
+        "ReadingDate": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingDate.js",
+        "CodeGroup": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCodeGroup.js",
+        "ReadingTimestamp": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingTimestamp.js",
+        "PointObjectKey": ""
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:MeasurementDocNum"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateUpdateValidation.js"    
+}

@@ -1,0 +1,62 @@
+{
+	"Caption": "$(L,notification_tasks)",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsTaskListViewOnLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsTaskListOnReturn.js",
+
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+			"SystemItem": "Add",
+			"OnPress": "/SAPAssetManager/Rules/Notifications/Task/CreateUpdate/NotificationTaskCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+
+		}]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+			"EmptySection":{
+                "Caption": "$(L,no_notification_tasks_available)"
+            },
+			"ObjectCell":
+			{	
+				"PreserveIconStackSpacing": true,
+				"Icons":"/SAPAssetManager/Rules/Notifications/Task/NotificationTaskIconImages.js",
+				"AccessoryType": "disclosureIndicator",
+                "Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+                "Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+                "Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+				"StatusText" : "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+				"OnPress": "/SAPAssetManager/Actions/Notifications/Task/NotificationTaskDetailsNav.action"
+			},
+            "Target":
+			{
+                "EntitySet" : "{{#Property:@odata.id}}/Tasks",
+                "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/Notifications/Task/NotificationTasksListViewQueryOption.js"
+            },
+			"_Name" : "NotificationTasks",
+			"_Type" : "Section.Type.ObjectTable",
+			"DataSubscriptions": ["PMMobileStatuses"]
+
+		}],
+		"_Type" : "Control.Type.SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "NotificationTasksListViewPage",
+	"DataSubscriptions": ["MyNotificationTasks"]
+}

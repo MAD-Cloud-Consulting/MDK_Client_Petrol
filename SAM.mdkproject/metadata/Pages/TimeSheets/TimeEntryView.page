@@ -1,0 +1,68 @@
+{
+    "Caption": "$(L,time_entry)",
+    "OnLoaded": "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryViewOnLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "OnPress": "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryEditNav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+					"_Type": "Section.Type.KeyValue",
+                    "_Name": "TimeEntryDetailsSection",
+					"Header": {
+						"Caption": "$(L,time_details)"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,date)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewDate.js"
+						},
+						{
+							"KeyName": "$(L,duration)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewHours.js"
+						},
+						{
+							"KeyName": "$(L,personnel_name)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryEmployeeName.js"
+						},
+						{
+							"KeyName": "$(L,absence_attendance)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewAbsAttCode.js"
+						},
+						{
+							"KeyName": "$(L,activity_type)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewActivityType.js"
+						},
+                        {
+                            "KeyName": "$(L,workorder)",
+                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewWorkOrder.js"
+                        },
+                        {
+                            "KeyName": "$(L,operation)",
+                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewOperation.js"
+                        },
+                        {
+                            "KeyName": "$(L,suboperation)",
+                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewSubOperation.js"
+                        },
+                        {
+                            "KeyName": "$(L,workcenter)",
+                            "Value": "{Workcenter}"
+                        }
+                    ]
+				}
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "DataSubscriptions": ["CatsTimesheets","CatsTimesheetOverviewRows"]
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "TimeEntryViewPage"
+}

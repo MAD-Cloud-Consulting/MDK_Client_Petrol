@@ -1,0 +1,67 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result":
+    [
+        "#Page:DocumentFilterPage/#Control:SortFilter/#Value"
+    ],
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [{
+                    "ReturnValue":"Document/FileName",
+                    "DisplayValue":"$(L,file_name)"
+                },
+                {
+                    "ReturnValue":"Document/Description",
+                    "DisplayValue":"$(L,description)"
+                },
+                {
+                    "ReturnValue":"Document/FileSize",
+                    "DisplayValue":"$(L,file_size)"
+                }],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"DocumentFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

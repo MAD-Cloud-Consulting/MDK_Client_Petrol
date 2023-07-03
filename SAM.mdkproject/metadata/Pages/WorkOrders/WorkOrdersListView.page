@@ -1,0 +1,93 @@
+{
+	"OnLoaded": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrderListViewOnPageLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/WorkOrders/WorkOrderListViewOnReturning.js",
+	"Caption": "/SAPAssetManager/Rules/WorkOrders/WorkOrderListViewCaption.js",
+	"ActionBar":
+	{
+		"Items":
+		[
+		{
+			"Position": "right",
+			"_Name": "Sync",
+			"Caption": "Sync",
+			"IconText": "SyncIcon",
+			"Icon": "/SAPAssetManager/Rules/Sync/SyncIcon.js",
+			"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js"
+		},
+		{
+			"Position": "right",
+			"SystemItem": "Add",
+			"Text": "$(L,add)",
+			"Visible": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/IsWorkOrderAllowedToCreateUpdate.js",
+			"OnPress": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateNav.js"
+		},
+		{
+			"Position": "right",
+			"Icon":"$(PLT,/SAPAssetManager/Images/menuicon.png,/SAPAssetManager/Images/menuicon.android.png)",
+			"OnPress": "/SAPAssetManager/Actions/Supervisor/SupervisorWorkOrderAddPopover.action",
+			"Visible": "/SAPAssetManager/Rules/Supervisor/SupervisorRole/IsSupervisorSectionVisibleForWO.js"
+		},
+		{
+			"Position": "right",
+			"Icon": "$(PLT,'',/SAPAssetManager/Images/filter.android.png)",
+			"Text": "$(L,filter)",
+			"Visible": "/SAPAssetManager/Rules/WorkOrders/WorkOrderListViewFilterVisible.js",
+            "OnPress": "/SAPAssetManager/Actions/WorkOrders/WorkOrderFilter.action"
+		}]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : "/SAPAssetManager/Rules/WorkOrders/WorkOrdersSearchEnabled.js",
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+				"UseTopPadding": false
+			},
+			"EmptySection": {
+				"Caption": "/SAPAssetManager/Rules/WorkOrders/NoWorkOrdersCaption.js"
+			},
+			"ObjectCell": {
+				"PreserveIconStackSpacing": true,
+				"Icons": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrderListViewIconImages.js",
+				"Title": "{OrderDescription}",
+				"Subhead": "{{#Property:OrderId}} - {{#Property:OrderType}}",
+				"Footnote": "/SAPAssetManager/Rules/DateTime/DueDate.js",
+				"StatusText": "#Property:WOPriority/#Property:PriorityDescription",
+				"SubstatusText": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrdersListViewFormat.js",
+                "Styles": {
+					"StatusText":  "/SAPAssetManager/Rules/Priority/WOPriorityStatusStyle.js",
+                    "SubstatusText": "/SAPAssetManager/Rules/Supervisor/Reject/RejectedStatusStyle.js"
+                },
+				"AccessoryType": "disclosureIndicator",
+				"OnPress" : "/SAPAssetManager/Rules/WorkOrders/WorkOrderDetailsNav.js",
+				"Description": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrderListViewDescription.js",
+				"ContextMenu": {
+					"PerformFirstActionWithFullSwipe": true,
+					"Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+					"LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+					"TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+				}
+			},
+			"Target":
+			{
+				"EntitySet" : "MyWorkOrderHeaders",
+				"Service" : "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrdersListViewQueryOptionWrapper.js"
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "WorkOrdersListSection"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "WorkOrdersListViewPage",
+	"DataSubscriptions": "/SAPAssetManager/Rules/Common/DataSubscriptions.js"
+}

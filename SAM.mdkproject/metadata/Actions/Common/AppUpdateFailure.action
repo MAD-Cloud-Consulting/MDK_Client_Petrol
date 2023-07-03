@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+	"Title": "$(L, app_update)",
+	"Message": "$(L, app_update_check_failed)",
+	"Duration": 9999,
+	"Animated": true
+}

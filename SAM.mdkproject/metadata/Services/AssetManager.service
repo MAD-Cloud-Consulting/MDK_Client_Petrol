@@ -1,0 +1,16 @@
+{
+	"DestinationName": "DEST_SAM2210_PPROP",
+	"LanguageURLParam": "sap-language",
+	"OfflineOptions": {
+    	"ServiceOptions": {
+      		"supportsBind": false
+		},
+		"StoreParameters": {
+      		"EnableIndividualErrorArchiveDeletion": true,
+            "EnableRequestQueueOptimization": true
+    	}
+    },
+	"Headers": {
+        "SAP-PASSPORT": "/SAPAssetManager/Rules/Common/Passport/GetSAPPassportHeaderValue.js"
+    }
+}

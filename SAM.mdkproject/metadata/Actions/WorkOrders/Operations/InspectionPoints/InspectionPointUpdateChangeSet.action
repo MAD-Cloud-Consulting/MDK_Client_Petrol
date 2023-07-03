@@ -1,0 +1,10 @@
+{
+    "Actions": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsCreateActionsArray.js",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsChangeSetOnSuccess.js",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": " ",
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

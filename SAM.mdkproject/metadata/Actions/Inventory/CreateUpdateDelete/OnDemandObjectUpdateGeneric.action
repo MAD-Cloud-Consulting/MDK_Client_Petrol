@@ -1,0 +1,18 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "OnDemandObjects",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : ""
+    },
+    "Properties":
+    {
+        "ObjectId" : "",
+        "ObjectType": "",
+        "Action": ""
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true"
+    }
+}

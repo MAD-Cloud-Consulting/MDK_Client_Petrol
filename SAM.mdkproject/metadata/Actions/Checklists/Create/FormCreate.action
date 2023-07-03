@@ -1,0 +1,26 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "Forms",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "CreatedOn" : "/SAPAssetManager/Rules/Checklists/Create/FormCreatedOn.js",
+        "UpdatedOn" : "/SAPAssetManager/Rules/Checklists/Create/FormCreatedOn.js",
+        "Type" : "#Control:CategoryLstPkr/#SelectedValue",
+        "Language": "/SAPAssetManager/Rules/Checklists/Create/LanguageCode.js",
+        "FormId" : "/SAPAssetManager/Rules/Checklists/Create/FormFormId.js",
+        "ShortDescription" : "#Control:ChecklistShortDesc/#Value",
+        "MobileStatus" : "/SAPAssetManager/Rules/MobileStatus/Checklist/ChecklistMobileStatusOpen.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Checklists/Create/FormFormId.js"
+    },
+    "OnFailure": "/SAPAssetManager/Rules/Checklists/Create/ChecklistChangesetFailureMessage.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

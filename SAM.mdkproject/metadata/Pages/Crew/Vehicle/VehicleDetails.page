@@ -1,0 +1,60 @@
+{
+    "Caption": "$(L,vehicle)",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "right",
+            "SystemItem": "Edit",
+            "OnPress": "/SAPAssetManager/Rules/Crew/Vehicles/VehicleUpdateNavWrapper.js",
+		    "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Crew/EnableCrewManage.js"
+        }]
+	},
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Header":
+            {
+                "Caption": "$(L,vehicle_details)",
+                "UseTopPadding": true
+            },
+            "KeyAndValues":
+            [{
+                "KeyName" : "$(L,description)",
+                "Value" : "#Property:Fleet/#Property:EquipmentDesc"
+            },
+            {
+                "KeyName" : "$(L,license)",
+                "Value" : "#Property:Fleet/#Property:LicensePlateNumber"
+            },
+            {
+                "KeyName" : "$(L,point)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPoint.js"
+            },
+            {
+                "KeyName" : "$(L,previous_reading)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPrevReading.js"
+            },
+            {
+                "KeyName" : "$(L,previous_reading_date)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPrevReadingDate.js"
+            },
+            {
+                "KeyName" : "$(L,odometer)",
+                "Value" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerReading.js"
+            }],
+            "Layout":
+            {
+                "NumberOfColumns": 2
+            },
+            "_Name": "VehicleProperties",
+            "_Type": "Section.Type.KeyValue"
+        }],
+        "_Type" : "Control.Type.SectionedTable",
+        "_Name": "SectionedTable"
+    }],
+	"_Type": "Page",
+	"_Name": "VehicleDetailsPage",
+    "DataSubscriptions": ["MeasurementDocuments"]
+}

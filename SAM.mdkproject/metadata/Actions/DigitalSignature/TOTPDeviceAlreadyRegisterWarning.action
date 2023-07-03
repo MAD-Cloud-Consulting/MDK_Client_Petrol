@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,device_already_registered)",
+    "Message": "$(L,device_already_registered_dialog_text)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)"
+}

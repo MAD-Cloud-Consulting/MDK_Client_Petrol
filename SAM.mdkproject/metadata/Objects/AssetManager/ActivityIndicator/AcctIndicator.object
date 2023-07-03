@@ -1,0 +1,19 @@
+{
+	"Collection": [
+		"AcctIndicators"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "AcctIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "AcctIndicatorDesc",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "AcctIndicator"
+}

@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Vị trí hiện tại của bạn sẽ được hiển thị trên bản đồ";
+
+"NSLocationAlwaysUsageDescription" = "Cho phép \"SAP Asset Manager\" luôn truy cập vào vị trí của bạn?";
+
+"NSCameraUsageDescription" = "Cho phép máy ảnh truy cập để quét mã vạch và chụp ảnh để đính kèm vào ứng dụng";
+
+"NSMicrophoneUsageDescription" = "Vui lòng cho phép truy cập vào microphone";
+
+"NSFaceIDUsageDescription" = "Bật ID khuôn mặt sẽ cho phép truy cập nhanh và an toàn vào SAP Asset Manager";
+
+"NSPhotoLibraryUsageDescription" = "Cho phép truy cập vào thư viện ảnh để đính kèm ảnh vào ứng dụng để tải lên";
+
+"NSPhotoLibraryAddUsageDescription" = "Ứng dụng của chúng tôi cần quyền để ghi ảnh";
+

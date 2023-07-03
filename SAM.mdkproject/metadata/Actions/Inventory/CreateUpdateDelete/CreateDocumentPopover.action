@@ -1,0 +1,21 @@
+{
+	"PopoverItems": [
+        {
+            "Title": "$(L, add_goods_issue)",
+            "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SetAdhocGoodsIssue.js"
+        },
+        {
+            "Title": "$(L, add_goods_receipt)",
+            "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SetAdhocGoodsReceipt.js"
+        },
+        {
+            "Title": "$(L, add_stock_transfer)",
+            "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SetAdhocStockTransfer.js"
+        },
+        {
+            "Title": "$(L, add_physical_inventory)",
+            "OnPress": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SetPhysicalInventoryCreate.js"
+        }
+    ],
+	"_Type": "Action.Type.PopoverMenu"
+}

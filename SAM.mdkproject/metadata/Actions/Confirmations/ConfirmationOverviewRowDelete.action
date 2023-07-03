@@ -1,0 +1,12 @@
+{
+	"Target":
+	{
+		"EntitySet": "ConfirmationOverviewRows",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:ConfirmationOverviewRowReadlink"
+	},
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

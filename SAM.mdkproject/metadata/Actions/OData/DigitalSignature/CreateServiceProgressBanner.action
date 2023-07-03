@@ -1,0 +1,10 @@
+{
+	"_Type": "Action.Type.ProgressBanner",
+	"Message": "$(L, connecting_to_online_service)",
+	"OnSuccess":"/SAPAssetManager/Actions/OData/DigitalSignature/CreateOnlineDigitalSignatureService.action",
+	"ActionLabel": "$(L, tap_to_cancel)",
+	"OnActionLabelPress": "/SAPAssetManager/Actions/Page/CancelPage.action",
+	"DismissBannerOnAction": "/SAPAssetManager/Actions/Page/CancelPage.action",
+	"CompletionMessage": "$(L, connected_message)",
+	"CompletionTimeout": 2
+}

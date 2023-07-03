@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.ToastMessage",
+	"Message": "$(L, app_update_success)",
+	"IsIconHidden": false,
+    "MaxNumberOfLines": 2,
+    "Duration": 3,
+    "Animated": true
+}

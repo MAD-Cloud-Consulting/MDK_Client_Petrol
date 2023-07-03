@@ -1,0 +1,87 @@
+{
+	"Caption": "$(L,material_document_title)",
+		"ActionBar": {
+		"Items": [
+			{
+                "Position": "right",
+                "SystemItem": "Add",
+                "Visible": "/SAPAssetManager/Rules/Inventory/MaterialDocument/EnableItemsScreen.js",
+                "OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/OpenMaterialDocumentItemsScreen.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "Visible": "/SAPAssetManager/Rules/Inventory/MaterialDocument/EnableMaterialDocumentEditable.js",
+                "OnPress": "/SAPAssetManager/Actions/Inventory/MaterialDocument/MaterialDocumentUpdateNav.action"
+            },
+			{
+				"Position": "right",
+				"Icon":"$(PLT,/SAPAssetManager/Images/sync.pdf,/SAPAssetManager/Images/sync.android.png)",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"DetailImageIsCircular": false,
+						"HeadlineText": "{MaterialDocNumber}",
+						"PreserveIconStackSpacing": false,
+						"Tags": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetFormattadTags.js",
+						"Footnote":  "/SAPAssetManager/Rules/Inventory/Common/GetDocumentDateForInventoryHeader.js",
+						"Description": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/PurchaseOrderHeaderDescription.js"
+					},
+					"_Name": "SectionObjectHeader",
+					"_Type": "Section.Type.ObjectHeader"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		},
+		{
+			"Items": [{
+				"_Name": "MaterialItemsListTab",
+				"Caption": "$(L, items)",
+				"PageToOpen" : "/SAPAssetManager/Pages/Inventory/MaterialDocument/MaterialDocItemsList.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "MaterialReversalListTab",
+				"Caption": "$(L, reversal_label)",
+				"PageToOpen" : "/SAPAssetManager/Pages/Inventory/MaterialDocument/MaterialDocReversalList.page",
+				"_Type": "Control.Type.TabItem"
+
+			}],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+  		}
+	],
+		"ToolBar": {
+		"Controls":[
+            {
+                "_Name": "FlexibleSpaceLeftTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+		    },
+			{
+                "_Name": "NextItem",
+                "_Type": "Control.Type.ToolbarItem",
+                "Caption": "$(L, delete)",
+                "Enabled": "/SAPAssetManager/Rules/Inventory/MaterialDocument/EnableMaterialDocumentEditable.js",
+				"OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/RemoveCreatedMaterialDocuments.js"
+            },
+			{
+                "_Name": "FlexibleSpaceRightTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+		    }
+        ]
+    },
+	"DataSubscriptions": ["MyInventoryObjects", "MaterialDocItems", "MaterialDocuments"],
+	"OnReturning": "/SAPAssetManager/Rules/Inventory/MaterialDocument/MDocDetailsPageOnReturn.js",
+	"_Name": "MaterialDocumentDetailsIMPage",
+	"_Type": "Page"
+}

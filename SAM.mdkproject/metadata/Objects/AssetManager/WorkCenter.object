@@ -1,0 +1,34 @@
+{
+	"Collection": [
+		"WorkCenters"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "PlantId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "WorkCenterId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ExternalWorkCenterId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkCenterName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkCenterDescr",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "WorkCenter"
+}

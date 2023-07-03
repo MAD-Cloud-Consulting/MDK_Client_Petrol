@@ -1,0 +1,119 @@
+{
+    "Caption": "/SAPAssetManager/Rules/WorkOrders/Meter/MeterDisconnectCaption.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Meter/Common/HideCancelOnPageLoad.js",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+        },
+        {
+            "Position": "right",
+            "SystemItem": "$(PLT,'Done','')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+            "OnPress": "/SAPAssetManager/Rules/Meter/DisconnectSwitch.js"
+        }]
+    },
+    "Controls" :
+    [{
+        "Sections" :
+        [{
+            "Controls":
+            [{
+                "Caption": "$(L,serial_number)",
+                "Value": "{{#Property:Device_Nav/#Property:Device}}",
+                "IsEditable": false,
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "_Name": "SerialNum"
+            },
+            {
+                "Caption": "$(L,equipment)",
+                "Value": "{{#Property:EquipmentNum}}",
+                "IsEditable": false,
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "_Name": "EquipmentNum"
+            },
+            {
+                "Caption": "$(L,document)",
+                "Value": "{{#Property:DisconnectDoc_Nav/#Property:DocNum}}",
+                "IsEditable": false,
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "_Name": "Document"
+            },
+            {
+                "Caption": "$(L,activity_type)",
+                "Value": "{{#Property:DisconnectActivity_Nav/#Property:ActivityType}}",
+                "IsEditable": false,
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "_Name": "ActivityType"
+            },
+            {
+                "Caption": "$(L,activity)",
+                "Value": "{{#Property:DisconnectActivity_Nav/#Property:ActivityNum}}",
+                "IsEditable": false,
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "_Name": "Activity"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "Caption": "$(L, status)",
+                "AllowMultipleSelection": false,
+                "IsVisible": "/SAPAssetManager/Rules/WorkOrders/Meter/DisconnectionTypeIsVisible.js",
+                "Value" : "{{#Property:DisconnectType}}",
+                "IsPickerDismissedOnSelection": true,
+                "PickerItems":
+                {
+                    "DisplayValue" : "{{#Property:DisconnectionType}} - {{#Property:Description}}",
+                    "ReturnValue" : "{DisconnectionType}",
+                    "Target":
+                    {
+                        "EntitySet" : "DisconnectionTypes",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions" : "$orderby=DisconnectionType"
+                    }
+                },
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "_Name": "TypeLstPkr"
+            },
+            {
+                "Caption": "$(L, date)",
+                "DateTimeEntryMode" : "date",
+                "Mode" : "Date",
+                "Value": "/SAPAssetManager/Rules/Meter/DisconnectReconnect/DisconnectObjectDateTime.js",
+                "_Type": "Control.Type.FormCell.DatePicker",
+                "_Name": "DatePicker",
+                "IsEditable": true
+            },
+            {
+                "Caption": "$(L, time)",
+                "DateTimeEntryMode" : "time",
+                "Mode" : "Time",
+                "Value": "/SAPAssetManager/Rules/Meter/DisconnectReconnect/DisconnectObjectDateTime.js",
+                "_Type": "Control.Type.FormCell.DatePicker",
+                "_Name": "TimePicker",
+                "IsEditable": true
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "Title": "$(L,discard)",
+                "OnPress": "/SAPAssetManager/Rules/Meter/CreateUpdate/DiscardActionSwitch.js",
+                "IsVisible": "/SAPAssetManager/Rules/Common/IsDiscardButtonVisible.js",
+                "_Type": "Control.Type.FormCell.Button",
+                "_Name": "DiscardButton",
+                "Styles": {
+                    "Value": "ObjectCellStyleRed"
+                }
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+    "_Type": "Page",
+    "_Name": "MeterDisconnectPage"
+}

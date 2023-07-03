@@ -1,0 +1,31 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderHeaders",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "OrderDescription": "#Control:DescriptionNote/#Value",
+        "PlanningPlant": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdatePlanningPlantValue.js",
+        "OrderType": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateTypeValue.js",
+        "Priority": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdatePriorityValue.js",
+        "HeaderFunctionLocation": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateFuncLocValue.js",
+        "HeaderEquipment": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateEquipmentValue.js",
+        "BusinessArea": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateBusinessAreaValue.js",
+        "MainWorkCenterPlant": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateWorkCenterPlantValue.js",
+        "MainWorkCenter": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateMainWorkCenterValue.js",
+        "AccountingIndicator":"#Page:WorkOrderCreateUpdatePage/#Control:AccountIndicatorLstPkr/#SelectedValue"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:OrderId"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateLinks.js",
+    "DeleteLinks": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderDeleteLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderUpdateOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateValidation.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+
+}

@@ -1,0 +1,10 @@
+{
+	"Target": {
+        "EntitySet": "ErrorArchive",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "/SAPAssetManager/Rules/Meter/Discard/DiscardStatusInstallQueryOptions.js"
+    },
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+    "OnSuccess": "/SAPAssetManager/Actions/Meters/Discard/DiscardDeviceUpdateFromErrorArchive.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

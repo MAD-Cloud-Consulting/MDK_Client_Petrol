@@ -1,0 +1,27 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "Devices",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:DeviceReadLink"
+    },
+    "Properties": {
+        "Action": "/SAPAssetManager/Rules/Meter/CreateUpdate/MeterActionType.js",
+        "EquipmentNum": "#Control:MeterLstPkr/#Value/#First/#Property:ReturnValue",
+        "ActivityReason": "/SAPAssetManager/Rules/Meter/CreateUpdate/ActivityReasonSwitch.js",
+        "ConnectionObject": "#Control:ConnectionLstPkr/#Value/#First/#Property:ReturnValue",
+        "DeviceLocation": "#Control:DeviceLocationLstPkr/#Value/#First/#Property:ReturnValue",
+        "Installation": "#Control:InstallationLstPkr/#Value/#First/#Property:ReturnValue",
+        "ActivityDate": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateDate.js"
+    },
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Meter/CreateUpdate/BatchEquipmentNum.js",
+        "Transaction.Ignore": "false"
+	},
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

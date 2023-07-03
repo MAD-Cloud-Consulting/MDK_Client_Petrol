@@ -1,0 +1,82 @@
+{
+    "Caption": "/SAPAssetManager/Rules/WorkOrders/SubOperations/SubOperationsListViewCaption.js",
+	"OnLoaded": "/SAPAssetManager/Rules/WorkOrders/SubOperations/WorkOrderSubOperationListViewOnLoaded.js",
+    "OnReturning": "/SAPAssetManager/Rules/WorkOrders/SubOperations/CreateUpdate/WorkOrderSubOperationListViewCaption.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "_Name": "Sync",
+				"Caption": "Sync",
+				"IconText": "SyncIcon",
+                "Icon": "/SAPAssetManager/Rules/Sync/SyncIcon.js",
+                "OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Add",
+                "Text": "$(L,add)",
+                "Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js",
+                "OnPress": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateNav.js"
+            },
+            {
+                "Position": "right",
+                "Icon": "$(PLT,'',/SAPAssetManager/Images/filter.android.png)",
+                "Text": "$(L,filter)",
+                "OnPress": "/SAPAssetManager/Actions/WorkOrders/SubOperations/SubOperationsFilter.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Header": {
+                         "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_suboperation)"
+                    },
+                    "ObjectCell": 
+                    {   
+                        "PreserveIconStackSpacing": true,
+                        "Icons": "/SAPAssetManager/Rules/SubOperations/SubOperationsListViewIconImages.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "Title": "{{#Property:OperationShortText}} ({{#Property:OperationNo}})",
+                        "StatusText": "/SAPAssetManager/Rules/MobileStatus/SubOperationMobileStatus.js",
+                        "Subhead": "{SubOperationNo}",
+                        "Footnote": "{OrderId}",
+                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/SubOperations/SubOperationDetailsNav.action",
+                        "SubstatusText": "/SAPAssetManager/Rules/SubOperations/SubOperationsListViewFormat.js",
+                        "ContextMenu": {
+					        "PerformFirstActionWithFullSwipe": true,
+					        "Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+					        "LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+					        "TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+				        }
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/WorkOrders/SubOperations/SubOperationsEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/SubOperations/SubOperationsListViewQueryOption.js"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "WorkOrderSubOperationListSection"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "SubOperationsListViewPage",
+    "DataSubscriptions": ["MyWorkOrderSubOperations", "MyWorkOrderSubOpLongTexts", "PMMobileStatuses", "Confirmations","/SAPAssetManager/Services/AssetManager.service"]
+
+}

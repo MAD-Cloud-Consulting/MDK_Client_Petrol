@@ -1,0 +1,64 @@
+{
+	"Collection": [
+		"PMCatalogCodes"
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "DateChanged",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DateCreated",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ValidFromDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "version",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DefectClass",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeGroupStatus",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeGroupDesc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "Catalog",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "Code",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "CodeGroup",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "PMCatalogCode"
+}

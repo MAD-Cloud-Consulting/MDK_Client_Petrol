@@ -1,0 +1,11 @@
+{
+    "Target":
+    {
+        "EntitySet": "Devices",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "EditLink": "{{#Property:@odata.editLink}}/Device_Nav"
+    },
+    "_Type": "Action.Type.OfflineOData.UndoPendingChanges",
+    "OnSuccess": "/SAPAssetManager/Actions/Meters/Discard/DiscardStatus.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

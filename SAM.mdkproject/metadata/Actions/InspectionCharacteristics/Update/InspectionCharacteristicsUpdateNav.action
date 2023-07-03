@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/InspectionCharacteristics/Update/InspectionCharacteristicsFDCUpdate.page",
+    "ModalPage": true,
+    "ModalPageFullscreen": true
+}

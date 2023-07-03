@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Message": "$(L, service_unavailable_message)",
+	"Title": "$(L, app_update)",
+	"OKCaption": "$(L, ok)"
+}

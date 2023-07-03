@@ -1,0 +1,8 @@
+{
+  "Target": {
+    "EntitySet": "Documents",
+    "ReadLink": "/SAPAssetManager/Rules/Documents/DocumentLocalReadLink.js",
+    "Service": "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "_Type": "Action.Type.ODataService.DownloadMedia"
+}

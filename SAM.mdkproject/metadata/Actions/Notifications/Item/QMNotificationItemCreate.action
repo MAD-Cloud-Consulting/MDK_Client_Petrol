@@ -1,0 +1,35 @@
+{
+	"Target":
+	{
+		"EntitySet": "MyNotificationItems",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "NotificationNumber": "{{#Property:LocalNotificationID}}",
+		"ItemNumber" : "/SAPAssetManager/Rules/Notifications/Item/GenerateNotificationItemID.js",
+		"ItemText" : "#Control:NotificationDescription/#Value",
+		"ObjectPartCatalogType": "/SAPAssetManager/Rules/Notifications/CreateUpdate/ObjectPartCatalogType.js",
+		"ObjectPartCodeGroup": "#Control:PartGroupLstPkr/#SelectedValue",
+		"ObjectPart" : "#Control:PartDetailsLstPkr/#SelectedValue",
+		"DefectType": "/SAPAssetManager/Rules/Notifications/CreateUpdate/DefectType.js",
+		"CodeGroup": "#Control:DamageGroupLstPkr/#SelectedValue",
+        "DamageCode": "#Control:DamageDetailsLstPkr/#SelectedValue",
+        "ItemSortNumber": "/SAPAssetManager/Rules/Notifications/CreateUpdate/ItemSortNumber.js",
+		"InspectionLot": "{{#Property:InspectionLot}}",
+		"InspectionNode": "{{#Property:InspectionNode}}",
+		"InspectionSample": "{{#Property:SampleNum}}",
+		"InspectionChar": "{{#Property:InspectionChar}}",
+		"OperationNo": "{{#Property:InspectionPoint_Nav/#Property:WOOperation_Nav/#Property:OperationNo}}",
+		"MainWorkCenter": "{{#Property:InspectionPoint_Nav/#Property:WOOperation_Nav/#Property:WorkCenterInternalId}}",
+		"ItemFunctionLocation": "{{#Property:InspectionPoint_Nav/#Property:FuncLocId}}",
+		"ItemEquipment": "{{#Property:InspectionPoint_Nav/#Property:EquipNum}}"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "{{#Property:LocalNotificationID}}"
+    },
+	"CreateLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationQMCreateLinks.js",
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

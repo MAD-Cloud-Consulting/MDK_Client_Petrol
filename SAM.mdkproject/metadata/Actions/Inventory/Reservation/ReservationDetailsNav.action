@@ -1,0 +1,4 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/Inventory/Reservation/ReservationDetails.page",
+	"_Type": "Action.Type.Navigation"
+}

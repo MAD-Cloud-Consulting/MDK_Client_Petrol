@@ -1,0 +1,35 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderTools",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "Description": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTDescription.js",
+        "Equipment": "#Control:EquipmentLstPkr/#SelectedValue",
+        "UsageValue": "#Control:UsageValueField/#Value",
+        "UsageUOM": "#Control:UoMLstPkr/#SelectedValue",
+        "ControlKey": "#Control:ControlKeyLstPkr/#SelectedValue"
+    },
+    "RequestOptions":
+    {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:OrderId"
+    },
+    "UpdateLinks": [
+        {
+            "Property": "PRTEquipment",
+            "Target": {
+                "EntitySet": "MyEquipments",
+                "QueryOptions": "$filter=EquipId eq '{{#Control:EquipmentLstPkr/#SelectedValue}}'"
+            }
+        }
+    ],
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

@@ -1,0 +1,10 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/Crew/TimeSheets/TimesheetCrewListUpdateInitialize.action",
+        "/SAPAssetManager/Actions/Crew/TimeSheets/TimesheetCrewListItemEmployeeCreate.action"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

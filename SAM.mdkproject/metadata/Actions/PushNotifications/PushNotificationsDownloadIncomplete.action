@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,download_incomplete)",
+    "Duration": 4,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

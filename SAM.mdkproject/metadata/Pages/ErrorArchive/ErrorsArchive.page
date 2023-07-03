@@ -1,0 +1,73 @@
+{
+	"Caption": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveCount.js",
+	"OnReturning": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveOnReturn.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "Visible": "/SAPAssetManager/Rules/Sync/SyncErrorCloseIsVisible.js",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
+            }
+        ]
+    },
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)"
+			},
+			"Header": {
+                 "Caption": "$(L,transactional_errors)"
+    		},
+			"ObjectCell":
+			{
+        		"AccessoryType": "disclosureIndicator",
+				"Title":  "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveMessage.js",
+				"Subhead": "{HTTPStatusCode}",
+                "Description":"{RequestURL}",
+				"OnPress" : "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveDetailsNav.js",
+				"PreserveIconStackSpacing":false,
+				"ContextMenu": {
+					"PerformFirstActionWithFullSwipe": true,
+					"Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+					"LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+					"TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+				}
+			},
+			"Target":
+			{
+				"EntitySet" : "ErrorArchive",
+				"Service" : "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions":"$expand=CustomHeaders"
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"DataSubscriptions": ["ErrorArchive"]
+		},
+		{
+           "Header": {
+             "UseTopPadding": true
+           },
+          "Buttons": [
+            {
+              "Title" : "$(L,discard_all)",
+              "Style": "ResetRed",
+              "OnPress" : "/SAPAssetManager/Rules/Common/DiscardAllErrorsAction.js",
+			  "Visible": "/SAPAssetManager/Rules/Common/IsDiscardAllErrorsButtonVisible.js",
+              "TextAlignment" : "center"
+            }
+          ],
+          "_Type": "Section.Type.ButtonTable"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "ErrorArchiveSection"
+	}],
+	"_Type": "Page",
+	"_Name": "ErrorsArchivePage",
+	"DataSubscriptions": ["ErrorArchive"]
+}

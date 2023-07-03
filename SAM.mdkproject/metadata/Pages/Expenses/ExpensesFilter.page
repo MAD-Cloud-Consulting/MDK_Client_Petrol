@@ -1,0 +1,100 @@
+{
+	"Caption": "$(L,filter)",
+	"Result": "/SAPAssetManager/Rules/Expenses/ExpensesListFilterResults.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"AllowEmptySelection":false,
+							"Caption":"$(L,sort_by)",
+							"SortByItems": [
+								{
+									"ReturnValue":"StartTimeStamp",
+									"DisplayValue":"$(L,timestamp)"
+                				},
+								{
+									"ReturnValue":"OrderID",
+									"DisplayValue":"$(L,service_order_id)"
+								},
+								{
+									"ReturnValue":"ActualWork",
+									"DisplayValue":"$(L,amount)"
+								},
+								{
+									"ReturnValue":"ActivityType",
+									"DisplayValue":"$(L,type)"
+								}
+							],
+							"_Name":"SortFilter",
+							"_Type":"Control.Type.FormCell.Sorter",
+							"IsEditable":true
+            			}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"Caption": "$(L,type)",
+							"_Name": "ActivityTypeLstPicker",
+							"IsPickerDismissedOnSelection": true,
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection":true,
+							"PickerItems": "/SAPAssetManager/Rules/Expenses/ExpensesActivityTypePicker.js",
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"FilterProperty": "ActivityType"
+						}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"Caption": "$(L,service_order)",
+							"IsPickerDismissedOnSelection": true,
+							"AllowMultipleSelection": true,
+							"AllowEmptySelection":true,
+							"PickerItems": "/SAPAssetManager/Rules/Expenses/ExpensesServiceOrderPicker.js",
+							"_Name": "ServiceOrderLstPicker",
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"FilterProperty": "OrderID"
+						}
+					]
+				},
+				{
+            		"Controls": [
+                		{
+							"Title": "$(L,reset)",
+							"_Type": "Control.Type.FormCell.Button",
+							"OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"_Name": "ResetButton",
+							"TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                		}
+           			]
+        		}
+			],
+			"_Name":"FormCellContainer",
+        	"_Type":"Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "ExpensesFilterPage",
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ExpensesFilterOnLoaded.js"
+}

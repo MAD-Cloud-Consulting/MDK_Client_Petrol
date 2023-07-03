@@ -1,0 +1,99 @@
+{
+	"Collection": [
+		"MyWorkOrderTools"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "OperationNo",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ItemCounter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PRTCategory",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PRTNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PRTPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PRTTool",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentVersion",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentPart",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Equipment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Description",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Duration",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "Material",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyWorkOrderTool"
+}

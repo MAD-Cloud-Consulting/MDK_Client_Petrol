@@ -1,0 +1,10 @@
+{
+    "Target": {
+        "EntitySet": "MyWorkOrderSubOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Common/DeleteEntityOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action",
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

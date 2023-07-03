@@ -1,0 +1,8 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Inventory/Stock/StockSearchFilter.page",
+    "Filterable" : "#Page:StockListViewPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

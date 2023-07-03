@@ -1,0 +1,167 @@
+{
+    "Caption": "$(L, inspection_lot)",
+    "OnReturning" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsOnReturning.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "$(L,set_usage)",
+                "Visible": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/SetUsage/EnableInspectionLotSetUsage.js",
+                "OnPress": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/SetUsage/InspectionLotSetUsageNav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.KPIHeader",
+                    "Visible": true,
+                    "DataSubscriptions": ["InspectionPoints","InspectionCharacteristics"],
+                    "KPIHeader": {
+                    "KPIItems": [
+                            {
+                                "MetricItems": [
+                                    {
+                                        "LeadingUnit": "",
+                                        "Value": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotKPIValueForPoints.js",
+                                        "TrailingUnit": ""
+                                    }
+                                ],
+                                "CaptionLabel": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionPointsLabelCaption.js",
+                                "ShowProgress": true,
+                                "Progress": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotKPIProgressForPoints.js",
+                                "Target":
+                                {
+                                    "EntitySet": "{{#Property:@odata.readLink}}",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$expand=InspectionPoints_Nav"
+                                }
+                            },
+                            {
+
+                                "MetricItems": [
+                                    {
+                                        "LeadingUnit": "",
+                                        "Value": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotKPIValueForCharacteristics.js",
+                                        "TrailingUnit": ""
+                                    }
+                                ],
+                                "CaptionLabel": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/CharacteristicsLabelCaption.js",
+                                "ShowProgress": true,
+                                "Progress": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotKPIProgressForCharacteristics.js",
+                                "Target":
+                                {
+                                    "EntitySet": "{{#Property:@odata.readLink}}",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$expand=InspectionChars_Nav"
+                                }
+                            }
+                        ],
+                        "Styles":{
+                            "TintColor":"KPIHeaderTintNoLinkColor",
+                            "BackgroundColor":"KPIHeaderBackgroundColor"
+                        }
+                    }
+                },
+                {
+                    "Header":
+                    {
+                        "Caption" : "$(L,details)"
+                    },
+                    "KeyAndValues":
+                    [{
+                        "KeyName" : "$(L,ID)",
+                        "Value" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsId.js"
+                    },
+                    {
+                        "KeyName" : "$(L,usage)",
+                        "Value" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsUsage.js"
+                    },
+                    {
+                        "KeyName" : "$(L,inspection_start_date)",
+                        "Value" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsInspectionStartDate.js"
+                    },
+                    {
+                        "KeyName" : "$(L,valuation)",
+                        "Value" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsValuation.js"
+                    },
+                    {
+                        "KeyName" : "$(L,inspection_end_date)",
+                        "Value" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsInspectionEndDate.js"
+                    },
+                    {
+                        "KeyName" : "$(L,plant)",
+                        "Value" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsPlant.js"
+                    }],
+                    "_Type" : "Section.Type.KeyValue",
+                    "Target":
+                    {
+                        "EntitySet" : "{{#Property:@odata.id}}",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=InspValuation_Nav,InspectionCode_Nav"
+                    }
+		        },
+                {
+                    "Header": {
+                        "Caption": "$(L,operations)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_operations_available)"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotOperationCount.js",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/OperationsListViewWithResetFiltersNav.js"
+                    },
+                    "MaxItemCount": 2,
+                    "ObjectCell": {
+                        "Icons": "/SAPAssetManager/Rules/Operations/OperationsListViewIconImages.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "Title": "{{#Property:OperationShortText}} ({{#Property:OperationNo}})",
+                        "Footnote": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderDueDate.js",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/Details/WorkOrderOperationDetailsNav.js",
+                        "Subhead": "{OrderId}",
+                        "StatusText": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewFormat.js"
+                    },
+                    "Target": {
+                        "EntitySet": "MyWorkOrderOperations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewQueryOption.js"
+                    },
+                    "_Name": "OperationsObjectTable",
+                    "_Type": "Section.Type.ObjectTable",
+                    "DataSubscriptions": ["MyWorkOrderOperations", "PMMobileStatuses"]
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "ToolBar": {
+        "Controls": [
+            {
+                "_Name": "FlexibleSpaceLeftTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+            },
+            {
+                "_Name": "RecordResults",
+                "_Type": "Control.Type.ToolbarItem",
+                "Enabled" : "/SAPAssetManager/Rules/InspectionCharacteristics/Update/EnableRecordResults.js",
+                "Caption": "$(L,record_results)",
+                "OnPress": "/SAPAssetManager/Actions/InspectionCharacteristics/Update/InspectionCharacteristicsUpdateNav.action"
+            },
+            {
+                "_Name": "FlexibleSpaceRightTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "InspectionLotDetailsPage",
+    "DataSubscriptions": ["InspectionLots","InspectionPoints","InspectionCharacteristics","InspectionCatalogValuations","InspectionCodes"]
+}

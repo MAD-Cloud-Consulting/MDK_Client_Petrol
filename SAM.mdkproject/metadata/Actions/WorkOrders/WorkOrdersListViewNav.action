@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/WorkOrdersListView.page",
+    "ShowActivityIndicator" : true,
+    "ActivityIndicatorText" : " "
+}

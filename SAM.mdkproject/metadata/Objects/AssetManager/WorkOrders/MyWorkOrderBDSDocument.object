@@ -1,0 +1,51 @@
+{
+	"Collection": [
+		"MyWorkOrderDocuments"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "BDSDocument",
+			"_Type": "BDSDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "WOHeader",
+			"_Type": "MyWorkOrderHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ClassType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ClassName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentID",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "RelationshipID",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyWorkOrderBDSDocument"
+}

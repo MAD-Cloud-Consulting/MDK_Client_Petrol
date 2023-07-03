@@ -1,0 +1,15 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "UserPreferences",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "UserGuid": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "RecordId": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesRecordIdOnCreate.js",
+        "PreferenceGroup": "DIG_SIG_SIGNKEY",
+        "PreferenceName": "{#ClientData/#Property:ObjectID}",
+        "PreferenceValue": "{#ClientData/#Property:SigningApplication}/{#ClientData/#Property:SigningApplicationSubObject}/{#ClientData/#Property:ApplicationObjectSignKey}"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/OData/DigitalSignature/CreateSignatureFailure.action"
+}

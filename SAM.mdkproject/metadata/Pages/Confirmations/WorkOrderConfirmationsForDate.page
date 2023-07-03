@@ -1,0 +1,121 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationsCountTitle.js",
+    "OnReturning": "/SAPAssetManager/Rules/Confirmations/WorkOrderDetails/OnReturning.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Confirmations/WorkOrderConfirmationsForDateOnLoaded.js",
+    "ActionBar": {
+		"Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationCreateFromWONav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "ObjectHeader": {
+                        "HeadlineText": "{{#Property:OrderDescription}}",
+                        "Subhead": "{{#Property:OrderId}}"
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                },
+                {
+                    "_Name": "DataTableSection",
+                    "StickyColumn": false,
+                    "_Type": "Section.Type.DataTable",
+                    "Header": {
+                        "DataTable": {
+                            "Items": [
+                                {
+                                    "Text": " ",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,operation)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,activity_type)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,start_time)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,end_time)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,duration)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "center"
+                                }
+                            ]
+                        }
+					},
+                    "Row": {
+                        "Layout": {
+                            "ColumnWidth": [100,200,200,200,200,-1]
+                        },
+                        "Items": [
+                            {
+                                "Image": "/SAPAssetManager/Rules/Common/DataTableSyncIcon.js"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationOperationDescription.js",
+                                "Style": "GridTableRowText",
+                                "TextAlignment": "center"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationActivityType.js",
+                                "Style": "GridTableRowText",
+                                "TextAlignment": "center"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationStartTimeDetails.js",
+                                "Style": "GridTableRowText",
+                                "TextAlignment": "center"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationEndTimeDetails.js",
+                                "Style": "GridTableRowText",
+                                "TextAlignment": "center"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationFormattedActualDuration.js",
+                                "Style": "GridTableRowText",
+                                "TextAlignment": "center"
+                            }
+                        ],
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Actions/Confirmations/ConfirmationDetailsNav.action"
+                    },
+                    "Footer": {
+                        "AttributeLabel": "/SAPAssetManager/Rules/Confirmations/ConfirmationTotalDuration.js",
+                        "AccessoryType": "none",
+                        "FooterStyle": "attribute"
+                    },
+                    "Target": {
+                        "EntitySet": "Confirmations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Confirmations/ListView/WorkOrderConfirmationsQueryOptions.js"
+                    }
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "TimeEntriesSection"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "WorkOrderConfirmationsForDate",
+    "DataSubscriptions": ["Confirmations", "ConfirmationOverviewRows"]
+}

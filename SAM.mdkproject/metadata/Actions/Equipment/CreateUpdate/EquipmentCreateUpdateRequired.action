@@ -1,0 +1,9 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentCreateUpdateOnCommit.js",
+    "RequiredFields": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentRequiredFields.js",
+    "ValidationRule": "/SAPAssetManager/Rules/Common/Validation/TechnicalObjectCreateUpdateValidation.js",
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

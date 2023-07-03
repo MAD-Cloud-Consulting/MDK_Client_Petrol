@@ -1,0 +1,6 @@
+{
+	"Title": "$(L,error)",
+	"Message": "$(L,select_maintenance_request_type_msg)",
+	"OKCaption": "$(L,ok)",
+	"_Type": "Action.Type.Message"
+}

@@ -1,0 +1,171 @@
+{
+	"Collection": [
+		"MeasurementDocuments"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "LongText",
+			"_Type": "MeasurementDocumentLongTexts"
+		},
+		{
+			"Key": false,
+			"_Name": "MeasuringPoint",
+			"_Type": "MeasuringPoints"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "Point",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReadingDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReadingTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "ShortText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReadBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "HasReadingValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ValuationCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeCatalog",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsCounterReading",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CounterReadingValue",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "TotalReadingValue",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "ReadingValue",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "CounterReadingDifference",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "FunctionalLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EquipmentId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PointObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeShortText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SecondaryIndex",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OriginIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReadingAfterAction",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RecordedValueFloat",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "RecordedValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RecordedUnit",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DifferenceReading",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CustomDuprecOccurred",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MeasurementDocNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReadingTimestamp",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MeasurementDocument"
+}

@@ -1,0 +1,14 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet" : "EmployeeCommunications",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "CommunicationType": "#ClientData/#Property:commType",
+        "Value": "#ClientData/#Property:value",
+        "PersonnelNumber": "#ClientData/#Property:personelNum",
+        "SequenceNum":"/SAPAssetManager/Rules/BusinessPartners/Edit/GenerateCommPropertySequenceNumber.js"
+    },
+    "CreateLinks": "#ClientData/#Property:communicationLinks"
+} 

@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "EmployeeAddresses",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:addressReadLink"
+    },
+    "Properties":
+    {
+        "Building": "#Control:Building/#Value",
+        "City": "#Control:City/#Value",
+        "Country": "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditCountryPickerValue.js",
+        "Floor": "#Control:Floor/#Value",
+        "PostalCode": "#Control:ZipCode/#Value",
+        "District": "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditStatePickerValue.js",
+        "Street": "#Control:Street/#Value"
+    }
+}

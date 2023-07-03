@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.CheckRequiredFields",
+	"RequiredFields": [
+		"passcode"
+	],
+	"OnSuccess": "/SAPAssetManager/Actions/OData/DigitalSignature/CreateDigitalSignature.action",
+	"OnFailure": "/SAPAssetManager/Rules/DigitalSignature/SetPasdcodeError.js"
+}

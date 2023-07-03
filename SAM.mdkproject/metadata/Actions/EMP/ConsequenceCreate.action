@@ -1,0 +1,30 @@
+{
+	"Properties":
+	{
+		"CategoryId": "",
+		"ConsequenceId": "",
+		"GroupId": "",
+		"LikelihoodId": "",
+		"PrioritizationProfileId": "",
+		"LeadingConsequence": ""
+	},
+	"Target":
+	{
+		"EntitySet": "WorkRequestConsequences",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "ConsequenceTransaction"
+    },
+	"CreateLinks":
+	[{
+		"Property": "MyNotificationHeader_Nav",
+		"Target":
+		{
+			"EntitySet": "MyNotificationHeaders",
+			"ReadLink": "pending_1"
+		}
+	}],
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

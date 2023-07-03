@@ -1,0 +1,3 @@
+platform :ios, '14.0'
+use_frameworks!
+pod 'ArcGIS-Runtime-SDK-iOS', '100.15.0'

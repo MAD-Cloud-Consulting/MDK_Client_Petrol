@@ -1,0 +1,61 @@
+{
+	"Collection": [
+		"Materials"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "MaterialPlants",
+			"_Type": "MaterialPlants"
+		},
+		{
+			"Key": false,
+			"_Name": "MaterialSLocs",
+			"_Type": "MaterialSLocs"
+		},
+		{
+			"Key": false,
+			"_Name": "MaterialUOMs",
+			"_Type": "MaterialUOMs"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderComponent",
+			"_Type": "MyWorkOrderComponents"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "MaterialNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MaterialType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ProductHierarchy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SerialNumberProfile",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Description",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BaseUOM",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "Material"
+}

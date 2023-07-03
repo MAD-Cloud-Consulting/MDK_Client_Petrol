@@ -1,0 +1,15 @@
+{
+	"PopoverItems": 
+	[{
+		"Title": "$(L,dismantle)",
+		"OnPress": "/SAPAssetManager/Actions/Equipment/Uninstall/UninstallEquipmentNav.action",
+		"Visible": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallVisible.js"
+	},
+	{
+		"Title": "$(L,installation)",
+        "OnPress": "/SAPAssetManager/Actions/Equipment/Installation/EquipmentInstallationNav.action",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Equipments/EnableEquipmentEdit.js"
+
+	}],
+	"_Type": "Action.Type.PopoverMenu"
+}

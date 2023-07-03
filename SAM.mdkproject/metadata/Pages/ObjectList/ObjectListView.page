@@ -1,0 +1,90 @@
+{
+    "Caption": "/SAPAssetManager/Rules/ObjectList/ObjectListViewCaption.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header":
+                    {
+                        "DataTable":
+                        {
+                            "Items":
+                            [{
+                                "Text": "$(L,equipment)",
+                                "TextAlignment": "center",
+                                "Style": "GridTableHeaderText"
+                            },
+                            {
+                                "Text": "$(L,functional_location)",
+                                "TextAlignment": "center",
+                                "Style": "GridTableHeaderText"
+                            },
+                            {
+                                "Text": "$(L,notification)",
+                                "TextAlignment": "center",
+                                "Style": "GridTableHeaderText"
+                            },
+                            {
+                                "Text": "$(L,material)",
+                                "TextAlignment": "center",
+                                "Style": "GridTableHeaderText"
+                            },
+                            {
+                                "Text": "$(L,operation)",
+                                "TextAlignment": "center",
+                                "Style": "GridTableHeaderText"
+                            }]
+                        }
+                    },
+                    "Row": {
+                        "OnPress": "/SAPAssetManager/Actions/ObjectList/WorkOrderObjectDetailViewNav.action",
+                        "AccessoryType": "disclosureIndicator",
+                        "Layout": {
+                        "ColumnWidth": [200,200,200,200,-1]
+                        },
+                        "Items":
+                        [{
+                            "Text": "/SAPAssetManager/Rules/ObjectList/WorkOrderObjectEquipmentDesc.js",
+                            "TextAlignment": "center",
+                            "Style": "GridTableRowText"
+                        },
+                        {
+                            "Text": "/SAPAssetManager/Rules/ObjectList/WorkOrderObjectFuncLocDesc.js",
+                            "TextAlignment": "center",
+                            "Style": "GridTableRowText"
+                        },
+                        {
+                            "Text": "/SAPAssetManager/Rules/ObjectList/WorkOrderObjectNotificationDesc.js",
+                            "TextAlignment": "center",
+                            "Style": "GridTableRowText"
+                        },
+                        {
+                            "Text": "/SAPAssetManager/Rules/ObjectList/ObjectListMaterialDesc.js",
+                            "TextAlignment": "center",
+                            "Style": "GridTableRowText"
+                        },
+                        {
+                            "Text": "/SAPAssetManager/Rules/ObjectList/ObjectListOperationShortTxt.js",
+                            "TextAlignment": "center",
+                            "Style": "GridTableRowText"
+                        }]
+                    },
+                    "Target":
+                    {
+                        "EntitySet" : "{{#Property:@odata.readLink}}/WOObjectList_Nav",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/ObjectList/WorkOrderObjectListQueryOptions.js"
+                    },
+                    "_Type": "Section.Type.DataTable",
+                    "StickyColumn": false,
+                    "_Name": "WorkOrderObjectLists"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ObjectListViewPage",
+    "DataSubscriptions": ["MyWorkOrderObjectLists"]
+}

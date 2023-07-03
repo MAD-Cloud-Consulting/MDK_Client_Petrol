@@ -1,0 +1,41 @@
+apply plugin: 'jacoco'
+
+repositories {
+    maven { url 'https://esri.jfrog.io/artifactory/arcgis' }
+}
+
+jacoco {
+    toolVersion = '0.8.1'
+}
+
+android {
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+}
+
+dependencies {
+    // Please refer to https://www.telerik.com/account/support-tickets/view-ticket?threadid=1160649
+    // Currently, the only officially supported way of adding dependencies in gradle is via compile
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    //Gson library
+    implementation "com.google.code.gson:gson:2.9.0"
+    //Android SDK Fiori
+    implementation 'com.sap.cloud.android:fiori:5.0.10'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.18.3'
+
+    androidTestImplementation "com.android.support.test:runner:1.0.2"
+    androidTestImplementation "org.mockito:mockito-android:2.18.3"
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+
+}

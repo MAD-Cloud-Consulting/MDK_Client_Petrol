@@ -1,0 +1,13 @@
+{
+    "Actions":
+    [
+        "/SAPAssetManager/Actions/Equipment/Uninstall/UninstallEquipment.action",
+        "/SAPAssetManager/Actions/Equipment/Uninstall/SetAvailable.action"
+    ],
+    "Target":
+    {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

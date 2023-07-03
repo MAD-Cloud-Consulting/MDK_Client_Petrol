@@ -1,0 +1,8 @@
+{
+	"Target": {
+		"EntitySet": "/SAPAssetManager/Globals/EmptyString.global",
+		"Service": "/SAPAssetManager/Services/AssetManager.service",
+		"EditLink": ""
+	},
+	"_Type": "Action.Type.OfflineOData.UndoPendingChanges"
+}

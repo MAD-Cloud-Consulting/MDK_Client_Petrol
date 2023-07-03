@@ -1,0 +1,13 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTCreateUpdateOnCommit.js",
+    "RequiredFields": [
+        "EquipmentLstPkr",
+        "UsageValueField",
+        "ControlKeyLstPkr",
+        "UoMLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

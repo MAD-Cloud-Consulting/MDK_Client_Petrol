@@ -1,0 +1,9 @@
+{
+    "RequiredFields":
+    [
+        "EquipmentPicker"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "OnSuccess": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallEquipmentChangeSet.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js"
+}

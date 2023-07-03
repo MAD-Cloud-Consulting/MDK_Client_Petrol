@@ -1,0 +1,8 @@
+{
+  "Animated": true,
+  "Duration": 2,
+  "Message": "$(L,'operation_unconfirmed')",
+  "IsIconHidden": true,
+  "MaxNumberOfLines": 1,
+  "_Type": "Action.Type.ToastMessage"
+}

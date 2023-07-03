@@ -1,0 +1,39 @@
+{
+    "Header": {
+        "Caption": "$(L,equipment)",
+        "UseTopPadding": false
+    },
+    "EmptySection": {
+        "Caption": "$(L,no_equipment_available)"
+    },
+    "Search": {
+        "Enabled": false,
+        "Delay": 500,
+        "MinimumCharacterThreshold": 3,
+        "Placeholder": "$(L,search)",
+        "BarcodeScanner": true
+    },
+    "Footer": {
+        "Caption": "$(L,see_all)",
+        "AccessoryType": "disclosureIndicator",
+        "FooterStyle": "attribute",
+        "AttributeLabel": "",
+        "OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentListViewNav.js",
+        "Visible": true
+    },
+    "ObjectCell": {
+        "AccessoryType": "disclosureIndicator",
+        "Title": "#Property:EquipDesc",
+        "OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentDetailsNav.js",
+        "PreserveIconStackSpacing": false,
+        "Subhead": "#Property:EquipId",
+        "StatusText": "#Property:ObjectStatus_Nav/#Property:SystemStatus_Nav/#Property:StatusText",
+        "Description": "/SAPAssetManager/Rules/Equipment/EquipmentTechnicalObjectId.js"
+    },
+    "Target": {
+        "EntitySet": "{{#Property:@odata.id}}/Equipment",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "$top=1&$select=ObjectStatus_Nav/SystemStatus_Nav/StatusText,EquipDesc,EquipId,FuncLocId,EquipType,EquipCategory,PlanningPlant,WorkCenter,FunctionalLocation/FuncLocDesc&$orderby=EquipId&$expand=ObjectStatus_Nav/SystemStatus_Nav,EquipDocuments,FunctionalLocation"
+    },
+    "_Type": "Section.Type.ObjectTable"
+}

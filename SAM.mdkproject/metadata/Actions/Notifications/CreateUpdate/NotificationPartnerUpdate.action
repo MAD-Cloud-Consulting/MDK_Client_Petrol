@@ -1,0 +1,21 @@
+{
+    "Properties":
+	{
+        "PartnerFunction": "#ClientData/#Property:PartnerFunction",
+        "PartnerNum": "#ClientData/#Property:PartnerNum",
+        "OldPartner": "#ClientData/#Property:OldPartnerNum"
+    },
+    "Target":
+	{
+        "EntitySet": "MyNotificationPartners",
+        "ReadLink": "#ClientData/#Property:PartnerReadLink",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:NotificationNumber"
+    },
+	"UpdateLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationPartnerLinks.js",
+	"DeleteLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationPartnerLinksDelete.js",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

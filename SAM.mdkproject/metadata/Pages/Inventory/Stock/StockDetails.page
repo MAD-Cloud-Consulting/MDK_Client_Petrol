@@ -1,0 +1,67 @@
+{
+	"_Type": "Page",
+	"_Name": "StockDetailsPage",
+	"Caption": "/SAPAssetManager/Rules/Inventory/Stock/StockDescription.js",
+	"ActionBar": {
+		"Items": [
+			{
+                "Position": "right",
+                "Icon":"$(PLT,/SAPAssetManager/Images/menuicon.png,/SAPAssetManager/Images/menuicon.android.png)",
+                "OnPress": "/SAPAssetManager/Actions/Inventory/Stock/StockDetailsPopover.action"
+            }
+		]
+	},
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "StockDetailsSectionedTable",
+			"Sections": [
+				{
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "StockDetailsKevyValueSection",
+					"Header": {
+						"Caption": "$(L,Material_Details)"
+					},
+					"KeyAndValues": [
+						{
+
+                            "KeyName": "$(L,material_number)",
+                            "Value": "/SAPAssetManager/Rules/Inventory/Stock/StockNumberAndDescription.js"
+                        },
+                        {
+                            "KeyName": "$(L,quantity)",
+                            "Value": "/SAPAssetManager/Rules/Inventory/Stock/StockUnrestrictedQuantity.js"
+                        },
+                        {
+                            "KeyName": "$(L,plant)",
+                            "Value": "/SAPAssetManager/Rules/Inventory/Stock/StockPlantDescription.js"
+                        },
+                        {
+                            "KeyName": "$(L,storage_location)",
+                            "Value": "{StorageLocation} - {StorageLocationDesc}"
+                        },
+						{
+                            "KeyName": "$(L,material_type)",
+                            "Value": "/SAPAssetManager/Rules/Inventory/Stock/StockMaterialType.js"
+                        }
+					]
+				},
+				{
+                    "Header": {
+                        "Caption": "$(L,serial_numbers)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "ObjectCell": {
+						"Title": "{SerialNumber}"
+                    },
+                    "Target": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/SerialNumbersSortedQuery.js",
+                    "_Name": "SerialNumSection",
+                    "Visible": false,
+                    "_Type": "Section.Type.ObjectTable"
+                }
+			]
+		}
+	]
+}

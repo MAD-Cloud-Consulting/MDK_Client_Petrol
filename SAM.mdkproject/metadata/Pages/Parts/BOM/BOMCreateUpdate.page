@@ -1,0 +1,251 @@
+{
+    "_Type": "Page",
+    "_Name": "BOMCreateUpdatePage",
+    "Caption": "$(L, add_to_workorder)",
+    "OnLoaded": "/SAPAssetManager/Rules/Material/BOM/BOMCreateUpdateOnPageLoad.js",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Parts/CreateUpdate/CheckForChangesBeforeCancel.js"
+        },
+        {
+            "Position": "right",
+            "SystemItem": "$(PLT,'Done','')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+            "OnPress": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateOnCommit.js"
+        }]
+    },
+    "Controls":
+    [{
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer",
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "Caption": "$(L,order_id)",
+                "Value": "{OrderId}",
+                "_Name": "Order",
+                "AllowMultipleSelection": false,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/Parts/CreateUpdate/SetPartOperationQueryOptions.js",
+                "IsPickerDismissedOnSelection" : true,
+                "AllowDefaultValueIfOneItem": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:OrderId}} - {{#Property:OrderDescription}}",
+                    "ReturnValue": "{OrderId}",
+                    "Target": {
+                        "EntitySet": "MyWorkOrderHeaders",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": ""
+                    }
+                },
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "_Name": "OperationLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,operation)",
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsPickerDismissedOnSelection" : true,
+                "IsSearchCancelledAfterSelection": true,
+                "Value": "{OperationNo}",
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:OperationNo}} - {{#Property:OperationShortText}}",
+                    "ReturnValue": "{OperationNo}",
+                    "Target": {
+                        "EntitySet": "MyWorkOrderOperations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartOperationQueryOptions.js"
+                    }
+                }
+            },
+            {
+                "_Name": "PartCategoryLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,category)",
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "IsEditable": false,
+                "IsPickerDismissedOnSelection" : true,
+                "IsSearchCancelledAfterSelection": true,
+                "Value": "{ItemCategory}",
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:ItemCategory}} - {{#Property:ItemCategoryDesc}}",
+                    "ReturnValue": "{ItemCategory}",
+                    "Target": {
+                        "EntitySet": "ItemCategories",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=ItemCategory"
+                    }
+                }
+            },
+            {
+                "_Name": "PlantLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,plant)",
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "IsPickerDismissedOnSelection" : true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsEditable": true,
+                "Value": "{{#Property:Plant}}",
+                "OnValueChange": "/SAPAssetManager/Rules/Material/PlantPickerOnChange.js",
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:Plant}} - {{#Property:PlantDescription}}",
+                    "ReturnValue": "{Plant}",
+                    "Target": {
+                        "EntitySet": "Plants",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=Plant"
+                    }
+                }
+            },
+            {
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "_Name": "StorageLocationLstPkr",
+                "Caption": "$(L,storage_location)",
+                "Value" : "{{#Property:StorageLocation}}",
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "IsPickerDismissedOnSelection" : true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:StorageLocation}} - {{#Property:StorageLocationDesc}}",
+                    "ReturnValue": "{StorageLocation}",
+                    "Target": {
+                        "EntitySet": "StorageLocations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=StorageLocation&$filter=Plant eq '{{#Property:Plant}}'"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/Material/StorageLocationPickerOnChange.js"
+            }
+            ]
+        },
+        {
+            "Controls":
+            [{
+                "_Name": "MaterialLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,material)",
+                "IsEditable": false,
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Value": "{MaterialNum}",
+                "PickerItems": "/SAPAssetManager/Rules/Material/BOM/BOMMaterialPicketItems.js"
+            },{
+                "_Name": "MaterialUOMLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,uom)",
+                "IsEditable": false,
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Value": "{UoM}",
+                "PickerItems": "/SAPAssetManager/Rules/Material/BOM/BOMMaterialUOMPicketItems.js"
+            },
+            {
+                "Caption": "$(L,quantity)",
+                "Value": "$(N,{Quantity})",
+                "_Name": "QuantitySim",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "PlaceHolder": "$(L,value)",
+                "KeyboardType": "Number",
+                "IsEditable": true
+            },
+            {
+                "_Type": "Control.Type.FormCell.Switch",
+                "_Name": "OnlineSwitch",
+                "Caption": "$(L,online_quantity_search)",
+                "IsEditable": false,
+                "OnValueChange": "/SAPAssetManager/Rules/Parts/CreateUpdate/BOMOnlineSwitch.js"
+            },
+            {
+                "Caption": "$(L,available_quantity)",
+                "Value": "$(N,{AvailableQuantity})",
+                "_Name": "AvailableQuantity",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "PlaceHolder": "$(L,value)",
+                "IsEditable": false,
+                "KeyboardType": "Number"
+            },
+            {
+                "PlaceHolder": "$(L,text_item_description)",
+                "Value": "{TextTypeDesc}",
+                "IsVisible": false,
+                "_Name": "TextItemSim",
+                "Caption": "$(L,description)",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": true,
+                "KeyboardType": "Default"
+            },
+            {
+                "Caption": "$(L,uom)",
+                "Value": "{UnitOfEntry}",
+                "IsVisible": false,
+                "_Name": "UOMSim",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": true
+
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "Title": "$(L,discard)",
+                "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+                "IsVisible": "/SAPAssetManager/Rules/Common/IsNotOnCreate.js",
+                "_Type": "Control.Type.FormCell.Button",
+                "ButtonType": "Text",
+                "Semantic": "Tint",
+                "_Name": "DiscardButton",
+                "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+            }]
+        }]
+    }]
+}

@@ -1,0 +1,25 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "MeasurementDocuments",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerLastMeasuringDoc.js"
+	},
+	"Properties":
+	{
+        "ReadingDate": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingDate.js",
+        "ReadingTimestamp": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingTimestamp.js",
+        "ReadingTime": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingTime.js",
+        "Point": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerPoint.js",
+        "ReadBy": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadBy.js",
+		"ReadingValue" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerReadingValue.js"
+    },
+    "Headers":
+    {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleOdometerLastMeasurementDocNum.js"
+    },
+	"OnSuccess" : "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateUpdateValidation.js"
+}

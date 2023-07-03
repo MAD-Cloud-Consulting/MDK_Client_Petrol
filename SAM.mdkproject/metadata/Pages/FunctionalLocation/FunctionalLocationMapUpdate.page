@@ -1,0 +1,178 @@
+{
+   "Caption":"$(L,map)",
+   "Controls":
+   [{
+         "_Type":"Control.Type.Extension",
+         "Module": "extension-MapFramework",
+         "Control":"MapExtensionWithContext",
+         "Class":"MapExtensionWithContext",
+         "_Name":"MapExtensionControl",
+         "ExtensionProperties":{
+            "Config": {
+				"Target": {
+					"EntitySet": "GISMapParameters",
+					"Service": "/SAPAssetManager/Services/AssetManager.service",
+					"Properties": [],
+					"KeyProperties": []
+				},
+				"ViewConfig": {
+                    "ZoomOnLocationEnabled": false,
+                    "UseDynamicLayerDisplayPrefs": true
+				},
+				"BaseMaps": [],
+				"FeatureLayers": []
+			},
+            "EditMode": {
+                "IsInitialOn": true,
+				"InitialParams": {
+					"GeometryValue": "/SAPAssetManager/Rules/Geometries/GeometryValue.js",
+					"EntitySet": "MyFunctionalLocations"
+				},
+                "EditModeConfig": {
+                    "EditModePanel": {
+                        "GeometryTypes": ["Point", "Polyline", "Polygon"],
+                        "TitleText": "$(L,edit_functional_location)",
+                        "SaveButtonText": "save",
+                        "Symbol": {
+                            "marker" : "MarkerFunctionalLocation",
+                            "lineColor" : "F58B00",
+                            "fillColor" : "F58B0033",
+                            "lineWidth" : 2
+                        }
+                    },
+					"CallbackInfo": {
+						"Action": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationCreateUpdateGeometryPre.js",
+						"Target": {
+							"EntitySet": "MyFunctionalLocations",
+							"Service": "/SAPAssetManager/Services/AssetManager.service",
+							"Properties": [],
+							"KeyProperties": []
+						}
+					}
+                }
+            },
+			"TokenAuthentication": {
+				"Action": "/SAPAssetManager/Rules/Extensions/TokenRequest.js"
+			},
+			"MapToolsetIcons": [{
+					"name": "search",
+					"normalAssetName": "Search",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "settings",
+					"normalAssetName": "Information",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "currentLocation",
+					"normalAssetName": "Location",
+					"selectedAssetName": "LocationEnabled",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "zoomExtents",
+					"normalAssetName": "ZoomExtent",
+					"isVisible": true,
+					"isEnabled": true
+				}
+			],
+            "SettingsControl": {
+                "Title": "$(L, settings)",
+                "CloseActionTitle": "$(L, map_settings_close)",
+                "BasemapsTitle": "$(L,bm_title)",
+				"FeatureLayersTitle": "$(L, fl_title)",
+				"NearMe": {
+					"DistanceTitle": "$(L, map_nearme_dist_title)",
+					"UnitsTitle": "$(L, map_nearme_unit_title)",
+					"Distances": [0.5, 1.0, 2.0, 5.0],
+					"Units": [{
+							"Value": "Mi",
+							"Display": "$(L, map_nearme_mi)"
+						},
+						{
+							"Value": "Km",
+							"Display": "$(L, map_nearme_km)"
+						}
+					]
+				}
+			},
+			"SearchControl": {
+				"SearchPlaceholder": "$(L, map_search_placeholder)",
+				"SearchFields": [
+					"Title", "Footnote", "Subhead", "Description"
+				],
+				"IsResultTextDisplayed": true,
+				"ResultsPrefix": "$(L, map_search_results_pref)",
+				"ResultsSuffix": "$(L, map_search_results_sufx)",
+				"NearMeFilterName": "$(L, map_search_nearme)",
+				"QuickFilters": [{
+						"FilterType": "TimeFilter",
+						"Type": [
+							"Job"
+						],
+						"Name": "$(L, map_search_wo_due_today)",
+						"PeriodInDays": 1,
+						"PropertyName": "DueDate"
+					},
+					{
+						"FilterType": "TextFilter",
+						"Name": "$(L, map_search_high_priority)",
+						"Properties": [
+							"StatusText"
+						],
+						"Text": "High"
+					}
+				]
+            },
+            "BusinessObjects":[  
+				{
+					"Type": "FunctionalLocation",
+					"Title": "$(L, dl_floc)",
+					"Legend": "IconFloc",
+					"Target": {
+						"EntitySet": "MyFunctionalLocations",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$expand=FuncLocGeometries/Geometry&$filter=FuncLocGeometries/any(fg:sap.entityexists(fg/Geometry))",
+						"Properties": [],
+						"KeyProperties": []
+					},
+					"Enable": true,
+					"ObjectScheme": {
+						"Geometry": "FuncLocGeometries/Geometry/GeometryValue",
+						"Layer": "FunctionalLocation",
+						"Properties": {
+							"ID": "{FuncLocId}",
+							"Title": "{FuncLocDesc}",
+							"Subhead": "$(L, function_location_x, {FuncLocId})",
+							"Tags": [
+								"{FuncLocType}"
+							],
+							"BodyText": "/SAPAssetManager/Rules/Maps/MapFuncLocWorkCenter.js",
+							"Directions": {
+								"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+								"ButtonText": "$(L, map_info_panel_directions)"
+							}
+						},
+						"Symbol": {
+							"marker": "MarkerFunctionalLocation",
+							"lineColor": "F58B00",
+							"fillColor": "F58B0033",
+							"lineWidth": 2,
+							"onSelect": {
+								"marker": "MarkerFunctionalLocationSelected",
+								"lineWidth": 4
+							}
+						}
+					}
+				}
+            ]
+         }
+      }
+   ],
+   "_Type":"Page",
+   "_Name":"FunctionalLocationMapUpdatePage"
+}

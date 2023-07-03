@@ -1,0 +1,37 @@
+{
+    "Caption": "$(L,functional_locations)",
+    "Controls": 
+    [{
+        "Sections":
+        [{
+            "Search": {
+                "Enabled": true,
+                "Delay": 0,
+                "MinimumCharacterThreshold": 0,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": false
+            },
+            "Header": {
+                "UseTopPadding": false
+            },
+            "ObjectCell": {
+                "Title": "{FuncLocDesc}",
+                "Subhead": "{FuncLocID}",
+                "AccessoryType": "disclosureIndicator",
+                "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocDetailsNav.js",
+                "PreserveIconStackSpacing": false
+            },
+            "Target": {
+                "EntitySet": "{{#Property:@odata.readLink}}/TechObjects",
+                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/ListView/FuncLocListQueryOption.js"
+            },
+            "_Type" : "Section.Type.ObjectTable",
+            "_Name" : "FuncLocListSection"
+        }],
+        "_Type" : "Control.Type.SectionedTable",
+        "_Name" : "SectionedTable"
+    }],
+    "_Type": "Page",
+    "_Name": "FuncLocListPage"
+  }

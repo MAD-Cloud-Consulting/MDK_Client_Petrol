@@ -1,0 +1,13 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "PhysicalInventoryDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetItemQueryOptionsOnCreateForSerialAdd.js"
+    },
+     "Headers": {
+         "Transaction.Ignore": "true"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "UpdateLinks": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocItemCreateLinks.js"
+}

@@ -1,0 +1,10 @@
+{
+    "RequiredFields":
+    [
+        "TransferToLstPkr",
+        "TransferReasonLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/WorkOrderTransferConfirmation.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js"
+}

@@ -1,0 +1,5 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/FOW/Routes/RouteFilter.page",
+    "Filterable" : "#Page:RouteListPage/#Control:SectionedTable"
+}

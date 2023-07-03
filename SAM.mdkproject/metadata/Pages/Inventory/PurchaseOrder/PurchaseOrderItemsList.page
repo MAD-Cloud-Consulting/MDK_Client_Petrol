@@ -1,0 +1,50 @@
+{
+	"Caption": "$(L,items)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false,
+						"Caption": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/PurchaseOrderItemsListCaption.js"
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_items)"
+					},
+					"ObjectCell": {
+						"DetailImageIsCircular": false,
+						"PreserveIconStackSpacing": false,
+						"OnPress": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/ItemDetailsPage.js",
+						"Title": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetItemTextOrMaterialName.js",
+						"Description": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetItemDescription.js",
+						"Subhead": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetItemSubHead.js",
+						"Footnote": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetItemFootnote.js",
+						"StatusText": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetPOItemState.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetPurchaseOrderItemsOpenQuantitiesText.js",
+						"AccessoryButtonIcon": "$(PLT, /SAPAssetManager/Images/edit-accessory.ios.png, /SAPAssetManager/Images/edit-accessory.android.png)",
+						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SetPurchaseOrderGoodsReceipt.js"
+					},
+					"Search": {
+						"Enabled" : true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+					},
+					"Target": {
+						"EntitySet":  "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetPurchaseOrderItemsEntitySet.js",
+                        "QueryOptions": "/SAPAssetManager/Rules/Inventory/Common/GetItemsListQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "POItemsSectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"OnReturning": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/PurchaseOrderItemsListOnReturning.js",
+	"_Name": "PurchaseOrderItemsListPage",
+	"_Type": "Page"
+}

@@ -1,0 +1,384 @@
+/*
+FioriDesignLanguage.nss
+
+Copyright © 2016 - 2017 SAP SE or an SAP affiliate company. All rights reserved.
+No part of this publication may be reproduced or transmitted in any form or for any purpose
+without the express permission of SAP SE. The information contained herein may be changed
+without prior notice.
+
+*/
+
+@samprimary1:              #ff0000; /*red*/
+@samprimary2:              #0040ff; /*blue*/
+@samprimary3:              #33cc33; /*green*/
+@samprimary4:              #cc6600; /*brown*/
+@samprimary5:              #ffbb33; /*yellow*/
+@samprimary6:              #A65395;
+@samprimary7:              #9BE1FF;
+@samprimary8:              #42CCC8;
+@samprimary9:              #B0D450;
+@samprimary10:       		   #895600;
+@samprimary11:             #6A6D70;
+
+@samblue1:                      #3333cc;
+@samblue2:                      #7070db;
+@samblue3:                      #adadeb;
+@samblue4:                      #91C8F6;
+
+@samred1:  	           	#ff0000;
+@samred2:  	           	#ff3333;
+@samred3:  	           	#ff6666;
+@samred4:  	           	#D9364C;
+
+@samgreen1:				#339966;
+@samgreen2:				#39ac63;
+@samgreen3:				#79d2a6;
+
+@samblack:                 #000000;
+@samgridblack:             #32363A;
+
+@sambackground1:			#ffe6e6;
+@sambackground2:			#e6f0ff;
+@sambackground3:			#ffd9cc;
+@sambackground4:			#cce0ff;
+@sambackground5:			#ffc6b3;
+@sambackground6:			#b3d1ff;
+@sambackground7:			#ffb399;
+@sambackground8:			#80b3ff;
+@sambackground9:			#ff9f80;
+@sambackground10:		#66a3ff;
+
+@samBackgroundLightGrey: #f2f2f2;
+@samBackgroundLightGrey: #f2f2f2;
+@samBackgroundWhite: #ffffff;
+
+@samFootnotePrimary: #76767B;
+@samCaptionBlack: #3F3A3A;
+@samHighPriorityiOS: #FF453A;
+@samMediumPriorityiOS: #FF9F0A;
+@samHighPriorityAndroid: #FFBBBB;
+@samMediumPriorityAndroid: #FCD295;
+
+.FormCellLabelCritical {
+  color: @samprimary1;
+  font-name: boldSystem;
+  font-size: 14;
+}
+
+.FormCellLabelStandard {
+  color: @samprimary2;
+  font-name: thinSystem;
+  font-size: 12;
+}
+
+.FormCellValueCritical {
+  color: @samprimary9;
+  font-name: boldSystem;
+  font-size: 16;
+}
+
+.FormCellValueStandard {
+  color: @samprimary10;
+  font-name: thinSystem;
+  font-size: 12;
+}
+
+.FormCellLabelPropertyStandard {
+  color: @samred1;
+  font-name: italicSystem;
+  font-size: 14;
+}
+
+.FormCellLabelPropertyCritical {
+  color: @samblue1;
+  font-name: boldSystem;
+  font-size: 14;
+}
+
+.FormCellValuePropertyStandard {
+  color: @samred2;
+  font-name: italicSystem;
+  font-size: 12;
+}
+
+.FormCellValuePropertyCritical {
+  color: @samblue2;
+  font-name: boldSystem;
+  font-size: 12;
+}
+
+.FormCellLabelPickerStandard {
+  color: @samred1;
+  font-name: italicSystem;
+  font-size: 14;
+}
+
+.FormCellLabelPickerCritical {
+  color: @samblue1;
+  font-name: boldSystem;
+  font-size: 14;
+}
+
+.FormCellValuePickerStandard {
+  color: @samred2;
+  font-name: italicSystem;
+  font-size: 12;
+}
+
+.FormCellValuePickerCritical {
+  color: @samblue2;
+  font-name: boldSystem;
+  font-size: 12;
+}
+
+.FormCellBackgroundCritical {
+	background-color: @sambackground1;
+	tint-color: @sambackground3;
+	color: @samprimary3;
+	font-name: italicSystem;
+  font-size: 14;
+}
+
+.FormCellBackgroundStandard {
+	background-color: @sambackground2;
+	tint-color: blue;
+	color: @samprimary4;
+	font-name: thinSystem;
+  font-size: 12;
+}
+
+.FormCellBackgroundCriticalTitle {
+	background-color: @samgreen1;
+	tint-color: purple;
+	color: @samprimary3;
+	font-name: italicSystem;
+  font-size: 12;
+}
+
+.FormCellBackgroundStandardTitle {
+	background-color: @samgreen3;
+	tint-color: @samgreen1;
+	color: @samprimary4;
+	font-name: thinSystem;
+  font-size: 10;
+}
+
+.FormCellSwitchStandard {
+	on-tint-color: @samblue3;
+	tint-color: @sambackground8;
+	thumb-tint-color: brown;
+}
+
+.FormCellSwitchCritical {
+  on-tint-color: @samred3;
+  tint-color: @sambackground7;
+  thumb-tint-color: yellow;
+}
+
+.FormCellNoteTextCritical {
+	color: @samred3;
+  	font-name: boldSystem;
+  	font-size: 14;
+}
+
+.FormCellNoteTextStandard {
+	color: @samblue3;
+  	font-name: thinSystem;
+  	font-size: 12;
+}
+
+.FormCellTitleTextCritical {
+	color: @samred2;
+  	font-name: boldSystem;
+  	font-size: 14;
+}
+
+.FormCellTitleTextStandard {
+	color: @samblue2;
+  	font-name: thinSystem;
+  	font-size: 12;
+}
+
+
+.FormCellBackgroundNotEditable {
+    background-color: #161616;
+}
+
+.FormCellBackgroundEditable {
+    background-color: @samBackgroundWhite;
+}
+
+.ObjectCellStyleBlack {
+    color: @samblack;
+}
+.ObjectCellStyleRed {
+  font-color: @samred4;
+}
+.FootnotePrimary {
+    color: @samFootnotePrimary;
+}
+.IosHighPriorityRed {
+  color: @samHighPriorityiOS;
+}
+
+.IosMediumPriorityOrange {
+  color: @samMediumPriorityiOS;
+}
+
+.AndroidHighPriorityRed {
+  color: @samHighPriorityAndroid;
+}
+
+.AndroidMediumPriorityOrange {
+  color: @samMediumPriorityAndroid;
+}
+
+.ResetRed {
+  color: @samred4;
+}
+
+.FormCellButton {
+    color: @samblue4;
+}
+
+.FormCellReadOnlyEntry {
+    color: #76767B;
+}
+
+.GrayText {
+    color: @samFootnotePrimary;
+}
+
+.FormCellTextEntry {
+    color: #3F3A3A;
+}
+
+.GridTableTextBlack {
+  color: @samBackgroundWhite;
+}
+
+.GridTableTextBlackLarge {
+  color: @samBackgroundWhite;
+  font-size: 16;
+}
+
+.GridTableHeaderText {
+color: @samBackgroundWhite;
+}
+
+.GridTableRowText {
+color: @samBackgroundWhite;
+font-size: 14;
+}
+
+.ObjectHeaderKPITintColor {
+  tint-color: #0A84FF;  /*for KPIView */
+  color: #0A84FF;  /*for KPIProgressView */
+}
+
+/* For Styling of Object Header KPI Caption Label */
+.ObjectHeaderKPICaption {
+  font-size: 30;
+  color: #0A84FF; 
+  font-style: UIFontTextStyleBody;
+}
+
+.ObjectHeaderBackground {
+  background-color: white;
+  color: @samblack;
+}
+
+/* Work Order Filter Page */
+.WorkOrderFilterPage_ToolBar { 
+  color: #3678AF; 
+  font-size: 17; 
+  bartintcolor: #F2F2F2;
+  border-top-color: #F2F2F2; 
+  border-width: 1; 
+}
+.WorkOrderFilterPage { 
+  anchorcolor: #445E75;
+}
+
+/* Notificaiton Filter Page */
+.NotificationFilterPage_ToolBar { 
+  color: #3678AF; 
+  font-size: 17; 
+  bartintcolor: #F2F2F2;
+  border-top-color: #F2F2F2; 
+  border-width: 1; 
+}
+.NotificationFilterPage { 
+  anchorcolor: #445E75;
+}
+/* Asset Filter Page */
+.EquipmentFilterPage_ToolBar { 
+  color: #3678AF; 
+  font-size: 17; 
+  bartintcolor: #F2F2F2;
+  border-top-color: #F2F2F2; 
+  border-width: 1; 
+}
+.EquipmentFilterPage { 
+  anchorcolor: #445E75;
+}
+/* Functional Location Filter Page */
+.FunctionalLocationFilterPage_ToolBar { 
+  color: #3678AF; 
+  font-size: 17; 
+  bartintcolor: #F2F2F2;
+  border-top-color: #F2F2F2; 
+  border-width: 1; 
+}
+.FunctionalLocationFilterPage { 
+  anchorcolor: #445E75;
+}
+
+/* Title of all the Filter toolbar */
+.Title {
+  color: #4A4A4A;
+  font-size: 17;
+  font-weight: 600;
+}
+
+/* Styling of the toolbar statues */
+.WorkOrderDetailsPage_ToolBar { 
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+} 
+
+.MeasuringPointDetailsPage_ToolBar { 
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+}
+
+.NotificationDetailsPage_ToolBar { 
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+}
+
+.NotificationItemTaskDetailsPage_ToolBar {
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+}
+
+.NotificationTaskDetailsPage_ToolBar {
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+}
+
+.WorkOrderOperationDetailsPage_ToolBar {
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+}
+
+.SubOperationDetailsPage_ToolBar {
+  color: #3678AF;
+  bartintcolor: #F8F8F8;
+}
+
+
+.SerialNumberStatusText {
+  padding: 14;
+  font-size: 16;
+}

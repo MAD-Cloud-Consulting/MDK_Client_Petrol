@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.Message",
+	"Message": "$(L, all_serials_selected)",
+    "OKCaption": "$(L,ok)"
+}

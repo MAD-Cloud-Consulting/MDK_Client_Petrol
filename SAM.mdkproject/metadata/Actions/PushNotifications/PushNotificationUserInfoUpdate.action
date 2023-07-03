@@ -1,0 +1,15 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "UserGeneralInfos",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/PushNotifications/PushNotificationUserIdReadLink.js"
+    },
+    "Properties": {
+        "CPMSUserName": "/SAPAssetManager/Rules/PushNotifications/PushNotificationUserId.js"
+    },
+    "RequestOptions": {
+        "UploadCategory": "UserGeneralInfoUpload"
+    },
+    "OnSuccess": "/SAPAssetManager/Actions/UploadUserGeneralInfos.action"
+}

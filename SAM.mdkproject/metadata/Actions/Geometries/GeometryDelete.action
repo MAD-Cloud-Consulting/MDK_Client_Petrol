@@ -1,0 +1,10 @@
+{
+	"Target":
+	{
+		"EntitySet" : "Geometries",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.readLink}"
+	},
+
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

@@ -1,0 +1,39 @@
+{
+  "_Type": "Action.Type.ODataService.CreateEntity",
+  "Target": {
+    "EntitySet": "MyWorkOrderComponents",
+    "Service": "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "Properties": {
+    "OrderId": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateWorkOrderId.js",
+    "ItemNumber":"/SAPAssetManager/Rules/Parts/CreateUpdate/PartLocalItemNumber.js",
+    "OperationNo":"#ClientData/#Property:OperationNo",
+    "ItemCategory": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataItemCategory.js",
+    "MaterialNum": "#ClientData/#Property:MaterialNum",
+    "Plant": "#ClientData/#Property:Plant",
+    "UnitOfEntry": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataUnitOfEntry.js",
+    "QuantityUnE": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataQuantity.js",
+    "TextTypeDesc": "#Control:TextItemSim/#Value",
+    "ComponentDesc": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataComponentDesc.js",
+    "WithdrawnQuantity": 0,
+    "CommittedQuantity": 0,
+    "OperationDesc": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataOperationDesc.js",
+    "ItemCategoryDesc": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataItemCategoryDesc.js",
+    "StorageLocation": "#ClientData/#Property:StorageLocation",
+    "Batch": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataBatch.js"
+  },
+  "Headers": {
+    "OfflineOData.RemoveAfterUpload": "true",
+    "OfflineOData.TransactionID":"/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateWorkOrderId.js"
+  },
+  "RequestOptions":
+  {
+    "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+  },
+  "CreateLinks": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateSetOdataCreateLinks.js",
+  "OnSuccess": "/SAPAssetManager/Rules/Parts/PartCreateOnSuccess.js",
+  "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+  "ValidationRule": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateUpdateValidation.js",
+  "ShowActivityIndicator": true,
+  "ActivityIndicatorText" : " "
+}

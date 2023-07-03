@@ -1,0 +1,65 @@
+{
+	"Caption": "$(L,related_activities)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "$(L, document_details)",
+						"UseTopPadding": true
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L, document_no)",
+							"Value": "{{#Property:DocNum}}"
+						},
+						{
+							"KeyName": "$(L, reason)",
+							"Value": "{{#Property:DisconnectDoc_Nav/#Property:DisconnectReason}} - {{#Property:DisconnectDoc_Nav/#Property:DisconnectReason_Nav/#Property:Description}}"
+						},
+						{
+							"KeyName": "$(L, processing_variant)",
+							"Value": "{{#Property:DisconnectDoc_Nav/#Property:ProcessVariant}} - {{#Property:DisconnectDoc_Nav/#Property:ProcessVariant_Nav/#Property:Description}}"
+						},
+						{
+							"KeyName": "$(L, status)",
+							"Value": "{{#Property:DisconnectDoc_Nav/#Property:DisconnectDocStatus_Nav/#Property:Status}} - {{#Property:DisconnectDoc_Nav/#Property:DisconnectDocStatus_Nav/#Property:Description}}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "DocumentDetailsSection",
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+					"Header": {
+						"Caption": "$(L, activities)",
+						"UseTopPadding": true
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"PreserveIconStackSpacing": false,
+                        "Title": "{{#Property:DisconnectActivityType_Nav/#Property:ActivityTypeDescription}}",
+                        "Subhead": "{{#Property:OrderId}}",
+                        "Footnote": "$(D,{ActivityDate})",
+                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/Activity/ActivityDetailsNav.action"
+                    },
+                    "Target":
+                    {
+                        "EntitySet": "{{#Property:@odata.readLink}}/DisconnectDoc_Nav/DisconnectActivity_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=DisconnectActivityType_Nav,DisconnectActivityStatus_Nav&$orderby=ActivityNum"
+                    },
+					"_Name": "ActivitiesList",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "ActivitiesListSection",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "RelatedActivitiesPage",
+	"_Type": "Page"
+}

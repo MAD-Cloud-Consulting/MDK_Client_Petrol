@@ -1,0 +1,11 @@
+{
+    "Actions": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateForChangeSetSkipCheck.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Measurements/Document/MeasurementsDocumentsCreateChangeSetOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": " ",
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

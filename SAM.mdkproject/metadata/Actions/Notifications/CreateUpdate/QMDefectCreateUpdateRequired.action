@@ -1,0 +1,14 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Notifications/CreateUpdate/SetChangesetFlags.js",
+    "RequiredFields": [
+        "NotificationDescription",
+		"PartGroupLstPkr",
+		"PartDetailsLstPkr",
+		"DamageGroupLstPkr",
+		"DamageDetailsLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

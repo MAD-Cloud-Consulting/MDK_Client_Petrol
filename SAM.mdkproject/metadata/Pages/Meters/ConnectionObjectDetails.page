@@ -1,0 +1,129 @@
+{
+    "Caption": "$(L,connection_object)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "ObjectHeader": {
+                        "HeadlineText": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/ConnectionObjectDescription.js",
+                        "BodyText":  "{{#Property:FuncLocation_Nav/#Property:FuncLocId}}",
+                        "SubstatusText": "{{#Property:FuncLocation_Nav/#Property:ObjectStatus_Nav/#Property:SystemStatus_Nav/#Property:StatusText}}"
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable",
+                    "DataSubscriptions": []
+                },
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "ConnectionObjectDetails",
+                    "Header": {
+                        "Caption": "$(L,connection_object_details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,ID)",
+                            "Value": "{{#Property:FuncLocation_Nav/#Property:FuncLocId}}"
+                        },
+                        {
+                            "KeyName": "$(L,description)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/ConnectionObjectDescription.js"
+                        },
+                        {
+                            "KeyName": "$(L,location)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/ConnectionObjectAddress.js"
+                        },
+                        {
+                            "KeyName": "$(L,time_zone)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,mobile_phone)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/ConnectionObjectAddressMobilePhone.js"
+                        },
+                        {
+                            "KeyName": "$(L,pol_reg_str_el)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/PolRegStructElement.js"
+                        },
+                        {
+                            "KeyName": "$(L,main_plant)",
+                            "Value": "{{#Property:MaintenancePlant}}"
+                        },
+                        {
+                            "KeyName": "$(L,authorization_group)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/AuthorizationGroup.js"
+                        }
+                    ]
+                },
+                {
+                    "Header": {
+                        "Caption": "$(L,meters)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_meter_available)"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/Meter/ConnectionObjectMetersCount.js",
+                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/MetersListViewNav.action"
+                    },
+                    "MaxItemCount": 2,
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Title": "{{#Property:Device}} - {{#Property:DeviceCategory_Nav/#Property:Description}}",
+                        "Subhead": "/SAPAssetManager/Rules/Meter/Details/DeviceLocationDisplay.js",
+                        "Footnote": "{{#Property:RegisterGroup_Nav/#Property:Division}} - {{#Property:RegisterGroup_Nav/#Property:Division_Nav/#Property:Description}}",
+                        "StatusText": "{{#Property:Equipment_Nav/#Property:ObjectStatus_Nav/#Property:SystemStatus_Nav/#Property:StatusText}}",
+                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/MeterDetailsNav.action",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/Devices_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=DeviceLocation_Nav,DeviceCategory_Nav,RegisterGroup_Nav/Division_Nav,Equipment_Nav/ObjectStatus_Nav/SystemStatus_Nav,ConnectionObject_Nav/FuncLocation_Nav/Address"
+                    },
+                    "_Type": "Section.Type.ObjectTable"
+                },
+                {
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "disclosureIndicator",
+                                "KeyName": "$(L,related_work_orders)",
+                                "Value": "{{#Property:FuncLocation_Nav/#Property:RelatedWOHistory/#Count}}",
+                                "OnPress": "/SAPAssetManager/Rules/Meter/ConnectionObject/RelatedWorkOrdersNav.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "disclosureIndicator",
+                                "KeyName": "$(L,related_notifications)",
+                                "Value": "{{#Property:FuncLocation_Nav/#Property:NotifHistory_Nav/#Count}}",
+                                "OnPress": "/SAPAssetManager/Actions/Notifications/RelatedNotifications/RelatedNotificationsListViewNav.action"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell":
+                            {
+                                "AccessoryType": "disclosureIndicator",
+                                "KeyName": "$(L,business_partners)",
+                                "Value": "{{#Property:FuncLocation_Nav/#Property:Partners/#Count}}",
+                                "OnPress": "/SAPAssetManager/Rules/Meter/ConnectionObject/RelatedPartnersNav.js"
+                            }
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": 66
+                    },
+                    "_Type": "Section.Type.SimplePropertyCollection"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ConnectionObjectDetailsPage"
+}

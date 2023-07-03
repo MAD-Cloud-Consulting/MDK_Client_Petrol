@@ -1,0 +1,13 @@
+{
+	"PopoverItems": [
+		{
+			"Title": "$(L,start)",
+			"OnPress": "/SAPAssetManager/Rules/SubOperations/MobileStatus/SubOperationStartStatus.js"
+		},
+		{
+			"Title": "$(L,transfer)",
+			"OnPress": "/SAPAssetManager/Rules/SubOperations/MobileStatus/SubOperationTransferStatus.js"
+		}
+	],
+	"_Type": "Action.Type.PopoverMenu"
+}

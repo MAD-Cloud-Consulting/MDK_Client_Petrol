@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderSubOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "OperationNo": "/SAPAssetManager/Rules/SubOperations/SubOperationOperationNo.js",
+        "SubOperationNo": "/SAPAssetManager/Rules/WorkOrders/SubOperations/CreateUpdate/SubOperationLocalID.js",
+        "OperationShortText": "#Control:DescriptionNote/#Value",
+        "ControlKey": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateControlKeyValue.js",
+        "OperationEquipment": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateEquipmentValue.js",
+        "OperationFunctionLocation": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateFuncLocValue.js",
+        "MainWorkCenterPlant": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateMainWorkCenterPlantValue.js",
+        "MainWorkCenter": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateMainWorkCenterValue.js",
+        "PersonNum": "/SAPAssetManager/Rules/SubOperations/SubOperationPersonNum.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/SubOperations/CreateUpdate/SubOperationTransactionID.js"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateValidation.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+}

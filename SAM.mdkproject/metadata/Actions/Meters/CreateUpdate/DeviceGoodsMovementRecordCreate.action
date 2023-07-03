@@ -1,0 +1,29 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "DeviceGoodsMovements",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "EquipmentNum": "#Control:MeterLstPkr/#Value/#First/#Property:ReturnValue",
+        "MovementType": "#Control:MovementTypeLstPkr/#Value/#First/#Property:ReturnValue",
+        "Plant": "#Control:ReceivingPlantLstPkr/#Value/#First/#Property:ReturnValue",
+        "StorageLocation": "#Control:StorageLocationLstPkr/#Value/#First/#Property:ReturnValue"
+    },
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:BatchEquipmentNum",
+        "Transaction.Ignore": "/SAPAssetManager/Rules/Meter/GoodsMovementIgnore.js"
+	},
+    "CreateLinks":
+    [{
+        "Property": "Device_Nav",
+        "Target":
+        {
+            "EntitySet": "Devices",
+            "ReadLink": "#ClientData/#Property:DeviceReadLink"
+        }
+    }],
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

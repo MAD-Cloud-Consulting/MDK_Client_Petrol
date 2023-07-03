@@ -1,0 +1,19 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "Geometries",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.readLink}"
+	},
+    "Properties": {
+        "GeometryValue": "/SAPAssetManager/Rules/Geometries/GeometryValueFromPage.js"
+    },
+	"RequestOptions": {
+		"UpdateMode": "Replace"
+	},
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageNoCloseWithAutoSync.js",
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : "  "
+}

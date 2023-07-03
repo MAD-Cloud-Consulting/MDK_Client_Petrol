@@ -1,0 +1,10 @@
+
+{
+  "_Type" : "Action.Type.BannerMessage",
+  "Message" : "$(L, odata_sync_failed)",
+  "Duration": 9999,
+  "Animated": true,
+  "ActionLabel": "/SAPAssetManager/Rules/Common/SyncFailure.js",
+  "OnActionLabelPress": "/SAPAssetManager/Rules/Common/SyncFailureNav.js",
+  "DismissBannerOnAction": true
+}

@@ -1,0 +1,10 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/Parts/PartReturnCreateNav.action"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Parts/CreatePartIssueSuccessMessage.js",
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

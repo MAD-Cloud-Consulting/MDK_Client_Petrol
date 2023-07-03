@@ -1,0 +1,81 @@
+{
+	"Caption": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationsCaptions.js",
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,previous_notifications)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_previous_notifications_available)"
+                    },
+                    "MaxItemCount": 3,
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Description": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryLongTexts.js",
+                        "Title": "{Description}",
+                        "Subhead": "{NotificationNumber}",
+                        "Footnote": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationEndDate.js",
+                        "StatusText": "#Property:HistoryPriority_Nav/#Property:PriorityDescription",
+                        "SubstatusText": "{PriorityType}",
+                        "OnPress": "/SAPAssetManager/Actions/Notifications/RelatedNotifications/RelatedNotificationsDetailsNav.action",
+                        "PreserveIconStackSpacing":false
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/PreviousNotificationCount.js",
+                        "OnPress": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/PreviousNotificationsNav.js"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"$filter=ReferenceType eq 'H'&$expand=HistoryLongText_Nav,HistoryPriority_Nav&$orderby=Priority desc"
+                    },
+                    "_Name": "NotificationHistoryListViewSection",
+                    "_Type": "Section.Type.ObjectTable"
+                },
+				{
+                    "Header": {
+                        "Caption": "$(L,pending_notifications)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_pending_notifications_available)"
+
+                    },
+                    "MaxItemCount": 3,
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Description": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryLongTexts.js",
+                        "Title": "{Description}",
+                        "Subhead": "{NotificationNumber}",
+                        "Footnote": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationEndDate.js",
+                        "StatusText": "#Property:HistoryPriority_Nav/#Property:PriorityDescription",
+                        "SubstatusText": "{PriorityType}",
+                        "OnPress": "/SAPAssetManager/Actions/Notifications/RelatedNotifications/RelatedNotificationsDetailsNav.action",
+                        "PreserveIconStackSpacing":false
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/PendingNotificationCount.js",
+                        "OnPress": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/PendingNotificationsNav.js"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"$filter=ReferenceType eq 'P'&$expand=HistoryLongText_Nav,HistoryPriority_Nav&$orderby=Priority desc"
+                    },
+                    "_Name": "PendingNotificationListViewSection",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "RelatedNotificationListViewPage"
+}

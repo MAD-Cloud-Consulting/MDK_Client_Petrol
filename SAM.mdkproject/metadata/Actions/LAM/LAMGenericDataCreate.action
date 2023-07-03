@@ -1,0 +1,43 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "LAMObjectData",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "ObjectType": "#Property:TempLAMObjectType",
+        "TableKey": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMMeasurementDocTableKey.js",
+        "LRPId": "#Property:TempLAMLRPId",
+        "UOM": "#Property:TempLAMUOM",
+        "Length": "#Property:TempLAMLength",
+        "StartPoint": "#Property:TempLAMStartPoint",
+        "EndPoint": "#Property:TempLAMEndPoint",
+        "StartMarker": "#Property:TempLAMStartMarker",
+        "EndMarker": "#Property:TempLAMEndMarker",
+        "MarkerUOM": "#Property:TempLAMMarkerUOM",
+        "Offset1Type": "#Property:TempLAMOffset1Type",
+        "Offset1Value": "#Property:TempLAMOffset1Value",
+        "Offset1UOM": "#Property:TempLAMOffset1UOM",
+        "Offset2Type": "#Property:TempLAMOffset2Type",
+        "Offset2Value": "#Property:TempLAMOffset2Value",
+        "Offset2UOM": "#Property:TempLAMOffset2UOM",
+        "StartMarkerDistance": "#Property:TempLAMStartMarkerDistance",
+        "EndMarkerDistance": "#Property:TempLAMEndMarkerDistance"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMTransactionID.js"
+    },
+    "CreateLinks": [{
+        "Property": "#Property:TempLAMReadLinkProperty",
+        "Target": {
+            "EntitySet": "#Property:TempLAMReadLinkEntitySet",
+            "ReadLink": "#Property:TempLAMReadLink"
+        }
+    }],
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/CreateEntitySuccessMessageNoClosePageWithAutoSave.js"
+}

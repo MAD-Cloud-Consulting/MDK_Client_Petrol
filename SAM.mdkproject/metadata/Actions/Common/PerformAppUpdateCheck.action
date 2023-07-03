@@ -1,0 +1,10 @@
+{
+	"_Type": "Action.Type.ApplicationUpdate",
+	"ActionResult": {
+		"_Name": "AppUpdateResult"
+	},
+	"OnSuccess":"/SAPAssetManager/Rules/Common/AppUpdateSuccess.js",
+	"OnFailure":"/SAPAssetManager/Rules/Common/AppUpdateFailure.js",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "$(L, checking_for_app_update)"
+}

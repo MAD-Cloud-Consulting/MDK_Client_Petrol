@@ -1,0 +1,59 @@
+{
+  "PopoverItems":
+	[{
+ 		"Title": "$(L,add_order)",
+ 		"OnPress" : "/SAPAssetManager/Rules/WorkOrders/FollowUpWorkOrderCreateNav.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderCreateFromWorkOrder.js"
+ 	},
+	{
+		"Title": "$(L,add_operation)",
+		"OnPress" : "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateNav.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+	},
+	{
+		"Title": "$(L,install_meter)",
+		"OnPress" : "/SAPAssetManager/Rules/Meter/CreateUpdate/MeterInstallUpdateNav.js",
+		"Visible": "/SAPAssetManager/Rules/WorkOrders/Meter/Details/AllowMeterCreate.js"
+	},
+	{
+		"Title" : "$(L,add_part)",
+		"OnPress" : "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateNav.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+	},
+	{
+		"Title" : "/SAPAssetManager/Rules/Notes/NotePopoverSelectionText.js",
+		"OnPress" : "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+	},
+	{
+		"Title": "$(L,add_notification)",
+		"OnPress" : "/SAPAssetManager/Rules/WorkOrders/WorkOrderNotificationCreateNav.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreateFromWorkOrder.js"
+	},
+	{
+		"Title" : "$(L,add_reminder)",
+		"OnPress" : "/SAPAssetManager/Rules/Reminders/ReminderCreateNav.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+	},
+	{
+		"Title": "$(L,take_readings)",
+		"OnPress": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsDataEntryNavWrapper.js",
+		"Visible":"/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsTakeReadingsIsVisible.js"
+	},
+	{
+ 		"Title": "$(L,add_expense)",
+ 		"OnPress" : "/SAPAssetManager/Rules/Expense/CreateUpdate/ExpenseCreateNav.js",
+		"Visible":  "/SAPAssetManager/Rules/Expense/CreateUpdate/IsAllowedExpenseCreate.js"
+ 	},
+	{
+		"Title": "$(L,add_mileage)",
+		"OnPress": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddNav.js",
+		"Visible": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddIsEnabled.js"
+	},
+	{
+		"Title": "$(L,generate_service_report)",
+		"OnPress": "/SAPAssetManager/Rules/PDF/PDFGenerate.js",
+		"Visible": "/SAPAssetManager/Rules/PDF/IsPDFAllowedForOrder.js"
+	}],
+	"_Type": "Action.Type.PopoverMenu"
+}

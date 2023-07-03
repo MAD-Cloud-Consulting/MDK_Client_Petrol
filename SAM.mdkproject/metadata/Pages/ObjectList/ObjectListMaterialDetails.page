@@ -1,0 +1,38 @@
+{
+	"_Type": "Page",
+	"_Name": "ObjectListMaterialDetails",
+	"Caption": "/SAPAssetManager/Rules/Material/ObjectListMaterialDetailsCaption.js",
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "ObjectListMaterialDetailsSectionedTable",
+			"Sections": [
+				{
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "ObjectListMaterialDetailsSection",
+					"Header": {
+						"Caption": "$(L,Material_Details)"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,description)",
+							"Value": "/SAPAssetManager/Rules/Material/MaterialDescriptionValue.js"
+						},
+						{
+							"KeyName": "$(L,type)",
+							"Value": "/SAPAssetManager/Rules/Material/MaterialTypeValue.js"
+						},
+						{
+							"KeyName": "$(L,uom)",
+							"Value": "/SAPAssetManager/Rules/Material/MaterialUOMValue.js"
+						},
+						{
+							"KeyName": "$(L,serial_no)",
+							"Value": "/SAPAssetManager/Rules/Material/ObjectListMaterialSerialValue.js"
+						}
+					]
+				}
+			]
+		}
+	]
+}

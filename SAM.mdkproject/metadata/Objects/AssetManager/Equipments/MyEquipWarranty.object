@@ -1,0 +1,61 @@
+{
+	"Collection": [
+		"MyEquipWarranties"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Equipment",
+			"_Type": "MyEquipments"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ObjectNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreateTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "MasterWarrantyNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WarrantyDesc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WarrantyType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WarrantyTypeDesc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreateDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WarrantyDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WarrantyEnd",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyEquipWarranty"
+}

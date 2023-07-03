@@ -1,0 +1,15 @@
+{
+    "PopoverItems": [
+        {
+            "Title" : "/SAPAssetManager/Rules/Notes/NotePopoverSelectionText.js",
+            "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+        },
+        {
+            "Title": "$(L,add_notification)",
+            "OnPress": "/SAPAssetManager/Rules/SubOperations/SubOperationNotificationCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreate.js"
+        }
+    ],
+    "_Type": "Action.Type.PopoverMenu"
+}

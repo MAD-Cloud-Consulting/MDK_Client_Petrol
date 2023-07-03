@@ -1,0 +1,391 @@
+{
+    "Caption": "$(L,app_display_name)",
+    "OnReturning": "/SAPAssetManager/Rules/OverviewPage/FSMOverviewOnPageReturning.js",
+    "ActionBar": {
+        "Items": [
+            {
+				"Position": "right",
+				"_Name": "Sync",
+				"Caption": "Sync",
+				"IconText": "SyncIcon",
+				"Icon": "$(PLT, /SAPAssetManager/Images/sync.pdf, /SAPAssetManager/Images/sync.android.png)",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js",
+				"Visible": "/SAPAssetManager/Rules/Sync/IsAutoSyncNotInProgress.js"
+			},
+			{
+				"Position": "right",
+				"_Name": "AutoSync",
+				"Caption": "AutoSync",
+				"IconText": "SyncIcon",
+				"Icon": "$(PLT, /SAPAssetManager/Images/auto-sync.pdf, /SAPAssetManager/Images/auto-sync.android.png)",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js",
+				"Visible": "/SAPAssetManager/Rules/Sync/IsAutoSyncInProgress.js"
+			}
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.KPIHeader",
+                    "_Name": "KPIHeader",
+                    "Visible": "/SAPAssetManager/Rules/ServiceOrders/IsServiceOperationSectionVisible.js",
+                    "KPIHeader": {
+                        "KPIItems": [
+                            {
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersReceivedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersReceivedView.js",
+                                "CaptionLabel": "$(L, not_accepted)"
+                            },
+                            {
+
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersAcceptedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersAcceptedView.js",
+                                "CaptionLabel": "$(L, not_started)"
+                            },
+                            {
+
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersStartedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersStartedView.js",
+                                "CaptionLabel": "$(L, in_progress)"
+                            },
+                            {
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersFinishedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersFinishedView.js",
+                                "CaptionLabel": "$(L, completed)"
+                            }
+                        ]
+                    },
+                    "DataSubscriptions" : [
+                        "PMMobileStatuses"
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.KPIHeader",
+                    "_Name": "KPIHeaderForWO",
+                    "Visible": "/SAPAssetManager/Rules/ServiceOrders/IsServiceOrderSectionVisible.js",
+                    "KPIHeader": {
+                        "KPIItems": [
+                            {
+
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersAcceptedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersAcceptedView.js",
+                                "CaptionLabel": "$(L, not_started)"
+                            },
+                            {
+
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersStartedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersStartedView.js",
+                                "CaptionLabel": "$(L, in_progress)"
+                            },
+                            {
+                                "MetricItems": [
+                                    {
+                                        "Value": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersFinishedCount.js"
+                                    }
+                                ],
+                                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersFinishedView.js",
+                                "CaptionLabel": "$(L, completed)"
+                            }
+                        ]
+                    },
+                    "DataSubscriptions" : [
+                        "PMMobileStatuses"
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.FormCell",
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "ActualDate",
+                            "Caption": "$(L, work_overview_for)",
+                            "Mode": "Date",
+                            "Value": "/SAPAssetManager/Rules/ServiceOrders/TodaysServiceOrderDate.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/ServiceOrders/ActualDateChanges.js"
+                        }
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "ServiceOrders",
+                    "Visible": "/SAPAssetManager/Rules/ServiceOrders/IsServiceOrderSectionVisible.js",
+                    "Header": {
+                        "UseTopPadding": true,
+                        "Caption": "/SAPAssetManager/Rules/ServiceOrders/HeaderInfo/HeaderInfo.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L, no_serviceorders_available)"
+                    },
+                    "MaxItemCount": 2,
+                    "ObjectCell": {
+                        "Title": "#Property:OrderDescription",
+                        "Subhead": "{OrderId}",
+                        "AccessoryType": "disclosureIndicator",
+                        "Footnote": "/SAPAssetManager/Rules/DateTime/ContractDatePeriod.js",
+                        "StatusText": "#Property:WOPriority/#Property:PriorityDescription",
+                        "SubstatusText": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrdersListViewFormat.js",
+                        "Styles": {
+                            "SubstatusText": "/SAPAssetManager/Rules/Supervisor/Reject/RejectedStatusStyle.js"
+                        },
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDetailsNav.js",
+                        "PreserveIconStackSpacing": false,
+                        "ContextMenu": {
+                            "PerformFirstActionWithFullSwipe": true,
+                            "Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+                            "LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+                            "TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+                        }
+                    },
+                    "Target": {
+                        "EntitySet": "MyWorkOrderHeaders",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/ServiceOrders/ServiceOrderTodayList.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOrdersDateFilter.js",
+                        "FooterStyle": "attribute",
+                        "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrdersDateView.js"
+                    },
+                    "DataSubscriptions": [
+                        "MyWorkOrderHeaders",
+                        "PMMobileStatuses",
+                        "WorkOrderTransfers"
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "ServiceOperations",
+                    "Visible": "/SAPAssetManager/Rules/ServiceOrders/IsServiceOperationSectionVisible.js",
+                    "Header": {
+                        "UseTopPadding": true,
+                        "Caption": "/SAPAssetManager/Rules/ServiceOrders/HeaderInfo/HeaderInfo.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L, no_operations_available)"
+                    },
+                    "MaxItemCount": 2,
+                    "ObjectCell": {
+                        "Title": "{OperationShortText}",
+                        "Subhead": "{OrderId} - {OperationNo}",
+                        "AccessoryType": "disclosureIndicator",
+                        "Footnote": "/SAPAssetManager/Rules/DateTime/ContractDatePeriod.js",
+                        "SubstatusText": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewFormat.js",
+                        "Styles": {
+                            "SubstatusText": "/SAPAssetManager/Rules/Supervisor/Reject/RejectedStatusStyle.js"
+                        },
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/Details/WorkOrderOperationDetailsNav.js",
+                        "PreserveIconStackSpacing": false,
+                        "ContextMenu": {
+                            "PerformFirstActionWithFullSwipe": true,
+                            "Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+                            "LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+                            "TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+                        }
+                    },
+                    "Target": {
+                        "EntitySet": "MyWorkOrderOperations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/ServiceOrders/ServiceOperationTodayList.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Count/ServiceOperationsDateFilter.js",
+                        "FooterStyle": "attribute",
+                        "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOperationsDateView.js"
+                    },
+                    "DataSubscriptions": [
+                        "MyWorkOrderOperations",
+                        "PMMobileStatuses",
+                        "WorkOrderTransfers"
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.ButtonTable",
+                    "Visible": false,
+                    "Header": {
+                        "Caption": "$(L, vehicle)"
+                    },
+                    "Buttons": [
+                        {
+                            "Title" : "$(L, check_in_vehicle)",
+                            "TextAlignment": "center"
+                        }
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.ObjectCollection",
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)" 
+                    },
+                    "_Name": "TimeCaptureSection",
+                    "MaxItemCount": 2,
+                    "Header": {
+                        "Caption": "$(L,time_records)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L, no_time_records)"
+                    },
+                    "ObjectCell": {
+                        "PreserveIconStackSpacing": false,
+                        "Icons": "/SAPAssetManager/Rules/OverviewPage/FSMOverviewPageOverviewRowIcon.js",
+                        "Title": "/SAPAssetManager/Rules/Confirmations/OverviewListView/FormattedPostingDate.js",
+                        "Subhead": "/SAPAssetManager/Rules/Confirmations/ConfirmationTotalDuration.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Actions/Confirmations/ConfirmationsListViewNav.action"
+                    },
+                    "Target": {
+                        "EntitySet": "ConfirmationOverviewRows",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/ServiceOrders/TimeRecordsQuery.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "AttributeLabel": "/SAPAssetManager/Rules/OverviewPage/TimeCaptureSection/TimeCaptureSectionCount.js",
+                        "FooterStyle": "attribute",
+                        "OnPress": "/SAPAssetManager/Actions/Confirmations/ConfirmationsOverviewListViewNav.action"
+                    },
+                    "DataSubscriptions": [
+                        "ConfirmationOverviewRows"
+                    ]
+                },
+                {
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/ServiceOrders/HeaderInfo/HeaderMapInfo.js"
+                    },
+                    "Module": "extension-MapFramework",
+                    "Control": "MapViewExtension",
+                    "Class": "MapViewExtension",
+                    "Height": 240,
+                    "ExtensionProperties": {
+                        "Config": {
+                            "Target": {
+                                "EntitySet": "GISMapParameters",
+                                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                "Properties": [],
+                                "KeyProperties": []
+                            },
+                            "ViewConfig": {
+                                "UseDynamicLayerDisplayPrefs": true,
+                                "EnableUserInteraction": false
+                            },
+                            "DefaultViewEnvelope": {
+                                "minPoint": {
+                                    "y": 2801774.86,
+                                    "x": -13898124.21
+                                },
+                                "maxPoint": {
+                                    "y": 6340332.34,
+                                    "x": -7445653.57
+                                },
+                                "padding": 10000.0
+                            },
+                            "BaseMaps": [],
+                            "FeatureLayers": []
+                        },
+                        "TokenAuthentication": {
+                            "Action": "/SAPAssetManager/Rules/Extensions/TokenRequest.js"
+                        },
+                        "MapToolsetIcons": [],
+                        "BusinessObjects": [
+                            {
+                                "Type": "RouteStop",
+                                "Title": "$(L,fow_dl_service_orders)",
+                                "Legend": "MarkerJob",
+                                "Target": {
+                                    "EntitySet": "MyWorkOrderHeaders",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Maps/FSMOverviewMapQueryOptions.js",
+                                    "Properties": [],
+                                    "KeyProperties": []
+                                },
+                                "Enable": true,
+                                "ObjectScheme": {
+                                    "Geometry": "/SAPAssetManager/Rules/Maps/AddressMapValue.js",
+                                    "Layer": "RouteStop",
+                                    "Properties": {
+                                        "ID": "/SAPAssetManager/Rules/WorkOrders/WorkOrderRouteIDStopID.js",
+                                        "RouteID": "/SAPAssetManager/Rules/WorkOrders/WorkOrderRouteID.js",
+                                        "StopID": "{OrderId}"
+                                    },
+                                    "Actions": [],
+                                    "Symbol": {
+                                        "marker": "/SAPAssetManager/Rules/Maps/Icons/WorkOrderIcon.js",
+                                        "lineColor": "0070F2",
+                                        "fillColor": "0070F233",
+                                        "lineWidth": 2
+                                    }
+                                }
+                            },
+                            {
+                                "Type": "Route",
+                                "DependsOn": "RouteStop",
+                                "Title": "$(L, fow_dl_routes)",
+                                "Legend": "MarkerRoute",
+                                "Target": {
+                                    "EntitySet": "MyWorkOrderHeaders",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Maps/FSMOverviewRouteMapQueryOptions.js",
+                                    "Properties": [],
+                                    "KeyProperties": []
+                                },
+                                "Enable": true,
+                                "ObjectScheme": {
+                                    "Geometry": "",
+                                    "Layer": "Route",
+                                    "Properties": {
+                                        "ID": "/SAPAssetManager/Rules/WorkOrders/WorkOrderRouteID.js"
+                                    },
+                                    "DependsOn": "RouteStop",
+                                    "Actions": [],
+                                    "Symbol": {
+                                        "lineColor": "4BC3F3",
+                                        "lineWidth": 5,
+                                        "lineStyle": "solid"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "OnPress": "/SAPAssetManager/Actions/Extensions/FSMMapNav.action",
+                    "Visible": "/SAPAssetManager/Rules/Maps/IsGISEnabled.js",
+                    "_Name": "MapExtensionSection",
+                    "_Type": "Section.Type.Extension"
+                }
+            ],
+            "_Name": "FieldServiceSectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "_Name": "FieldServiceOverview",
+    "_Type": "Page"
+}

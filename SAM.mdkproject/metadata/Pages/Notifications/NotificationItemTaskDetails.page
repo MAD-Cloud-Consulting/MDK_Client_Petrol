@@ -1,0 +1,96 @@
+{
+	"Caption": "/SAPAssetManager/Rules/Notifications/Item/Task/NotificationItemTaskHeader.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Item/Task/Details/NotificationItemTaskDetailsOnLoaded.js",
+
+	"ActionBar":
+	{
+		"Items":
+		[
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Item/Task/CreateUpdate/NotificationItemTaskCreateUpdateNav.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+			},
+			{
+                "Position": "right",
+            	"SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/Notifications/Item/Task/Details/NotificationItemTaskDetailsPopover.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+            }
+		]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Header":
+			{
+				"Caption" : "$(L,notification_task_detail)"
+			},
+			"KeyAndValues":
+			[{
+				"KeyName" : "$(L,description)",
+				"Value" : "{TaskText}"
+			},
+			{
+				"KeyName" : "$(L,sort_number)",
+				"Value" : "{TaskSortNumber}"
+			},
+			{
+				"KeyName" : "$(L,group)",
+				"Value" : "/SAPAssetManager/Rules/Notifications/Task/Details/NotificationTaskDetailsGroup.js"
+			},
+			{
+				"KeyName" : "$(L,status)",
+				"Value" : "/SAPAssetManager/Rules/Notifications/Task/Details/NotificationTaskDetailsMobileStatus.js"
+			},
+			{
+				"KeyName" : "$(L,code)",
+				"Value" : "/SAPAssetManager/Rules/Notifications/Task/Details/NotificationTaskDetailsCode.js"
+			}],
+			"_Type" : "Section.Type.KeyValue"
+		},
+		{
+            "SimplePropertyCells":
+            [{
+                "SimplePropertyCell": {
+                    "AccessoryType": "disclosureIndicator",
+                    "KeyName": "$(L,notes)",
+                    "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
+                    "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
+                }
+            }],
+			"Layout":
+			{
+				"NumberOfColumns" : 1
+			},
+            "_Type" : "Section.Type.SimplePropertyCollection"
+        }],
+		"_Type": "Control.Type.SectionedTable",
+		"_Name": "SectionedTable"
+	}],
+	"ToolBar":
+	{
+	  "Controls":
+	  [{
+			"_Name": "FlexibleSpaceLeftTbI",
+			"_Type": "Control.Type.ToolbarItem",
+			"SystemItem": "FlexibleSpace"
+		},
+		{
+			"_Name": "StartTaskTbI",
+			"_Type": "Control.Type.ToolbarItem",
+			"Enabled": "/SAPAssetManager/Rules/Notifications/MobileStatus/TaskEnableMobileStatus.js",
+			"Caption": "/SAPAssetManager/Rules/Notifications/MobileStatus/TaskMobileStatusToolBarCaption.js",
+			"OnPress": "/SAPAssetManager/Rules/Notifications/MobileStatus/ItemTaskChangeStatus.js"
+		},
+		{
+			"_Name": "FlexibleSpaceRightTbI",
+			"_Type": "Control.Type.ToolbarItem",
+			"SystemItem": "FlexibleSpace"
+		}]
+  	},
+	"_Type": "Page",
+	"_Name": "NotificationItemTaskDetailsPage"
+}

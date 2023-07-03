@@ -1,0 +1,59 @@
+{
+	"Caption": "$(L,notification_items_causes)",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Item/Cause/NotificationItemCauseListOnLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Notifications/Item/Cause/NotificationItemCauseListOnReturn.js",
+
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+			"SystemItem": "Add",
+			"OnPress": "/SAPAssetManager/Rules/Notifications/Item/Cause/CreateUpdate/NotificationItemCauseCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+		}]
+	},
+	"Controls": [{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+			"EmptySection": {
+                "Caption": "$(L,no_notification_item_causes_available)"
+            },
+			"ObjectCell":
+			{	
+				"PreserveIconStackSpacing": true,
+				"Icons":"/SAPAssetManager/Rules/Notifications/Item/Cause/NotificationItemCauseTaskActivityIconImages.js",
+				"Title": "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemCauseDetailsListFormat.js",
+				"Subhead": "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemCauseDetailsListFormat.js",
+				"Footnote" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemCauseDetailsListFormat.js",
+				"StatusText" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemCauseDetailsListFormat.js",
+				"AccessoryType" : "disclosureIndicator",
+				"OnPress" : "/SAPAssetManager/Actions/Notifications/Item/NotificationItemCauseDetailsNav.action"
+			},
+            "Target":
+			{
+                "EntitySet" : "{{#Property:@odata.id}}/ItemCauses",
+                "Service" : "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Notifications/Item/Task/NotificationItemCausesListViewQueryOption.js"
+            },
+			"_Name" : "NotificationItemCauses",
+			"_Type" : "Section.Type.ObjectTable"
+		}],
+		"_Type" : "Control.Type.SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "NotificationItemCausesListViewPage",
+	"DataSubscriptions":["MyNotificationItemCauses"]
+
+}

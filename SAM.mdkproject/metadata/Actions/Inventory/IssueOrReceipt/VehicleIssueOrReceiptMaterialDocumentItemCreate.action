@@ -1,0 +1,45 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "MatDocItem": "/SAPAssetManager/Rules/Inventory/MaterialDocumentItem/GetMaterialDocumentItemLocalID.js",
+        "MaterialDocNumber": "#ClientData/#Property:TempHeader_Key",
+        "MaterialDocYear": "#ClientData/#Property:TempHeader_MaterialDocYear",
+        "PurchaseOrderNumber": "#ClientData/#Property:TempLine_PurchaseOrderNumber",
+        "PurchaseOrderItem": "#ClientData/#Property:TempLine_PurchaseOrderItem",
+        "MovementType": "#ClientData/#Property:TempLine_MovementType",
+        "Material": "#ClientData/#Property:TempLine_Material",
+        "Plant": "#ClientData/#Property:TempLine_Plant",
+        "StorageLocation": "#ClientData/#Property:TempLine_StorageLocation",
+        "EntryQuantity": "#ClientData/#Property:TempLine_EntryQuantity",
+        "EntryUOM": "#ClientData/#Property:TempLine_EntryUOM",
+        "UOM": "#ClientData/#Property:TempLine_EntryUOM",
+        "GoodsRecipient": "#ClientData/#Property:TempLine_GoodsReceipient",
+        "AutoGenerateSerialNumbers": "#ClientData/#Property:TempLine_AutoGenerateSerialNumbers",
+        "MovementIndicator": "#ClientData/#Property:TempLine_MovementIndicator",
+        "FinalIssue": "#ClientData/#Property:TempLine_DeliveryComplete",
+        "ItemText": "#ClientData/#Property:TempLine_ItemText",
+        "UnloadingPoint": "#ClientData/#Property:TempLine_UnloadingPoint",
+        "GLAccount": "#ClientData/#Property:TempLine_GLAccount",
+        "CostCenter": "#ClientData/#Property:TempLine_CostCenter",
+        "WBSElement": "#ClientData/#Property:TempLine_WBSElement",
+        "OrderNumber": "#ClientData/#Property:TempLine_Order",
+        "Network": "#ClientData/#Property:TempLine_Network",
+        "Batch": "#ClientData/#Property:TempLine_Batch",
+        "StockType": "#ClientData/#Property:TempLine_StockType",
+        "ValuationType": "#ClientData/#Property:TempLine_ValuationType",
+        "StorageBin": "#ClientData/#Property:TempLine_StorageBin",
+        "MovePlant": "#ClientData/#Property:TempLine_ToPlant",
+        "MoveStorageLocation": "#ClientData/#Property:TempLine_ToStorageLocation",
+        "MoveBatch": "#ClientData/#Property:TempLine_ToBatch"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#ClientData/#Property:TempHeader_Key"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Inventory/MaterialDocumentItem/MaterialDocumentItemCreateLinks.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

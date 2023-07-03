@@ -1,0 +1,136 @@
+{
+    "OnLoaded": "/SAPAssetManager/Rules/Meter/Common/HideCancelOnPageLoad.js",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+        },
+        {
+            "Position": "right",
+            "SystemItem": "$(PLT,'Done','')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+            "OnPress": "/SAPAssetManager/Rules/Meter/CreateUpdate/Periodic/DeviceMeterReadingsCreateUpdate.js"
+        }]
+    },
+    "Controls":
+    [{
+        "ExtensionProperties": {
+            "Sections":
+            [{
+                "OnLoaded": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingsCreateUpdateTopSectionOnLoaded.js",
+                "Controls":
+                [{
+                    "Caption": "$(L,serial_number)",
+                    "IsEditable": false,
+                    "Value": "#Property:Device_Nav/#Property:Device",
+                    "_Name": "SerialNumber",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,device_category)",
+                    "IsEditable": false,
+                    "Value": "#Property:Device_Nav/#Property:Equipment_Nav/#Property:EquipDesc",
+                    "_Name": "DeviceCategory",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                }]
+            },
+            {
+                "Target": {
+                    "EntitySet": "{{#Property:@odata.readLink}}/Device_Nav/PeriodicMeterReading_Nav",
+                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                    "QueryOptions": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingQueryOptions.js"
+                },
+                "OnLoaded": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingsCreateUpdateOnLoaded.js",
+                "Controls":
+                [{
+                    "Caption": "$(L,register)",
+                    "IsEditable": false,
+                    "Value": "{Register}",
+                    "_Name": "RegisterNum",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,reading)",
+                    "IsEditable": true,
+                    "Value": "{MeterReadingRecorded}",
+                    "PlaceHolder": "None",
+                    "_Name": "ReadingValue",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,date_time)",
+                    "IsEditable": true,
+                    "Mode": "DateTime",
+                    "DateTimeEntryMode": "datetime",
+                    "_Name": "ReadingTimeControl",
+                    "_Type": "Control.Type.FormCell.DatePicker"
+                },
+                {
+                    "Caption": "$(L,set_usage_peak_time)",
+                    "IsEditable": true,
+                    "Value": "{UsagePeakTimeBool}",
+                    "OnValueChange": "/SAPAssetManager/Rules/Meter/Reading/PeakUsageShowHideMultiple.js",
+                    "_Name": "PeakTimeSwitch",
+                    "_Type": "Control.Type.FormCell.Switch"
+                },
+                {
+                    "Caption": "$(L,usage_peak_time)",
+                    "IsEditable": true,
+                    "IsVisible": false,
+                    "Mode": "DateTime",
+                    "DateTimeEntryMode": "datetime",
+                    "Value": "{DateMaxRead}",
+                    "_Name": "PeakUsageTimeControl",
+                    "_Type": "Control.Type.FormCell.DatePicker"
+                },
+                {
+                    "AllowMultipleSelection": false,
+                    "Caption": "$(L,note)",
+                    "IsEditable": true,
+                    "IsSelectedSectionEnabled": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/Meter/Reading/SkipMeterReading.js",
+                    "Value": "{MeterReaderNote}",
+                    "PickerItems": "/SAPAssetManager/Rules/Meter/Reading/ReadingNoteValues.js",
+                    "_Name": "NotePicker",
+                    "_Type": "Control.Type.FormCell.ListPicker"
+                },
+                {
+                    "Caption": "$(L,warning_min_max)",
+                    "IsEditable": false,
+                    "Value": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingRecordedWarningMinMaxLimit.js",
+                    "IsVisible": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingLimitsIsVisible.js",
+                    "_Name": "WarningMinValue",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,error_min_max)",
+                    "IsEditable": false,
+                    "Value": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingRecordedErrorMinMaxLimit.js",
+                    "IsVisible": "/SAPAssetManager/Rules/Meter/Reading/Periodic/MeterReadingLimitsIsVisible.js",
+                    "_Name": "ErrorMinValue",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Title": "$(L,discard)",
+                    "IsVisible": false,
+                    "OnPress": "/SAPAssetManager/Rules/Meter/Reading/Periodic/DiscardReading.js",
+                    "_Name": "DiscardButton",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "Styles": {
+                        "Value": "ObjectCellStyleRed"
+                    }
+                }]
+            }]
+        },
+        "Module": "extension-FieldDataCapture",
+        "Control": "FieldDataCaptureViewExtension",
+        "Class": "FieldDataCaptureViewExtension",
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.Extension"
+    }],
+	"_Name": "PeriodicMeterReadingCreateMultiple",
+	"_Type": "Page"
+}

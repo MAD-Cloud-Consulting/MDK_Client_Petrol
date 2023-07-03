@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Twoja bieżąca lokalizacja zostanie wyświetlona na mapie";
+
+"NSLocationAlwaysUsageDescription" = "Czy chcesz zawsze zezwalać programowi „SAP Asset Manager\" na dostęp do swojej lokalizacji?";
+
+"NSCameraUsageDescription" = "Zezwalaj na dostęp do aparatu w celu zeskanowania kodów kreskowych i zrobienia zdjęć, które zostaną załączone w aplikacji";
+
+"NSMicrophoneUsageDescription" = "Zezwól na dostęp do mikrofonu";
+
+"NSFaceIDUsageDescription" = "Włączenie Face ID umożliwia szybki i bezpieczny dostęp do programu SAP Asset Manager";
+
+"NSPhotoLibraryUsageDescription" = "Zezwalaj na dostęp do biblioteki zdjęć w celu załączenia w aplikacji zdjęć, które zostaną wczytane";
+
+"NSPhotoLibraryAddUsageDescription" = "Nasza aplikacja wymaga zezwolenia na zapis zdjęć";
+

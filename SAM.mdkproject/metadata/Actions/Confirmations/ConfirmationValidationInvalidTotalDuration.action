@@ -1,0 +1,5 @@
+{
+    "_Type": "Action.Type.Message",
+    "Message": "$(L,validation_daily_total_exceeds_24_hours)",
+    "OKCaption": "$(L,ok)"
+}

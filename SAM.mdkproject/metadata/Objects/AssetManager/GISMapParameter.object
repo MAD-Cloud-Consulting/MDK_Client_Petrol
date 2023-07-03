@@ -1,0 +1,29 @@
+{
+	"Collection": [
+		"GISMapParameters"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ParameterGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ParameterName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParameterValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParentParemeterGroup",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "GISMapParameter"
+}

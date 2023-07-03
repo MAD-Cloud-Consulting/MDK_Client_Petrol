@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocuments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "MaterialDocNumber": "/SAPAssetManager/Rules/Inventory/MaterialDocument/GetMaterialDocumentLocalID.js",
+        "DocumentDate": "#ClientData/#Property:TempHeader_DocumentDate",
+        "MaterialDocYear": "#ClientData/#Property:TempHeader_MaterialDocYear",
+        "PostingDate": "#ClientData/#Property:TempHeader_PostingDate",
+        "GMCode": "#ClientData/#Property:TempHeader_GMCode",
+        "UserName": "#ClientData/#Property:TempHeader_UserName",
+        "RefDocumentNumber": "#ClientData/#Property:TempHeader_DeliveryNote",
+        "HeaderText": "#ClientData/#Property:TempHeader_HeaderText"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Inventory/MaterialDocument/GetMaterialDocumentLocalID.js"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

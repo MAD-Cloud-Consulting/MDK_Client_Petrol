@@ -1,0 +1,229 @@
+{
+    "Caption": "$(L,business_partner_edit)",
+    "OnLoaded": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEditOnPageLoaded.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnersEditOnCommit.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "IsEditable": false,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerName.js",
+                            "_Name": "Name",
+                            "Caption": "$(L,name)",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "IsEditable": false,
+                            "PlaceHolder": " ",
+                            "Value": "{PartnerNum}",
+                            "_Name": "PartnerNumber",
+                            "Caption": "$(L,partner_id)",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": false,
+                            "PlaceHolder": " ",
+                            "Value": "#Property:PartnerFunction_Nav/#Property:Description",
+                            "Caption": "$(L,partner_type)",
+                            "_Name": "PartnerType",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "_Name": "Country",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,country)",
+                            "AllowMultipleSelection": false,
+                            "Search": { 
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:Country}} - {{#Property:Description}}",
+                                "ReturnValue" : "{Country}",
+                                "Target":
+                                {
+                                    "EntitySet" : "Countries",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Description"
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerCountry.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditOnCountryChange.js"
+                        },{
+                            "IsEditable": "/SAPAssetManager/Rules/BusinessPartners/Edit/IsHousingNumberEnabled.js",
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerHouseNumber.js",
+                            "Caption": "$(L,house_num)",
+                            "_Name": "House",
+                            "IsVisible": "/SAPAssetManager/Rules/BusinessPartners/Edit/IsHousingNumberEnabled.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerStreet.js",
+                            "Caption": "$(L,street)",
+                            "_Name": "Street",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerZip.js",
+                            "Caption": "$(L,zip)",
+                            "_Name": "ZipCode",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "_Name": "State",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,state)",
+                            "AllowMultipleSelection": false,
+                            "Search": { 
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },                         
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:Description}}",
+                                "ReturnValue" : "{Region}",
+                                "Target":
+                                {
+                                    "EntitySet" : "Regions",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditRegionQueryOptions.js"
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerState.js"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerCity.js",
+                            "Caption": "$(L,city)",
+                            "_Name": "City",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerBuilding.js",
+                            "Caption": "$(L,building)",
+                            "_Name": "Building",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerFloor.js",
+                            "Caption": "$(L,floor)",
+                            "_Name": "Floor",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": " ",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerRoom.js",
+                            "Caption": "$(L,room)",
+                            "_Name": "Room",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": "$(L,example_email)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEmail.js",
+                            "Caption": "$(L,email)",
+                            "_Name": "Email",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "KeyboardType": "Email"
+
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": "$(L,example_phone)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerMobile.js",
+                            "Caption": "$(L,mobile)",
+                            "_Name": "Mobile",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "KeyboardType": "Phone"
+
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": "$(L,example_phone)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerTelephone.js",
+                            "Caption": "$(L,phone)",
+                            "_Name": "Phone",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "KeyboardType": "Phone"
+
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": "ext",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerTeleExtension.js",
+                            "Caption": "$(L,extension)",
+                            "_Name": "Extension",
+                            "IsVisible": "/SAPAssetManager/Rules/BusinessPartners/IsAddressCommType.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "KeyboardType": "Number"
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": "$(L,example_phone)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerFax.js",
+                            "Caption": "$(L,fax)",
+                            "_Name": "Fax",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "KeyboardType": "Phone"
+
+                        },{
+                            "IsEditable": true,
+                            "PlaceHolder": "ext",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerFaxExtension.js",
+                            "Caption": "$(L,extension)",
+                            "_Name": "FaxExtension",
+                            "IsVisible": "/SAPAssetManager/Rules/BusinessPartners/IsAddressCommType.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "KeyboardType": "Number"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "BusinessPartnerEditPage"
+}

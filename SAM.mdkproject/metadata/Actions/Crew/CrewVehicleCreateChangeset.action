@@ -1,0 +1,9 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/Crew/CrewVehicleCreateNav.action"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

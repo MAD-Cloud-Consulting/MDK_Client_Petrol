@@ -1,0 +1,6 @@
+{
+    "RequiredFields": ["MemberLstPkr"],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "OnSuccess": "/SAPAssetManager/Rules/Crew/TimeSheets/TimeSheetsEntryCreate.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js"
+}

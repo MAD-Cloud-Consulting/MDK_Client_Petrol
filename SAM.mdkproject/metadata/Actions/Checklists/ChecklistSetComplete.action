@@ -1,0 +1,18 @@
+{
+    "Target":
+    {
+        "EntitySet": "ChecklistBusObjects",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:ChecklistBusObjectId"
+    },
+    "Properties":
+    {
+        "Status": "COM"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:FormId",
+        "OfflineOData.NonMergeable": true
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

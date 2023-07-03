@@ -1,0 +1,15 @@
+{
+    "Controls": [
+        {
+            "PlaceHolder": "$(L,location)",
+            "IsEditable": false,
+            "IsVisible": "/SAPAssetManager/Rules/Maps/GISAddEditEnabled.js",
+            "Value": "",
+            "Caption": "$(L,location)",
+            "_Name": "LocationEditTitle",
+            "_Type": "Control.Type.FormCell.SimpleProperty"
+        }
+    ],
+    "_Type": "Section.Type.FormCell",
+    "_Name": "LocationSection"
+}

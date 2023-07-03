@@ -1,0 +1,67 @@
+{
+  "Caption": "$(L,fow_route_with_route_id,'{RouteID}')",
+  "OnLoaded": "/SAPAssetManager/Rules/FOW/Routes/Details/RouteDetailsOnPageLoad.js",
+  "Controls": [
+    {
+        "Sections": [
+            {
+                "ObjectHeader": {
+                    "HeadlineText": "{Description}",
+                    "Subhead": "/SAPAssetManager/Rules/FOW/Routes/ListView/RouteListStopCountCaption.js",
+                    "Tags": ["/SAPAssetManager/Rules/FOW/Routes/Details/RouteDetailsObjectHeaderTags.js"],
+                    "StatusText": "#Property:WorkOrder/#Property:WOPriority/#Property:PriorityDescription",
+                    "SubstatusText": "/SAPAssetManager/Rules/FOW/DateTime/RouteDueDate.js",
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=Stops,WorkOrder/OrderMobileStatus_Nav,WorkOrder/WOPriority"
+                    }
+                },
+                "_Type": "Section.Type.ObjectHeader",
+                "_Name": "ObjectHeaderSectionTable"
+            },
+            {
+              "_Type": "Section.Type.ObjectCollection",
+              "_Name": "StopsSection",
+              "Layout": {
+                  "NumberOfColumns": 2,
+                  "MinimumInteritemSpacing": 66
+              },
+              "Header": {
+                  "Caption": "$(L,fow_stops)"
+              },
+              "EmptySection": {
+                  "Caption": "$(L,fow_no_stops)",
+                  "HidesFooter": true
+              },
+              "MaxItemCount": 8,
+              "ObjectCell": {
+                  "Title": "{Description}",
+                  "Subhead": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopLocationFormat.js",
+                  "Footnote": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopListAssetCountCaption.js",
+                  "StatusText": "/SAPAssetManager/Rules/FOW/Routes/MobileStatusCaption.js",
+                  "AccessoryType": "disclosureIndicator",
+                  "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopDetailsNav.js",
+                  "PreserveIconStackSpacing":false
+              },
+              "Target": {
+                  "EntitySet": "{{#Property:@odata.readLink}}/Stops",
+                  "Service": "/SAPAssetManager/Services/AssetManager.service",
+                  "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopsTableQueryOption.js"
+                },
+              "Footer": {
+                  "Caption": "$(L,see_all)",
+                  "AccessoryType": "disclosureIndicator",
+                  "FooterStyle": "attribute",
+                  "AttributeLabel": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopCount.js",
+                  "OnPress": "/SAPAssetManager/Actions/FOW/Routes/Stops/StopListNav.action"
+              }
+          }
+        ],
+        "_Type": "Control.Type.SectionedTable",
+        "_Name": "SectionedTable"
+    }
+],
+  "_Type": "Page",
+  "_Name": "RouteDetailsNoMapPage"
+}

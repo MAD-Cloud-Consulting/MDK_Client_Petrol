@@ -1,0 +1,133 @@
+{
+	"Caption": "$(L,crew)",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "right",
+				"_Name": "Sync",
+				"Caption": "Sync",
+				"IconText": "SyncIcon",
+				"Icon": "/SAPAssetManager/Rules/Sync/SyncIcon.js",
+				"OnPress": "/SAPAssetManager/Actions/SyncInitializeProgressBannerMessage.action"
+			},
+			{
+				"Position": "right",
+				"SystemItem": "Add",
+				"OnPress": "/SAPAssetManager/Actions/Crew/CrewSummaryPopover.action",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Crew/EnableCrewManage.js"
+			}
+		]
+	},
+	"OnReturning": "/SAPAssetManager/Rules/Crew/CrewPageRefresh.js",
+	"Controls":[
+		{
+			"Sections":[
+				{
+					"Header": {
+						"Caption": "$(L,current_crew_members)"
+					},
+					"ContactCell": {
+						"Headline": "#Property:Employee/#Property:EmployeeName",
+                        "Subheadline": "#Property:Employee/#Property:PersonnelNumber",
+						"OnPress": "/SAPAssetManager/Rules/Crew/Employees/CrewMemberDetailsNavWrapper.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "ActivityItems": [
+                            {
+                            	"ActivityType": "Phone",
+                            	"ActivityValue": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeePhone.js"
+                            },
+                            {
+                            	"ActivityType": "Email",
+                            	"ActivityValue": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeEmail.js"
+                            }
+                        ]						
+					},
+					"EmptySection":
+					{
+					  "Caption": "$(L,no_crew_members)",
+					  "HidesFooter": true
+					},
+					"MaxItemCount": 3,
+					"Target": {
+						"EntitySet": "CrewListItems",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/Crew/Employees/EmployeeQueryOptions.js"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "disclosureIndicator",
+						"FooterStyle": "attribute",
+						"AttributeLabel": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeSummaryCount.js",
+						"OnPress": "/SAPAssetManager/Rules/Crew/Employees/CrewMembersListViewNavWrapper.js"
+					},
+					 "DataSubscriptions": [ "CrewListItems","CrewLists"],
+					"_Name": "CrewMembersContactCellTable",
+					"_Type": "Section.Type.ContactCell"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,vehicles)"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "disclosureIndicator",
+						"FooterStyle": "attribute",
+						"AttributeLabel": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleSummaryCount.js",
+						"OnPress": "/SAPAssetManager/Rules/Crew/Vehicles/VehiclesListViewNavWrapper.js"
+					},
+					"MaxItemCount": 2,
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Title": "#Property:Fleet/#Property:EquipmentDesc",
+						"OnPress": "/SAPAssetManager/Rules/Crew/Vehicles/VehicleDetailsNavWrapper.js",
+						"SubstatusText": "",
+						"Subhead": "#Property:Fleet/#Property:LicensePlateNumber",
+						"PreserveIconStackSpacing": false						
+					},
+					"EmptySection":
+					{
+					  "Caption": "$(L,no_vehicles_available)",
+					  "HidesFooter": true
+					},
+					"Target": {
+						"EntitySet": "CrewListItems",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/Crew/Vehicles/VehicleQueryOptions.js"
+					},
+					"DataSubscriptions": ["CrewListItems","Fleets"],	
+					"_Name": "VehiclesObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				},
+				{				
+					"Header":
+					{
+                        "Caption": "$(L,time_sheets)"
+                	},
+					"ObjectCell":
+					{
+						"AccessoryType": "disclosureIndicator",
+						"Title": "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimeSheetsTodaysDate.js",
+						"Subhead": "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimeSheetsTodaysHours.js",
+						"StatusText": "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimeSheetsTodaysCrewMembers.js",
+						"OnPress": "/SAPAssetManager/Rules/Crew/TimeSheets/TimeSheetDetailsNavWrapper.js",
+						"PreserveIconStackSpacing": false
+					},
+					"Target":
+					{
+						"EntitySet": "CatsTimesheetOverviewRows",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$orderby=Date desc"
+					},
+					"DataSubscriptions": ["CatsTimesheets"],	
+                    "_Type": "Section.Type.ObjectTable",
+					"_Name": "TimesheetSection"
+                }
+			],
+			"_Type" : "Control.Type.SectionedTable",
+			"_Name": "SectionedTable",
+            "DataSubscriptions": ["CrewLists", "CrewListItems", "Fleets", "CatsTimesheets"]	
+		}
+	],
+	"_Type": "Page",
+	"_Name": "CrewSummaryPage"
+}

@@ -1,0 +1,135 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterOnReturn.js"
+            }
+        ]
+    },    
+    "Caption":"$(L,filter)",
+    "Controls":
+    [{
+        "Sections":
+        [
+        {
+            "Controls":
+            [{
+                "Caption": "$(L, equipment)",
+                "_Name": "Equipment",
+                "Value": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterDefaultValue.js",
+                "AllowMultipleSelection": false,
+                "IsVisible":"/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterIsVisbile.js",
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsPickerDismissedOnSelection" : true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:EquipId}} - {{#Property:EquipDesc}}",
+                    "ReturnValue": "{EquipId}",
+                    "Target": {
+                        "EntitySet": "MyEquipments",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterQueryOptions.js"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterOnValueChange.js",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "Caption": "$(L, functional_location)",
+                "_Name": "FuncLoc",
+                "Value": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterDefaultValue.js",
+                "AllowMultipleSelection": false,
+                "IsVisible":"/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterIsVisbile.js",
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsPickerDismissedOnSelection" : true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:FuncLocId}} - {{#Property:FuncLocDesc}}",
+                    "ReturnValue": "{FuncLocIdIntern}",
+                    "Target": {
+                        "EntitySet": "MyFunctionalLocations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterQueryOptions.js"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterOnValueChange.js",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "Caption": "$(L, operations)",
+                "_Name": "Operations",
+                "Value": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterDefaultValue.js",
+                "AllowMultipleSelection": true,
+                "IsVisible":"/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterIsVisbile.js",
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsPickerDismissedOnSelection" : true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": {
+                    "DisplayValue" : "{{#Property:OperationNo}} - {{#Property:OperationShortText}}",
+                    "ReturnValue" : "{OperationNo}",                   
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/WOHeader_Nav/Operations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterQueryOptions.js"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterOnValueChange.js",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "Caption": "$(L,filter_by)",
+                "_Name": "FilterSeg",
+                "Value": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterDefaultValue.js",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection" : false,
+                "PickerItems":"/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterPickerItems.js",
+                "OnValueChange": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterOnValueChange.js",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"InspectionCharacteristicsFDCFilter",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

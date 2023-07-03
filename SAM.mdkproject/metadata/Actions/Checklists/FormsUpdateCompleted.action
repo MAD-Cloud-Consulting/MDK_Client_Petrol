@@ -1,0 +1,18 @@
+{
+    "Target":
+    {
+        "EntitySet": "Forms",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "MobileStatus": "/SAPAssetManager/Rules/MobileStatus/Checklist/ChecklistMobileStatusCompleted.js",
+        "Status": "1"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:FormId"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

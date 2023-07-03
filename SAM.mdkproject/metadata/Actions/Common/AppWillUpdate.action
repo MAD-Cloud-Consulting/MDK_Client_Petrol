@@ -1,0 +1,7 @@
+{
+    "Title" : "$(L, app_update)",
+ 	"Message" : "$(L, app_update_message)",
+    "OKCaption" : "$(L, update)",
+    "CancelCaption" : "$(L, later)",
+    "_Type" : "Action.Type.Message"
+}

@@ -1,0 +1,5 @@
+{ 
+    "CancelPendingActions": false,
+    "ShowActivityIndicator": false,
+    "_Type": "Action.Type.ClosePage"
+}

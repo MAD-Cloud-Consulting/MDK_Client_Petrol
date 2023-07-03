@@ -1,0 +1,5 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/Inventory/IssueOrReceipt/SerialNumber.page",
+	"_Type": "Action.Type.Navigation",
+    "ModalPage": true
+}

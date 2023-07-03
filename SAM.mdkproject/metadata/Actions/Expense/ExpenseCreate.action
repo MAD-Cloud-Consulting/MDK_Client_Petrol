@@ -1,0 +1,37 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": 
+    {
+        "EntitySet" : "Confirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "ConfirmationNum" : "#ClientData/#Property:localConfirmationNum",
+        "ConfirmationCounter": "#ClientData/#Property:localConfirmationCounter",
+        "ActivityType": "#Control:ExpenseTypeLstPkr/#SelectedValue",
+        "ActualWork": "/SAPAssetManager/Rules/Expense/CreateUpdate/Data/GetAmountValue.js",
+        "ActualWorkUOM": "MIN",
+        "Operation": "#Control:OperationLstPkr/#SelectedValue",
+        "OrderID": "#Control:WorkOrderLstPkr/#SelectedValue",
+        "CreatedDate": "/SAPAssetManager/Rules/Expense/CreateUpdate/Data/GetCreatedDate.js",
+        "CreatedTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "StartTime":  "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "StartDate": "/SAPAssetManager/Rules/Expense/CreateUpdate/Data/GetCreatedDate.js",
+        "FinishTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "FinishDate": "/SAPAssetManager/Rules/Expense/CreateUpdate/Data/GetCreatedDate.js",
+        "PostingDate": "/SAPAssetManager/Rules/Expense/CreateUpdate/Data/GetCreatedDate.js",
+        "Description": "#Control:CommentProperty/#Value",
+        "WorkCenter": "#Control:WorkCenterPicker/#SelectedValue",
+        "Plant": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditPlant.js",
+        "FinalConfirmation": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/GetIsFinal.js",
+        "PersonnelNumber": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdatePersonnelNumber.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#ClientData/#Property:localConfirmationNum"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Expense/CreateUpdate/Data/CreateLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Expense/CreateUpdate/OnExpenseCreateSuccess.js",
+    "ShowActivityIndicator": true
+}

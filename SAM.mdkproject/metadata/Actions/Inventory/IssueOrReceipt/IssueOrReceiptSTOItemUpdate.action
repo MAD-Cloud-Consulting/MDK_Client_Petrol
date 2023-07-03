@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "StockTransportOrderItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{TempItem_ItemReadLink}"
+    },
+    "Properties": {
+        "ReceivedQuantity": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/CalculateNewReceivedQuantity.js",
+        "IssuedQuantity": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/CalculateNewIssuedQuantity.js",
+        "DeliveryCompletedFlag": "#Property:TempLine_DeliveryComplete"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

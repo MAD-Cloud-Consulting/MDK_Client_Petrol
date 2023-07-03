@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/Expenses/ExpensesListView.page",
+    "ShowActivityIndicator" : true,
+    "ActivityIndicatorText" : " "
+}

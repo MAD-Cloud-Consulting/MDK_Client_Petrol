@@ -1,0 +1,7 @@
+{
+    "Message": "$(L,confirm_remove_expenses)",
+    "OKCaption": "$(L,delete)",
+    "CancelCaption": "$(L,cancel)",
+    "OnOK": "/SAPAssetManager/Rules/Expense/List/RemoveChanges.js",
+    "_Type": "Action.Type.Message"
+}

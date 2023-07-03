@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,are_you_sure)",
+    "Message": "$(L,auto_generate_serial_numbers_warning)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)"
+}

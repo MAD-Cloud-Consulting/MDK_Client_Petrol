@@ -1,0 +1,41 @@
+{
+	"Caption": "$(L,meters)",
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search_for_meter)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+			"ObjectCell": {
+				"AccessoryType": "disclosureIndicator",
+				"Title": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"Subhead": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"Footnote": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"StatusText": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/MeterDetailsNav.action",
+				"PreserveIconStackSpacing": false
+			},
+			"Target": {
+				"EntitySet": "/SAPAssetManager/Rules/Meter/MetersListViewEntitySet.js",
+				"Service": "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Meter/MetersListViewQueryOptions.js"
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "MetersListSection"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "MetersListViewPage",
+    "DataSubscriptions": []
+}

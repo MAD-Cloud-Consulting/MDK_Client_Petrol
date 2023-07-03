@@ -1,0 +1,6 @@
+{
+    "Title" : "Feature Layer Sample",
+ 	"Message" : "/SAPAssetManager/Rules/FeatureLayerSampleMessage.js",
+    "OKCaption" : "$(L, ok)",
+    "_Type" : "Action.Type.Message"
+}

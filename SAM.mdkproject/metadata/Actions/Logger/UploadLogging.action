@@ -1,0 +1,7 @@
+{
+    "_Type" : "Action.Type.Logger.Upload",
+    "OnSuccess": "/SAPAssetManager/Actions/Logger/LogUploadSuccessMessage.action",
+    "OnFailure": "/SAPAssetManager/Actions/Logger/LogUploadFailureMessage.action",
+    "ShowActivityIndicator" : true,
+    "ActivityIndicatorText" : " "
+}

@@ -1,0 +1,46 @@
+{
+	"Collection": [
+		"MyWorkOrderHeaderLongTexts"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "WorkOrderHeader",
+			"_Type": "MyWorkOrderHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "TextString",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NewTextString",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextObjType",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyWorkOrderHeaderLongText"
+}

@@ -1,0 +1,40 @@
+{
+    "_Type": "Page",
+    "_Name": "PRTEquipmentsListViewPage",
+    "Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTEquipmentsListViewCaption.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+		 		        "UseTopPadding": false
+    		        },
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_equipment_available)"
+                    },
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Title": "{Description}",
+                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTEquipmentDetailsViewNav.action",
+                        "PreserveIconStackSpacing": false,
+                        "Subhead": "{Equipment}"
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/Tools",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$filter=(PRTCategory eq 'E')&$expand=PRTEquipment&$orderby=ItemNum,ItemCounter"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "Equipments"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ]
+}

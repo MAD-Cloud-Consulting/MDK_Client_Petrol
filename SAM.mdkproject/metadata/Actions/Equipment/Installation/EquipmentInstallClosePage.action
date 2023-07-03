@@ -1,0 +1,6 @@
+{
+    "CancelPendingActions": false,
+    "DismissModal": "Action.Type.ClosePage.Completed",
+    "_Type": "Action.Type.ClosePage",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/InstallationSuccessWithAutoSync.js"
+}

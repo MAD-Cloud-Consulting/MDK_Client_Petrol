@@ -1,0 +1,16 @@
+{
+	"Properties":
+	{
+
+	},
+	"Target":
+	{
+		"EntitySet": "PMMobileStatusHistories",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Headers": {
+		"Transaction.Ignore": "true",
+		"OfflineOData.RemoveAfterUpload": "true"
+	},
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

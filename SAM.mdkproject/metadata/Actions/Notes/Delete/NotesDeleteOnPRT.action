@@ -1,0 +1,21 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Notes/NoteGetEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/Notes/NoteReadlink.js" 
+    },
+    "Properties": {
+        "OrderId": "#Property:OrderId",
+        "OperationNo": "#Property:OperationNo",
+        "NewTextString": "",
+        "TextString": "/SAPAssetManager/Rules/Notes/NoteRemoteTextString.js",
+        "ItemCounter": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTItemCounter.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js"
+    },
+	"OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/DeleteEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action",
+    "UpdateLinks": "/SAPAssetManager/Rules/Notes/NoteCreateLinks.js"
+}

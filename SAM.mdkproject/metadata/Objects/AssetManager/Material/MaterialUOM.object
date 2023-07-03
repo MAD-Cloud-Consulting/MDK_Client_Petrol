@@ -1,0 +1,56 @@
+{
+	"Collection": [
+		"MaterialUOMs"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Material",
+			"_Type": "Materials"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "UOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BaseFlag",
+			"_Type": "Edm.Boolean"
+		},
+		{
+			"Key": false,
+			"_Name": "BaseUOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BatchIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MaterialNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ConversionFactor",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "Denominator",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "Numerator",
+			"_Type": "Edm.Decimal"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MaterialUOM"
+}

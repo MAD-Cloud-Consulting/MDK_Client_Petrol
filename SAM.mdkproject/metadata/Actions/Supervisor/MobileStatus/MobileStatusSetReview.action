@@ -1,0 +1,19 @@
+{
+    "Headers": {
+        "OfflineOData.NonMergeable": true
+    },
+    "Properties": {
+        "MobileStatus": "/SAPAssetManager/Rules/Supervisor/MobileStatus/MobileStatusReview.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/EndDateTime.js",
+        "CreateUserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "CreateUserId": "/SAPAssetManager/Rules/MobileStatus/GetSAPUserId.js"
+    },
+    "Target": {
+        "EntitySet": "PMMobileStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : "/SAPAssetManager/Rules/MobileStatus/MobileStatusSetCompleteReadLink.js"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/Supervisor/MobileStatus/MobileStatusReviewUpdateLinks.js",
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "ActionResult" : {"_Name" : "MobileStatusSetReview"}
+}

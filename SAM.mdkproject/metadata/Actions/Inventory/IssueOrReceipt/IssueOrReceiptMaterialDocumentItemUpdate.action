@@ -1,0 +1,41 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{TempLine_MatDocItemReadLink}"
+    },
+    "Properties": {
+        "MaterialDocYear": "#Property:TempHeader_MaterialDocYear",
+        "StorageLocation": "#Property:TempLine_StorageLocation",
+        "EntryQuantity": "#Property:TempLine_EntryQuantity",
+        "EntryUOM": "#Property:TempLine_EntryUOM",
+        "GoodsRecipient": "#Property:TempLine_GoodsReceipient",
+        "UOM": "#Property:TempLine_EntryUOM",
+        "AutoGenerateSerialNumbers": "#Property:TempLine_AutoGenerateSerialNumbers",
+        "FinalIssue": "#Property:TempLine_DeliveryComplete",
+        "ItemText": "#Property:TempLine_ItemText",
+        "UnloadingPoint": "#Property:TempLine_UnloadingPoint",
+        "GLAccount": "#Property:TempLine_GLAccount",
+        "CostCenter": "#Property:TempLine_CostCenter",
+        "WBSElement": "#Property:TempLine_WBSElement",
+        "OrderNumber": "#Property:TempLine_Order",
+        "Network": "#Property:TempLine_Network",
+        "NetworkActivity": "#Property:TempLine_Activity",
+        "Batch": "#Property:TempLine_Batch",
+        "StockType": "#Property:TempLine_StockType",
+        "ValuationType": "#Property:TempLine_ValuationType",
+        "StorageBin": "#Property:TempLine_StorageBin",
+        "MovePlant": "#Property:TempLine_ToPlant",
+        "MoveStorageLocation": "#Property:TempLine_ToStorageLocation",
+        "MoveBatch": "#Property:TempLine_ToBatch",
+        "MovementReason": "#Property:TempLine_MovementReason",
+         "ReferenceDocHdr": "#Property:TempLine_ReferenceDocHdr",
+        "ReferenceDocYear": "#Property:TempLine_ReferenceDocYear",
+        "ReferenceDocItem": "#Property:TempLine_ReferenceDocItem"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

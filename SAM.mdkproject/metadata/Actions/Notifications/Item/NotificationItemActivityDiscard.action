@@ -1,0 +1,15 @@
+{
+	"Target":
+	{
+		"EntitySet" : "MyNotificationItemActivities",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.id}"
+	},
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/NotificationItemCauseTaskActivityParentID.js"
+	},
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+	"OnSuccess": "/SAPAssetManager/Rules/Common/DeleteEntityOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

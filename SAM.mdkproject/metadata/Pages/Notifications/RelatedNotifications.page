@@ -1,0 +1,41 @@
+{
+	"Caption": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationsListCaption.js",
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"Sections": [
+				{
+					"_Name": "RelatedNotificationsPageSection",
+					"_Type": "Section.Type.ObjectTable",
+					"ObjectCell": {
+                        "Description": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryLongTexts.js",
+                        "Title": "{Description}",
+                        "Subhead": "{NotificationNumber}",
+                        "Footnote": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationEndDate.js",
+                        "StatusText": "#Property:HistoryPriority_Nav/#Property:PriorityDescription",
+                        "SubstatusText": "{NotificationType}",
+                        "OnPress": "/SAPAssetManager/Actions/Notifications/RelatedNotifications/RelatedNotificationsDetailsNav.action",
+                        "PreserveIconStackSpacing":false
+					},
+					"Target": {
+						"EntitySet": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryEntitySet.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions":"/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationsQueryOptions.js"
+					},
+					"Search": {
+						"Enabled": true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "Search",
+						"BarcodeScanner": true
+					},
+					"Header": {
+		 				"UseTopPadding": false
+    				}
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "RelatedNotificationsPage"
+}

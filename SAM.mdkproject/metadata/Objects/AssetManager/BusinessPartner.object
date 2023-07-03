@@ -1,0 +1,86 @@
+{
+	"Collection": [
+		"BusinessPartners"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "EquipPartner",
+			"_Type": "MyEquipPartners"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocPartner",
+			"_Type": "MyFuncLocPartners"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationPartner",
+			"_Type": "MyNotificationPartners"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderPartner",
+			"_Type": "MyWorkOrderPartners"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "BPNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FirstName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LastName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FullName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PersonNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "AddressNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrgName1",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrgName2",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CostCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BPType",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "BusinessPartner"
+}

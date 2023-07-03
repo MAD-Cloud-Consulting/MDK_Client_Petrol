@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.Filter",
+	"PageToOpen" : "/SAPAssetManager/Pages/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilter.page",
+    "Filterable": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsFDCFilterFilterable.js",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

@@ -1,0 +1,12 @@
+{
+    "Actions":
+    [
+        "/SAPAssetManager/Actions/Equipment/Installation/EquipmentInstallationDelete.action",
+        "/SAPAssetManager/Actions/Equipment/Uninstall/SetAvailableErrorArchive.action"
+    ],
+    "Target":
+    {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

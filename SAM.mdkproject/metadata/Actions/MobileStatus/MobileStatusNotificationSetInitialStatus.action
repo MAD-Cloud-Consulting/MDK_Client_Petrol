@@ -1,0 +1,13 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":{
+		"EntitySet": "PMMobileStatuses",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+	},
+	"OnSuccess": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnSuccess.js",
+	"OnFailure" : "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : " "
+}

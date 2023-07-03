@@ -1,0 +1,39 @@
+{
+	"Collection": [
+		"Priorities"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "PriorityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "Priority",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PriorityDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LanguageKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StartDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EndDate",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "Priority"
+}

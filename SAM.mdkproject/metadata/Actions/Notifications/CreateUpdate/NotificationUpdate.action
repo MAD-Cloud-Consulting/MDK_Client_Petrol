@@ -1,0 +1,20 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyNotificationHeaders",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.readLink}"
+	},
+	"Properties": {},
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:NotificationNumber"
+    },
+	"UpdateLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationLinks.js",
+	"DeleteLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationLinksDelete.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationUpdateSuccess.js",
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : "  "
+}

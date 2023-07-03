@@ -1,0 +1,10 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/Parts/PartCreateUpdateNav.action"
+    ],
+    "OnSuccess": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnSuccess.js",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

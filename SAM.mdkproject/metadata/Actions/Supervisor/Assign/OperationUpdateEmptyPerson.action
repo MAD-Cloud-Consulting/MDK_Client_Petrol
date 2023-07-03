@@ -1,0 +1,22 @@
+{
+    "Properties": {
+        "PersonNum": "00000000"
+    },
+    "Target": {
+        "EntitySet": "MyWorkOrderOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:OperationReadLink"
+    },
+    "Headers": {
+        "Transaction.Ignore":"true"
+    },
+    "DeleteLinks": [{
+        "Property": "Employee_Nav",
+        "Target": {
+            "EntitySet": "Employees",
+            "ReadLink": "#ClientData/#Property:EmployeeReadLink"
+        }
+    }],
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}
+

@@ -1,0 +1,25 @@
+{
+    "Properties":
+    {
+        "Status": "I0100"
+    },
+    "Headers":
+    {
+        "Transaction.Ignore": "true"
+    },
+    "UpdateLinks":
+    [{
+        "Property": "SystemStatus_Nav",
+        "Target": {
+            "EntitySet": "SystemStatuses",
+            "ReadLink": "SystemStatuses('I0100')"
+        }
+    }],
+    "Target":
+    {
+        "EntitySet": "MyEquipObjectStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "MyEquipObjectStatuses('{{#Property:EquipId}}')"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

@@ -1,0 +1,132 @@
+{
+    "Caption": "",
+    "OnLoaded": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateUpdateOnPageLoad.js",    
+    "OnUnloaded": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateUpdateOnPageUnLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateUpdateFinalizeData.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+
+                    "Controls": [
+                        {
+                            "Caption": "$(L,point)",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValue.js",
+                            "_Name": "PointSim",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L,description)",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDescription.js",
+                            "_Name": "DescriptionSim",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L,characteristic)",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointCharName.js",
+                            "_Name": "CharacteristicSim",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L,reading)",
+                            "_Name": "ReadingSim",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointReading.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "IsEditable": "/SAPAssetManager/Rules/Measurements/MeasuringPointReadingIsEditable.js",
+                            "KeyboardType": "Number",
+                            "PlaceHolder": "$(L,none)"
+                        },
+                        {
+                            "Caption": "$(L,uom)",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointUOM.js",
+                            "_Name": "UOMSim",
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "PlaceHolder": "$(L,none)"
+                        },
+                        {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+				                "BarcodeScanner": true
+                            },
+
+                            "Caption": "$(L,valuation_code)",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValuationCode.js",
+                            "PickerItems": {
+                                "DisplayValue" : "/SAPAssetManager/Rules/Measurements/DisplayValueValuationCode.js",
+                                "ReturnValue" : "{@odata.readLink}",
+                                "Target":
+                                {
+                                    "EntitySet" : "PMCatalogCodes",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValuationCodeQueryOptions.js"
+                                }
+                            },
+                            "_Name": "ValuationCodeLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L, note)",
+                            "PlaceHolder": "$(L,note)",
+                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointShortText.js",
+                            "IsAutoResizing": true,
+                            "_Name": "ShortTextNote",
+                            "_Type": "Control.Type.FormCell.Note"
+                        }
+                    ]
+                },
+                {
+                    "Controls":
+                    [{
+                        "Title": "$(L,discard)",
+                        "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+                        "IsVisible": "/SAPAssetManager/Rules/Common/IsDiscardButtonVisible.js",
+                        "_Type": "Control.Type.FormCell.Button",
+                        "ButtonType": "Text",
+                        "Semantic": "Tint",
+                        "_Name": "DiscardButton",
+                        "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                    }]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "MeasurementDocumentCreateUpdatePage"
+}

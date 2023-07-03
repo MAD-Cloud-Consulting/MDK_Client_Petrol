@@ -1,0 +1,15 @@
+{
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+	"Target":{
+		"Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+		"EntitySet":"TOTPDevices",
+		"ReadLink": "/SAPAssetManager/Rules/DigitalSignature/TOTPDefaultDeviceReadLink.js"
+	},
+	 "Properties":
+    {
+	    "DeviceId": "/SAPAssetManager/Rules/DigitalSignature/TOTPDefaultDeviceId.js"
+    },
+	"ShowActivityIndicator": true,
+    "OnSuccess":"/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/TOTPDeviceUnregistrationSuccessWithAutoSync.js",
+	"OnFailure":"/SAPAssetManager/Actions/DigitalSignature/TOTPDeviceUnregistrationFailure.action"
+}

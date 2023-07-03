@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Geçerli yeriniz haritada gösterilecek";
+
+"NSLocationAlwaysUsageDescription" = "\"SAP Asset Manager\" uygulamasının her zaman yerinize erişmesine izin veriyor musunuz?";
+
+"NSCameraUsageDescription" = "Kameraya barkod tarama ve uygulamada eklenecek resimler çekme izni ver";
+
+"NSMicrophoneUsageDescription" = "Mikrofona erişim izni verin";
+
+"NSFaceIDUsageDescription" = "Face ID'yi etkinleştirerek SAP Asset Manager'a hızlı ve güvenli şekilde erişebilirsiniz";
+
+"NSPhotoLibraryUsageDescription" = "Uygulamada yüklenecek fotoğrafları eklemek için fotoğraf kitaplığı erişimine izin ver";
+
+"NSPhotoLibraryAddUsageDescription" = "Uygulamamız fotoğrafları yazmak için izin gerektiriyor";
+

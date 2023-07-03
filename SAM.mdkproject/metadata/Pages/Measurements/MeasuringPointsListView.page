@@ -1,0 +1,58 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsCaptions.js",
+    "ActionBar":
+	{
+		"Items":
+		[
+		{
+			"Position": "right",
+			"Icon": "$(PLT,'',/SAPAssetManager/Images/filter.android.png)",
+			"Text": "$(L,filter)",
+            "OnPress": "/SAPAssetManager/Actions/Measurements/MeasuringPointsFilter.action"
+		}]
+	},
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Search":
+                    {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)"
+                    },
+                    "Header": {
+		 		        "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_measuring_points_available)"
+                    },
+                    "ObjectCell": {
+                        "Title": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointListFieldFormat.js",
+                        "Subhead": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointFieldFormat.js",
+                        "StatusText": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointListFieldFormat.js",
+                        "Footnote": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointFieldFormat.js",
+                        "SubstatusText": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointListFieldFormat.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsNav.js",
+                        "PreserveIconStackSpacing": true,
+                        "Icons": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointIcons.js"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsListViewEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsListViewQueryOption.js"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "MeasuringPointsList"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+			"_Name" : "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "MeasuringPointsListViewPage",
+    "OnReturning": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsListViewOnReturning.js"
+}

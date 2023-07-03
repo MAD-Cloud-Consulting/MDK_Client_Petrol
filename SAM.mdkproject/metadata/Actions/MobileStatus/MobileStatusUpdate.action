@@ -1,0 +1,13 @@
+{
+	"Properties":
+	{
+
+	},
+	"Target":
+	{
+		"EntitySet": "PMMobileStatuses",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"UpdateLinks": [],
+	"_Type": "Action.Type.ODataService.UpdateEntity"
+}

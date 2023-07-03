@@ -1,0 +1,17 @@
+{
+    "Properties": {
+        "UserGUID": "",
+        "CurrentTimeStamp": "",
+        "GeometryValue": ""
+    },
+    "Target": {
+        "EntitySet": "UserLocations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : ""
+    },
+	"Headers": {
+        "OfflineOData.NonMergeable": true
+    },
+	"_Type": "Action.Type.ODataService.CreateEntity",
+    "OnFailure": "/SAPAssetManager/Rules/LocationTracking/LocationUpdateOnFailure.js"
+}

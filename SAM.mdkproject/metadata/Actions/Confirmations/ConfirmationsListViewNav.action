@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/Confirmations/ConfirmationsListView.page",
+    "ShowActivityIndicator" : true,
+    "ActivityIndicatorText" : " "
+}

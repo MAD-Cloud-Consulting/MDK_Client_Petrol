@@ -1,0 +1,52 @@
+{
+    "Caption": "$(L,sync_error_title)",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action",
+                "Visible": "/SAPAssetManager/Rules/Sync/SyncErrorCloseIsVisible.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "Error",
+                            "Value": "/SAPAssetManager/Rules/Sync/SyncErrorFormat.js"
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)" 
+                    },
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "ErrorKeyValue"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }],
+		"ToolBar": {
+			"Items": [
+				{
+					"_Name": "FlexibleSpace",
+					"_Type": "Control.Type.ToolbarItem",
+					"SystemItem": "FlexibleSpace"
+				},
+				{
+					"_Name": "Send",
+					"_Type": "Control.Type.ToolbarItem",
+					"Enabled": true,
+					"Caption": "$(L,sync)",
+					"OnPress": "/SAPAssetManager/Rules/Sync/SyncFromSyncError.js"
+				}
+			]
+		},
+    "_Type": "Page",
+    "_Name": "ErrorArchiveDetailsAndroidPage"
+}

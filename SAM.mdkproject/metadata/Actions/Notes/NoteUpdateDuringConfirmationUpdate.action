@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Notes/NoteGetEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/Notes/Update/NoteUpdateReadLink.js"        
+    },
+    "Properties": {     
+        "NewTextString": "#Control:DescriptionNote/#Value",
+        "TextString": "#Control:DescriptionNote/#Value"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:ConfirmationNum"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/Notes/NoteUpdateFailureMessage.action",
+    "UpdateLinks":  "/SAPAssetManager/Rules/Notes/NoteCreateLinks.js"
+}

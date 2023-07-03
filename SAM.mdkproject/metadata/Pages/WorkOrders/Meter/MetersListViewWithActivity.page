@@ -1,0 +1,58 @@
+{
+	"Caption": "$(L,meters)",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Meter/MetersListViewOnLoad.js",
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+			"Text": "$(L,disconnect_all)",
+			"OnPress": "/SAPAssetManager/Actions/Meters/MeterDisconnectMultipleNav.action"
+		},
+		{
+			"Position": "right",
+			"Text": "$(L,reconnect_all)",
+			"OnPress": "/SAPAssetManager/Actions/Meters/MeterDisconnectMultipleNav.action"
+		}]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search_for_meter)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+			"ObjectCell": {
+				"AccessoryType": "disclosureIndicator",
+				"Title": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"Subhead": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"Footnote": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"StatusText": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"SubstatusText": "/SAPAssetManager/Rules/Meter/Format/MeterObjectCell.js",
+				"OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/MeterDetailsNav.action",
+				"PreserveIconStackSpacing": false
+			},
+			"Target": {
+				"EntitySet": "DisconnectionObjects",
+				"Service": "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/WorkOrders/Meter/DisconnectObjectQueryOptions.js"
+
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "MetersListSection"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "MetersWithActivityListViewPage",
+    "DataSubscriptions": []
+}

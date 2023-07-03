@@ -1,0 +1,66 @@
+{
+	"Caption": "$(L, add_passphrase)",
+	"OnLoaded": "/SAPAssetManager/Rules/DigitalSignature/CreateDigitalSignatureOnLoaded.js",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "left",
+				"SystemItem": "Cancel",
+				"Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/IsNotCompleteAction.js",
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+			},
+			{
+				"Position": "Right",
+				"Text": "$(L, next)",
+				"OnPress":"/SAPAssetManager/Rules/DigitalSignature/AddPassphraseCheckRequiredFields.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "passphrase",
+							"IsEditable": true,
+							"Caption": "$(L, passphrase)",
+							"PlaceHolder": "$(L, enter_passphrase)",
+							"KeyboardType": "NumberPassword",
+							"HelperText": "$(L, add_passphrase_helpertext)"
+						},
+						{
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "remark",
+							"IsEditable": true,
+							"Caption": "$(L, remark)",
+							"Value": "",
+							"AllowMultipleSelection": false,
+							"AllowDefaultValueIfOneItem": true,
+							"PickerItems":{
+								"Target":{
+									"EntitySet": "DigitalSignatureNotes",
+									"Service": "/SAPAssetManager/Services/AssetManager.service"
+								},
+								"DisplayValue": "{NoteDescription} - {NoteId}",
+								"ReturnValue": "{NoteId}"
+							},
+							"IsPickerDismissedOnSelection": true
+						},
+						{
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "comment",
+							"IsEditable": true,
+							"Caption": "$(L, comment)"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer0",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "CreateDigitalSignature",
+	"_Type": "Page"
+}

@@ -1,0 +1,42 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "LAMObjectData",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "ObjectType": "MD",
+        "TableKey": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMMeasurementDocTableKey.js",
+        "LRPId": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMLinearReferencePatternFromFDC.js",
+        "UOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMUOMFromFDC.js",
+        "Length": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMLengthFromFDC.js",
+        "StartPoint": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMStartPointFromFDC.js",
+        "EndPoint": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEndPointFromFDC.js",
+        "StartMarker": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMStartMarkerFromFDC.js",
+        "EndMarker": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEndMarkerFromFDC.js",
+        "MarkerUOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMMarkerUOMFromFDC.js",
+        "Offset1Type": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset1TypeFromFDC.js",
+        "Offset1Value": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset1FromFDC.js",
+        "Offset1UOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset1UOMFromFDC.js",
+        "Offset2Type": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset2TypeFromFDC.js",
+        "Offset2Value": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset2FromFDC.js",
+        "Offset2UOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset2UOMFromFDC.js",
+        "StartMarkerDistance": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMStartDistanceFromFDC.js",
+        "EndMarkerDistance": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEndDistanceFromFDC.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMTransactionID.js"
+    },
+    "CreateLinks": [{
+        "Property": "MeasurementDocument_Nav",
+        "Target": {
+            "EntitySet": "MeasurementDocuments",
+            "ReadLink": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMMeasurementDocumentReadLinkFromFDC.js"
+        }
+    }],
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

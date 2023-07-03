@@ -1,0 +1,19 @@
+{
+    "Headers": {
+        "OfflineOData.NonMergeable": true
+    },
+    "Properties": {
+        "ObjectKey": "/SAPAssetManager/Rules/WorkOrders/WorkOrderObjectKey.js",
+        "ObjectType": "/SAPAssetManager/Rules/WorkOrders/WorkOrderObjectType.js",
+        "MobileStatus": "/SAPAssetManager/Rules/MobileStatus/MobileStatusStarted.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/StartDateTime.js",
+        "CreateUserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "CreateUserId": "/SAPAssetManager/Rules/MobileStatus/GetSAPUserId.js"
+    },
+    "Target": {
+        "EntitySet": "PMMobileStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : "/SAPAssetManager/Rules/MobileStatus/MobileStatusReadLink.js"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

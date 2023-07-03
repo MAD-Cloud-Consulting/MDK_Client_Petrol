@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,new_meter_install)",
+    "Message": "$(L,new_meter_install_message)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,skip)"
+}

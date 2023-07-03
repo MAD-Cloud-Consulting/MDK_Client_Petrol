@@ -1,0 +1,4 @@
+{
+    "PageToOpen" : "/SAPAssetManager/Pages/FunctionalLocation/FunctionalLocationMapUpdate.page",
+    "_Type" : "Action.Type.Navigation"
+}

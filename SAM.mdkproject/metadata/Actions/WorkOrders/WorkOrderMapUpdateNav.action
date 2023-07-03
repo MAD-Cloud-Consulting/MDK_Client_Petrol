@@ -1,0 +1,4 @@
+{
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/WorkOrderMapUpdate.page",
+    "_Type" : "Action.Type.Navigation"
+}

@@ -1,0 +1,106 @@
+{
+	"Collection": [
+		"MyWorkOrderSubOperations"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "EquipmentSubOperation",
+			"_Type": "MyEquipments"
+		},
+		{
+			"Key": false,
+			"_Name": "FunctionalLocationSubOperation",
+			"_Type": "MyFunctionalLocations"
+		},
+		{
+			"Key": false,
+			"_Name": "MobileStatus",
+			"_Type": "MobileStatuses"
+		},
+		{
+			"Key": false,
+			"_Name": "SubOperationLongText",
+			"_Type": "MyWorkOrderSubOpLongTexts"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderOperation",
+			"_Type": "MyWorkOrderOperations"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "OperationNo",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "SubOperationNo",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ControlKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MaintenancePlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OperationEquipment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OperationFunctionLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OperationShortText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkCenterInternalId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MainWorkCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MainWorkCenterPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PersonNum",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyWorkOrderSubOperation"
+}

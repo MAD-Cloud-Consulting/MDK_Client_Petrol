@@ -1,0 +1,86 @@
+{
+	"Collection": [
+		"Geometries"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "EquipGeometries",
+			"_Type": "MyEquipGeometries"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocGeometries",
+			"_Type": "MyFuncLocGeometries"
+		},
+		{
+			"Key": false,
+			"_Name": "NotifGeometries",
+			"_Type": "MyNotifGeometries"
+		},
+		{
+			"Key": false,
+			"_Name": "WOGeometries",
+			"_Type": "MyWorkOrderGeometries"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "LogicalSystem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectGroup1",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SegmentCount",
+			"_Type": "Edm.Int16"
+		},
+		{
+			"Key": false,
+			"_Name": "SegmentNo",
+			"_Type": "Edm.Int16"
+		},
+		{
+			"Key": true,
+			"_Name": "SpacialGUId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "SpacialId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "GeometryValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OutputFormat",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "Geometry"
+}

@@ -1,0 +1,50 @@
+{
+    "Caption": "$(L,sync_error_title)",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action",
+                "Visible": "/SAPAssetManager/Rules/Sync/SyncErrorCloseIsVisible.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "Error",
+                            "Value": "/SAPAssetManager/Rules/Sync/SyncErrorFormat.js"
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)" 
+                    },
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "ErrorKeyValue"
+                },
+		        {
+                    "Header": {
+                        "UseTopPadding": true
+                    },
+                    "Buttons": [{
+                        "Title" : "$(L,sync)",
+                        "ButtonType": "Text",
+                        "Semantic": "Tint",
+                        "_Name": "Send",
+                        "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js",
+                        "OnPress" : "/SAPAssetManager/Rules/Sync/SyncFromSyncError.js"                      
+                    }],
+                    "_Type": "Section.Type.ButtonTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }],
+    "_Type": "Page",
+    "_Name": "SyncErrorDetailsPage"
+}

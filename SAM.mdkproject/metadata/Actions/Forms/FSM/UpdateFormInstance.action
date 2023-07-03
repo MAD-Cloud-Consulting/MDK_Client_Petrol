@@ -1,0 +1,15 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+ 	"Target": {
+ 		"EntitySet": "FSMFormInstances",
+ 		"Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+ 	},
+ 	"Properties": {
+        "Content": "{base64String}",
+		"Closed": "/SAPAssetManager/Rules/Forms/FSM/GetClosedFlagForInstanceUpdate.js"
+ 	},
+	"RequestOptions": {
+		"UpdateMode": "Replace"
+	}
+}

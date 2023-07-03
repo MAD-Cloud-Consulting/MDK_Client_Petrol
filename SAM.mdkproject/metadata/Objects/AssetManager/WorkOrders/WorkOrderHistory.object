@@ -1,0 +1,91 @@
+{
+	"Collection": [
+		"WorkOrderHistories"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "HistoryLongText",
+			"_Type": "WorkOrderHistoryTexts"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderHeader",
+			"_Type": "MyWorkOrderHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "EndDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StartDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ReferenceWorkOrder",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Equipment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FunctionalLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PersonsName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Priority",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlanningPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReferenceType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextExists",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "WorkOrderHistory"
+}

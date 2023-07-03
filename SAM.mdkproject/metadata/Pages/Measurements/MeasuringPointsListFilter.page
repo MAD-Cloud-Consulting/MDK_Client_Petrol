@@ -1,0 +1,66 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result":
+    [
+        "#Page:MeasuringPointsListFilterPage/#Control:CounterFilter/#Value",
+        "#Page:MeasuringPointsListFilterPage/#Control:ValCodeFilter/#Value"
+    ],
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,counter)",
+                "FilterProperty":"/SAPAssetManager/Rules/Measurements/MeasuringPointCounterFilter.js",
+                "_Name":"CounterFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            },
+            {
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,valuation_code)",
+                "FilterProperty":"/SAPAssetManager/Rules/Measurements/MeasuringPointValCodeFilter.js",
+                "_Name":"ValCodeFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"MeasuringPointsListFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

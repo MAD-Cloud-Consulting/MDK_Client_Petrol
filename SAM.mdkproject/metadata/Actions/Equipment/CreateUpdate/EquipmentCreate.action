@@ -1,0 +1,39 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Properties": {
+		"EquipId": "#Control:IdProperty/#Value",
+		"EquipDesc": "#Control:DescriptionNote/#Value",
+		"EquipCategory": "#Control:CategoryLstPkr/#SelectedValue",
+		"FuncLocId": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/FuncLoc.js",
+		"SuperiorEquip": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/SuperiorEquip.js",
+		"Manufacturer": "#Control:ManufactureNameProperty/#Value",
+		"PlanningPlant": "#Control:MaintenacePlantLstPkr/#SelectedValue",
+		"MaintPlant": "#Control:MaintenacePlantLstPkr/#SelectedValue",
+		"StartDate": "/SAPAssetManager/Rules/Common/Controls/Data/StartDate.js",
+		"ConstYear": "/SAPAssetManager/Rules/Common/Controls/Data/ConstYear.js",
+		"ConstMonth": "/SAPAssetManager/Rules/Common/Controls/Data/ConstMonth.js",
+		"ManufSerialNo": "#Control:SerialNumberProperty/#Value",
+		"ModelNum": "#Control:ModelNumberProperty/#Value",
+		"Location": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/Location.js",
+		"Room": "#Control:RoomProperty/#Value",
+		"CopyEquipId": "#Control:TemplateLstPkr/#SelectedValue",
+		"CopyClassification": "/SAPAssetManager/Rules/Common/Controls/Data/CopyClassifications.js",
+		"CopyClassificationValues": "/SAPAssetManager/Rules/Common/Controls/Data/CopyClassificationValues.js",
+		"CopyNote": "/SAPAssetManager/Rules/Common/Controls/Data/CopyNote.js",
+		"CopyDocuments":  "/SAPAssetManager/Rules/Common/Controls/Data/CopyDocuments.js",
+		"CopyMeasuringPoints": "/SAPAssetManager/Rules/Common/Controls/Data/CopyMeasuringPoints.js",
+		"CopyPartners":"/SAPAssetManager/Rules/Common/Controls/Data/CopyPartners.js",
+		"CopyInstallLocation": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/CopyInstallLocation.js"
+	},
+	"Target": {
+		"EntitySet" : "MyEquipments",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#Control:IdProperty/#Value"
+    },
+	"CreateLinks": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentCreateLinks.js",
+	"OnSuccess": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentCreateSuccess.js"
+}

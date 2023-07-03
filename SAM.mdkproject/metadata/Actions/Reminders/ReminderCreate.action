@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "UserPreferences",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "UserGuid": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "RecordId": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesRecordIdOnCreate.js",
+        "PreferenceGroup": "REMINDERS",
+        "PreferenceName": "#Control:Name/#Value",
+        "PreferenceValue": "#Control:Description/#Value"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/CreateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/Reminders/ReminderCreateUpdateValidation.js"
+}

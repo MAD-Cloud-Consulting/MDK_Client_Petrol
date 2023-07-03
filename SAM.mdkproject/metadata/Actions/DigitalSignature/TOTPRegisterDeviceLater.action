@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+	"Message": "$(L,register_on_profile_settings)",
+	"Duration": 3
+}

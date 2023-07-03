@@ -1,0 +1,46 @@
+{
+	"Caption": "$(L,items)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectCell": {
+						"AccessoryButtonIcon": "$(PLT, /SAPAssetManager/Images/edit-accessory.ios.png, /SAPAssetManager/Images/edit-accessory.android.png)",
+						"Footnote": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetBatchAndBin.js",
+						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SetPhysicalInventoryCountHeaderExists.js",
+						"PreserveIconStackSpacing": false,
+						"OnPress": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/ItemDetailsPage.js",
+						"StatusText": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetStockTypeCaptionAndValue.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetPhysicalInventoryItemCountQuantitiesText.js",
+                        "Description": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetSerializedAndPosted.js",
+						"Subhead": "{Item}",
+						"Title": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetMaterialAndDescription.js"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 2,
+						"Placeholder": "$(L,search)",
+						 "Delay": 500
+					},
+					"Header": {
+						"UseTopPadding": false,
+						"Caption": "/SAPAssetManager/Rules/Inventory/Search/InventorySearchSetTabCaption.js"
+					},
+					"Target": {
+						"EntitySet": "PhysicalInventoryDocItems",
+						"QueryOptions": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryItemsListQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable0",
+					"_Type": "Section.Type.ObjectTable",
+					"DataSubscriptions": ["PhysicalInventoryDocItems","PhysicalInventoryDocHeaders"]
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "PhysicalInventoryItemsListPage",
+	"_Type": "Page"
+}

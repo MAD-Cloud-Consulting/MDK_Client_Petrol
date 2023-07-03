@@ -1,0 +1,170 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/Inventory/Stock/StockSearchFilterResults.js",
+    "Controls":
+    [{
+        "Sections":
+        [
+        {
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [
+                    {
+                        "ReturnValue":"MaterialNum,Plant,StorageLocation",
+                        "DisplayValue":"$(L,material_number)"
+                    },
+                    {
+                        "ReturnValue":"Plant,StorageLocation",
+                        "DisplayValue":"$(L,plant)"
+                    },
+                    {
+                        "ReturnValue":"UnrestrictedQuantity",
+                        "DisplayValue":"$(L,quantity)"
+                    },
+                    {
+                        "ReturnValue":"StorageLocation",
+                        "DisplayValue":"$(L,storage_location)"
+                    }
+                ],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Caption": "$(L,filter_by)",
+            "Controls": 
+            [
+            {
+                "Caption": "$(L,parts_today_filter)",
+                "_Type": "Control.Type.FormCell.Switch",
+                "Value": "/SAPAssetManager/Rules/Inventory/Stock/TodayFilterValue.js",
+                "_Name": "IsTodaySwitch",
+                "IsVisible": "/SAPAssetManager/Rules/SideDrawer/EnableMultipleTechnician.js"
+            },
+            {
+                "_Name": "MaterialNumberFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,material_number)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:MaterialNum}} - {{#Property:Description}}",
+                    "ReturnValue": "{MaterialNum}",
+                    "Target": {
+                        "EntitySet": "Materials",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=MaterialNum"
+                    }
+                },
+                "FilterProperty": "MaterialNum"
+            },
+            {
+                "_Name": "PlantFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,plant)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:Plant}} - {{#Property:PlantDescription}}",
+                    "ReturnValue": "{Plant}",
+                    "Target": {
+                        "EntitySet": "Plants",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Inventory/Stock/StockLookUpPlantFilterQuery.js"
+                    }
+                },
+                "Value": "/SAPAssetManager/Rules/Inventory/Stock/StockLookupPlantDefaultValue.js",
+                "FilterProperty": "Plant"
+            },
+            {
+                "_Name": "StorgaeLocationFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,storage_location)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": "/SAPAssetManager/Rules/Inventory/Stock/StockLookUpStorageLocationPickerItems.js",
+                "FilterProperty": "StorageLocation"
+            },
+            {
+                "_Name": "StorageBinFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,storage_bin)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": "/SAPAssetManager/Rules/Inventory/Stock/StockLookUpStorageBinPickerItems.js",
+                "FilterProperty": "StorageBin"
+            }
+            ]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/ResetFilters.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }
+        ],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"StockSearchFilter",
+    "OnLoaded": "/SAPAssetManager/Rules/Inventory/Stock/StockSearchFilterOnLoaded.js"
+}

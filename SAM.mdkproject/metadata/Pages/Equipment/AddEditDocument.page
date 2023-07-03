@@ -1,0 +1,56 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Equipment/AddEditDocumentCaption.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Equipment/AddEditDocumentPageOnLoaded.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem":"$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Actions/Equipment/AddEditDocument.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Caption":"$(L, attachment_description)",
+                            "PlaceHolder": "$(L,attachment_description)",
+                            "IsEditable": true,
+                            "IsVisible": true,
+                            "_Name": "AttachmentDescription",
+                            "OnValueChange": "/SAPAssetManager/Rules/Common/Validation/FormCellNoteValidation.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "Value": ""
+                        },
+                        {
+                            "_Name": "Attachment",
+                            "_Type": "Control.Type.FormCell.Attachment",
+                            "AttachmentTitle": "$(L,attached_files)",
+                            "AttachmentAddTitle": "$(L,add)",
+                            "AttachmentActionType": [
+                                "AddPhoto",
+                                "TakePhoto",
+                                "SelectFile"
+                            ],
+                            "AllowedFileTypes": [],
+                            "Value": "/SAPAssetManager/Rules/Documents/InitializeAttachments.js"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "AddEditDocumentPage"
+}

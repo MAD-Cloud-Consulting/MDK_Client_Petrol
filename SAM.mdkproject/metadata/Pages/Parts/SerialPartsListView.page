@@ -1,0 +1,34 @@
+{
+    "Caption": "$(L,serial_numbers)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+				        "BarcodeScanner": true
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "Header": {
+		 		        "UseTopPadding": false
+    		        },
+                    "ObjectCell": {
+                        "Title": "{DisplayValue}"
+                    },
+                    "Target" : "{SerialNumsArray}",
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "SerialPartsList"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SerialPartsListSectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "SerialPartsListViewPage"
+}

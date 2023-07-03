@@ -1,0 +1,6 @@
+{
+    "Message" : "$(L,disconnect_all_msg)",
+    "OKCaption" : "$(L,ok)",
+    "Title" : "$(L,meters_reconnected)",
+    "_Type" : "Action.Type.Message"
+ }

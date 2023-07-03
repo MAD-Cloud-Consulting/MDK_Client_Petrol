@@ -1,0 +1,4 @@
+{
+    "PageToOpen" : "/SAPAssetManager/Pages/Notifications/NotificationMapUpdate.page",
+    "_Type" : "Action.Type.Navigation"
+}

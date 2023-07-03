@@ -1,0 +1,11 @@
+{
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "StoreName": "SAMStore",
+    "StoreEncryptionKey": "SAPTest123",
+    "_Type": "Action.Type.OfflineOData.Download",
+    "OnSuccess": "/SAPAssetManager/Rules/Sync/CheckForSyncErrorsAfterDownloadSuccess.js",
+    "OnFailure": "/SAPAssetManager/Rules/Sync/CheckForSyncErrorsAfterDownloadFailure.js",
+    "ActionResult": {
+       "_Name": "result"
+    }
+}

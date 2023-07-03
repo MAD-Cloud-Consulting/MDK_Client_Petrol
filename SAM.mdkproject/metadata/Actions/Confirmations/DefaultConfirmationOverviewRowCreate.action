@@ -1,0 +1,15 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "ConfirmationOverviewRows",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "PostingDate": "#ClientData/#Property:ConfirmationOverviewRowDate"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    }
+}

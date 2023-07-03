@@ -1,0 +1,12 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalIventoryItemCreateUpdateOnCommit.js",
+    "RequiredFields": [
+        "MatrialListPicker",
+        "QuantitySimple",
+        "UOMListPicker"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

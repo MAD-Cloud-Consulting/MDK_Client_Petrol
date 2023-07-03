@@ -1,0 +1,93 @@
+{
+    "Caption": "$(L,valuation)",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsFDCUpdateDone.js"
+            }
+        ]
+    },
+    "Controls": [{
+        "_Type": "Control.Type.Extension",
+            "Module": "extension-FieldDataCapture",
+            "Control": "FieldDataCaptureViewExtension",
+            "Class": "FieldDataCaptureViewExtension",
+            "_Name": "FormCellContainer",
+            "ExtensionProperties": {
+                "Sections": [
+                    {
+                        "Search":
+                            {
+                                "Enabled" : true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                        "Caption": "",
+                        "Target": {
+                            "EntitySet": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointUpdateEntitySet.js",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$expand=WOOperation_Nav/WOHeader,InspCode_Nav,InspValuation_Nav,Equip_Nav,FuncLoc_Nav,InspectionChar_Nav"
+                        },
+                        "Controls": [
+                            {
+                                "Caption": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointTechnicalObjectTitle.js",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointTechnicalObjectDesc.js",
+                                "IsEditable": false,
+                                "_Name": "ShortDesc",
+                                "_Type": "Control.Type.FormCell.Title",
+                                "IsVisible": true
+                            },
+                            {
+							    "AllowMultipleSelection": false,
+                                "IsPickerDismissedOnSelection": true,
+                                "IsSearchCancelledAfterSelection": true,
+                                "Search": {
+                                    "Enabled": true,
+                                    "Delay": 500,
+                                    "MinimumCharacterThreshold": 3,
+                                    "Placeholder": "$(L,search)",
+                                    "BarcodeScanner": true
+                                },
+                                "Caption": "$(L,valuation_proposal)",
+                                "IsEditable": true,
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsInspectionCodeInitialValue.js",
+                                "PickerItems": {
+                                    "DisplayValue" : "{{#Property:CodeDesc}}",
+                                    "ReturnValue" : "{@odata.readLink}",
+                                    "Target":
+                                    {
+                                        "EntitySet" : "InspectionCodes",
+                                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                        "QueryOptions" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/SetUsage/InspectionLotSetUsageQueryOptions.js"
+                                    }
+                                },
+                                "_Name": "Valuation",
+                                "_Type": "Control.Type.FormCell.ListPicker",
+                                "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointSetValuation.js"
+                            },
+                            {
+                                "Title": "$(L,review)",
+                                "_Type": "Control.Type.FormCell.Button",
+                                "_Name": "ReviewButton",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointReviewCharacteristics.js"
+                            }
+                        ]
+                    }
+                ]
+            }
+
+    }],
+    "_Type": "Page",
+    "_Name": "InspectionPointsFDCUpdate",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsOnLoaded.js"
+}

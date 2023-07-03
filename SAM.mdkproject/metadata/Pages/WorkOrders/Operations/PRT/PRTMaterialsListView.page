@@ -1,0 +1,40 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTMaterialsListViewCaption.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+		 		        "UseTopPadding": false
+    		        },
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_material_available)"
+                    },
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Title": "{Description}",
+                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTMaterialDetailsViewNav.action",
+                        "PreserveIconStackSpacing": false,
+                        "Subhead": "{Material}"
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/Tools",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$filter=(PRTCategory eq 'M')"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "Materials"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "MaterialsListViewPage"
+}

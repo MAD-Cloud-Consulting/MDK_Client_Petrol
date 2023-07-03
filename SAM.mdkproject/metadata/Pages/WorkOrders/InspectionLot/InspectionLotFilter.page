@@ -1,0 +1,152 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotListFilterResults.js",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [{
+                    "ReturnValue":"InspectionLot_Nav/InspectionLot",
+                    "DisplayValue":"$(L,ID)"
+                },
+                {
+                    "ReturnValue":"InspectionLot_Nav/EndDate",
+                    "DisplayValue":"$(L,due_date)"
+                },
+                {
+                    "ReturnValue":"InspectionLot_Nav/ValuationStatus",
+                    "DisplayValue":"$(L,valuation_status)"
+                }],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,valuation_status)",
+                "FilterProperty":"/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotValuationStatusFilter.js",
+                "_Name":"ValuationStatusFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            },
+            {
+                "_Name": "WorkOrderFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,workorder)",
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:OrderId}} - {{#Property:OrderDescription}}",
+                    "ReturnValue": "{OrderId}",
+                    "Target": {
+                        "EntitySet": "MyWorkOrderHeaders",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotWorkOrderFilterQueryOptions.js"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotWorkOrderFilterOnValueChange.js",
+                "IsEditable" : "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotWorkOrderFilterIsEditable.js"
+            },
+            {
+                "_Name": "OperationFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,operation)",
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:OperationNo}} - {{#Property:OperationShortText}}",
+                    "ReturnValue": "{OperationNo}",
+                    "Target": {
+                        "EntitySet": "MyWorkOrderOperations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": ""
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotOperationFilterOnValueChange.js"
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "_Type": "Control.Type.FormCell.Switch",
+                    "_Name": "DueDateSwitch",
+                    "Caption":"$(L,due_date)",
+                    "Value": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDueDateFilter.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "DueStartDateFilter",
+                    "Caption": "$(L,date_from)",
+                    "Mode": "Date",
+                    "IsVisible": false
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "DueEndDateFilter",
+                    "Caption": "$(L,date_to)",
+                    "Mode": "Date",
+                    "IsVisible": false
+                }
+            ]
+        },        
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotListFilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"InspectionLotFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotListFilterOnLoaded.js"
+}

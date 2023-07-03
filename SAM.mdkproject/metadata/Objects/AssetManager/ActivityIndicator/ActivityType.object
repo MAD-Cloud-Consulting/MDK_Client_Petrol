@@ -1,0 +1,34 @@
+{
+	"Collection": [
+		"ActivityTypes"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "OrderType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ActivityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityTypeDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderCategory",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NumberRange",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "ActivityType"
+}

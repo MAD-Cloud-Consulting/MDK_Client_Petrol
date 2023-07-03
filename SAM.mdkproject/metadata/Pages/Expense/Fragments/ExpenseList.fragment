@@ -1,0 +1,21 @@
+{
+    "ObjectCell": {
+        "PreserveIconStackSpacing": false,
+        "Title": "/SAPAssetManager/Rules/Expense/List/ExpenseTitle.js",
+        "StatusText": "/SAPAssetManager/Rules/Expense/List/AmountValueWithUOM.js",
+        "AccessoryType": "disclosureIndicator",
+        "OnPress": "/SAPAssetManager/Rules/Expense/List/OnExpensePress.js"
+    },
+    "Target": {
+        "EntitySet": "Confirmations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "/SAPAssetManager/Rules/Expense/List/CreatedExpensesQueryOptions.js"
+    },
+    "EmptySection": {
+        "Caption": "$(L,no_expenses)",
+        "HidesFooter": true
+    },
+    "Visible": "/SAPAssetManager/Rules/Expense/List/IsDisplayMode.js",
+    "_Name": "DisplayClassification",
+    "_Type": "Section.Type.ObjectTable"
+} 

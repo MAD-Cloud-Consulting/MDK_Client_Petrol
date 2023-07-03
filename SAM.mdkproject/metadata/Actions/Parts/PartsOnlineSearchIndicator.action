@@ -1,0 +1,5 @@
+{
+    "_Type": "Action.Type.ProgressBanner",
+    "Message": "$(L,online_search_activityindicator_text)",
+    "OnSuccess": "/SAPAssetManager/Actions/Parts/PartsCreateOnlineOData.action"
+}

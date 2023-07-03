@@ -1,0 +1,94 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Forms/FSM/FormPageTitle.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Forms/FSM/FSMFormOnPageLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "OnPress": "/SAPAssetManager/Rules/Forms/FSM/FSMFormClosePageWrapper.js",
+                "Position": "Left",
+                "SystemItem": "Cancel"
+            },
+            {
+                "Position": "Right",
+                "Text": "$(L,forms_save_draft)",
+                "OnPress": "/SAPAssetManager/Rules/Forms/FSM/FSMFormSaveWrapper.js",
+                "Visible": "/SAPAssetManager/Rules/Forms/FSM/FSMFormSaveVisible.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "Module": "extension-ProgressTrackerFramework",
+                    "Control": "ProgressTrackerExtension",
+                    "Class": "ProgressTrackerExtension",
+                    "Height": 128,
+                    "ExtensionProperties": {
+                        "Config": {
+                            "IsIndexVisible": true,
+                            "IsCompactMode": "/SAPAssetManager/Rules/Common/IsCompactMode.js"
+
+                        },
+                        "InitialSteps": "/SAPAssetManager/Rules/Forms/FSM/ProgressTrackerInitialSteps.js",
+                        "OnStepSelected": "/SAPAssetManager/Rules/Forms/FSM/ProgressTrackerOnStepSelected.js"
+                    },
+                    "Visible": true,
+                    "_Name": "ProgressTrackerExtensionControl",
+                    "_Type": "Section.Type.Extension"
+				}
+            ],
+            "_Name": "FormCellSectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }   
+    ],
+    "ToolBar": {
+        "Items": [
+            {
+                "Caption": "$(L,forms_previous)",
+                "Clickable": true,
+                "Enabled": "/SAPAssetManager/Rules/Forms/FSM/FSMPreviousButtonEnabled.js",
+                "Visible": true,
+                "_Name": "ToolbarItem2",
+                "OnPress":"/SAPAssetManager/Rules/Forms/FSM/FSMPreviousPage.js",
+                "_Type": "Control.Type.ToolbarItem"
+            },
+            {
+                "_Name": "FlexibleSpaceLeftTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+            },
+            {
+                "Caption": "$(L,smart_forms_submit)",
+                "Clickable": true,
+                "Enabled": true,
+                "Visible": "/SAPAssetManager/Rules/Forms/FSM/FSMFormSaveVisible.js",
+                "Text": "$(L,smart_forms_submit)",
+                "OnPress": "/SAPAssetManager/Rules/Forms/FSM/FSMFormSubmit.js",
+                "_Name": "ToolbarItem1",
+                "ItemType": "Button",
+                "_Type": "Control.Type.ToolbarItem"
+            },
+            {
+                "_Name": "FlexibleSpaceRightTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+            },
+            {
+                "Caption": "$(L,next)",
+                "Clickable": true,
+                "Visible": true,
+                "OnPress":"/SAPAssetManager/Rules/Forms/FSM/FSMNextPage.js",
+                "Enabled": "/SAPAssetManager/Rules/Forms/FSM/FSMNextButtonEnabled.js",
+                "_Name": "ToolbarItem0",
+                "_Type": "Control.Type.ToolbarItem"
+            }
+        ]
+    },
+    "_Name": "SingleForm",
+    "_Type": "Page"
+}
+ 

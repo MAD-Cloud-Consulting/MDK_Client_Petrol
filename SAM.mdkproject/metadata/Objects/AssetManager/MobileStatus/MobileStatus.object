@@ -1,0 +1,116 @@
+{
+	"Collection": [
+		"MobileStatuses"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "NotificationHeader",
+			"_Type": "MyNotificationHeaders"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationItemTask",
+			"_Type": "MyNotificationItemTasks"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationTask",
+			"_Type": "MyNotificationTasks"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderHeader",
+			"_Type": "MyWorkOrderHeaders"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderOperation",
+			"_Type": "MyWorkOrderOperations"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderSubOperation",
+			"_Type": "MyWorkOrderSubOperations"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "BeginTimeCounter",
+			"_Type": "Edm.Int32"
+		},
+		{
+			"Key": false,
+			"_Name": "EndTimeCounter",
+			"_Type": "Edm.Int32"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationRefDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationRefTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": true,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EffectiveTimestamp",
+			"_Type": "Edm.DateTime"
+		},
+		{
+			"Key": false,
+			"_Name": "MobileStatus",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SystemStatus",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SystemStatusCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserStatus",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserStatusCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CarriedOutBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CarriedOutTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "CarriedOutDate",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MobileStatus"
+}

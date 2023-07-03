@@ -1,0 +1,12 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet": "Geometries",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {},
+	"Headers": {
+        "OfflineOData.RemoveAfterUpload": "true"
+    },
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

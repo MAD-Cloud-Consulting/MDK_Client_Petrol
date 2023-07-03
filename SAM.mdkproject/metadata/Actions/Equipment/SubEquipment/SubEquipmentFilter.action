@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Equipment/SubEquipment/SubEquipmentFilter.page",
+    "Filterable" : "#Page:SubEquipmentListViewPage/#Control:SectionedTable",
+    "OnSuccess": "/SAPAssetManager/Rules/Equipment/SubEquipment/SubEquipmentListViewOnPageLoad.js",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

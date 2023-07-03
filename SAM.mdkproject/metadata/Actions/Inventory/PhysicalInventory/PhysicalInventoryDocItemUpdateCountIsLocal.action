@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "PhysicalInventoryDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{Temp_PIItemReadlink}"
+    },
+    "Properties": {
+        "EntryQuantity": "{Temp_EntryQuantity}",
+        "ZeroCount" : "{Temp_ZeroCount}",
+        "Item": "{Temp_Item}",
+        "Material": "{Temp_Material}",
+        "EntryUOM": "{Temp_EntryUOM}",
+        "Batch": "{Temp_Batch}"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryCreateTransactionID.js"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

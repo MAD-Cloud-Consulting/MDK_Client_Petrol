@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,warning)",
+    "Message": "$(L,inventory_discard_warning_message)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)"
+}

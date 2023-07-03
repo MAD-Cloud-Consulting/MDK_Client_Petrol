@@ -1,0 +1,60 @@
+{
+	"Caption": "$(L,notification_activities)",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Item/Activity/NotificationItemActivityListOnLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Notifications/Item/Activity/NotificationItemActivityListOnReturn.js",
+
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+			"SystemItem": "Add",
+			"OnPress": "/SAPAssetManager/Rules/Notifications/Item/Activity/CreateUpdate/NotificationItemActivityCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+
+		}]
+	},
+	"Controls": [{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+			"EmptySection": {
+                "Caption": "$(L,no_notification_item_activities_available)"
+            },
+			"ObjectCell":
+			{	
+				"PreserveIconStackSpacing": true,
+				"Icons":"/SAPAssetManager/Rules/Notifications/Item/Cause/NotificationItemCauseTaskActivityIconImages.js",
+				"Title": "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemActivityDetailsListFormat.js",
+				"Subhead": "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemActivityDetailsListFormat.js",
+				"Footnote" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemActivityDetailsListFormat.js",
+				"StatusText" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemActivityDetailsListFormat.js",
+				"AccessoryType" : "disclosureIndicator",
+				"OnPress" : "/SAPAssetManager/Actions/Notifications/Item/NotificationItemActivityDetailsNav.action"
+			},
+            "Target":
+			{
+                "EntitySet" : "{{#Property:@odata.id}}/ItemActivities",
+                "Service" : "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Notifications/Item/Task/NotificationItemActivitiesListViewQueryOption.js"
+            },
+			"_Name" : "NotificationItemActivities",
+			"_Type" : "Section.Type.ObjectTable"
+		}],
+		"_Type" : "Control.Type.SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "NotificationItemActivitiesListView",
+	"DataSubscriptions":["MyNotificationItemActivities"]
+
+}

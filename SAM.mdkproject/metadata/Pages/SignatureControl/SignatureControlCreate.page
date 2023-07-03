@@ -1,0 +1,43 @@
+{
+    "Caption": "$(L,signature)",
+     "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/IsNotCompleteAction.js",
+                "OnPress": "/SAPAssetManager/Rules/SignatureControl/CheckForPermissionBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Actions/SignatureControl/Create/SignatureControlRequiredField.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+        "Sections": [{
+            "Controls": [{
+                "_Type": "Control.Type.FormCell.InlineSignatureCapture",
+                "_Name": "SignatureCaptureFormCell",
+                "Caption": "$(L, add_signature)",
+                "ShowTimestampInImage": true,
+                "ShowXMark": true,
+                "ShowUnderline": true,
+                "Value":  "/SAPAssetManager/Rules/SignatureControl/Update/SignatureValue.js",
+                "WatermarkText":  "/SAPAssetManager/Rules/SignatureControl/Create/SignatureWatermarkText.js",
+                "WatermarkTextMaxLines": 5,
+                "TimestampFormatter": "MM/dd/yy hh:mm a zzz",
+                "HelperText": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureHelperText.js",
+                "OnValueChange": "/SAPAssetManager/Rules/SignatureControl/Create/OnValueChange.js"
+            }]
+        }],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "SignatureControlPage"
+}

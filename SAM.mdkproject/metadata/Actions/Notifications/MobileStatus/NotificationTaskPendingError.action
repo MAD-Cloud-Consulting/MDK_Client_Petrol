@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,status_cannot_be_changed)",
+    "Message": "$(L,notification_pending_task_warning_text)",
+    "OKCaption": "$(L,ok)"
+}

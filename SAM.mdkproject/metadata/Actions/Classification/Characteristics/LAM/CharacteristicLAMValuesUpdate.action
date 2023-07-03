@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "LAMCharacteristicValues",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "Length": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueLength.js",
+        "StartPoint": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueStartPoint.js",
+        "EndPoint":"/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueEndPoint.js",
+        "UOM": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueUOM.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/LAM/CharacteristicLAMValuesCreateUpdateValidation.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

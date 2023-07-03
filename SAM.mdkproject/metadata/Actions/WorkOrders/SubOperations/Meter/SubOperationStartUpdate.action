@@ -1,0 +1,20 @@
+{
+    "Headers": {
+        "OfflineOData.NonMergeable": true
+    },
+    "Properties": {
+        "ObjectKey": "#Property:MyWorkOrderSubOperation/#Property:ObjectKey",
+        "ObjectType": "/SAPAssetManager/Rules/MobileStatus/MobileStatusOperationObjectType.js",
+        "MobileStatus": "/SAPAssetManager/Rules/MobileStatus/MobileStatusStarted.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/StartDateTime.js",
+        "CreateUserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js"
+    },
+    "Target": {
+        "EntitySet": "PMMobileStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : "#Property:MyWorkOrderSubOperation/#Property:SubOpMobileStatus_Nav/#Property:@odata.readLink"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "ActionResult" : {"_Name" : "SubOperationStartUpdate"}
+
+}

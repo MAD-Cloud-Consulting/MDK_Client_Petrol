@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/FOW/Routes/RouteList.page",
+    "ShowActivityIndicator" : true,
+    "ActivityIndicatorText" : " "
+}

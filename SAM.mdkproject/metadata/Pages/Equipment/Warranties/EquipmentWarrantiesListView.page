@@ -1,0 +1,35 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesListViewCaption.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "UseTopPadding": false
+                   },
+                    "ObjectCell": {
+                        "Title": "{WarrantyTypeDesc}",
+                        "Description": "{WarrantyDesc}",
+                        "Subhead": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesNumber.js",
+                        "Footnote": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesFormattedDate.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Actions/Equipment/Warranties/EquipmentWarrantiesDetailsNav.action",
+                        "PreserveIconStackSpacing":false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_warranties_available)"
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/Warranties",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service"
+                    },    
+                    "_Name": "EquipmentWarranties",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "EquipmentWarrantiesPage"
+}

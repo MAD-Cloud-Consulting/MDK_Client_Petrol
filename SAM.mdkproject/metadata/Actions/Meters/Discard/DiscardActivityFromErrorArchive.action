@@ -1,0 +1,9 @@
+{
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+	"Target": {
+        "EntitySet": "ErrorArchive",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "/SAPAssetManager/Rules/Meter/Discard/DiscardActivityQueryOptions.js"
+    },
+	 "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

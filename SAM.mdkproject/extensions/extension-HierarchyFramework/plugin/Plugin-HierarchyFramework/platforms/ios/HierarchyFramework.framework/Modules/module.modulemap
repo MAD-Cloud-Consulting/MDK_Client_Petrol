@@ -1,0 +1,11 @@
+framework module HierarchyFramework {
+  umbrella header "HierarchyFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module HierarchyFramework.Swift {
+  header "HierarchyFramework-Swift.h"
+  requires objc
+}

@@ -1,0 +1,69 @@
+{
+	"Collection": [
+		"NotificationTypes"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "NotifType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NotifCategory",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatalogProfile",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PriorityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatTypeDefects",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatTypeCauses",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatTypeTasks",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatTypeActivities",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatTypeObjectParts",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatTypeCoding",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Description",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "NotificationType"
+}

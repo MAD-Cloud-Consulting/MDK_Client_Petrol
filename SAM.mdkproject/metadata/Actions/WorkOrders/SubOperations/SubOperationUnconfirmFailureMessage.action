@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,'suboperation_cannot_be_unconfirmed')",
+    "Duration": 3,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

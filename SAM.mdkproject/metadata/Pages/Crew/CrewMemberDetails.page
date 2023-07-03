@@ -1,0 +1,55 @@
+{
+	"Caption": "$(L,crew_member)",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Header":
+            {
+                "Caption": "$(L,crew_member_details)",
+                "UseTopPadding": true
+            },
+            "KeyAndValues":
+            [{
+                "KeyName": "$(L,name)",
+                "Value": "{{#Property:Employee/#Property:EmployeeName}}"
+            },
+            {
+                "KeyName": "$(L,ID)",
+                "Value": "{{#Property:Employee/#Property:PersonnelNumber}}"
+            },
+            {
+                "KeyName": "$(L,email)",
+                "Value": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeEmail.js"
+            },
+            {
+                "KeyName": "$(L,phone)",
+                "Value": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeePhone.js"
+            },
+            {
+                "KeyName": "$(L,mobile)",
+                "Value": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeMobile.js"
+            }],
+            "Layout": {
+                "NumberOfColumns": 2
+            },
+            "_Name": "CrewMemberDetailsSection",
+            "_Type": "Section.Type.KeyValue"
+        },
+        {
+            "Buttons":
+            [{
+                "TextAlignment": "center",
+                "Title": "$(L,remove)",
+                "OnPress": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemEmployeeRemoval.js",
+                "Style": "ResetRed"
+            }],
+            "_Name": "RemoveButtonSection",
+            "_Type": "Section.Type.ButtonTable"
+        }],
+        "_Name": "CrewMemberDetailsSectionTable",
+        "_Type": "Control.Type.SectionedTable"
+    }],
+	"_Name": "CrewMemberDetails",
+	"_Type": "Page"
+}

@@ -1,0 +1,16 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "CrewListItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:CrewListItemReadLink"
+    },
+    "Properties": {
+        "RemovalFlag": " "
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Crew/Header/CrewListCrewId.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemProcessEmployeeLoop.js"
+}

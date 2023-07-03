@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/FunctionalLocation/FunctionalLocationFilter.page",
+    "Filterable" : "#Page:FunctionalLocationListViewPage/#Control:SectionedTable",
+    "OnSuccess": "/SAPAssetManager/Rules/FunctionalLocation/OnFunctionalLocationFilterSuccess.js",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}

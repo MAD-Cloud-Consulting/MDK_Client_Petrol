@@ -1,0 +1,25 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyNotificationHeaders",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.readLink}"
+	},
+	"Properties":
+	{
+		"OrderId": "#Property:LocalWorkOrderId"
+	},
+
+	"UpdateLinks":
+    [{
+        "Property": "WOHeader_Nav",
+        "Target": {
+            "EntitySet": "MyWorkOrderHeaders",
+            "ReadLink": "#Property:LocalWorkOrderReadLink"
+        }
+    }],
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : "  "
+}

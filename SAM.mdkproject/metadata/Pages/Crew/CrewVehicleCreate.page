@@ -1,0 +1,63 @@
+{
+    "Caption": "$(L,add_vehicle)",
+    "OnLoaded": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateOnLoad.js",    
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterSaveText.js",
+                "OnPress": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateSave.js"
+            },
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "IsSelectedSectionEnabled": true,
+                            "AllowMultipleSelection": true,
+                            "Search": { 
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+				                "BarcodeScanner": true
+                            },
+                            "Caption": "$(L,vehicles)",
+                            "PlaceHolder": "",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemCreateOnChange.js",
+                            "_Name": "VehicleLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "PickerItems": {
+                                "ObjectCell":
+                                {
+                                    "Title": "{{#Property:EquipmentDesc}}",
+                                    "Footnote": "{{#Property:LicensePlateNumber}}"
+                                },
+                                "ReturnValue": "{EquipmentNumber}",
+                                "Target": {
+                                    "EntitySet": "Fleets",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateQueryOptions.js"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "CrewVehicleCreatePage"
+}

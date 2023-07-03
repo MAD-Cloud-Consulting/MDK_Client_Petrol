@@ -1,0 +1,23 @@
+{
+    "Properties":
+    {
+        "DismantleEquip": "",
+        "DismantleFuncLocIdIntern": "",
+        "SuperiorEquip": "/SAPAssetManager/Rules/Equipment/Installation/SuperiorEquipmentInstallationId.js",
+        "FuncLocIdIntern": "/SAPAssetManager/Rules/FunctionalLocation/Installation/SuperiorFLOCInstallationId.js",
+        "InstallDate": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+        "InstallTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js"
+    },
+    "Target":
+    {
+        "EntitySet": "MyEquipments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "MyEquipments('{{#Property:Item/#Property:ReturnValue}}')"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentOrFLOCTransactionID.js"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentInstallationCreateLinks.js",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

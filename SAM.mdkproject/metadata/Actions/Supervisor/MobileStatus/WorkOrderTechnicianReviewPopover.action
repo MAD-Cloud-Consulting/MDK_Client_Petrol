@@ -1,0 +1,9 @@
+{
+	"PopoverItems": [
+		{
+			"Title": "$(L,restart)",
+			"OnPress": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderStartStatus.js"
+		}
+	],
+	"_Type": "Action.Type.PopoverMenu"
+}

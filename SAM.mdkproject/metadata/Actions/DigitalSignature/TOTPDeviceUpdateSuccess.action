@@ -1,0 +1,9 @@
+{
+    "_Type": "Action.Type.ToastMessage",
+    "Message" : "$(L,device_created)",
+    "IsIconHidden": true,
+    "MaxNumberOfLines": 2,
+    "Duration": 4,
+    "Animated": true,
+    "OnSuccess": "/SAPAssetManager/Actions/Page/ClosePage.action"
+}

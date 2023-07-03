@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/WorkOrderRelatedHistoriesListView.page",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+}

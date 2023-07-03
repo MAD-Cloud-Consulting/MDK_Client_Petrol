@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,workorder_update_not_changeable)",
+    "Duration": 3,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

@@ -1,0 +1,50 @@
+{
+    "Caption": "$(L,vehicles)",
+    "OnLoaded": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleListViewOnPageLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleListViewOnPageLoad.js",
+    "ActionBar": {
+		"Items": [
+			{
+				"Position": "right",
+				"SystemItem": "Add",
+				"OnPress" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateChangesetWrapper.js",
+		        "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Crew/EnableCrewManage.js"
+			}
+		]
+	},
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Header":
+            {
+		 		"UseTopPadding": false
+            },
+            "ObjectCell":
+            {
+                "AccessoryType": "disclosureIndicator",
+                "Title": "#Property:Fleet/#Property:EquipmentDesc",
+                "OnPress": "/SAPAssetManager/Rules/Crew/Vehicles/VehicleDetailsNavWrapper.js",
+                "SubstatusText": "",
+                "Subhead": "#Property:Fleet/#Property:LicensePlateNumber"
+            },
+            "Search":
+            {
+                "Enabled": false
+            },
+            "Target":
+            {
+                "EntitySet": "CrewListItems",
+                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/Crew/Vehicles/VehicleQueryOptions.js"
+            },
+            "_Name": "SectionObjectTable0",
+            "_Type": "Section.Type.ObjectTable"
+        }],
+        "DataSubscriptions": ["CrewListItems","Fleets"],
+        "_Name": "SectionedTable0",
+        "_Type": "Control.Type.SectionedTable"
+    }],	
+	"_Name": "VehiclesListView",
+	"_Type": "Page"
+}

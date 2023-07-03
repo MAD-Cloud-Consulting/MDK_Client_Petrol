@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet": "Devices",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#Property:Device_Nav/#Property:@odata.readLink"
+    },
+    "Properties":
+    {
+        "DeviceBlocked" : "/SAPAssetManager/Rules/Meter/SetBlockedFlag.js"
+    },
+	"Headers":
+	{
+        "Transaction.Ignore": "true"
+    }
+}

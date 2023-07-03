@@ -1,0 +1,5 @@
+{
+    "Message": "$(L,expenses_created)",
+    "OnSuccess": "/SAPAssetManager/Actions/Page/ClosePage.action",
+    "_Type": "Action.Type.ToastMessage"
+}

@@ -1,0 +1,64 @@
+{
+    "Caption": "$(L,add_crew_member)",
+    "OnLoaded": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeCreateOnLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterSaveText.js",
+                "OnPress": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeCreateSave.js"
+            },
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "IsSelectedSectionEnabled": true,
+                            "AllowMultipleSelection": true,
+                            "Search": { 
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+				                "BarcodeScanner": true
+                            },
+                            "Caption": "$(L,crew_members)",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemCreateOnChange.js",
+                            "_Name": "EmployeeLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "PickerItems":
+                            {
+                                "ObjectCell":
+                                {
+                                    "Title": "{{#Property:EmployeeName}}",
+                                    "Footnote": "{{#Property:PersonnelNumber}}"
+                                },
+                                "ReturnValue": "{PersonnelNumber}",
+                                "Target":
+                                {
+                                    "EntitySet": "Employees",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeCreateQueryOptions.js"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "CrewEmployeeCreatePage"
+}

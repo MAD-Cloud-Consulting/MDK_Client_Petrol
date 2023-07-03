@@ -1,0 +1,9 @@
+{
+  "Animated": true,
+  "Duration": 2,
+  "Message": "$(L,update_successful)",
+  "IsIconHidden": false,
+  "MaxNumberOfLines": 1,
+  "OnSuccess": "/SAPAssetManager/Actions/Page/ClosePageToastCreate.action",
+  "_Type": "Action.Type.ToastMessage"
+}

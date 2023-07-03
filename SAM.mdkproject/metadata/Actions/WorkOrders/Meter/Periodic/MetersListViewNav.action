@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/Meter/Periodic/MetersListView.page",
+    "ShowActivityIndicator" : true,
+    "ActivityIndicatorText" : " "
+}

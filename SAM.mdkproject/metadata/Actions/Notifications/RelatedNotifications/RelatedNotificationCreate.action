@@ -1,0 +1,23 @@
+{
+	"Properties":
+	{
+		"NotificationNumber" : "/SAPAssetManager/Rules/Notifications/GenerateNotificationID.js",
+		"Description" : "#Control:NotificationDescription/#Value",
+		"Priority" : "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdatePrioritySegValue.js",
+		"FuncLocIdIntern" : "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateFunctionalLocationLstPkrValue.js",
+		"EquipId" : "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateEquipmentLstPkrValue.js",
+		"ReferenceType" : "P"
+	},
+	"CreateLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationHistoryLinks.js",
+	"Headers":
+	{
+		"OfflineOData.RemoveAfterUpload": "true",
+		"Transaction.Ignore" : "true"
+    },
+	"Target":
+	{
+		"EntitySet" : "NotificationHistories",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

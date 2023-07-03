@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,confirmation_validation_dates_title)",
+    "Message": "$(L, confirmation_validation_invalid_endtime)",
+    "OKCaption": "$(L,ok)"
+}

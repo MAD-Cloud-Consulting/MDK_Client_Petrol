@@ -1,0 +1,9 @@
+{
+    "_Type": "Action.Type.ToastMessage",
+    "Message" : "$(L,status_updated)",
+    "IsIconHidden": true,
+    "MaxNumberOfLines": 2,
+    "Duration": 3,
+    "Animated": true,
+    "OnSuccess": "/SAPAssetManager/Rules/MobileStatus/OperationMobileStatusPostUpdate.js"
+}

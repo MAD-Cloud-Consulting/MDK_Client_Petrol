@@ -1,0 +1,61 @@
+{
+    "Caption": "$(L,activity)",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Meter/Activity/Details/ActivityDetailsOnPageLoaded.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "$(L, edit)",
+                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Meter/Activity/ActivityUpdateNav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,activity_details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,type)",
+                            "Value": "{{#Property:DisconnectActivityType_Nav/#Property:ActivityTypeDescription}}"
+                        },
+                        {
+                            "KeyName": "$(L,ID)",
+                            "Value": "{{#Property:ActivityNum}}"
+                        },
+                        {
+                            "KeyName": "$(L,status)",
+                            "Value": "{{#Property:DisconnectActivityStatus_Nav/#Property:Status}} - {{#Property:DisconnectActivityStatus_Nav/#Property:Description}}"
+                        },
+                        {
+                            "KeyName": "$(L,document)",
+                            "Value": "{{#Property:DocNum}}"
+                        },
+                        {
+                            "KeyName": "$(L,date)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/Activity/Details/ActivityDetailsDate.js"
+                        },
+                        {
+                            "KeyName": "$(L,time)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/Activity/Details/ActivityDetailsTime.js"
+                        }
+                    ],
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=DisconnectActivityType_Nav,DisconnectActivityStatus_Nav"
+                    },
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValueTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ActivityDetailsPage"
+}

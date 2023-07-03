@@ -1,0 +1,111 @@
+{
+    "Caption": "/SAPAssetManager/Rules/WorkOrders/Meter/Register/RegisterCaption.js",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Meter/Register/RegisterDetailsOnLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "$(L,take_reading)",
+                "OnPress": "/SAPAssetManager/Rules/Meter/Reading/MeterReadingSingleRegister.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "ReadingDetails",
+                    "Header": {
+                        "Caption": "$(L,reading_details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,reading)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/MeterReadingRecorded.js"
+                        },
+                        {
+                            "KeyName": "$(L,date)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/MeterReadingDate.js"
+                        },
+                        {
+                            "KeyName": "$(L,difference)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/Register/RegisterReadingDifference.js"
+                        },
+                        {
+                            "KeyName": "$(L,time)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/MeterReadingTime.js"
+                        },
+                        {
+                            "KeyName": "$(L,peak_usage)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/Register/RegisterIsMaxPeakUsage.js"
+                        },
+                        {
+                            "KeyName": "$(L,note)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/MeterReaderNote.js"
+                        }
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "PreviousReadingDetails",
+                    "Header": {
+                        "Caption": "$(L,previous_reading)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,reading)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/PreviousReading.js"
+                        },
+                        {
+                            "KeyName": "$(L,date)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/PreviousReadingDate.js"
+                        },
+                        {
+                            "KeyName": "$(L,status)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/PreviousReadingStatus.js"
+                        },
+                        {
+                            "KeyName": "$(L,time)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/PreviousReadingTime.js"
+                        },
+                        {
+                            "KeyName": "$(L,peak_usage)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Meter/Register/RegisterIsMaxPeakUsage.js"
+                        }
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "ErrorAndWaringDetails",
+                    "Header": {
+                        "Caption": "$(L,limit_details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,warning_min)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/WarningMinLimit.js"
+                        },
+                        {
+                            "KeyName": "$(L,warning_max)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/WarningMaxLimit.js"
+                        },
+                        {
+                            "KeyName": "$(L,error_min)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/ErrorMinLimit.js"
+                        },
+                        {
+                            "KeyName": "$(L,error_max)",
+                            "Value": "/SAPAssetManager/Rules/Meter/Format/ErrorMaxLimit.js"
+                        }
+                    ]
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "RegisterDetailsPage",
+    "DataSubscriptions": ["DeviceMeterReadings", "MeterReadings", "Registers"]
+}

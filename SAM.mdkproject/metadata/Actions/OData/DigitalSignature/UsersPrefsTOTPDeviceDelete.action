@@ -1,0 +1,13 @@
+{
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+    "Target": {
+        "EntitySet": "UserPreferences",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/DigitalSignature/UserPerfsTOTPDeviceReadLink.js"
+    },
+     "RequestOptions": {
+		"UploadCategory": "TOTPDevicesUpdates"
+	},
+    "OnSuccess": "/SAPAssetManager/Actions/OData/DigitalSignature/UserPrefsDeleteDeviceGUID.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

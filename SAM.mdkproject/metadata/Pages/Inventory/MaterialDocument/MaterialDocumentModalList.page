@@ -1,0 +1,100 @@
+{
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/CancelCreationAction.js",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+                "Position": "right",
+				"OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/SaveCreatedDocuments.js",
+                "SystemItem": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetCreateUpdateButtonIcon.js",
+                "Text": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetCreateUpdateButtonText.js"
+			}
+		]
+	},
+	"Caption": "Material Document List",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Name": "FormItemsInfo",
+					"_Type": "Section.Type.FormCell",
+					"Controls": [
+						{
+							"AllowEmptySelection": true,
+							"AllowMultipleSelection": false,
+							"IsPickerDismissedOnSelection": true,
+							"AllowDefaultValueIfOneItem": true,
+							"Caption": "$(L,movement_type)",
+							"IsEditable": false,
+							"PickerItems": [{
+								"DisplayValue": "/SAPAssetManager/Rules/Inventory/MaterialDocument/MovementTypeItemsInfo.js",
+								"ReturnValue": "default_value"
+							}],
+							"_Name": "MovementTypePicker",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						},
+						{
+							"Caption": "$(L, reservation_item_order)",
+							"IsEditable": false,
+							"IsVisible": "/SAPAssetManager/Rules/Inventory/MaterialDocument/OrderNumberItemsVisible.js",
+							"Value": "/SAPAssetManager/Rules/Inventory/MaterialDocument/OrderNumberItemsInfo.js",
+							"_Name": "OrderNumberSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]
+				},
+				{
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/Inventory/MaterialDocument/ItemsCountCaption.js"
+					},
+                    "ObjectCell": {
+						"PreserveIconStackSpacing": false,
+                        "Title": "/SAPAssetManager/Rules/Inventory/MaterialDocument/TitleItemFormatting.js",
+						"StatusText": "{{#Property:EntryQuantity}} {{#Property:UOM}}",
+						"ContextMenu": {
+							"PerformFirstActionWithFullSwipe": true,
+							"Items": [
+								{
+									"_Name": "Delete_Item",
+									"Image": "$(PLT, /SAPAssetManager/Images/trash.png, /SAPAssetManager/Images/trash.android.png)",
+									"Text": "$(L, delete)",
+									"Mode": "Deletion",
+									"OnSwipe": "/SAPAssetManager/Rules/Inventory/MaterialDocumentItem/MaterialDocItemDelete.js"
+								}
+							],
+							"TrailingItems": "/SAPAssetManager/Rules/Inventory/MaterialDocument/ItemsContextTrailingItems.js"
+						}
+                    },
+                    "Target": {
+                        "EntitySet": "MaterialDocItems",
+						"QueryOptions": "/SAPAssetManager/Rules/Inventory/MaterialDocument/NewlyCreatedDocsQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+                    },
+                    "EmptySection": {
+                      "Caption": "$(L,no_documents)"
+                    },
+                    "_Name": "noname",
+                    "_Type": "Section.Type.ObjectTable"
+                },
+				{
+					"_Type": "Section.Type.ButtonTable",
+                    "_Name": "AddAnotherItemButton",
+                    "Buttons": [
+                        {
+                            "Title": "Add Another Item",
+							"OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/CreateNewItemRedirect.js",
+                            "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                        } 
+                    ]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "MaterialDocumentModalList",
+	"_Type": "Page"
+}

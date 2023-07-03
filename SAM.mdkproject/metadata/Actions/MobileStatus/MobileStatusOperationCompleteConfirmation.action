@@ -1,0 +1,7 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L, confirmation_complete_wo_warning_title)",
+    "Message": "$(L,confirmation_complete_wo_warning_message)",
+    "OKCaption": "$(L,yes)",
+    "CancelCaption": "$(L,no)"
+}

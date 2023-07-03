@@ -1,0 +1,37 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "InspectionLots",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "UDCatalog": "#ClientData/#Property:InspectionCode/#Property:Catalog",
+        "UDCode": "#ClientData/#Property:InspectionCode/#Property:Code",
+        "UDCodeGroup": "#ClientData/#Property:InspectionCode/#Property:CodeGroup",
+        "UDSelectedSet": "#ClientData/#Property:InspectionCode/#Property:SelectedSet",
+        "Plant":"#ClientData/#Property:InspectionCode/#Property:Plant"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "{{#Property:OrderId}}"
+    },
+    "UpdateLinks":
+    [{
+        "Property": "InspValuation_Nav",
+        "Target": {
+            "EntitySet": "InspectionCatalogValuations",
+            "ReadLink": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/SetUsage/InspectionLotSetUsageValuationReadLink.js"
+        }
+    },
+    {
+        "Property": "InspectionCode_Nav",
+        "Target": {
+            "EntitySet": "InspectionCodes",
+            "ReadLink": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/SetUsage/InspectionLotSetUsageCodeReadLink.js"
+        }
+    }],
+    "OnSuccess": "/SAPAssetManager/Actions/Page/ClosePage.action"
+}

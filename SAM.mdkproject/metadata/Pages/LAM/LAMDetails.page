@@ -1,0 +1,72 @@
+{
+    "Caption": "$(L,linear_data)",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "Visible": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEditButtonIsVisible.js",
+                "OnPress": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMUpdateNav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,lin_ref_pattern)",
+                            "Value": "{LRPId}"
+                        },
+                        {
+                            "KeyName": "$(L,length)",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMLengthFormat.js"
+                        },
+                        {
+                            "KeyName": "$(L,start_point)",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMStartPointFormat.js"
+                        },
+                        {
+                            "KeyName": "$(L,end_point)",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMEndPointFormat.js"
+                        },
+                        {
+                            "KeyName": "$(L,start_marker)",
+                            "Value": "{StartMarker}"
+                        },
+                        {
+                            "KeyName": "$(L,end_marker)",
+                            "Value": "{EndMarker}"
+                        },
+                        {
+                            "KeyName": "$(L,distance_from_start)",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMStartDistanceFormat.js"
+                        },
+                        {
+                            "KeyName": "$(L,distance_from_end)",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMEndDistanceFormat.js"
+                        },
+                        {
+                            "KeyName": "/SAPAssetManager/Rules/LAM/LAMOffset1Label.js",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMOffset1ValueFormat.js"
+                        },
+                        {
+                            "KeyName": "/SAPAssetManager/Rules/LAM/LAMOffset2Label.js",
+                            "Value": "/SAPAssetManager/Rules/LAM/LAMOffset2ValueFormat.js"
+                        }
+                    ],
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValueTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "LAMDetailsPage"
+}

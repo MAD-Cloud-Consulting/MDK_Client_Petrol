@@ -1,0 +1,39 @@
+{
+	"Collection": [
+		"MovementTypes"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "MovementType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MovementTypeDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LanguageKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SpecialStockIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MovementIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SAMType",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MovementType"
+}

@@ -1,0 +1,14 @@
+{
+	"Actions":
+	[
+		"/SAPAssetManager/Actions/Notifications/QMNotificationCreate.action",
+		"/SAPAssetManager/Actions/Notifications/Item/QMNotificationItemCreate.action"
+	],
+	"Target":
+	{
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"OnSuccess": "/SAPAssetManager/Rules/Notifications/QMNotificationMobileStatusCreate.js",
+	"OnFailure": "/SAPAssetManager/Rules/Notifications/CreateUpdate/UnsetChangesetFlagsFailure.js",
+	"_Type": "Action.Type.ODataService.ChangeSet"
+}

@@ -1,0 +1,146 @@
+{
+	"Collection": [
+		"Confirmations"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "WorkOrderHeader",
+			"_Type": "MyWorkOrderHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ConfirmationCounter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ConfirmationNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "AccountingIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActualDuration",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "ActualDurationUOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActualWork",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "ActualWorkUOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CompleteFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "Description",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FinalConfirmation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FinishDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FinishTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "Operation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderID",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PersonnelNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Plant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReverseIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PostingDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StartTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "SubOperation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "VarianceReason",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StartDate",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "Confirmation"
+}

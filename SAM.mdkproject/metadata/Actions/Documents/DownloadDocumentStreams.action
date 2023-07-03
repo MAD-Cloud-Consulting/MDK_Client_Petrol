@@ -1,0 +1,13 @@
+{
+  "Service": "/SAPAssetManager/Services/AssetManager.service",
+  "DefiningRequests": [
+    {
+      "Name": "/SAPAssetManager/Rules/Documents/DocumentStreamName.js",
+      "Query": "/SAPAssetManager/Rules/Documents/DocumentStreamReadLink.js",
+      "AutomaticallyRetrievesStreams": true
+    }
+  ],
+  "OnSuccess": "/SAPAssetManager/Actions/Documents/DownloadMedia.action",
+  "OnFailure": "/SAPAssetManager/Actions/Documents/DownloadDocumentStreamsFailure.action",
+  "_Type": "Action.Type.OfflineOData.Download"
+}

@@ -1,0 +1,61 @@
+{
+	"Caption": "$(L,notification_items)",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsItemListViewOnLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsItemListOnReturn.js",
+
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+			"SystemItem": "Add",
+			"OnPress": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+
+		}]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+				"UseTopPadding": false
+			},
+			"EmptySection":{
+                "Caption": "$(L,no_notification_items_available)"
+            },
+			"ObjectCell":
+			{	
+				"PreserveIconStackSpacing": true,
+				"Icons":"/SAPAssetManager/Rules/Notifications/Item/NotificationItemIconImages.js",
+				"AccessoryType": "disclosureIndicator",
+                "Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+                "Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+                "Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+				"StatusText" : "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+				"OnPress": "/SAPAssetManager/Actions/Notifications/Item/NotificationItemDetailsNav.action"
+			},
+            "Target":
+			{
+                "EntitySet" : "{{#Property:@odata.id}}/Items",
+                "Service" : "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Notifications/NotificationItemsListViewQueryOption.js"
+            },
+			"_Name" : "NotificationItems",
+			"_Type" : "Section.Type.ObjectTable"
+		}],
+		"_Type" : "Control.Type.SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "NotificationItemsListViewPage",
+	"DataSubscriptions": ["MyNotificationItems"]
+
+}

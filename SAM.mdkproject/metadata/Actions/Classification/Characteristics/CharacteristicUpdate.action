@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicsUpdateEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink":  "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateReadLink.js"
+    },
+    "Properties": {
+        "CharValFrom" : "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateValueFrom.js",
+        "CharValue" : "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateCharValue.js",
+        "CharValTo" : "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateValueTo.js",
+        "ValueRel": "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateValueRel.js",
+        "CharValDesc":"/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateCharValueDescription.js"
+
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicsUpdateTrasactionId.js"
+	},
+     "RequestOptions":
+    {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Classification/Characteristics/Create/CharacteristicCRUD.js",
+    "OnFailure": "/SAPAssetManager/Rules/Classification/Characteristics/Update/CharacteristicUpdateOnFailure.js",
+    "ValidationRule": "/SAPAssetManager/Rules/Classification/Characteristics/Validation/CharacterisitcsValidation.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

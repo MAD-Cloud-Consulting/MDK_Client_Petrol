@@ -1,0 +1,7 @@
+{
+
+    "Message": "$(L,failed_render_service_report)",
+    "Duration": 999,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

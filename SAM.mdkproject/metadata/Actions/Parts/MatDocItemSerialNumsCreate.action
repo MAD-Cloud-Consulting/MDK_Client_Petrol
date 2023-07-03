@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+      "EntitySet": "MatDocItemSerialNums",
+      "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+      "MatDocItem":"/SAPAssetManager/Rules/Parts/Issue/LineItem/PartIssueLineItemLocalID.js",
+      "SerialNum":"/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialNumber.js"
+    },
+    "Headers": {
+      "OfflineOData.RemoveAfterUpload": "true",
+      "OfflineOData.TransactionID": "#ClientData/#Property:LocalMatDocId"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "CreateLinks": [
+      {
+    "Property": "MatDocItem_Nav",
+    "Target": {
+      "EntitySet": "MaterialDocItems",
+      "ReadLink": "pending_2"
+    }
+  }
+  ],
+    "OnSuccess":"/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialNumberUpdateStatus.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+  }

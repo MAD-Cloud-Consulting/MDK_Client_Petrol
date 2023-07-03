@@ -1,0 +1,6 @@
+{
+    "Message": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/GetDocumentCreateSuccessMessage.js",
+    "_Type": "Action.Type.ToastMessage",
+    "Animated": true,
+	"Duration": 2
+}

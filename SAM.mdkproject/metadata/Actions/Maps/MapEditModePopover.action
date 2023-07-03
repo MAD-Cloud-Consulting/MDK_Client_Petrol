@@ -1,0 +1,24 @@
+{
+	"PopoverItems": 
+	[{
+		"Title": "$(L,add_workorder)",
+		"OnPress": "/SAPAssetManager/Rules/Maps/MapWorkOrderCreate.js",
+		"Visible": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/IsWorkOrderAllowedToCreateFromMap.js"
+	},
+	{
+		"Title" : "$(L,add_notification)",
+		"OnPress" : "/SAPAssetManager/Rules/Maps/MapNotificationCreate.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreate.js"
+	},
+	{
+		"Title" : "$(L,add_equipment)",
+		"OnPress" : "/SAPAssetManager/Rules/Maps/MapEquipmentCreate.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Equipments/EnableEquipmentCreate.js"
+	},
+	{
+		"Title" : "$(L,add_floc)",
+		"OnPress" : "/SAPAssetManager/Rules/Maps/MapFunctionalLocationCreate.js",
+		"Visible": "/SAPAssetManager/Rules/UserAuthorizations/FunctionalLocations/EnableFunctionalLocationCreate.js"
+	}],
+	"_Type": "Action.Type.PopoverMenu"
+}

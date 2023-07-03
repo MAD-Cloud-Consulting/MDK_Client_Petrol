@@ -1,0 +1,39 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Properties": {
+		"EquipDesc": "#Control:DescriptionNote/#Value",
+		"EquipCategory": "#Control:CategoryLstPkr/#SelectedValue",
+		"FuncLocId": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/FuncLoc.js",
+		"SuperiorEquip": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/SuperiorEquip.js",
+		"Manufacturer": "#Control:ManufactureNameProperty/#Value",
+		"MaintPlant": "#Control:MaintenacePlantLstPkr/#SelectedValue",
+		"StartDate": "/SAPAssetManager/Rules/Common/Controls/Data/StartDate.js",
+		"ConstYear": "/SAPAssetManager/Rules/Common/Controls/Data/ConstYear.js",
+		"ConstMonth": "/SAPAssetManager/Rules/Common/Controls/Data/ConstMonth.js",
+		"ManufSerialNo": "#Control:SerialNumberProperty/#Value",
+		"ModelNum": "#Control:ModelNumberProperty/#Value",
+		"Location": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/Location.js",
+		"Room": "#Control:RoomProperty/#Value",
+		"CopyClassification": "/SAPAssetManager/Rules/Common/Controls/Data/CopyClassifications.js",
+		"CopyClassificationValues": "/SAPAssetManager/Rules/Common/Controls/Data/CopyClassificationValues.js",
+		"CopyNote": "/SAPAssetManager/Rules/Common/Controls/Data/CopyNote.js",
+		"CopyDocuments":  "/SAPAssetManager/Rules/Common/Controls/Data/CopyDocuments.js",
+		"CopyMeasuringPoints": "/SAPAssetManager/Rules/Common/Controls/Data/CopyMeasuringPoints.js",
+		"CopyPartners":"/SAPAssetManager/Rules/Common/Controls/Data/CopyPartners.js",
+		"CopyInstallLocation": "/SAPAssetManager/Rules/Equipment/CreateUpdate/Data/CopyInstallLocation.js"
+ 	},
+	"Target": {
+		"EntitySet" : "MyEquipments",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink": "{@odata.readLink}"
+	},
+	"UpdateLinks": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentUpdateLinks.js",
+	"DeleteLinks": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentDeleteLinks.js",
+	"Headers": {
+        "OfflineOData.TransactionID": "#Property:EquipId"
+	},
+    "OnSuccess": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentUpdateOnSuccess.js",
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

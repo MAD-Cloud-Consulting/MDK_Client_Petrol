@@ -1,0 +1,11 @@
+{
+    "Target":
+    {
+        "EntitySet": "DisconnectionObjects",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "EditLink": "{@odata.editLink}"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Meter/CreateUpdate/DiscardDisconnectReadings.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action",
+    "_Type": "Action.Type.OfflineOData.UndoPendingChanges"
+}

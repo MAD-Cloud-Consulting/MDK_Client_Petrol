@@ -1,0 +1,82 @@
+{  
+   "Controls":[  
+      {  
+         "_Type":"Control.Type.Extension",
+         "Module": "extension-BarcodeScanner",
+         "Control":"BarcodeScannerExtension",
+         "Class":"BarcodeScannerExtension",
+         "_Name":"BarcodeScannerExtension",
+         "DataSubscriptions": ["MyWorkOrderComponents"],
+          "ExtensionProperties":{
+                        "BusinessObjects": [{
+                        "Target": { 
+                            "EntitySet" : "MyWorkOrderComponents",
+                            "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                            "Properties": [],
+                            "KeyProperties": [],
+                            "QueryOptions":"/SAPAssetManager/Rules/Extensions/BarcodeScannerQueryOptions.js"
+                          },
+                          "ScannerData": { 
+                            "Type":"Job",
+                            "EntitySetName":"MyWorkOrderComponents",
+                            "Properties":{
+                                 "ID":"{OrderId}",
+                                 "DetailImage":" ",
+                                 "Subhead":"{MaterialNum}",
+                                 "Description":"{ItemCategoryDesc}",
+                                 "SubstatusText":"/SAPAssetManager/Rules/Parts/BarcodeSubstatusText.js",
+                                 "Title":"{ComponentDesc}",
+                                 "ScanProperty":"{MaterialNum}",
+                                 "Filter": "/SAPAssetManager/Rules/Parts/BarcodeScannerVerifyOverIssuePart.js",
+                                 "ConfirmationStatusText":"$(L,bc_confirmationstatus_text, {QuantityUnE}, {QuantityUnE})"
+                            },
+                            "Actions":[
+                                {
+                                    "Title":"$(L, bc_action_edit)",
+                                    "ActionType":"Edit",
+                                    "Highlighted": false,
+                                    "IsVisible": "/SAPAssetManager/Rules/Parts/Issue/IssueEnable.js",
+                                    "CallbackInfo": {
+                                        "Action":"/SAPAssetManager/Actions/Parts/PartIssueCreateChangeset.action",
+                                        "Target": {
+                                            "EntitySet": "{@odata.readLink}",
+                                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                            "QueryOptions": "",
+                                            "Properties": [],
+                                            "KeyProperties": []
+                                        }
+                                    }
+                                },
+                                {
+                                    "Title":"$(L, bc_action_confirm)",
+                                    "ActionType": "Confirm",
+                                    "CallbackInfo": {
+                                        "Action":"",
+                                        "Target": { 
+                                            "EntitySet" : "MyWorkOrderComponents",
+                                            "QueryOptions":"",
+                                            "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                            "Properties": [{"WithdrawnQuantity": "/SAPAssetManager/Rules/Parts/BarcodeComputeRemainingQuantity.js"}],
+                                            "ReadLink": "{@odata.readLink}"
+                                    }
+                                    },
+                                    "Highlighted": false
+                                }
+                            ]
+                          }
+                        }]
+                ,
+                "ViewConfig": {
+                    "ScanTypes": ["qr", "barcode"],
+                    "ErrorMessage": {
+                        "Title": "$(L, bc_err_title)",
+                        "Message": "$(L, bc_err_message)",
+                        "ActionTitle": "$(L,ok)"
+                    }
+                }            
+          }
+      }
+   ],
+   "_Type":"Page",
+   "_Name":"BarcodeScannerExtensionControl"
+}

@@ -1,0 +1,12 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/Meters/CreateUpdate/MeterInstallDeviceUpdate.action",
+        "/SAPAssetManager/Actions/Meters/CreateUpdate/DeviceGoodsMovementRecordCreate.action"
+    ],
+    "OnSuccess": "/SAPAssetManager/Actions/Meters/CreateUpdate/MeterEquipmentStatusUpdate.action",
+    "OnFailure" : "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Type": "Action.Type.ODataService.ChangeSet"
+ }

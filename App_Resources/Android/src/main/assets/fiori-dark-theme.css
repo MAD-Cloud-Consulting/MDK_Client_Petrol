@@ -1,0 +1,21 @@
+/* Fiori dark theme support for a HTML that is used for a WebView.
+
+ Here is an example on how to set up dark theme for a WebView:
+ 1.  For a WebView called webView be sure to add this if-statement:
+
+     if (Utility.isNightMode(this)) {  // or Utility.isNightMode(getContext())
+         if(WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+             WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+         }
+         if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY) ) {
+             WebSettingsCompat.setForceDarkStrategy(webView.getSettings(), WebSettingsCompat.DARK_STRATEGY_WEB_THEME_DARKENING_ONLY);
+         }
+     }
+
+ 2. Reference this style sheet in your html.
+ */
+ @media (prefers-color-scheme: dark) {
+    body { background-color: #14171A;}
+    h1, p, li { color: #F5F6F7; }
+    a { color: #F5F6F7; }
+}

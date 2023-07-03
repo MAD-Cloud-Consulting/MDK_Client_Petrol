@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "InspectionPoints",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "ValSelectedSet": "#Property:ClientData/#Property:ValSelectedSet",
+        "ValCatalog": "#Property:ClientData/#Property:ValCatalog",
+        "ValCode": "#Property:ClientData/#Property:ValCode",
+        "ValCodeGroup": "#Property:ClientData/#Property:ValCodeGroup",
+        "ValuationStatus": "#Property:ClientData/#Property:Valuation",
+        "Plant": "#Property:ClientData/#Property:Plant"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "{{#Property:InspectionLot}}"
+    },
+    "RequestOptions": {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsCreateLinks.js",
+    "UpdateLinks": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsUpdateLinks.js",
+    "ValidationRule": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointUpdateValidation.js"
+}

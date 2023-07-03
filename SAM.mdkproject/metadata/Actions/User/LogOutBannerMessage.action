@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+    "Message": "$(L,logging_out)",
+    "OnSuccess": "/SAPAssetManager/Actions/User/LogOutUser.action"
+}

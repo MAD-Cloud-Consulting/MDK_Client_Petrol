@@ -1,0 +1,10 @@
+{
+	"DestinationName": "DEST_DIGITAL_SIGNATURE_PPROP",
+	"OfflineEnabled": false,
+	"ServiceUrl": "/destinations/mobileservices",
+	"OnlineOptions": {
+		"ServiceOptions": {
+			"dataFormat": 1
+		}
+    }
+}

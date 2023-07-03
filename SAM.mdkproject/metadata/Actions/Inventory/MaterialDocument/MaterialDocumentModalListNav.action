@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"PageToOpen": "/SAPAssetManager/Pages/Inventory/MaterialDocument/MaterialDocumentModalList.page",
+	"ModalPage": true
+}

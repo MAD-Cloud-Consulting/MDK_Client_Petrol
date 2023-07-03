@@ -1,0 +1,33 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderHeaders",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "OrderId": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js",
+        "OrderDescription": "#Page:WorkOrderCreateUpdatePage/#Control:DescriptionNote/#Value",
+        "PlanningPlant": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdatePlanningPlantValue.js",
+        "OrderType": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateTypeValue.js",
+        "Priority": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdatePriorityValue.js",
+        "HeaderFunctionLocation": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateFuncLocValue.js",
+        "HeaderEquipment": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateEquipmentValue.js",
+        "BusinessArea": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateBusinessAreaValue.js",
+        "MainWorkCenterPlant": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateWorkCenterPlantValue.js",
+        "MainWorkCenter": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateMainWorkCenterValue.js",
+        "CreationDate": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+        "CreationTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js",
+        "PlannerGroup":"/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderPlannerGroup.js",
+        "NotificationNumber": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderNotificationNumber.js",
+        "ReferenceOrder": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderReferenceOrder.js",
+        "AccountingIndicator":"#Page:WorkOrderCreateUpdatePage/#Control:AccountIndicatorLstPkr/#SelectedValue"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateLinks.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

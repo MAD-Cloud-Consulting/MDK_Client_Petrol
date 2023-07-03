@@ -1,0 +1,16 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/GetItemEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{TempItem_ItemReadLink}"
+    },
+    "Properties": {
+        "ReceivedQuantity": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/CalculateNewReceivedQuantity.js",
+        "DeliveryCompletedFlag": "#Property:TempLine_DeliveryComplete"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

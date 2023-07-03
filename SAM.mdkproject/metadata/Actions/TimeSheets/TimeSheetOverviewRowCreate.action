@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "CatsTimesheetOverviewRows",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "Date": "#ClientData/#Property:TimeSheetsOverviewRowDate",
+        "Hours": 0.00
+    },
+    "Headers": {
+        "Transaction.Ignore": "true",
+        "OfflineOData.RemoveAfterUpload": "true"     
+    }
+}

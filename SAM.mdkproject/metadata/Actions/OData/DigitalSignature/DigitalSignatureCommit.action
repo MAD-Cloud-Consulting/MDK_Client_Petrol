@@ -1,0 +1,17 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+		"EntitySet": "DigitalSignatureCommit"
+	},
+	"Properties": {
+		"Application": "/SAPAssetManager/Rules/DigitalSignature/GetSigningApplicaiton.js",
+		"DraftSignatureID": "/SAPAssetManager/Rules/DigitalSignature/GetApplicationObjectSignKey.js",
+		"Object": "/SAPAssetManager/Rules/DigitalSignature/GetSigningApplicationSubObject.js"
+	},
+	"ActionResult":{
+		"_Name": "result"
+	},
+	"OnSuccess": "/SAPAssetManager/Actions/OData/DigitalSignature/DeleteDraftSignatureFromUserPrefs.action",
+	"OnFailure": "/SAPAssetManager/Rules/DigitalSignature/DigitalSignatureCommitFailure.js"
+}

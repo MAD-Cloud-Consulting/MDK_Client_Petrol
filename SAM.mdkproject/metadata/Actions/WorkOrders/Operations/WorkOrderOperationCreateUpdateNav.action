@@ -1,0 +1,5 @@
+{
+    "ModalPage": true,
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationCreateUpdate.page"
+}

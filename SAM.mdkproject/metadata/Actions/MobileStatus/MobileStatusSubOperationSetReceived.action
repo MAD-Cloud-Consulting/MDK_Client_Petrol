@@ -1,0 +1,39 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Headers": {
+    	"OfflineOData.NonMergeable": true
+	},
+	"Target":{
+		"EntitySet": "PMMobileStatuses",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+		"MobileStatus": "/SAPAssetManager/Rules/MobileStatus/MobileStatusReceived.js",
+		"ObjectType": "/SAPAssetManager/Rules/MobileStatus/MobileStatusSubOperationObjectType.js",
+		"ObjectKey": "/SAPAssetManager/Rules/MobileStatus/MobileStatusSetReceivedObjectKey.js",
+		"OrderId": "/SAPAssetManager/Rules/MobileStatus/MobileStatusGetSavedOrderID.js",
+        "OperationNo": "/SAPAssetManager/Rules/MobileStatus/MobileStatusGetSavedOperationID.js",
+        "SubOperationNo": "/SAPAssetManager/Rules/MobileStatus/MobileStatusLocalSubOperationID.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js"
+	},
+	"CreateLinks": [{
+        "Property": "WOSubOperation_Nav",
+        "Target": {
+			"EntitySet" : "MyWorkOrderSubOperations",
+			"ReadLink": "/SAPAssetManager/Rules/MobileStatus/MobileStatusLocalSubOperationReadLink.js"
+        }
+      },
+	  {
+		  "Property": "OverallStatusCfg_Nav",
+		  "Target": {
+			  "EntitySet": "EAMOverallStatusConfigs",
+			  "QueryOptions": "$filter=MobileStatus eq 'RECEIVED' and ObjectType eq 'WO_OPERATION'"
+		  }
+	  }
+    ],
+	"OnSuccess": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnSuccess.js",
+	"OnFailure" : "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : " ",
+	"ActionResult" : {"_Name" : "MobileStatusSubOperationSetReceived"}
+}

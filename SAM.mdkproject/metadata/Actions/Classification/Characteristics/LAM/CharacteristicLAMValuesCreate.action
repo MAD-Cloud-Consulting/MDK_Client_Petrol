@@ -1,0 +1,33 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "LAMCharacteristicValues",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "LAMInternCounter": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueLAMInternCounter.js",
+        "Table": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueTable.js",
+        "InternCounter": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueInternCounter.js",
+        "ClassType": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueClassType.js",
+        "ObjClassFlag": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueObjClassFlag.js",
+        "CharValCounter": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueCharValCounter.js",
+        "InternCharacteristic": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueInternChar.js",
+        "ObjectKey": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueObjectKey.js",
+        "Length": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueLength.js",
+        "StartPoint": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueStartPoint.js",
+        "EndPoint":"/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueEndPoint.js",
+        "UOM": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueUOM.js"
+    },
+    "CreateLinks": [{
+        "Property": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueUpdateLinkProperty.js",
+        "Target": {
+            "EntitySet": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/LAMCharacteristicValueUpdateEntitySet.js",
+            "ReadLink": "#Property:@odata.readLink"
+        }
+    }],
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/CreateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/LAM/CharacteristicLAMValuesCreateUpdateValidation.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

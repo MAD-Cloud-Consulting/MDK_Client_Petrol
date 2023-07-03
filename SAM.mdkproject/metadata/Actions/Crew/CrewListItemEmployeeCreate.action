@@ -1,0 +1,23 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "CrewListItems",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "CrewId" : "/SAPAssetManager/Rules/Crew/Header/CrewListCrewId.js",
+        "CrewItemId" : "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemCrewItemId.js",
+        "CrewItemType" : "/SAPAssetManager/Globals/Crew/ItemTypeEmployee.global",
+        "CrewItemKey" : "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemCrewItemKey.js",
+        "RemovalFlag" : " ",
+        "CatsHours" : "0"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemEmployeeLinks.js",
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Crew/Header/CrewListCrewId.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Crew/LineItem/CrewListItemProcessEmployeeLoop.js"
+}

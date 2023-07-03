@@ -1,0 +1,84 @@
+{
+	"Caption": "$(L,operation_transfer)",
+    "ActionBar": {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+        },
+        {
+            "Position": "right",
+            "Text": "$(L,transfer)",
+            "OnPress": "/SAPAssetManager/Actions/WorkOrders/MobileStatus/TransferPageRequiredFields.action"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "Caption": "$(L,workorder)",
+                "IsEditable": false,
+                "Value": "{OrderId}",
+                "_Name": "WorkOrderNumber",
+                "_Type": "Control.Type.FormCell.SimpleProperty"
+            },{
+                "Caption": "$(L,operation)",
+                "IsEditable": false,
+                "Value": "{OperationNo}",
+                "_Name": "WorkOrderOperationNumber",
+                "_Type": "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "Caption": "$(L,reason)",
+                "IsEditable": true,
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": "/SAPAssetManager/Rules/MobileStatus/ReasonCodes.js",
+                "Search":
+                {
+                    "Enabled": true
+                },
+                "_Name": "TransferReasonLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "AllowDefaultValueIfOneItem": true,
+                "Caption": "$(L,transfer_to)",
+                "IsEditable": true,
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": "/SAPAssetManager/Rules/WorkOrders/ListView/TransferToListItems.js",
+                "Search":
+                {
+                    "Enabled": true
+                },
+                "_Name": "TransferToLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "IsAutoResizing": false,
+                "IsEditable": true,
+                "Value": "",
+                "Caption": "$(L,notes)",
+                "PlaceHolder": "$(L,notes)",
+                "_Name": "TransferNote",
+                "_Type": "Control.Type.FormCell.Note"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+	"_Name": "OperationTransfer",
+	"_Type": "Page"
+}

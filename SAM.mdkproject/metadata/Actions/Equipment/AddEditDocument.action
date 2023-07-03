@@ -1,0 +1,12 @@
+{
+     "Target": {
+         "EntitySet": "/SAPAssetManager/Rules/Equipment/DocumentAddEditEntitySet.js",
+         "Service": "/SAPAssetManager/Services/AssetManager.service",
+         "ReadLink" : "{@odata.readLink}"
+     },
+     "Properties" : {		
+     },
+     "OnSuccess": "/SAPAssetManager/Rules/Documents/Create/DocumentCreateDelete.js",
+     "ValidationRule": "/SAPAssetManager/Rules/Equipment/DocumentAddEditValidation.js",
+     "_Type": "Action.Type.ODataService.UpdateEntity"
+ }

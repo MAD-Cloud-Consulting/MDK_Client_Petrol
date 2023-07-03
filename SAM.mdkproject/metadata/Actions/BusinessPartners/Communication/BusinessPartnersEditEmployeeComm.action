@@ -1,0 +1,13 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "EmployeeCommunications",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:commPropertyReadLink"
+    },
+    "Properties":
+    {
+        "Value": "#ClientData/#Property:value"
+    }
+}

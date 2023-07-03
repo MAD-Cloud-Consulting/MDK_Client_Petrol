@@ -1,0 +1,6 @@
+{
+    "Message": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderMobileStatusFailureMessage.js",
+    "Duration": 3,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

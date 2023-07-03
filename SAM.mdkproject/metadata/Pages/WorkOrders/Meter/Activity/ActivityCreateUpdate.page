@@ -1,0 +1,104 @@
+{
+    "Caption": "$(L,edit_activity)",
+    "OnLoaded": "/SAPAssetManager/Rules/Meter/Common/HideCancelOnPageLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Done",
+                "OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/Activity/ActivityCreateUpdateRequired.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L,document)",
+                            "PlaceHolder": "",
+                            "Value": "{{#Property:DocNum}}",
+                            "_Name": "DocumentSim",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L,activity_type)",
+                            "PlaceHolder": "",
+                            "Value": "{{#Property:DisconnectActivityType_Nav/#Property:ActivityTypeDescription}}",
+                            "_Name": "ActivityTypeSim",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L,activity)",
+                            "PlaceHolder": "",
+                            "Value": "{{#Property:ActivityNum}}",
+                            "_Name": "ActivitySim",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "_Name": "StatusLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,status)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": { 
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "Value": "{{#Property:ActivityStatus}}",
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:Status}} - {{#Property:Description}}",
+                                "ReturnValue": "{Status}",
+                                "Target": {
+                                    "EntitySet": "DisconnectActivityStatuses",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Meter/DisconnectActivityStatusesQuryOptions.js"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L,date)",
+                            "Mode" : "Date",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "DateTimeEntryMode" : "date",
+                            "_Name": "DatePicker",
+                            "IsEditable": false
+                        },
+                        {
+                            "Caption": "$(L,time)",
+                            "Mode" : "time",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "DateTimeEntryMode" : "time",
+                            "_Name": "TimePicker",
+                            "IsEditable": false
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ActivityCreateUpdatePage"
+}

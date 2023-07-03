@@ -1,0 +1,189 @@
+{
+    "Caption":"$(L, map)",
+   "Controls":
+   [{
+         "_Type":"Control.Type.Extension",
+         "Module": "extension-MapFramework",
+         "Control":"MapExtensionWithContext",
+         "Class":"MapExtensionWithContext",
+         "_Name":"MapExtensionControl",
+         "ExtensionProperties":{
+            "Config": {
+				"Target": {
+					"EntitySet": "GISMapParameters",
+					"Service": "/SAPAssetManager/Services/AssetManager.service",
+					"Properties": [],
+					"KeyProperties": []
+				},
+				"ViewConfig": {
+                    "ZoomOnLocationEnabled": false,
+                    "UseDynamicLayerDisplayPrefs": true
+				},
+				"BaseMaps": [],
+				"FeatureLayers": []
+			},
+			"TokenAuthentication": {
+				"Action": "/SAPAssetManager/Rules/Extensions/TokenRequest.js"
+			},
+			"MapToolsetIcons": [{
+					"name": "search",
+					"normalAssetName": "Search",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "settings",
+					"normalAssetName": "Information",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "currentLocation",
+					"normalAssetName": "Location",
+					"selectedAssetName": "LocationEnabled",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "zoomExtents",
+					"normalAssetName": "ZoomExtent",
+					"isVisible": true,
+					"isEnabled": true
+				}
+			],
+            "SettingsControl": {
+                "Title": "$(L, settings)",
+                "CloseActionTitle": "$(L, map_settings_close)",
+                "BasemapsTitle": "$(L,bm_title)",
+				"FeatureLayersTitle": "$(L, fl_title)",
+				"NearMe": {
+					"DistanceTitle": "$(L, map_nearme_dist_title)",
+					"UnitsTitle": "$(L, map_nearme_unit_title)",
+					"Distances": [0.5, 1.0, 2.0, 5.0],
+					"Units": [{
+							"Value": "Mi",
+							"Display": "$(L, map_nearme_mi)"
+						},
+						{
+							"Value": "Km",
+							"Display": "$(L, map_nearme_km)"
+						}
+					]
+				},
+				"BatterySavingTitle": "$(L, battery_saving_switch_title)",
+                "BatterySavingDesc": "$(L, battery_saving_switch_desctiption)"
+			},
+			"SearchControl": {
+				"SearchPlaceholder": "$(L, map_search_placeholder)",
+				"SearchFields": [
+					"Title", "Footnote", "Subhead", "Description"
+				],
+				"IsResultTextDisplayed": true,
+				"ResultsPrefix": "$(L, map_search_results_pref)",
+				"ResultsSuffix": "$(L, map_search_results_sufx)",
+				"NearMeFilterName": "$(L, map_search_nearme)",
+				"QuickFilters": [{
+						"FilterType": "TimeFilter",
+						"Type": [
+							"Job"
+						],
+						"Name": "$(L, map_search_wo_due_today)",
+						"PeriodInDays": 1,
+						"PropertyName": "DueDate"
+					},
+					{
+						"FilterType": "TextFilter",
+						"Name": "$(L, map_search_high_priority)",
+						"Properties": [
+							"StatusText"
+						],
+						"Text": "High"
+					}
+				]
+            },
+            "BusinessObjects": [
+				{
+					"Type": "Notification",
+					"Title": "$(L, dl_notif)",
+					"Legend": "IconNotification",
+					"Target": {
+						"EntitySet": "MyNotificationHeaders",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$expand=NotifGeometries/Geometry&$filter=NotifGeometries/any(ng:sap.entityexists(ng/Geometry))",
+						"Properties": [],
+						"KeyProperties": []
+					},
+					"Enable": true,
+					"ObjectScheme": {
+						"Geometry": "NotifGeometries/Geometry/GeometryValue",
+						"Layer": "Notification",
+						"Properties": {
+							"ID": "{NotificationNumber}",
+							"Title": "{NotificationDescription}",
+							"Subhead": "$(L, notification_x, {NotificationNumber})",
+							"StatusText": "/SAPAssetManager/Rules/Maps/PriorityStatusText.js",
+							"SubstatusText": "/SAPAssetManager/Rules/Maps/PrioritySubstatusText.js",
+							"StatusImage": "/SAPAssetManager/Rules/Maps/PriorityBadge.js",
+							"Tags": [
+								"/SAPAssetManager/Rules/Maps/MapNotificationStatus.js"
+							],
+							"BodyText": "/SAPAssetManager/Rules/Maps/MapNotificationWorkCenter.js",
+							"Footnote": "/SAPAssetManager/Rules/Maps/MapNotificationDueDate.js",
+							"FormatRule": "",
+							"Priority": "{Priority}",
+							"Directions": {
+								"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+								"ButtonText": "$(L, map_info_panel_directions)"
+							}
+						},
+						"Actions": [{
+								"Title": "$(L, action_create_notif)",
+								"Icon": "ActionAdd",
+								"IsVisible":"/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreate.js",
+								"Type": "Create",
+								"CallbackInfo": {
+									"Action": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateChangeSetNav.js",
+									"Target": {
+										"EntitySet": "MyNotificationHeaders",
+										"Service": "/SAPAssetManager/Services/AssetManager.service",
+										"QueryOptions": "$expand=NotifMobileStatus_Nav,NotifDocuments&$filter=NotificationNumber eq '{NotificationNumber}'",
+										"Properties": [],
+										"KeyProperties": []
+									}
+								}
+							},
+							{
+								"Title": "$(L, action_update_notif)",
+								"Icon": "ActionEdit",
+								"Type": "Update",
+								"IsVisible":"/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js",
+								"CallbackInfo": {
+									"Action": "/SAPAssetManager/Rules/Notifications/NotificationUpdateNav.js",
+									"Target": {
+										"EntitySet": "MyNotificationHeaders",
+										"Service": "/SAPAssetManager/Services/AssetManager.service",
+										"QueryOptions": "$expand=NotifPriority&$filter=NotificationNumber eq '{NotificationNumber}'",
+										"Properties": [],
+										"KeyProperties": []
+									}
+								}
+							}
+						],
+						"Symbol": {
+							"marker": "/SAPAssetManager/Rules/Maps/Icons/NotificationIcon.js",
+							"lineColor": "04ACA7",
+							"fillColor": "04ACA733",
+							"lineWidth": 2,
+							"onSelect": {
+								"marker": "/SAPAssetManager/Rules/Maps/Icons/SelectedNotificationIcon.js"
+							}
+						}
+					}
+				}
+            ]
+         }
+      }
+   ],
+   "_Type":"Page",
+   "_Name":"NotificationMapDetailsPage"
+}

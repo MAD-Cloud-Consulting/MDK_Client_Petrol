@@ -1,0 +1,25 @@
+{
+    "_Type": "Action.Type.ODataService.CreateRelatedEntity",
+    "Target": {
+      "EntitySet": "MatDocItemSerialNums",
+      "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+      "MaterialDocNumber": "#ClientData/#Property:TempHeader_Key",
+      "MaterialDocYear": "#ClientData/#Property:TempHeader_MaterialDocYear",
+      "MatDocItem":"#ClientData/#Property:TempItem_Key",
+      "SerialNum":"#ClientData/#Property:TempLine_SerialNumber"
+    },
+    "Headers": {
+      "OfflineOData.RemoveAfterUpload": "true",
+      "OfflineOData.TransactionID": "#ClientData/#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+	  "ParentLink": {
+        "Property": "SerialNum",
+        "Target": {
+          "EntitySet": "MaterialDocItems",
+          "ReadLink": "/SAPAssetManager/Rules/Inventory/MaterialDocumentItem/GetMaterialDocumentItemReadLink.js"
+        }
+    }
+}

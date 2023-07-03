@@ -1,0 +1,25 @@
+{
+    "_Type": "Action.Type.ODataService.CreateRelatedEntity",
+    "Target": {
+      "EntitySet": "PhysicalInventoryDocItemSerials",
+      "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+      "FiscalYear": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentFiscalYear.js",
+      "Item": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentItemID.js",
+      "PhysInvDoc": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentID.js",
+      "SerialNumber": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/GetSerialNumberDuringCreate.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryCreateTransactionID.js"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ParentLink": {
+        "Property": "PhysicalInventoryDocItemSerial_Nav",
+        "Target": {
+          "EntitySet": "PhysicalInventoryDocItems",
+          "QueryOptions": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetItemQueryOptionsOnCreateForSerialAdd.js"
+        }
+    }
+}

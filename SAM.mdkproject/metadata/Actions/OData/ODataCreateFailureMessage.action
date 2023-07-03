@@ -1,0 +1,6 @@
+{
+  "_Type" : "Action.Type.BannerMessage",
+  "Message" : "/SAPAssetManager/Rules/Common/SyncFailure.js",
+  "Duration": 7,
+  "Animated": true
+}

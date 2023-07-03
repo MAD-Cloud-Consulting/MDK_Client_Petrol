@@ -1,0 +1,10 @@
+{
+    "Target": {
+        "EntitySet": "ErrorArchive",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions":"/SAPAssetManager/Rules/Common/ErrorArchiveQueryOptions.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/DeleteEntitySuccessMessageNoClosePageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action",
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

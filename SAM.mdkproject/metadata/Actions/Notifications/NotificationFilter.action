@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Notifications/NotificationFilter.page",
+    "Filterable" : "#Page:NotificationsListViewPage/#Control:SectionedTable",
+    "OnSuccess": "/SAPAssetManager/Rules/Notifications/OnNotificationFilterSuccess.js",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

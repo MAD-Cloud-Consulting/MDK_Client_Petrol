@@ -1,0 +1,8 @@
+{
+  "_Type": "Action.Type.ODataService.DeleteMedia",
+  "Target": {
+    "EntitySet": "Documents",
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "ReadLink": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDocumentDeleteReadLink.js"
+  }
+}

@@ -1,0 +1,111 @@
+{
+	"Collection": [
+		"CatsTimesheets"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Text",
+			"_Type": "CatsTimesheetTexts"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "Counter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PersonnelNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "AttendAbsenceType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ControllerArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Date",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LastChangeDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LastChangeTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Operation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Plant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RecOrder",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SenderCostCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ShortText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Status",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SubOperation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Workcenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Hours",
+			"_Type": "Edm.Decimal"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "CatsTimesheet"
+}

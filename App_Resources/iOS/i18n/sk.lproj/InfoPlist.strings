@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Vaša aktuálna poloha sa zobrazí na mape";
+
+"NSLocationAlwaysUsageDescription" = "Chcete vždy povoliť \"SAP Asset Manager\" prístup k vašej polohe?";
+
+"NSCameraUsageDescription" = "Povoliť fotoaparátu prístup na skenovanie čiarových kódov a fotografovanie obrázkov, ktoré sa majú priložiť k aplikácii";
+
+"NSMicrophoneUsageDescription" = "Povoľte prístup na mikrofón";
+
+"NSFaceIDUsageDescription" = "Aktiváciou Face ID získate rýchly a bezpečný prístup do SAP Asset Manager";
+
+"NSPhotoLibraryUsageDescription" = "Povoliť prístup do knižnice fotografií pre priloženie fotografií k aplikácii, ktorá sa má odovzdať";
+
+"NSPhotoLibraryAddUsageDescription" = "Naša aplikácia potrebuje povolenie na zápis fotografií";
+

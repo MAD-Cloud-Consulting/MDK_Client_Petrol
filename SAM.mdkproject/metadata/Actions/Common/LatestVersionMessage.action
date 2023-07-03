@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Message": "$(L, no_updated_needed)",
+	"Title": "$(L, app_update)",
+	"OKCaption": "$(L, ok)"
+}

@@ -1,0 +1,96 @@
+{
+    "Caption" : "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimeSheetsTodaysDate.js",
+    "ActionBar": {
+		"Items": [
+			{
+				"Position": "right",
+				"SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryCreateNav.js",
+                "Visible": "/SAPAssetManager/Rules/UserAuthorizations/TimeSheets/EnableTimeSheetCreate.js"
+			}
+		]
+	},
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Header":
+            {
+                "DataTable":
+                {
+                    "Items":
+                    [{
+                        "Text": "$(L,crew_member)",
+                        "TextAlignment": "center"
+
+                    },
+                    {
+                        "Text": "$(L,regular_hours)",
+                        "TextAlignment": "center"
+                        
+                    },
+                    {
+                        "Text": "$(L,overtime_hours)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L,non_working_hours)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L,total_hours)",
+                        "TextAlignment": "center"
+                    }]
+                }
+            },
+            "Row":
+            {
+                "Layout": {
+                            "ColumnWidth": [300,200,200,200,-1]
+                },
+                "Items":
+                [{
+                    "Text" : "#Property:Employee/#Property:EmployeeName",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text" : "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimesheetRegularHours.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text" : "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimesheetOvertimeHours.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text" : "/SAPAssetManager/Rules/Crew/TimeSheets/CrewTimesheetNonWorkingHours.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text" : "/SAPAssetManager/Rules/Crew/TimeSheets/FormatHours.js",
+                    "TextAlignment": "center"
+                }],
+                "AccessoryType": "disclosureIndicator",
+                "OnPress": "/SAPAssetManager/Rules/Crew/TimeSheets/TimeSheetEntryDetailsNavWrapper.js"
+            },
+            "Footer":
+            {
+                "AttributeLabel": "/SAPAssetManager/Rules/Crew/TimeSheets/CrewListTotalHours.js",
+                "AccessoryType": "none",
+                "FooterStyle": "attribute"
+            },
+            "Target":
+            {
+                "EntitySet": "CrewListItems",
+                "QueryOptions": "/SAPAssetManager/Rules/Crew/TimeSheets/CrewListTimesheetsQueryOptions.js",
+                "Service": "/SAPAssetManager/Services/AssetManager.service"
+            },
+            "_Type": "Section.Type.DataTable",
+            "StickyColumn": false,
+            "DataSubscriptions": ["CrewListItems", "CatsTimesheets"],
+            "_Name": "TimesheetDetailsList"
+        }],
+        "_Type": "Control.Type.SectionedTable"
+    }],
+    "_Type": "Page",
+    "_Name": "TimesheetDetailPage"
+}

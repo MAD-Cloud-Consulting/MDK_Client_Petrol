@@ -1,0 +1,161 @@
+{
+    "Caption": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTEquipmentAddEditTitle.js",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTEquipmentCreateUpdateOnLoaded.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTAddEditRequiredField.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Name": "EquipmentLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": false,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "IsEditable": "/SAPAssetManager/Rules/Common/IsOnCreate.js",
+                            "Caption": "$(L,equipment)",
+                            "PlaceHolder": "",
+                            "Value": "{Equipment}",
+                            "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTEquipmentOnChange.js",
+                            "PickerItems": {
+                                "ObjectCell":
+                                {
+                                    "PreserveIconStackSpacing": false,
+                                    "Title": "{{#Property:EquipDesc}} - {{#Property:EquipId}}",
+                                    "Subhead": "/SAPAssetManager/Rules/Equipment/EquipmentListViewFormat.js",
+                                    "Footnote": "{{#Property:SerialNumber/#Property:SerialNumber}}"
+                                },
+                                "ReturnValue": "{EquipId}",
+                                "Target": {
+                                    "EntitySet": "MyEquipments",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$filter=PRTFlag eq 'X'&$orderby=EquipId&$expand=SerialNumber"
+                                }
+                            }
+                        },
+                        {
+                            "Caption": "$(L,serial_number)",
+                            "PlaceHolder": "",
+                            "Value": "",
+                            "_Name": "SerialNumber",
+                            "ReadOnly": true,
+                            "IsEditable": false,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L,usage)",
+                            "IsVisible": true,
+                            "IsEditable": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/IsEditableOrVisible.js",
+                            "Value": "{UsageValue}",
+                            "PlaceHolder": "None",
+                            "KeyboardType": "Number",
+                            "_Name": "UsageValueField",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "_Name": "UoMLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Caption": "$(L,unit_of_measure)",
+                            "AllowMultipleSelection": false,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "PickerItems": {
+                                "DisplayValue": "{UoM}",
+                                "ReturnValue": "{UoM}",
+                                "Target": {
+                                    "EntitySet": "UsageUoMs",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=UoM"
+                                }
+                            },
+                            "IsVisible": true,
+                            "IsEditable": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/IsEditableOrVisible.js",
+                            "Value": "{UsageUOM}"
+                        },
+                        {
+                            "_Name": "ControlKeyLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Caption": "$(L,control_key)",
+                            "AllowMultipleSelection": false,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "PickerItems": {
+                                "DisplayValue": "{PRTControlKeyDesc}",
+                                "ReturnValue": "{PRTControlKey}",
+                                "Target": {
+                                    "EntitySet": "PRTControlKeys",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=PRTControlKeyDesc"
+                                }
+                            },
+                            "IsVisible": true,
+                            "IsEditable": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/IsEditableOrVisible.js",
+                            "Value": "{ControlKey}"
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Title": "$(L,discard)",
+                            "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+                            "IsVisible": "/SAPAssetManager/Rules/Common/IsDiscardButtonVisible.js",
+                            "_Type": "Control.Type.FormCell.Button",
+                            "ButtonType": "Text",
+                            "Semantic": "Tint",
+                            "_Name": "DiscardButton",
+                            "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "PRTCreateUpdatePage"
+}

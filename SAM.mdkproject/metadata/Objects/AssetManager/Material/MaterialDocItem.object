@@ -1,0 +1,211 @@
+{
+	"Collection": [
+		"MaterialDocItems"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "AssociatedMaterialDoc",
+			"_Type": "MaterialDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderCompMatDoc",
+			"_Type": "MyWorkOrderComponentMatDocs"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderHeader",
+			"_Type": "MyWorkOrderHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "MaterialDocNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MaterialDocYear",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MatDocItem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Material",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Plant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StorageLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Batch",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MovePlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MoveStorageLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MoveBatch",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CostCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StockType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UnloadingPoint",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SpecialStockInd",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ValuationType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EntryQuantity",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "EntryUOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderItemNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MovementType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MovementIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MovementReason",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Vendor",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SalesOrderNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SalesOrderItem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "GLAccount",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WBSElement",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReservationNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReservationItemNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FinalIssue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Delivery",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DeliveryItem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PurchaseOrderNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PurchaseOrderItem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Quantity",
+			"_Type": "Edm.Decimal"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MaterialDocItem"
+}

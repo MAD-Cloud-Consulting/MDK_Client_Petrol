@@ -1,0 +1,49 @@
+{
+	"Collection": [
+		"GlobalParameters"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "RecordNo",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FlagNoChange",
+			"_Type": "Edm.Boolean"
+		},
+		{
+			"Key": false,
+			"_Name": "ParamComment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParamGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParamScope",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParamType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParamValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ParameterName",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "GlobalParam"
+}

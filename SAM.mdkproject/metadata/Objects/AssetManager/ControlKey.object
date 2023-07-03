@@ -1,0 +1,24 @@
+{
+	"Collection": [
+		"ControlKeys"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ControlKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "Application",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ControlKeyDescription",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "ControlKey"
+}

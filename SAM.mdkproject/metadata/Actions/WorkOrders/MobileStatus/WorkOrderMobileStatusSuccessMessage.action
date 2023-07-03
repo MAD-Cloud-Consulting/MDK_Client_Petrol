@@ -1,0 +1,8 @@
+{
+    "_Type": "Action.Type.ToastMessage",
+    "Message" : "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderMobileStatusSuccessMessage.js",
+    "IsIconHidden": true,
+    "MaxNumberOfLines": 2,
+    "Duration": 3,
+    "Animated": true
+}

@@ -1,0 +1,61 @@
+{
+	"Collection": [
+		"MyNotifGeometries"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Geometry",
+			"_Type": "Geometries"
+		},
+		{
+			"Key": false,
+			"_Name": "NotifHeader",
+			"_Type": "MyNotificationHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "LogicalSystem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ObjectGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ObjectGroup1",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SpacialId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SpacialGUId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyNotifGeometry"
+}

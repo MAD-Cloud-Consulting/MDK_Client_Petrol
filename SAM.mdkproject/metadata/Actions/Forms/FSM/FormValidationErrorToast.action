@@ -1,0 +1,8 @@
+{
+  "Animated": true,
+  "Duration": 4,
+  "Message": "$(L,forms_error_banner)",
+  "IsIconHidden": false,
+  "MaxNumberOfLines": 1,
+  "_Type": "Action.Type.ToastMessage"
+}

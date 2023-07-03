@@ -1,0 +1,35 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "Confirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "ConfirmationNum" : "#ClientData/#Property:localConfirmationNum",
+        "ConfirmationCounter": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAdConfirmationCounter.js",
+        "PostingDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "StartDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "StartTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "ActivityType": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageActivityType.js",
+        "ActualDuration": "0",
+        "ActualWork": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditMileage.js",
+        "ActualWorkUOM": "MIN",
+        "FinishDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "FinishTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "Operation": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOperationNo.js",
+        "OrderID": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOrderId.js",
+        "PersonnelNumber": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddPersonnelNumber.js",
+        "Plant": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditPlant.js",
+        "CreatedDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "CreatedTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "WorkCenter": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditWorkCenter.js",
+        "FinalConfirmation": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/GetIsFinal.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#ClientData/#Property:localConfirmationNum"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditCreateLinks.js"
+}

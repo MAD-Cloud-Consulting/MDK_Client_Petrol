@@ -1,0 +1,295 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "$(L,save)",
+                "OnPress": "/SAPAssetManager/Actions/Notifications/CreateUpdate/QMDefectCreateUpdateRequired.action"
+            }
+        ]
+    },
+    "Caption": "$(L, create_defect)",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "Caption": "$(L,description)",
+                "PlaceHolder": "$(L,description)",
+                "IsAutoResizing": true,
+                "OnValueChange": "/SAPAssetManager/Rules/Common/Validation/FormCellNoteValidation.js",
+                "_Name": "NotificationDescription",
+                "_Type": "Control.Type.FormCell.Note"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "IsEditable": false,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Caption": "$(L,type)",
+                "Value": "/SAPAssetManager/Rules/Notifications/QMNotificationDefectType.js",
+                "PickerItems": {
+                    "DisplayValue": "{{#Property:NotifType}} - {{#Property:Description}}",
+                    "ReturnValue": "{NotifType}",
+                    "Target": {
+                        "EntitySet": "NotificationTypes",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"$orderby=NotifType"
+                    }
+                },
+                "_Name": "TypeLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "Caption": "$(L,priority)",
+                "Value": "/SAPAssetManager/Rules/Notifications/NotificationPrioritySegDefault.js",
+                "Segments": {
+                    "DisplayValue": "{PriorityDescription}",
+                    "ReturnValue": "{Priority}",
+                    "Target": {
+                        "EntitySet": "Priorities",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Notifications/QMNotificationCreateQueryOptions.js"
+                    }
+                },
+                "_Name": "PrioritySeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl"
+            },
+                {
+                    "_Type": "Control.Type.FormCell.Extension",
+                    "Module": "extension-HierarchyFramework",
+                    "Control": "HierarchyExtension",
+                    "Class": "HierarchyExtension",
+                    "_Name": "FuncLocHierarchyExtensionControl",
+                    "Caption": "$(L,functional_location)",
+                    "DataSubscriptions": ["MyFunctionalLocations"],
+                    "ExtensionProperties": {
+                        "IsPicker": true,
+                        "Search": {
+                            "Enabled": true,
+                            "Delay": 500,
+                            "MinimumCharacterThreshold": 3,
+                            "Placeholder": "$(L,search)"
+                        },
+                    "PickerProperties": {
+                        "OnLoaded": "/SAPAssetManager/Rules/Notifications/CreateUpdate/QMHierarchyListPickerOnLoaded.js",
+                        "OnValueChange":  "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdatePickerItems.js",
+                        "ListFilter": "MyFunctionalLocations",
+                        "Caption": "$(L,functional_location)",
+                        "AllowMultipleSelection": false,
+                        "DisplayTextStyle": 2,
+                        "ItemsPerPage": 50,
+                        "CachedItemsToLoad": 20
+                    },
+                    "HierarchyList": [],
+                    "BusinessObjects": [{
+                        "Target": {
+                            "EntitySet" : "MyFunctionalLocations",
+                            "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "/SAPAssetManager/Rules/Notifications/NotificationFLOCFilter.js",
+                            "Properties": [],
+                            "KeyProperties": []
+                        },
+                        "Properties":{
+                            "ID":"{@odata.readLink}",
+                            "Title":"{FuncLocDesc}",
+                            "Subhead":"{FuncLocId}",
+                            "Footnote": "$(L, functional_location)",
+                            "ChildCount": "/SAPAssetManager/Rules/HierarchyControl/ChildCountListPicker.js",
+                            "Parent": [
+                                {
+                                    "Target": {
+                                        "EntitySet" : "MyFunctionalLocations",
+                                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                        "Properties": [],
+                                        "KeyProperties": [],
+                                        "QueryOptions":"$filter=FuncLocIdIntern eq '{SuperiorFuncLocInternId}'&$orderby=FuncLocId"
+                                    }
+                                }
+                            ],
+                            "Children": [
+                                {
+                                    "Target": {
+                                        "EntitySet" : "MyFunctionalLocations",
+                                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                        "Properties": [],
+                                        "KeyProperties": [],
+                                        "QueryOptions":"$filter=SuperiorFuncLocInternId eq '{FuncLocIdIntern}'&$orderby=FuncLocId"
+                                        }
+                                    }
+                                ]
+                            }
+                        }]
+                    }
+                },
+                {
+                    "_Type": "Control.Type.FormCell.Extension",
+                    "Module": "extension-HierarchyFramework",
+                    "Control": "HierarchyExtension",
+                    "Class": "HierarchyExtension",
+                    "_Name": "EquipHierarchyExtensionControl",
+                    "Caption": "$(L,equipment)",
+                    "DataSubscriptions": ["MyEquipments"],
+                    "ExtensionProperties": {
+                        "IsPicker": true,
+                        "Search": {
+                            "Enabled": true,
+                            "Delay": 500,
+                            "MinimumCharacterThreshold": 3,
+                            "Placeholder": "$(L,search)"
+                        },
+                        "PickerProperties": {
+                            "OnLoaded": "/SAPAssetManager/Rules/Notifications/CreateUpdate/QMHierarchyListPickerOnLoaded.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdatePickerItems.js",
+                            "ListFilter": "MyEquipments",
+                            "AllowMultipleSelection": false,
+                            "Caption": "$(L,equipment)",
+                            "DisplayTextStyle": 2,
+                            "ItemsPerPage": 50,
+                            "CachedItemsToLoad": 20
+                        },
+                        "HierarchyList": [],
+                        "BusinessObjects": [{
+                            "Target": {
+                                "EntitySet" : "MyEquipments",
+                                "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                "QueryOptions": "/SAPAssetManager/Rules/Notifications/EquipmentQueryOptions.js",
+                                "Properties": [],
+                                "KeyProperties": []
+                            },
+                            "Properties":{
+                                "ID":"{@odata.readLink}",
+                                "Title":"{EquipDesc}",
+                                "Subhead":"{EquipId}",
+                                "Footnote": "$(L, equipment)",
+                                "ChildCount": "/SAPAssetManager/Rules/HierarchyControl/ChildCountListPicker.js",
+                                "Parent": [
+                                    {
+                                        "Target": {
+                                            "EntitySet" : "MyEquipments",
+                                            "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                            "Properties": [],
+                                            "KeyProperties": [],
+                                            "QueryOptions":"$filter=EquipId eq '{SuperiorEquip}'&$orderby=EquipId"
+                                        }
+                                    }
+                                ],
+                                "Children": [
+                                    {
+                                        "Target": {
+                                            "EntitySet" : "MyEquipments",
+                                            "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                            "Properties": [],
+                                            "KeyProperties": [],
+                                            "QueryOptions":"$filter=SuperiorEquip eq '{EquipId}'&$orderby=EquipId"
+                                        }
+                                    }
+                                ]
+                            }
+                        }]
+                    }
+                }]
+        },
+        {
+            "Controls":
+            [{
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                       "Enabled": true,
+                          "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Caption": "$(L,part_group)",
+                "Value" : "{ObjectPartCodeGroup}",
+                "PickerItems": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemPartGroupPickerItems.js",
+                "OnValueChange" : "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateUpdatePart.js",
+                "_Name": "PartGroupLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                       "Enabled": true,
+                          "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsEditable" : false,
+                "Caption": "$(L,part)",
+                "Value" : "{ObjectPart}",
+                "PickerItems":
+                {
+                    "DisplayValue" : "{{#Property:Code}} - {{#Property:CodeDescription}}",
+                    "ReturnValue": "{Code}",
+                    "Target":
+                    {
+                        "EntitySet" : "PMCatalogCodes",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions" : "/SAPAssetManager/Rules/Notifications/Item/NotificationItemPartCodeQuery.js"
+                    }
+                },
+                "_Name": "PartDetailsLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                       "Enabled": true,
+                          "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Caption": "$(L,damage_group)",
+                "Value" : "{CodeGroup}",
+                "PickerItems": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemPartGroupPickerItems.js",
+                "OnValueChange" : "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateUpdateDamage.js",
+                "_Name": "DamageGroupLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "IsEditable" : false,
+                "Caption": "$(L,damage)",
+                "Value" : "{DamageCode}",
+                "PickerItems": [],
+                "_Name": "DamageDetailsLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+    "_Name": "DefectCreateUpdatePage",
+    "_Type": "Page"
+}

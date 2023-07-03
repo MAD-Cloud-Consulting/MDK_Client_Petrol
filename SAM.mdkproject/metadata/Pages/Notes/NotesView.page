@@ -1,0 +1,43 @@
+{
+	"Caption": "$(L,notes)",
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+		    "SystemItem" : "Edit",
+			"OnPress": "/SAPAssetManager/Rules/Notes/NoteUpdateNav.js",
+            "Visible": "/SAPAssetManager/Rules/Notes/ShowNoteEdit.js"
+		},
+		{
+			"Position": "right",
+		    "SystemItem": "Add",
+			"OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Common/EnableNoteCreate.js"
+        }]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+            "KeyAndValues": [
+                {
+                    "KeyName": "",
+                    "Value": "/SAPAssetManager/Rules/Notes/NoteViewValue.js"
+                }
+            ],
+            "Layout": {
+                "NumberOfColumns": 1,
+                "MinimumInteritemSpacing": "$(PLT,66,0)" 
+            },
+            "_Type": "Section.Type.KeyValue",
+            "_Name": "Notes"
+        }],
+		"_Type" : "Control.Type.SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "NotesView",
+    "OnLoaded": "/SAPAssetManager/Rules/Notes/NotesViewOnPageLoad.js",
+    "OnReturning": "/SAPAssetManager/Rules/Notes/NotesViewOnReturning.js",
+    "DataSubscriptions": "/SAPAssetManager/Rules/Notes/NoteDataSubscriptions.js"
+}

@@ -1,0 +1,4 @@
+{
+    "Message": "$(L,equipment_installed)",
+    "_Type": "Action.Type.ToastMessage"
+}

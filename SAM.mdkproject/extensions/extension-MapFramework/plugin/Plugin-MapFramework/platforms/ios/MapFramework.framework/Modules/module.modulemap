@@ -1,0 +1,11 @@
+framework module MapFramework {
+  umbrella header "MapFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module MapFramework.Swift {
+  header "MapFramework-Swift.h"
+  requires objc
+}

@@ -1,0 +1,32 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyEquipSerialNumbers",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "SerialNumber": "#ClientData/#Property:SerialNumberForCreate",
+        "EquipId": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnSerialNumberLocalId.js",
+        "MaterialNum": "#Property:MaterialNum",
+        "StorageLocation": "/SAPAssetManager/Rules/Parts/Issue/LineItem/PartMovementLineItemStorageLocation.js",
+        "Issued": ""
+	},
+    "Headers":
+	{
+        "Transaction.Ignore": "true",
+        "OfflineOData.RemoveAfterUpload": "true"
+    },
+    "CreateLinks": [{
+        "Property": "Material",
+        "Target": {
+            "EntitySet": "Materials",
+            "ReadLink": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnMaterialReadLink.js"
+        }
+    }],
+    "OnSuccess":"/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialPartLoop.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

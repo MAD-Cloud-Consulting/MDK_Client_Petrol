@@ -1,0 +1,42 @@
+{
+    "OnLoaded": "/SAPAssetManager/Rules/Notes/NoteCreateUpdateOnPageLoad.js",
+    "Caption": "/SAPAssetManager/Rules/Notes/CreateUpdatePageCaption.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "$(PLT,'','$(L,save)')",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateOnCommit.js"
+            },
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/IsNotCompleteAction.js",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Caption" : "/SAPAssetManager/Rules/Supervisor/TechnicianRole/NoteFieldCaption.js",
+                            "PlaceHolder": "/SAPAssetManager/Rules/Supervisor/TechnicianRole/NoteFieldCaption.js",
+                            "Value": "",
+                            "_Name": "LongTextNote",
+                            "_Type": "Control.Type.FormCell.Note",
+                            "IsAutoResizing": true
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "NoteAdd"
+}

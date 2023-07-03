@@ -1,0 +1,48 @@
+{
+	"Caption": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnersCaption.js",
+	"Controls": [
+		{
+            "_Type": "Control.Type.SectionedTable",
+            "DataSubscriptions": ["Addresses", "AddressesAtWork", "EmployeeAddresses","AddressCommunications", "AddressesAtWorkComm", "EmployeeCommunications"],
+			"Sections": [
+				{
+					"_Name": "BusinessPartnersListViewSection",
+					"_Type": "Section.Type.ContactCell",
+					"ContactCell": {
+						"Headline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerName.js",
+                        "Subheadline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerDescription.js",
+                        "Description": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerAddress.js",
+                        "OnPress": "/SAPAssetManager/Actions/BusinessPartners/BusinessPartnerDetailsViewNav.action",
+                        "ActivityItems": [
+                            {
+                              "ActivityType": "Phone",
+                              "ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerCallablePhone.js"
+                            },
+                            {
+                              "ActivityType": "Email",
+                              "ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEmail.js"
+                            },
+                            {
+                              "ActivityType": "Message",
+                              "ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerMobile.js"
+                            }
+                        ]
+					},
+					"EmptySection": {
+                        "Caption": "$(L,no_businessPartners_available)"
+                    },
+					"Target": {
+						"EntitySet": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEntitySet.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerQueryOptions.js"						
+					},
+					"Header": {
+		 				"UseTopPadding": false
+    				}
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "BusinessPartnersListViewPage"
+}

@@ -1,0 +1,99 @@
+{
+    "_Type": "Page",
+    "_Name": "ChecklistUpdate",
+    "Caption": "{{#Property:ShortDescription}}",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/Checklists/ChecklistQuestionsUpdateNav.js",
+                "Visible": "/SAPAssetManager/Rules/Checklists/ChecklistUpdateAllowChecklistEdit.js"
+            }
+        ]
+    },
+    "Controls":
+    [{
+        "_Type": "Control.Type.Extension",
+        "Module": "extension-FieldDataCapture",
+        "Control": "FieldDataCaptureViewExtension",
+        "Class": "FieldDataCaptureViewExtension",
+        "_Name": "FormCellContainer",
+        "ExtensionProperties":
+        {
+            "Sections":
+            [{
+                "Target":
+                {
+                    "EntitySet": "ChecklistAssessmentQuestions",
+                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                    "QueryOptions": "$filter=ChecklistBusObject_Nav/Form_Nav/FormId eq '{{#Property:FormId}}'&$expand=FormQuestion_Nav,FormGroup_Nav,ChecklistBusObject_Nav/Form_Nav&$orderby=SortNumber"
+                },
+                "OnLoaded": "/SAPAssetManager/Rules/Checklists/ChecklistUpdateTemplateOnLoaded.js",
+                "Controls":
+                [{
+                    "Caption": "$(L,group)",
+                    "_Name": "GroupSim",
+                    "Value": "{{#Property:FormGroup_Nav/#Property:ShortDescription}}",
+                    "_Type": "Control.Type.FormCell.SimpleProperty",
+                    "IsEditable": false
+                },
+                {
+                    "_Name": "Question",
+                    "_Type": "Control.Type.FormCell.Note",
+                    "IsAutoResizing": true,
+                    "Value": "{{#Property:FormQuestion_Nav/#Property:QuestionText}}",
+                    "IsEditable": false
+                },
+                {
+                    "Caption": "$(L,answer)",
+                    "PickerPrompt": "{{#Property:FormQuestion_Nav/#Property:QuestionDesc}}",
+                    "Value": "{{#Property:SelectedAnswerOptionId}}",
+                    "AllowMultipleSelection": false,
+                    "AllowEmptySelection": true,
+                    "IsEditable": "/SAPAssetManager/Rules/Checklists/ChecklistUpdateAllowChecklistEdit.js",
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "PickerItems":
+                    {
+                        "DisplayValue": "{{#Property:ShortDescription}}",
+                        "ReturnValue": "{OptionID}",
+                        "Target": {
+                            "EntitySet": "{{#Property:@odata.readLink}}/FormQuestion_Nav/AnswerHeader_Nav/AnswerOptions_Nav",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$orderby=SortNumber"
+                        }
+                    },
+                    "_Name": "AnswerLstPkr",
+                    "_Type": "Control.Type.FormCell.ListPicker"
+                },
+                {
+                    "Caption": "$(L, note)",
+                    "PlaceHolder": "$(L,note)",
+                    "_Name": "Comments",
+                    "_Type": "Control.Type.FormCell.SimpleProperty",
+                    "Value": "{Comments}",
+                    "IsEditable": "/SAPAssetManager/Rules/Checklists/ChecklistUpdateAllowChecklistEdit.js"
+                }]
+            },{
+                "OnLoaded": "/SAPAssetManager/Rules/Checklists/ChecklistUpdateOnLoaded.js",
+                "Controls":
+                [{
+                    "Title": "$(L,discard)",
+                    "OnPress": "/SAPAssetManager/Rules/Checklists/ChecklistDiscard.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "DiscardButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }]
+            }]
+        }
+    }]
+}

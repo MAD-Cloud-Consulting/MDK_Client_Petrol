@@ -1,0 +1,30 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "MyInventoryObjects",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "IMObject" : "PI",
+        "ItemCount": "",
+        "ObjectType": "IB",
+        "ObjectDate": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentDate.js",
+        "ObjectIdExtn": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentFiscalYear.js",
+        "ObjectId": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentID.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+		"Transaction.Ignore": "true"
+    },
+    "CreateLinks": [
+		{
+			"Property": "PhysicalInventoryDocHeader_Nav",
+			"Target": {
+				"EntitySet": "PhysicalInventoryDocHeaders",
+				"ReadLink": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentReadLink.js"
+			}
+		}
+	]
+}

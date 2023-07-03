@@ -1,0 +1,25 @@
+{
+    "Properties": {
+        "OperationShortText": "#Control:DescriptionNote/#Value",
+        "ControlKey": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateControlKeyValue.js",
+        "OperationEquipment": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateEquipmentValue.js",
+        "OperationFunctionLocation": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateFuncLocValue.js",
+        "MainWorkCenterPlant": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateMainWorkCenterPlantValue.js",
+        "MainWorkCenter": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateMainWorkCenterValue.js"
+    },
+    "Target": {
+        "EntitySet": "MyWorkOrderOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/OperationTransactionID.js"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateLinks.js",
+    "DeleteLinks": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationDeleteLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  ",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

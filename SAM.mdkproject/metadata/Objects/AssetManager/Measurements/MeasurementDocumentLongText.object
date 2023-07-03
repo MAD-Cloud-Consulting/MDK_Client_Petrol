@@ -1,0 +1,41 @@
+{
+	"Collection": [
+		"MeasurementDocumentLongTexts"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "MeasurementDocument",
+			"_Type": "MeasurementDocuments"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "TextString",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MeasurementDocNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextObjType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextId",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MeasurementDocumentLongText"
+}

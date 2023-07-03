@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocuments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "MaterialDocNumber":"/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueDocumentLocalID.js",
+        "DocumentDate": "/SAPAssetManager/Rules/Parts/Issue/Header/PartMovementHeaderDocumentDate.js",
+        "MaterialDocYear": "/SAPAssetManager/Rules/Parts/Issue/Header/PartMovementHeaderMaterialDocYear.js",
+        "PostingDate": "/SAPAssetManager/Rules/Parts/Issue/Header/PartMovementHeaderPostingDate.js",
+        "GMCode": "/SAPAssetManager/Rules/Parts/Issue/Header/PartIssueHeaderGMCode.js",
+        "UserName": "/SAPAssetManager/Rules/Parts/Issue/Header/PartMovementHeaderUserName.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueDocumentLocalID.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Actions/Parts/PartIssueCreateLineItem.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueCreateUpdateValidation.js"
+}

@@ -1,0 +1,7 @@
+{
+    "Message": "/SAPAssetManager/Rules/Sync/OnlineSyncError.js",
+    "Duration": 9999,
+    "Animated": true,
+    "DismissBannerOnAction": true,
+    "_Type": "Action.Type.BannerMessage"
+}

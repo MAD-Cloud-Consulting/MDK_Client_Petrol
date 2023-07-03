@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+      "EntitySet": "MatDocItemSerialNums",
+      "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+      "MaterialDocNumber": "#Property:TempHeader_Key",
+      "MaterialDocYear": "#Property:TempHeader_MaterialDocYear",
+      "MatDocItem":"#Property:TempItem_Key",
+      "SerialNum":"#Property:TempLine_SerialNumber"
+    },
+    "Headers": {
+      "OfflineOData.RemoveAfterUpload": "true",
+      "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "CreateLinks": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/MaterialDocumentItemCreateLink.js"
+}

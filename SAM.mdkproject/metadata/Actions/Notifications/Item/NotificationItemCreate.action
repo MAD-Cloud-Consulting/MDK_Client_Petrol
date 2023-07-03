@@ -1,0 +1,35 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyNotificationItems",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "NotificationNumber": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js",
+		"ItemNumber" : "/SAPAssetManager/Rules/Notifications/Item/GenerateNotificationItemID.js",
+		"ItemText" : "/SAPAssetManager/Rules/Notifications/Item/ItemDescription.js",
+		"ObjectPartCodeGroup": "/SAPAssetManager/Rules/Parts/PartGroupLstPkrValue.js",
+		"ObjectPart" : "/SAPAssetManager/Rules/Parts/Details/PartDetailsLstPkrValue.js",
+		"CodeGroup": "/SAPAssetManager/Rules/Notifications/DamageGroupLstPkrValue.js",
+        "DamageCode": "/SAPAssetManager/Rules/Notifications/DamageDetailsLstPkrValue.js",
+        "ItemSortNumber": "/SAPAssetManager/Rules/Notifications/Item/ItemSortNumber.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js"
+    },
+	"CreateLinks":
+	[{
+		"Property" : "Notification",
+		"Target":
+		{
+			"EntitySet" : "MyNotificationHeaders",
+			"ReadLink" : "/SAPAssetManager/Rules/Common/ChangeSet/ChangesetSwitchReadLink.js"
+		}
+	}],
+	"OnSuccess" : "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateSuccess.js",
+	"OnFailure": "/SAPAssetManager/Actions/OData/ODataCreateFailureMessage.action"
+}

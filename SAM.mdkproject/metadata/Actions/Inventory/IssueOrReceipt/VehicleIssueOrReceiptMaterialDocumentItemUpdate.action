@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{#ClientData/#Property:TempLine_MatDocItemReadLink}"
+    },
+    "Properties": {
+        "MaterialDocYear": "#ClientData/#Property:TempHeader_MaterialDocYear",
+        "Material": "#ClientData/#Property:TempLine_Material",
+        "Plant": "#ClientData/#Property:TempLine_Plant",
+        "StorageLocation": "#ClientData/#Property:TempLine_StorageLocation",
+        "EntryQuantity": "#ClientData/#Property:TempLine_EntryQuantity",
+        "EntryUOM": "#ClientData/#Property:TempLine_EntryUOM",
+        "UOM": "#ClientData/#Property:TempLine_EntryUOM",
+        "Batch": "#ClientData/#Property:TempLine_Batch",
+        "MovePlant": "#ClientData/#Property:TempLine_ToPlant",
+        "MoveStorageLocation": "#ClientData/#Property:TempLine_ToStorageLocation",
+        "MoveBatch": "#ClientData/#Property:TempLine_ToBatch"
+    },
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#ClientData/#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

@@ -1,0 +1,61 @@
+{
+    "_Type": "Page",
+    "_Name": "ChecklistsListViewPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewOnPageLoad.js",
+    "OnReturning": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewOnPageLoad.js",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "right",
+            "SystemItem": "Add",
+            "OnPress": "/SAPAssetManager/Rules/Checklists/Create/ChecklistCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/Checklists/Create/AllowChecklistCreate.js"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Search":
+            {
+                "Enabled": "/SAPAssetManager/Rules/Checklists/ChecklistsSearchEnabled.js",
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+            },
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_checklists_available)"
+            },
+            "ObjectCell":
+            {
+                "Icons": "/SAPAssetManager/Rules/Checklists/ChecklistListViewIconImages.js",
+                "PreserveIconStackSpacing": true,
+                "Title": "#Property:ShortDescription",
+                "Subhead": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
+                "Footnote": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
+                "StatusText": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
+                "SubstatusText": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
+                "OnPress": "/SAPAssetManager/Rules/Checklists/ChecklistViewNav.js"
+            },
+            "Target":
+            {
+                "EntitySet": "Forms",
+                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "ChecklistsListViewSection",
+            "DataSubscriptions": ["ChecklistBusObjects","Forms"]
+            }],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable"
+        }
+    ]
+}

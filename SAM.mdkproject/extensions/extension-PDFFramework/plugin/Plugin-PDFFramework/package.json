@@ -1,0 +1,17 @@
+{
+  "name": "extension-PDFFramework",
+  "version": "2210.0.2",
+  "description": "A PDF framework plugin for MDK",
+  "main": "index.js",
+   "nativescript": {
+      "platforms": {
+         "ios": "2210.0.2",
+         "android": "2210.0.2"
+      }
+   },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "SAP",
+  "license": "ISC"
+}

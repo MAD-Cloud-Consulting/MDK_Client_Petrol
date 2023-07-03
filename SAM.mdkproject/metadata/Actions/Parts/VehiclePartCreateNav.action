@@ -1,0 +1,5 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/Parts/VehiclePartCreate.page",
+	"ModalPage": true,
+	"_Type": "Action.Type.Navigation"
+}

@@ -1,0 +1,116 @@
+{
+    "Caption": "$(L,fow_stop_with_stop_id,'{StopID}')",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "ObjectHeader": {
+                        "HeadlineText": "{Description}",
+                        "Tags": ["#Property:Operation/#Property:ControlKey", "#Property:Operation/#Property:MainWorkCenterPlant", "#Property:Operation/#Property:MainWorkCenter"],
+                        "Target": {
+                            "EntitySet": "{{#Property:@odata.readLink}}",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$select=Description,Operation/ControlKey,Operation/MainWorkCenterPlant,Operation/MainWorkCenter&$expand=Operation"
+                        }
+    
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                },
+                {
+                    "Header": {
+                        "Caption": "$(L,location)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_location_available)"
+                    },
+                    "ObjectCells": [
+                        {
+                            "ObjectCell": {
+                                "Title": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopLocationFormat.js",
+                                "PreserveIconStackSpacing": false                        
+                            }
+                        }
+                    ],
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "StopLocationSection"
+                },
+                {
+                    "_Type": "Section.Type.ObjectCollection",
+                    "_Name": "EquipmentSection",
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": 66
+                    },
+                    "Header": {
+                        "Caption": "$(L,equipment)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_equipment_available)",
+                        "HidesFooter": true
+                    },
+                    "MaxItemCount": 4,
+                    "ObjectCell": {
+                        "Title": "{EquipDesc}",
+                        "Subhead": "{Equipment}",
+                        "Footnote": "{FuncLocID}",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/EquipDetailsNav.js",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/TechObjects",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/EquipmentTableQueryOption.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/EquipmentCount.js",
+                        "OnPress": "/SAPAssetManager/Actions/FOW/Routes/Stops/Assets/EquipmentListNav.action"
+                    }
+                },
+                {
+                    "_Type": "Section.Type.ObjectCollection",
+                    "_Name": "FuncLocSection",
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": 66
+                    },
+                    "Header": {
+                        "Caption": "$(L,functional_locations)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,fow_no_functional_location)",
+                        "HidesFooter": true
+                    },
+                    "MaxItemCount": 4,
+                    "ObjectCell": {
+                        "Title": "{FuncLocDesc}",
+                        "Subhead": "{FuncLocID}",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocDetailsNav.js",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/TechObjects",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocTableQueryOption.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocCount.js",
+                        "OnPress": "/SAPAssetManager/Actions/FOW/Routes/Stops/Assets/FuncLocListNav.action"
+                    }
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "StopDetailsNoMapPage"
+}

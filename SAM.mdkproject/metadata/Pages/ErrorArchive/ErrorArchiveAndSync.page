@@ -1,0 +1,122 @@
+{
+	"Caption": "/SAPAssetManager/Rules/SideDrawer/SideDrawerErrorCount.js",
+	"OnReturning": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveAndSyncOnReturn.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
+            }
+        ]
+    },
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)"
+			},
+			"Header": {
+                 "Caption": "$(L,transactional_errors)"
+    		},
+			"EmptySection":
+            {
+                "Caption": "$(L,no_transactional_errors)"
+            },
+			"Footer": {
+                "Caption": "$(L,see_all)",
+                "AccessoryType": "disclosureIndicator",
+                "FooterStyle": "attribute",
+                "AttributeLabel": "/SAPAssetManager/Rules/ErrorArchive/SyncErrorsCount.js",
+                "OnPress": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveAllNav.js"
+            },
+            "MaxItemCount": 2,
+			"ObjectCell":
+			{
+        		"AccessoryType": "disclosureIndicator",
+				"Subhead": "{HTTPStatusCode}",
+                "Title":"/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveMessage.js",
+				"OnPress" : "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveDetailsNav.js",
+				"PreserveIconStackSpacing":false
+			},
+			"Target":
+			{
+				"EntitySet" : "ErrorArchive",
+				"Service" : "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions":"$expand=CustomHeaders"
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"Visible": "/SAPAssetManager/Rules/Common/IsDiscardAllErrorsButtonVisible.js",
+			"DataSubscriptions": ["ErrorArchive"]
+		},
+		{
+            "KeyAndValues": [
+                {
+                    "KeyName": "$(L,transactional_errors)",
+                    "Value": "$(L,no_transactional_errors)"
+                }
+            ],
+            "Layout": {
+                "NumberOfColumns": 1,
+                "MinimumInteritemSpacing": "$(PLT,66,0)"
+                },
+            "_Type": "Section.Type.KeyValue",
+            "_Name": "NoTranErrorKeyValue",
+			"Visible": "/SAPAssetManager/Rules/Common/IsNotDiscardAllErrorsButtonVisible.js"
+        },
+		{
+            "KeyAndValues": [
+                {
+                    "KeyName": "$(L,sync_errors)",
+                    "Value": "$(L,no_sync_errors)"
+                }
+            ],
+            "Layout": {
+                "NumberOfColumns": 1,
+                "MinimumInteritemSpacing": "$(PLT,66,0)"
+                },
+            "_Type": "Section.Type.KeyValue",
+            "_Name": "NoSyncErrorKeyValue",
+			"Visible": "/SAPAssetManager/Rules/Sync/IsNotSyncErrorsExists.js"
+        },
+		{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)"
+			},
+			"Header": {
+                 "Caption": "$(L,sync_errors)"
+    		},
+			"EmptySection":
+            {
+                "Caption": "$(L,no_sync_errors)"
+            },
+			"ObjectCell":
+			{
+        		"AccessoryType": "disclosureIndicator",
+				"Title":  "/SAPAssetManager/Rules/Sync/SyncErrorFormat.js",
+				"Subhead": "/SAPAssetManager/Rules/Sync/SyncErrorFormat.js",
+                "Description":"/SAPAssetManager/Rules/Sync/SyncErrorFormat.js",
+				"OnPress" : "/SAPAssetManager/Rules/Sync/SyncErrorDetailsNav.js",
+				"PreserveIconStackSpacing":false
+			},
+			"Target":"/SAPAssetManager/Rules/Sync/SyncErrorTarget.js",
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "SyncErrorObjectTable",
+			"Visible": "/SAPAssetManager/Rules/Sync/IsSyncErrorsExists.js"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "ErrorArchiveSection"
+	}],
+	"_Type": "Page",
+	"_Name": "ErrorArchiveAndSync",
+	"DataSubscriptions": ["ErrorArchive"]
+}

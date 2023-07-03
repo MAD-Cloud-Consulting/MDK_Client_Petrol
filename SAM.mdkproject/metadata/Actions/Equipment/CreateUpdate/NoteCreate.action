@@ -1,0 +1,27 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet": "MyEquipLongTexts",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+		"EquipmentNum": "#Control:IdProperty/#Value",
+		"NewTextString": "#Control:LongTextNote/#Value",
+		"TextString": "#Control:LongTextNote/#Value"
+	},
+	"Headers": {
+		"OfflineOData.RemoveAfterUpload": "true",
+		"OfflineOData.TransactionID": "#Control:IdProperty/#Value"
+	},
+	"OnFailure": "/SAPAssetManager/Actions/OData/ODataCreateFailureMessage.action",
+	"OnSuccess": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentCreateSuccess.js",
+	"CreateLinks": [
+		{
+			"Property": "Equipment",
+			"Target": {
+				"EntitySet": "MyEquipments",
+				"ReadLink": "#Property:LocalLink"
+			}
+		}
+	]
+} 

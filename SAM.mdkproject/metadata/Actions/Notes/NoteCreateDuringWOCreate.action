@@ -1,0 +1,26 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderHeaderLongTexts",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "OrderId": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js",
+        "NewTextString": "#Page:WorkOrderCreateUpdatePage/#Control:LongTextNote/#Value",
+        "TextString": "#Page:WorkOrderCreateUpdatePage/#Control:LongTextNote/#Value"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/Notes/NoteCreateFailureMessage.action",
+    "CreateLinks": [
+        {
+			"Property": "WorkOrderHeader",
+			"Target": {
+				"EntitySet": "MyWorkOrderHeaders",
+				"ReadLink": "pending_1"
+			}
+		}
+    ]
+}

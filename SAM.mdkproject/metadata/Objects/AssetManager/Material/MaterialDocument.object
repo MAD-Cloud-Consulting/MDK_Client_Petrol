@@ -1,0 +1,66 @@
+{
+	"Collection": [
+		"MaterialDocuments"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "RelatedItem",
+			"_Type": "MaterialDocItems"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "MaterialDocNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MaterialDocYear",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "HeaderText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RefDocumentNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "GoodsReceiptIssueNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PostingDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocumentDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "GMCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BillOfLading",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MaterialDocument"
+}

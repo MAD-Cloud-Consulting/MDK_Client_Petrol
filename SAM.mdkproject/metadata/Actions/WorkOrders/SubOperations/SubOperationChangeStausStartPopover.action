@@ -1,0 +1,13 @@
+{
+	"PopoverItems": [
+		{
+			"Title": "$(L,hold)",
+			"OnPress": "/SAPAssetManager/Rules/SubOperations/MobileStatus/SubOperationHoldStatus.js"
+		},
+		{
+			"Title": "Complete",
+			"OnPress": "/SAPAssetManager/Rules/SubOperations/MobileStatus/SubOperationCompleteStatus.js"
+		}
+	],
+	"_Type": "Action.Type.PopoverMenu"
+}

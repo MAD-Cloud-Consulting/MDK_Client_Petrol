@@ -1,0 +1,126 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Inventory/Search/InventorySearchFilterDoneWrapper.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/Inventory/Search/InventorySearchFilterResults.js",
+    "Controls":
+    [{
+        "Sections":
+        [
+        {
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [
+                    {
+                        "ReturnValue":"ObjectDate,ObjectId",
+                        "DisplayValue":"$(L,date)"
+                    },
+                    {
+                        "ReturnValue":"ObjectId",
+                        "DisplayValue":"$(L,document_number)"
+                    },
+                    {
+                        "ReturnValue":"IMObject,ObjectId",
+                        "DisplayValue":"$(L,document_type)"
+                    }
+                ],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls":
+            [
+            {
+                "_Name": "DocTypeFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "Caption": "$(L,document_type)",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems": "/SAPAssetManager/Rules/Inventory/Search/DocumentTypeFilterListPickerItems.js",
+                "FilterProperty": "IMObject"
+            }
+            ]
+        },
+        {
+            "Controls": [
+                {
+                    "_Name": "DateCustomPicker",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "Caption": "$(L,due_date)",
+                    "AllowMultipleSelection": false,
+                    "IsPickerDismissedOnSelection": true,
+                    "Search": {
+                        "Enabled": false
+                    },
+                    "PickerItems": "/SAPAssetManager/Rules/Inventory/Search/DueDatePickerItems.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.Switch",
+                    "_Name": "DueDateSwitch",
+                    "Caption":"$(L,custom_date_range)",
+                    "Value": false,
+                    "OnValueChange": "/SAPAssetManager/Rules/Inventory/Search/DueDateFilterSwitchOnChange.js"
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "DueStartDateFilter",
+                    "Caption": "$(L,date_from)",
+                    "Mode": "Date",
+                    "IsVisible": false
+                },
+                {
+                    "_Type": "Control.Type.FormCell.DatePicker",
+                    "_Name": "DueEndDateFilter",
+                    "Caption": "$(L,date_to)",
+                    "Mode": "Date",
+                    "IsVisible": false
+                }
+            ]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/Inventory/Search/InventorySearchFilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }
+        ],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"InventorySearchFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Inventory/Search/InventorySearchFilterOnLoaded.js"
+}

@@ -1,0 +1,8 @@
+{
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "StoreName": "SAMStore",
+    "DefiningRequests": [],
+    "OnSuccess": "/SAPAssetManager/Rules/PushNotifications/PushNotificationsDownloadSuccessAlertMessage.js",
+    "OnFailure": "/SAPAssetManager/Rules/PushNotifications/PushNotificationsDownloadFailureAlertMessage.js",
+    "_Type": "Action.Type.OfflineOData.Download"
+  }

@@ -1,0 +1,37 @@
+{
+	"Target":
+	{
+		"EntitySet": "MyNotificationHeaders",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+		"PlanningPlant": "/SAPAssetManager/Rules/Common/GetPlanningPlant.js",
+		"NotificationNumber" : "{{#Property:LocalNotificationID}}",
+		"NotificationDescription" : "#Control:NotificationDescription/#Value",
+		"NotificationType" : "/SAPAssetManager/Rules/Notifications/QMNotificationDefectType.js",
+		"Priority" : "#Control:PrioritySeg/#SelectedValue",
+		"PriorityType": "/SAPAssetManager/Rules/Notifications/QMNotificationDefectPriorityType.js",
+		"InspectionLot": "#Property:InspectionLot_Nav/#Property:InspectionLot",
+		"HeaderFunctionLocation" : "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateFunctionalLocationLstPkrValue.js",
+		"HeaderEquipment" : "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateEquipmentLstPkrValue.js",
+		"MainWorkCenter" : "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateMainWorkCenter.js",
+		"MainWorkCenterPlant": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateMainWorkCenterPlant.js",
+        "ReportedBy": "/SAPAssetManager/Rules/MobileStatus/GetSAPUserId.js"
+	},
+	"CreateLinks":
+	[{
+		"Property": "InspectionLot_Nav",
+		"Target":
+		{
+			"EntitySet": "InspectionLots",
+			"ReadLink": "#Property:InspectionLot_Nav/#Property:@odata.readLink"
+		}
+	}],
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "{{#Property:LocalNotificationID}}"
+    },
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

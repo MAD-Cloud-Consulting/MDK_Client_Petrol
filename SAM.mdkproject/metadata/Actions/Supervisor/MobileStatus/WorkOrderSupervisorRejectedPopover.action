@@ -1,0 +1,9 @@
+{
+	"PopoverItems": [
+		{
+			"Title": "$(L,approve)",
+			"OnPress": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderCompleteStatus.js"
+        }
+	],
+	"_Type": "Action.Type.PopoverMenu"
+}

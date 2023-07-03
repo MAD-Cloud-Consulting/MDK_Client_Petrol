@@ -1,0 +1,63 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "OrderISULinks",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "ConnectionObject": "#Control:ConnectionLstPkr/#Value/#First/#Property:ReturnValue",
+        "DeviceCategory": "#ClientData/#Property:DeviceCategory",
+        "DeviceLocation": "#Control:DeviceLocationLstPkr/#Value/#First/#Property:ReturnValue",
+        "EquipmentNum": "#Control:MeterLstPkr/#Value/#First/#Property:ReturnValue",
+        "OrderNum": "#Property:OrderNum",
+        "Installation": "#Control:InstallationLstPkr/#Value/#First/#Property:ReturnValue",
+        "SerialNum": "#ClientData/#Property:Device",
+        "DisconnectionNum": "",
+        "FunctionalLoc": "",
+        "ISUProcess": "/SAPAssetManager/Rules/Meter/CreateUpdate/MeterOrderISULinkProcessType.js",
+        "Premise": "#Control:PremiseLstPkr/#Value/#First/#Property:ReturnValue"
+    },
+	"Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Meter/CreateUpdate/BatchEquipmentNum.js",
+        "Transaction.Ignore": true
+	},
+    "CreateLinks":
+    [{
+        "Property": "Device_Nav",
+        "Target":
+        {
+            "EntitySet": "Devices",
+            "ReadLink": "#ClientData/#Property:DeviceReadLink"
+        }
+    },
+    {
+        "Property": "Workorder_Nav",
+        "Target":
+        {
+            "EntitySet": "MyWorkOrderHeaders",
+            "ReadLink": "{{#Property:Workorder_Nav/#Property:@odata.readLink}}"
+        }
+    },
+    {
+        "Property": "ConnectionObject_Nav",
+        "Target":
+        {
+            "EntitySet": "ConnectionObjects",
+            "QueryOptions": "$filter=ConnectionObject eq '{{#Control:ConnectionLstPkr/#Value/#First/#Property:ReturnValue}}'"
+        }
+    },
+    {
+        "Property": "DeviceLocation_Nav",
+        "Target":
+        {
+            "EntitySet": "DeviceLocations",
+            "QueryOptions": "$filter=DeviceLocation eq '{{#Control:DeviceLocationLstPkr/#Value/#First/#Property:ReturnValue}}'"
+        }
+    }],
+    "ActionResult": {
+        "_Name": "isuLinkResult"
+     },
+     "OnSuccess": "/SAPAssetManager/Rules/Meter/CreateUpdate/SaveISULink.js"
+}

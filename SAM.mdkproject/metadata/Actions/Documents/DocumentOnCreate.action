@@ -1,0 +1,25 @@
+{
+    "_Type": "Action.Type.ODataService.CreateMedia",
+    "Target" : {
+      "EntitySet" : "Documents",
+      "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Headers" : {
+       "slug" : {
+          "ObjectLink":"/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateObjectLink.js",
+          "ObjectKey": "/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateKey.js",
+          "FileName": "/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateFileName.js",
+          "Description": "/SAPAssetManager/Rules/Documents/Create/OnCreateGetDocDescription.js"
+      }
+    },
+    "Properties" : {
+        "ObjectLink": "/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateObjectLink.js",
+        "ObjectKey": "/SAPAssetManager/Rules/Documents/DocumentTransactionID.js",
+        "FileName": "/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateFileName.js",
+        "Description": "/SAPAssetManager/Rules/Documents/Create/OnCreateGetDocDescription.js",
+        "MimeType": "/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateMimeType.js"
+    },
+    "IsOnlineRequest": false,
+    "Media":"/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateMedia.js",
+    "OnFailure": "/SAPAssetManager/Rules/Documents/Create/DocumentOnCreateFailure.js"
+  }

@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditAddressCommEntitySet.js",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:commPropertyReadLink"
+    },
+    "Properties":
+    {
+        "TelNumber": "#ClientData/#Property:telNumber",
+        "TelNumberCall": "#ClientData/#Property:telNumberCall",
+        "TelNumberLong": "#ClientData/#Property:telNumberLong",
+        "TelExtension": "#ClientData/#Property:telNumberExt",
+        "EMail": "#ClientData/#Property:email"
+    }
+}

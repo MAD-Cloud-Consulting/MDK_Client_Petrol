@@ -1,0 +1,24 @@
+{
+	"Collection": [
+		"VarianceReasons"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "Plant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "VarianceReason",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReasonText",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "VarianceReason"
+}

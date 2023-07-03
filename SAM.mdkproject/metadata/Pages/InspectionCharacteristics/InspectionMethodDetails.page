@@ -1,0 +1,56 @@
+{
+	"Caption": "{ShortDesc}",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "$(L, note)"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "",
+							"Value": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionMethod/InspectionMethodLongText.js"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 1,
+						"MinimumInteritemSpacing": "$(PLT,66,0)" 
+					},
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "Notes"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,documents)"
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_documents_available)"
+					},
+					"ObjectCell": {
+						"PreserveIconStackSpacing": true,
+						"AccessoryType": "disclosureIndicator",
+						"ProgressIndicator": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionMethod/InspectionMethodDocumentSetIndicatorState.js",
+						"DetailImage": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionMethod/InspectionMethodDocumentTypeImage.js",
+						"DetailImageIsCircular": false,
+						"Title": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionMethod/InspectionMethodDocumentFileName.js",
+						"Subhead": "#Property:Document_Nav/#Property:Description",
+						"Footnote": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionMethod/InspectionMethodDocumentFileSize.js",
+						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionMethod/InspectionMethodDownloadOrOpenDocument.js"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/MethodDoc_Nav",
+						"QueryOptions": "$expand=Document_Nav&$orderby=Document_Nav/FileName&$filter=Document_Nav/FileName ne null",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"_Name": "DocumentSection"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "InspectionMethodDetails",
+	"_Type": "Page"
+}

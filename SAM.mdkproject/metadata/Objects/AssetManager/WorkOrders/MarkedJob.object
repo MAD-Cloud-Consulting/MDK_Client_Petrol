@@ -1,0 +1,39 @@
+{
+	"Collection": [
+		"MarkedJobs"
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "PreferenceGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PreferenceName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "UserGuid",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "RecordId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PreferenceValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MarkedJob"
+}

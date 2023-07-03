@@ -1,0 +1,13 @@
+{
+	"DestinationName": "DEST_SAM2210_ONLINE_PPROP",
+	"OfflineEnabled": false,
+	"ServiceUrl": "/destinations/mobileservices",
+	"OnlineOptions": {
+		"ServiceOptions": {
+			"dataFormat": 1
+		}
+    },
+	"Headers": {
+        "SAP-PASSPORT": "/SAPAssetManager/Rules/Common/Passport/GetSAPPassportHeaderValue.js"
+    }
+}

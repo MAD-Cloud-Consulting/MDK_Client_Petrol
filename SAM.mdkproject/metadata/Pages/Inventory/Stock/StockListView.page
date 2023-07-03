@@ -1,0 +1,110 @@
+{
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "right",
+				"Text":"$(L, search_online)",
+				"OnPress": "/SAPAssetManager/Actions/Inventory/Stock/SearchStockOnlineNav.action",
+				"Visible": "/SAPAssetManager/Rules/SideDrawer/EnableInventoryClerk.js"
+			},
+			{
+				"Position": "right",
+				"Text":"$(L, search_offline)",
+				"OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SearchStockNav.js",
+				"Visible": false
+			},
+			{
+				"Position": "right",
+				"Icon":"$(PLT,/SAPAssetManager/Images/menuicon.png,/SAPAssetManager/Images/menuicon.android.png)",
+				"OnPress": "/SAPAssetManager/Actions/Inventory/Stock/VehicleStockPopover.action",
+				"Visible": "/SAPAssetManager/Rules/SideDrawer/EnableMultipleTechnician.js"
+			},
+            {
+                "Position": "right",
+                "Icon": "$(PLT,'',/SAPAssetManager/Images/filter.android.png)",
+                "Text": "$(L,filter)",
+                "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/BeforeStockSearchFilterNav.js",
+				"Visible": "/SAPAssetManager/Rules/Inventory/Stock/StockFilterIsVisible.js"
+            }
+		]
+	},
+    "Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,	
+				"Delay": 500,
+				"MinimumCharacterThreshold": 1,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"DataPaging": {
+				"PageSize": 50,
+				"ShowLoadingIndicator": true,
+				"LoadingIndicatorText": "$(L, loading)"
+			},
+			"Header": {
+		 		"UseTopPadding": false,
+				"Caption": "/SAPAssetManager/Rules/Inventory/Stock/StockOfflineHeaderCaption.js"
+			},
+			"EmptySection": {
+                "Caption": "$(L,no_im_materials_available)",
+				"FooterVisible": false
+            },
+			"ObjectCell": {
+				"PreserveIconStackSpacing": true,
+				"AccessoryType": "disclosureIndicator",
+                "DetailImageIsCircular": false,
+				"Title": "{{#Property:MaterialNum}} - {{#Property:Material/#Property:Description}}",
+                "Footnote": "{{#Property:StorageLocation}} - {{#Property:StorageLocationDesc}}",
+				"Subhead": "/SAPAssetManager/Rules/Inventory/Stock/StockPlantDescription.js",
+				"StatusText" : "/SAPAssetManager/Rules/Inventory/Stock/StockUnrestrictedQuantity.js",
+				"OnPress": "/SAPAssetManager/Actions/Inventory/Stock/StockDetailsNav.action"
+			},
+			"Target": {
+				"EntitySet": "MaterialSLocs",
+				"Service": "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Inventory/Stock/MaterialsSearchQueryOptions.js"
+			},
+			"Visible": true,
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "StocksListOfflineSection"
+		},
+		{
+			"Header": {
+		 		"UseTopPadding": false,
+				"Caption": "$(L,online_stock)"
+			},
+			"EmptySection": {
+                "Caption": "$(L,no_im_materials_available)",
+				"FooterVisible": false
+            },
+			"ObjectCell": {
+				"PreserveIconStackSpacing": true,
+				"AccessoryType": "disclosureIndicator",
+                "DetailImageIsCircular": false,
+				"Title": "{{#Property:MaterialNum}} - {{#Property:Material/#Property:Description}}",
+                "Footnote": "{{#Property:StorageLocation}} - {{#Property:StorageLocationDesc}}",
+                "Subhead": "/SAPAssetManager/Rules/Inventory/Stock/StockPlantDescription.js",
+				"StatusText" : "/SAPAssetManager/Rules/Inventory/Stock/StockUnrestrictedQuantity.js",
+				"OnPress": "/SAPAssetManager/Actions/Inventory/Stock/StockDetailsNav.action"
+			},
+			"Target": {
+				"EntitySet": "MaterialSLocs",
+				"Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Inventory/Stock/MaterialsQueryOptions.js"
+			},
+			"Visible": false,
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "StocksListOnlineSection"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "SectionedTable"
+	}],
+    "_Type": "Page",
+    "_Name": "StockListViewPage",
+	"Caption": "/SAPAssetManager/Rules/SideDrawer/SideDrawerStockLookUp.js",
+	"OnReturning": "/SAPAssetManager/Rules/Inventory/Stock/StockListViewOnReturning.js"
+}

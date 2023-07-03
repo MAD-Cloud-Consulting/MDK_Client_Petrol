@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "OnDemandObjects",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "ObjectId" : "",
+        "ObjectType": "",
+        "Action": ""
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true"
+    }
+}

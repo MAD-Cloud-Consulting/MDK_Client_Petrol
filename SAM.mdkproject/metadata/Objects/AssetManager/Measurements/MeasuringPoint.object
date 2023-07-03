@@ -1,0 +1,361 @@
+{
+	"Collection": [
+		"MeasuringPoints"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Equipment",
+			"_Type": "MyEquipments"
+		},
+		{
+			"Key": false,
+			"_Name": "FunctionalLocation",
+			"_Type": "MyFunctionalLocations"
+		},
+		{
+			"Key": false,
+			"_Name": "LongText",
+			"_Type": "MeasuringPointTexts"
+		},
+		{
+			"Key": false,
+			"_Name": "MeasurementDocs",
+			"_Type": "MeasurementDocuments"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "PrevReadingDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SortField",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "Point",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PointObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ShortText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReferenceShortText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Position",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PositionIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PointDesc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PointType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Decimal",
+			"_Type": "Edm.Int16"
+		},
+		{
+			"Key": false,
+			"_Name": "LocalizationAssembly",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ModifiedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Target",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "IsInactive",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DeletionFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsValid",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReferenceTarget",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReferenceMeasuringPoint",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ReferenceMeasuringPoint",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReferenceCharacteristic",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CharId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CharName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CharType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CharDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsCounter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatalogType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReferenceCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsCodeSufficient",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsNegative",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UoM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Mode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DecimalPlaces",
+			"_Type": "Edm.Int16"
+		},
+		{
+			"Key": false,
+			"_Name": "DisplayExponent",
+			"_Type": "Edm.Int16"
+		},
+		{
+			"Key": false,
+			"_Name": "Exponent",
+			"_Type": "Edm.Int16"
+		},
+		{
+			"Key": false,
+			"_Name": "UpperRange",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "LowerRange",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "IsUpperRange",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsLowerRange",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RangeUOM",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReverse",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsRefMeasurementTransfer",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsTransfer",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsReferenceTransfer",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsCounterOverflow",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CounterOverflow",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "IsAnnualEstimate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "AnnualEstimate",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "EquipId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocIdIntern",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextExists",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "IsPrevReading",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevMeasurementDoc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevReadingTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevCatalogType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevValuationCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevCodeDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevCounterValue",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevReadingValue",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevCounterReadingDiff",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "ValuationCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevHasReadingValue",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevTotalReadingValue",
+			"_Type": "Edm.Double"
+		},
+		{
+			"Key": false,
+			"_Name": "PrevReadBy",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MeasuringPoint"
+}

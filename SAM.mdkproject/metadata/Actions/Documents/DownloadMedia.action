@@ -1,0 +1,10 @@
+{
+  "OnFailure": "/SAPAssetManager/Actions/Documents/DownloadMediaFailure.action",
+  "OnSuccess": "/SAPAssetManager/Rules/Documents/Save/DocumentFileSaveDownloaded.js",
+  "Target": {
+    "EntitySet": "Documents",
+    "ReadLink":  "/SAPAssetManager/Rules/Documents/DocumentStreamReadLink.js",
+    "Service": "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "_Type": "Action.Type.ODataService.DownloadMedia"
+}

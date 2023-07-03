@@ -1,0 +1,36 @@
+{
+    "_Type": "Action.Type.ODataService.CreateRelatedEntity",
+    "Target": 
+    {
+        "EntitySet" : "PhysicalInventoryDocItems",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "PhysInvDoc" : "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentID.js",
+        "FiscalYear": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentFiscalYear.js",
+        "Item": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentItemID.js",        
+        "Plant": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetPhysicalInventoryDocumentItemPlantValue.js",
+        "StorLocation": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetPhysicalInventoryDocumentItemStorageLocationValue.js",
+        "StockType": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetPhysicalInventoryDocumentItemStockTypeValue.js",
+        "Material": "#Control:MatrialListPicker/#SelectedValue",
+        "Batch": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetDocumentItemBatchValue.js",
+        "CountedBy": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryCreateUserName.js",
+        "CountDate": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentDate.js",
+        "EntryQuantity": "#Control:QuantitySimple/#Value",
+        "EntryUOM": "#Control:UOMListPicker/#SelectedValue",
+        "ZeroCount": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/GetZeroCountPostValue.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryCreateTransactionID.js"
+    },
+    "ParentLink": {
+        "Property": "PhysicalInventoryDocItem_Nav",
+        "Target": {
+          "EntitySet": "PhysicalInventoryDocHeaders",
+          "ReadLink": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/PhysicalInventoryDocumentReadLink.js"
+        }
+    },
+    "ShowActivityIndicator": true
+}

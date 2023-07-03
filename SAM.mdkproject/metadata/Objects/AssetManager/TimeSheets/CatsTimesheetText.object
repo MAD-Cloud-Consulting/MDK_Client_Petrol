@@ -1,0 +1,46 @@
+{
+	"Collection": [
+		"CatsTimesheetTexts"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "TimesheetEntry",
+			"_Type": "CatsTimesheets"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "Counter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TextString",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NewTextString",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "CatsTimesheetText"
+}

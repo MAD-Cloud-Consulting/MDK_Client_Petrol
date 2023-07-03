@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+    "Target": {
+      "EntitySet": "MatDocItemSerialNums",
+      "Service": "/SAPAssetManager/Services/AssetManager.service",
+      "ReadLink": "{#ClientData/#Property:TempLine_SerialNumber_ReadLink}"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#ClientData/#Property:TempHeader_Key"
+    },
+    "Properties": {
+      "MaterialDocNumber": "#ClientData/#Property:TempHeader_Key",
+      "MaterialDocYear": "#ClientData/#Property:TempHeader_MaterialDocYear",
+      "MatDocItem":"#ClientData/#Property:TempLine_MatDocItem",
+      "SerialNum":"#ClientData/#Property:TempLine_SerialNumber"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "DeleteLinks": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/MaterialDocumentItemDeleteLink.js"
+}

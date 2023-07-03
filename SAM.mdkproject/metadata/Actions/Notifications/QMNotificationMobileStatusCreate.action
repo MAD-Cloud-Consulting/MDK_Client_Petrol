@@ -1,0 +1,12 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Headers": {
+    	"OfflineOData.NonMergeable": true
+	},
+	"Target":{
+		"EntitySet": "PMMobileStatuses",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {},
+	"CreateLinks": []
+}

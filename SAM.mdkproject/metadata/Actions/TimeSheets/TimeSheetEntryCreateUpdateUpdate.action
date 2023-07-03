@@ -1,0 +1,28 @@
+{
+    "_Name": "TimeSheetEditAction",
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "CatsTimesheets",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+	},
+	"Properties":
+	{
+		"Date": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetEntryUpdateDate.js",
+		"Hours": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateHours.js",
+		"AttendAbsenceType": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateAttAbsType.js",
+		"ActivityType": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateActivityType.js",
+		"Workcenter": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateWorkCenter.js",
+		"PersonnelNumber": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdatePersonnelNumber.js",
+		"ControllerArea": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateControllerArea.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:Counter"
+	},
+	"UpdateLinks": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateUpdateLinks.js",
+	"DeleteLinks": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateDeleteLink.js",
+	"OnSuccess" : "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntrySuccessMessage.js",
+	"OnFailure": "/SAPAssetManager/Actions/TimeSheets/TimeSheetEntryFailureMessage.action",
+	"ValidationRule": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryEditValidation.js"
+}

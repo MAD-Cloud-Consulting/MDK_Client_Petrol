@@ -1,0 +1,7 @@
+{
+    "Title" : "$(L, location_tracking)",
+ 	"Message" : "$(L, location_tracking_confirm_override_message)",
+    "OKCaption" : "$(L, yes)",
+    "CancelCaption" : "$(L, no)",
+    "_Type" : "Action.Type.Message"
+}

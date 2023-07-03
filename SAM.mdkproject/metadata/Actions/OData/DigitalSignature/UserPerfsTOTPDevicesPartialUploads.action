@@ -1,0 +1,10 @@
+{
+	"UploadCategories":
+	[
+		"TOTPDevicesUpdates"
+	],
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Type": "Action.Type.OfflineOData.Upload"
+}

@@ -1,0 +1,19 @@
+{
+	"Collection": [
+		"BusinessAreas"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "BusinessArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BusinessAreaDesc",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "BusinessArea"
+}

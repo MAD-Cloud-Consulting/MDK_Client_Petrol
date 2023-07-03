@@ -1,0 +1,53 @@
+{
+    "Caption": "$(L,current_crew_members)",
+    "OnLoaded": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeListViewOnPageLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeListViewOnPageLoad.js",
+    "ActionBar": {
+		"Items": [
+			{
+				"Position": "right",
+				"SystemItem": "Add",
+                "OnPress" : "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeCreateChangesetWrapper.js",
+		        "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Crew/EnableCrewManage.js"
+			}
+		]
+	},
+    "Controls":
+    [{
+        "Sections":
+        [{
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+            "ContactCell": {
+				"Headline": "#Property:Employee/#Property:EmployeeName",
+                "Subheadline": "#Property:Employee/#Property:PersonnelNumber",
+				"OnPress": "/SAPAssetManager/Rules/Crew/Employees/CrewMemberDetailsNavWrapper.js",
+                "AccessoryType": "disclosureIndicator",
+                "ActivityItems": [
+                    {
+                        "ActivityType": "Phone",
+                        "ActivityValue": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeePhone.js"
+                    },
+                    {
+                        "ActivityType": "Email",
+                        "ActivityValue": "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeEmail.js"
+                    }
+                ]						
+			},
+            "Target":
+            {
+                "EntitySet": "CrewListItems",
+                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/Crew/Employees/EmployeeQueryOptions.js"
+            },
+            "DataSubscriptions": [ "CrewListItems","CrewLists"],
+            "_Name": "SectionContactCellTable0",
+            "_Type": "Section.Type.ContactCell"
+        }],
+        "_Name": "SectionedTable0",
+        "_Type": "Control.Type.SectionedTable"
+    }],
+	"_Name": "CrewMembersListView",	
+	"_Type": "Page"
+}

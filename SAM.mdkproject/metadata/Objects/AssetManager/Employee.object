@@ -1,0 +1,59 @@
+{
+	"Collection": [
+		"Employees"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "PersonnelNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EmployeeName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LastName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserID",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PartnerNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PhoneNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PersonnelArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EndDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StartDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ControllingArea",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "Employee"
+}

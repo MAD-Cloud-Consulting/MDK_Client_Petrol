@@ -1,0 +1,56 @@
+{
+	"Collection": [
+		"MyWorkOrderComponentMatDocs"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "MaterialDocItem",
+			"_Type": "MaterialDocItems"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderComponent",
+			"_Type": "MyWorkOrderComponents"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OperationNo",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RecordType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MatDocItem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MaterialDocNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MaterialDocYear",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyWorkOrderComponentMatDoc"
+}

@@ -1,0 +1,34 @@
+{
+	"Collection": [
+		"AttendanceTypes"
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "PersonnelSubarea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "AttendanceType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "PersonnelArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "PersonnelSubareaGrouping",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "AttendanceTypeText",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "AttendanceType"
+}

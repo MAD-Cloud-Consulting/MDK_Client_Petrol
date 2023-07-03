@@ -1,0 +1,28 @@
+{
+	"PopoverItems": [
+		{
+			"Title": "$(L,start)",
+			"OnPress": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderStartStatus.js"
+		},
+		{
+			"Title": "$(L,transfer)",
+			"OnPress": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderTransferStatus.js"
+		},
+		{
+			"Title": "$(L,assign)",
+			"Visible": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/IsAssignEnableWorkOrder.js",
+			"OnPress": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderAssignNav.js"
+		},
+		{
+			"Title": "$(L,unassign)",
+			"Visible": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/IsUnAssignOrReAssignEnableWorkOrder.js",
+			"OnPress": "/SAPAssetManager/Rules/Supervisor/UnAssign/WorkOrderUnAssignNav.js"
+		},
+		{
+			"Title": "$(L,reassign)",
+			"Visible": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/IsUnAssignOrReAssignEnableWorkOrder.js",
+			"OnPress": "/SAPAssetManager/Rules/Supervisor/ReAssign/WorkOrderReAssignNav.js"
+		}
+	],
+	"_Type": "Action.Type.PopoverMenu"
+}

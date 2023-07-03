@@ -1,0 +1,88 @@
+{
+	"Caption": "/SAPAssetManager/Rules/Notifications/Item/Activity/NotificationItemActivityHeader.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsOnPageLoad.js",
+
+	"ActionBar": {
+		"Items":
+		[
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Item/Activity/CreateUpdate/NotificationItemActivityCreateUpdateNav.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+
+            },
+			{
+                "Position": "right",
+            	"SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/Notifications/Item/Activity/Details/NotificationItemActivityDetailsPopover.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+
+            }
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "$(L,notification_item_activities_details)"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,description)",
+							"Value": "{ActivityText}"
+						},
+						{
+							"KeyName": "$(L,sort_number)",
+							"Value": "{ActivitySortNumber}"
+						},
+						{
+							"KeyName": "$(L,group)",
+							"Value": "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsGroup.js"
+						},
+						{
+							"KeyName": "$(L,code)",
+							"Value": "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsCode.js"
+						}
+					],
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+                    "SimplePropertyCells":
+                    [{
+                        "SimplePropertyCell": {
+                            "AccessoryType": "disclosureIndicator",
+                            "KeyName": "$(L,notes)",
+                            "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
+                            "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
+                        }
+                    }],
+                    "Layout":
+                    {
+                        "NumberOfColumns" : 1
+                    },
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                }
+			],
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"ToolBar": {
+		"Controls": [
+			{
+				"_Name": "FlexibleSpaceLeftTbI",
+				"_Type": "Control.Type.ToolbarItem",
+				"SystemItem": "FlexibleSpace"
+			},
+			{
+				"_Name": "FlexibleSpaceRightTbI",
+				"_Type": "Control.Type.ToolbarItem",
+				"SystemItem": "FlexibleSpace"
+			}
+		]
+	},
+	"_Type": "Page",
+	"_Name": "NotificationItemActivityDetailsPage"
+}

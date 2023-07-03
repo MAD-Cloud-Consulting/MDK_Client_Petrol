@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Locația dvs. curentă va fi afișată pe hartă";
+
+"NSLocationAlwaysUsageDescription" = "Permiteți „SAP Asset Manager” să acceseze întotdeauna locația dvs.?";
+
+"NSCameraUsageDescription" = "Permiteți accesul la cameră pentru a scana codurile de bare și a face fotografiile de anexat în aplicație";
+
+"NSMicrophoneUsageDescription" = "Permiteți accesul la microfon";
+
+"NSFaceIDUsageDescription" = "Activarea ID-ului facial permite acces rapid și sigur la SAP Asset Manager";
+
+"NSPhotoLibraryUsageDescription" = "Permiteți accesul la biblioteca de fotografii în aplicația de încărcat";
+
+"NSPhotoLibraryAddUsageDescription" = "Aplicația noastră are nevoie de permisiunea de scriere pentru fotografii";
+

@@ -1,0 +1,5 @@
+{
+	"ModalPage": false,
+	"PageToOpen": "/SAPAssetManager/Pages/AssetCentral/PDMSIndicators.page",
+	"_Type": "Action.Type.Navigation"
+}

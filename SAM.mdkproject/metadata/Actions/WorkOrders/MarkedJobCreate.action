@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MarkedJobs",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "OrderId": "#Property:OrderId",
+        "UserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "PreferenceGroup": "MARKED_JOBS",
+        "PreferenceValue": "true"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/MarkedJobs/MarkedJobCreateLinks.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+}

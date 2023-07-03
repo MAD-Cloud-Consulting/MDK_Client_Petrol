@@ -1,0 +1,171 @@
+{
+	"Collection": [
+		"MyNotificationTasks"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "MobileStatus",
+			"_Type": "MobileStatuses"
+		},
+		{
+			"Key": false,
+			"_Name": "Notification",
+			"_Type": "MyNotificationHeaders"
+		},
+		{
+			"Key": false,
+			"_Name": "TaskLongText",
+			"_Type": "MyNotifTaskLongTexts"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TaskText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedStartDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TaskSortNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "TaskSequenceNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Language",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TaskCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TaskCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "TaskCatalogType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Quantity",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "UnitOfMeasure",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedStartTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedFinishTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ResponsiblePartner",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RespPartnerFunction",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "KeysForFunction",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "GlobalIdentifier",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Template",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "Deleted",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedFinishDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyNotificationTask"
+}

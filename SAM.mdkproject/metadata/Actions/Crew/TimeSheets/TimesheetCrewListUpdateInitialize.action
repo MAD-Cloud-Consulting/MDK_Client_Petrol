@@ -1,0 +1,19 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+        "EntitySet" : "CrewLists",
+        "ReadLink": "/SAPAssetManager/Rules/Crew/Header/TimesheetCrewListReadLink.js",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "CrewId" : "/SAPAssetManager/Rules/Crew/Header/TimesheetCrewListCrewId.js",
+        "SAPUserName" : "/SAPAssetManager/Rules/Crew/Header/CrewListSAPUserName.js",
+        "UserGuid" : "/SAPAssetManager/Rules/Crew/Header/CrewListUserGuid.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Crew/Header/TimesheetCrewListCrewId.js"
+    }
+}

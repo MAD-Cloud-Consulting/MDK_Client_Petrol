@@ -1,0 +1,625 @@
+<Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="sap_mobile" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="AppParam" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="RecordNo" />
+				</Key>
+				<Property Name="RecordNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Rec.No" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParamGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Parameter Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParameterName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Param. Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="FlagNoChange" Type="Edm.Boolean" Nullable="false" sap:label="Boolean" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamComment" Type="Edm.String" Nullable="false" MaxLength="120" sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamScope" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Param. Scope" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamType" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Param. Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamValue" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Param. Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="BOMHeader" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="BOMCategory" />
+					<PropertyRef Name="BOMId" />
+				</Key>
+				<Property Name="BOMDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="BOM text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMGroup" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="BOM group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="BOM status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BaseQuantity" Type="Edm.String" Nullable="false" MaxLength="13" sap:label="Base quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Counter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Counter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ValidFrom" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Valid From" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ValidTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="to" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BaseUoM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Base unit" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:semantics="unit-of-measure" />
+				<Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Alternative" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="BOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="BOMItems_Nav" Relationship="sap_mobile.BOMHeader_BOMItem" FromRole="FromRole_BOMHeader_BOMItem" ToRole="ToRole_BOMHeader_BOMItem" />
+				<NavigationProperty Name="EquiBOMs_Nav" Relationship="sap_mobile.BOMHeader_EquiBOM" FromRole="FromRole_BOMHeader_EquiBOM" ToRole="ToRole_BOMHeader_EquiBOM" />
+				<NavigationProperty Name="FLocBOMs_Nav" Relationship="sap_mobile.BOMHeader_FLocBOM" FromRole="FromRole_BOMHeader_FLocBOM" ToRole="ToRole_BOMHeader_FLocBOM" />
+				<NavigationProperty Name="MaterialBOM_Nav" Relationship="sap_mobile.BOMHeader_MaterialBOM" FromRole="FromRole_BOMHeader_MaterialBOM" ToRole="ToRole_BOMHeader_MaterialBOM" />
+			</EntityType>
+			<EntityType Name="BOMItem" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="BOMCategory" />
+					<PropertyRef Name="ItemNode" />
+					<PropertyRef Name="BOMId" />
+				</Key>
+				<Property Name="BOMPath" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Charact.string (256)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Counter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Counter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="InheritedItemNode" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Item node" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Item category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemGroup" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Item group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemText1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Item Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemText2" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Item text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectType" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Object Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PMAssembly" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="PM assembly" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Quantity" Type="Edm.String" Nullable="false" MaxLength="13" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="RequiredComponent" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Reqd Component" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Sort" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sort String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ValidFrom" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Valid From" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ValidTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="to" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ChildBoMCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM Cat NxtLvl" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ChildBoMUsage" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM Usage NL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ChildItemNode" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Item node" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="DocDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemNode" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Item node" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Component" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemId" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:creatable="false" sap:updatable="false" sap:filterable="false" />
+				<Property Name="UoM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Component UoM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure" />
+				<Property Name="ChildBoMId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="BOM No. Nxt Lvl" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="BOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="BOMHeader_Nav" Relationship="sap_mobile.BOMHeader_BOMItem" FromRole="ToRole_BOMHeader_BOMItem" ToRole="FromRole_BOMHeader_BOMItem" />
+			</EntityType>
+			<EntityType Name="EquipmentBOM" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="BOMUsage" />
+					<PropertyRef Name="Plant" />
+					<PropertyRef Name="BOMCategory" />
+					<PropertyRef Name="EquipId" />
+					<PropertyRef Name="AlternativeBOM" />
+					<PropertyRef Name="BOMId" />
+				</Key>
+				<Property Name="BOMUsage" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Usage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="EquipId" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Equipment" sap:creatable="false" sap:updatable="false" sap:filterable="false" />
+				<Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Alternative" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="BOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="BOMHeader_Nav" Relationship="sap_mobile.BOMHeader_EquiBOM" FromRole="ToRole_BOMHeader_EquiBOM" ToRole="FromRole_BOMHeader_EquiBOM" />
+			</EntityType>
+			<EntityType Name="FunctionalLocationBOM" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="BOMCategory" />
+					<PropertyRef Name="BOMUsage" />
+					<PropertyRef Name="FuncLocIdIntern" />
+					<PropertyRef Name="Plant" />
+					<PropertyRef Name="BOMId" />
+					<PropertyRef Name="AlternativeBOM" />
+				</Key>
+				<Property Name="BOMCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMUsage" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Usage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="FuncLocIdIntern" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Functional loc." sap:creatable="false" sap:updatable="false" sap:filterable="false" />
+				<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="BOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Alternative" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="BOMHeader_Nav" Relationship="sap_mobile.BOMHeader_FLocBOM" FromRole="ToRole_BOMHeader_FLocBOM" ToRole="FromRole_BOMHeader_FLocBOM" />
+			</EntityType>
+			<EntityType Name="GISMapParameter" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="ParameterGroup" />
+					<PropertyRef Name="ParameterName" />
+					<PropertyRef Name="ParentParemeterGroup" />
+				</Key>
+				<Property Name="ParameterValue" Type="Edm.String" Nullable="false" MaxLength="830" sap:label="Param. Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParameterGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Param. Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParameterName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Param. Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParentParemeterGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Parent Param. Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+			</EntityType>
+			<EntityType Name="GlobalParam" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="RecordNo" />
+				</Key>
+				<Property Name="ParamGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Parameter Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParameterName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Param. Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParamScope" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Param. Scope" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamType" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Param. Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamValue" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Param. Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ParamComment" Type="Edm.String" Nullable="false" MaxLength="120" sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="RecordNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Rec.No" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="FlagNoChange" Type="Edm.Boolean" Nullable="false" sap:label="Boolean" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="InventoryObject" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="IMObject" />
+					<PropertyRef Name="ObjectId" />
+				</Key>
+				<Property Name="WBS" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="WBS Element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Network" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Network" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="CostCenter" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cost Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="CountDate" Type="Edm.DateTime" Precision="0" sap:label="Count Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Stor. location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SupplyPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Supplying Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="OrderId" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ShipPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="LoadPoint" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Loading Point" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ItemCount" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MovementType" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Movement type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectType" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Key Value Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="CrtDate" Type="Edm.DateTime" Precision="0" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="CrtDateFrom" Type="Edm.DateTime" Precision="0" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="CrtDateTo" Type="Edm.DateTime" Precision="0" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="DelvDate" Type="Edm.DateTime" Precision="0" sap:label="Delivery date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="DelvDateFrom" Type="Edm.String" MaxLength="10" sap:label="Delivery date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="DelvDateTo" Type="Edm.String" MaxLength="10" sap:label="Delivery date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="LoadDate" Type="Edm.String" MaxLength="10" sap:label="Loading Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="LoadDateFrom" Type="Edm.String" MaxLength="10" sap:label="Loading Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="LoadDateTo" Type="Edm.DateTime" Precision="0" sap:label="Loading Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectDate" Type="Edm.DateTime" Precision="0" sap:label="Obj. Rel. Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PickDate" Type="Edm.DateTime" Precision="0" sap:label="Pick Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PickDateFrom" Type="Edm.DateTime" Precision="0" sap:label="Pick Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PickDateTo" Type="Edm.DateTime" Precision="0" sap:label="Pick Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="RequirementDate" Type="Edm.DateTime" Precision="0" sap:label="Reqmts date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="RequirementDateFrom" Type="Edm.DateTime" Precision="0" sap:label="Reqmts date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="RequirementDateTo" Type="Edm.DateTime" Precision="0" sap:label="Reqmts date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="IMObject" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Trans. Object Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ObjectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Inv. Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="Material" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MaterialNum" />
+				</Key>
+				<Property Name="ManufacturerPartNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Mfr Part Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SerialNumberProfile" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Serial No. Prf." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Material type" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ProductHierarchy" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Prod.hierarchy" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Manufacturer" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Manufacturer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BaseUOM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure" />
+				<NavigationProperty Name="MaterialBOM_Nav" Relationship="sap_mobile.Material_MaterialBOM" FromRole="FromRole_Material_MaterialBOM" ToRole="ToRole_Material_MaterialBOM" />
+				<NavigationProperty Name="MaterialPlants" Relationship="sap_mobile.Material_MaterialPlant" FromRole="FromRole_Material_MaterialPlant" ToRole="ToRole_Material_MaterialPlant" />
+				<NavigationProperty Name="MaterialSLocs" Relationship="sap_mobile.Material_MaterialSLoc" FromRole="FromRole_Material_MaterialSLoc" ToRole="ToRole_Material_MaterialSLoc" />
+				<NavigationProperty Name="MaterialUOMs" Relationship="sap_mobile.Material_MaterialUOM" FromRole="FromRole_Material_MaterialUOM" ToRole="ToRole_Material_MaterialUOM" />
+			</EntityType>
+			<EntityType Name="MaterialBOM" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="BOMCategory" />
+					<PropertyRef Name="BOMUsage" />
+					<PropertyRef Name="Plant" />
+					<PropertyRef Name="MaterialNum" />
+					<PropertyRef Name="BOMId" />
+				</Key>
+				<Property Name="BOMCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="BOM category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMUsage" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Usage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BOMId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="BOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="BOMHeader_Nav" Relationship="sap_mobile.BOMHeader_MaterialBOM" FromRole="ToRole_BOMHeader_MaterialBOM" ToRole="FromRole_BOMHeader_MaterialBOM" />
+				<NavigationProperty Name="Material_Nav" Relationship="sap_mobile.Material_MaterialBOM" FromRole="ToRole_Material_MaterialBOM" ToRole="FromRole_Material_MaterialBOM" />
+			</EntityType>
+			<EntityType Name="DigitalSignatureCommit" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Object" />
+					<PropertyRef Name="Application" />
+					<PropertyRef Name="DraftSignatureID" />
+				</Key>
+				<Property Name="Object" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Application" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Application" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="DraftSignatureID" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="DS Enhancement: Draft Signature ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="MaterialPlant" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Plant" />
+					<PropertyRef Name="MaterialNum" />
+				</Key>
+				<Property Name="BatchIndicator" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Batch Mgmt Rqt" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Purch. Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" />
+				<Property Name="MaterialNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false" />
+				<NavigationProperty Name="Material" Relationship="sap_mobile.Material_MaterialPlant" FromRole="ToRole_Material_MaterialPlant" ToRole="FromRole_Material_MaterialPlant" />
+				<NavigationProperty Name="MaterialSLocs" Relationship="sap_mobile.MaterialPlant_MaterialSLoc" FromRole="FromRole_MaterialPlant_MaterialSLoc" ToRole="ToRole_MaterialPlant_MaterialSLoc" />
+			</EntityType>
+			<EntityType Name="MaterialSLoc" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Plant" />
+					<PropertyRef Name="StorageLocation" />
+					<PropertyRef Name="MaterialNum" />
+				</Key>
+				<Property Name="OnOrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="On-Order Stock Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="TransferSlocQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Stock in tfr" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ManufacturerPartNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Mfr Part Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StorageLocationDesc" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UnrestrictedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Unrestricted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BatchIndicator" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Batch Mgmt Rqt" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StorageBin" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Storage Bin" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Stor. location" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="MaterialNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Manufacturer" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Manufacturer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="Material" Relationship="sap_mobile.Material_MaterialSLoc" FromRole="ToRole_Material_MaterialSLoc" ToRole="FromRole_Material_MaterialSLoc" />
+				<NavigationProperty Name="MaterialPlant" Relationship="sap_mobile.MaterialPlant_MaterialSLoc" FromRole="ToRole_MaterialPlant_MaterialSLoc" ToRole="FromRole_MaterialPlant_MaterialSLoc" />
+			</EntityType>
+			<EntityType Name="MaterialUOM" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MaterialNum" />
+					<PropertyRef Name="UOM" />
+				</Key>
+				<Property Name="BaseFlag" Type="Edm.Boolean" Nullable="false" sap:label="Boolean" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BatchIndicator" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Batch Mgmt Rqt" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ConversionFactor" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="3" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Denominator" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="0" sap:label="Denominator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Numerator" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="0" sap:label="Counter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MaterialNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="BaseUOM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure" />
+				<Property Name="UOM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure" />
+				<NavigationProperty Name="Material" Relationship="sap_mobile.Material_MaterialUOM" FromRole="ToRole_Material_MaterialUOM" ToRole="FromRole_Material_MaterialUOM" />
+			</EntityType>
+			<EntityType Name="OauthToken" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="RFCDestination" />
+					<PropertyRef Name="ParameterGroup" />
+					<PropertyRef Name="ParameterName" />
+				</Key>
+				<Property Name="RFCDestination" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Destination" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParameterGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Parameter Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ParameterName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Param. Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+				<Property Name="OauthToken" Type="Edm.String" Nullable="false" MaxLength="260" sap:label="Char 260" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ExpiresIn" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="TOTPDevice" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="DeviceId" />
+				</Key>
+				<Property Name="DeviceId" Type="Edm.Int32" Nullable="false" sap:label="Device ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="DefaultDeviceFlag" Type="Edm.Boolean" Nullable="false" sap:label="Boolean Variable (X = True, - = False, Space = Unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Delay" Type="Edm.Int16" Nullable="false" sap:label="Delay windows" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Digits" Type="Edm.Int16" Nullable="false" sap:label="Digits" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="EncryptionAlgorithm" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Encryption Alg" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="HashAlgorithm" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Hash Algorithm" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="KeyURI" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Passphrase" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="TOTP Passphrase" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StepSeconds" Type="Edm.Int16" Nullable="false" sap:label="Time step" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="TOTP" Type="Edm.Int32" Nullable="false" sap:label="TOTP" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="TOTPDeviceValidate_Nav" Relationship="sap_mobile.TOTPDevice_TOTPDeviceValidate" FromRole="FromRole_TOTPDevice_TOTPDeviceValidate" ToRole="ToRole_TOTPDevice_TOTPDeviceValidate" />
+			</EntityType>
+			<EntityType Name="TOTPDeviceValidate" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="DeviceId" />
+				</Key>
+				<Property Name="DeviceId" Type="Edm.Int32" Nullable="false" sap:label="Device ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Passphrase" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="TOTP Passphrase" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="TOTP" Type="Edm.Int32" Nullable="false" sap:label="TOTP" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserFeature" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="UserPersona" />
+					<PropertyRef Name="UserFeature" />
+				</Key>
+				<Property Name="UserPersona" Type="Edm.String" Nullable="false" MaxLength="120" sap:label="Root Object Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UserFeature" Type="Edm.String" Nullable="false" MaxLength="120" sap:label="Child Object Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserLocation" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="UserGUID" />
+				</Key>
+				<Property Name="GeometryValue" Type="Edm.String" Nullable="false" sap:label="Geometry Value (L)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectType" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Object Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectKey" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Object Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Object Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ObjectGroup1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Object Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="GeometryValFormat" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Geometry Val Format" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MobileObjectStatus" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Mobile Object Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StatusAttribute1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Mobile Status Attrib" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="StatusAttribute2" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Mobile Status Attrib" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="CurrentTimeStamp" Type="Edm.DateTime" Precision="0" sap:label="Changed Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UserGUID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="User GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserPersona" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="UserGUID" />
+					<PropertyRef Name="UserPersona" />
+				</Key>
+				<Property Name="FlagDefault" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Default" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UserGUID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="User GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UserPersona" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="User Persona" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserPreference" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="RecordId" />
+					<PropertyRef Name="UserGuid" />
+				</Key>
+				<Property Name="RecordId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Record Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UserGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="User GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PreferenceGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Info. Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PreferenceName" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Info. Attribute" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PreferenceValue" Type="Edm.String" Nullable="false" sap:label="Info Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserSyncGroupDetail" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="EntitySetName" />
+					<PropertyRef Name="SyncGroupId" />
+					<PropertyRef Name="UserGUID" />
+				</Key>
+				<Property Name="Addressable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Addressable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Creatable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Creatable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Deletable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Deletable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Pageable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Pageable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Searchable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Searchable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Subscribable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Subscribable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Updatable" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Updatable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="EntitySetName" Type="Edm.String" Nullable="false" MaxLength="128" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SyncGroupId" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Sync. Group Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="UserGUID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="User GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SyncPriority" Type="Edm.Int32" Nullable="false" sap:label="Sync Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserSystemInfo" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="UserGuid" />
+					<PropertyRef Name="RecordId" />
+				</Key>
+				<Property Name="UserGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="User GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SystemSettingGroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Setting Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SystemSettingName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Setting Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="SystemSettingValue" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Setting Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="RecordId" Type="Edm.Int64" Nullable="false" sap:label="Record Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="MobileClientSynchronizationSession" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="SessionGUID" />
+				</Key>
+				<Property Name="SessionGUID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Session GUID" />
+				<Property Name="UserGUID" Type="Edm.String" MaxLength="32" sap:label="User GUID" />
+				<Property Name="SessionBeginTimeStamp" Type="Edm.DateTime" Precision="0" sap:label="Creation Time Stamp" />
+				<Property Name="SessionCloseTimeStamp" Type="Edm.DateTime" Precision="0" sap:label="Sess. Close Time" />
+				<Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="Created By" />
+			</EntityType>
+			<Association Name="BOMHeader_EquiBOM" sap:content-version="1">
+				<End Type="sap_mobile.BOMHeader" Multiplicity="0..1" Role="FromRole_BOMHeader_EquiBOM">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.EquipmentBOM" Multiplicity="*" Role="ToRole_BOMHeader_EquiBOM">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_BOMHeader_EquiBOM">
+						<PropertyRef Name="BOMId" />
+						<PropertyRef Name="BOMCategory" />
+					</Principal>
+					<Dependent Role="ToRole_BOMHeader_EquiBOM">
+						<PropertyRef Name="BOMId" />
+						<PropertyRef Name="BOMCategory" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="BOMHeader_FLocBOM" sap:content-version="1">
+				<End Type="sap_mobile.BOMHeader" Multiplicity="0..1" Role="FromRole_BOMHeader_FLocBOM">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.FunctionalLocationBOM" Multiplicity="*" Role="ToRole_BOMHeader_FLocBOM">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_BOMHeader_FLocBOM">
+						<PropertyRef Name="BOMId" />
+						<PropertyRef Name="BOMCategory" />
+					</Principal>
+					<Dependent Role="ToRole_BOMHeader_FLocBOM">
+						<PropertyRef Name="BOMId" />
+						<PropertyRef Name="BOMCategory" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="BOMHeader_MaterialBOM" sap:content-version="1">
+				<End Type="sap_mobile.BOMHeader" Multiplicity="0..1" Role="FromRole_BOMHeader_MaterialBOM">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.MaterialBOM" Multiplicity="*" Role="ToRole_BOMHeader_MaterialBOM">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_BOMHeader_MaterialBOM">
+						<PropertyRef Name="BOMCategory" />
+						<PropertyRef Name="BOMId" />
+					</Principal>
+					<Dependent Role="ToRole_BOMHeader_MaterialBOM">
+						<PropertyRef Name="BOMCategory" />
+						<PropertyRef Name="BOMId" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="BOMHeader_BOMItem" sap:content-version="1">
+				<End Type="sap_mobile.BOMHeader" Multiplicity="0..1" Role="FromRole_BOMHeader_BOMItem">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.BOMItem" Multiplicity="*" Role="ToRole_BOMHeader_BOMItem">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_BOMHeader_BOMItem">
+						<PropertyRef Name="BOMId" />
+						<PropertyRef Name="BOMCategory" />
+					</Principal>
+					<Dependent Role="ToRole_BOMHeader_BOMItem">
+						<PropertyRef Name="BOMId" />
+						<PropertyRef Name="BOMCategory" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Material_MaterialBOM" sap:content-version="1">
+				<End Type="sap_mobile.Material" Multiplicity="1" Role="FromRole_Material_MaterialBOM">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.MaterialBOM" Multiplicity="*" Role="ToRole_Material_MaterialBOM">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Material_MaterialBOM">
+						<PropertyRef Name="MaterialNum" />
+					</Principal>
+					<Dependent Role="ToRole_Material_MaterialBOM">
+						<PropertyRef Name="MaterialNum" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Material_MaterialPlant" sap:content-version="1">
+				<End Type="sap_mobile.Material" Multiplicity="1" Role="FromRole_Material_MaterialPlant">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.MaterialPlant" Multiplicity="*" Role="ToRole_Material_MaterialPlant">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Material_MaterialPlant">
+						<PropertyRef Name="MaterialNum" />
+					</Principal>
+					<Dependent Role="ToRole_Material_MaterialPlant">
+						<PropertyRef Name="MaterialNum" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Material_MaterialSLoc" sap:content-version="1">
+				<End Type="sap_mobile.Material" Multiplicity="1" Role="FromRole_Material_MaterialSLoc">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.MaterialSLoc" Multiplicity="*" Role="ToRole_Material_MaterialSLoc">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Material_MaterialSLoc">
+						<PropertyRef Name="MaterialNum" />
+					</Principal>
+					<Dependent Role="ToRole_Material_MaterialSLoc">
+						<PropertyRef Name="MaterialNum" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Material_MaterialUOM" sap:content-version="1">
+				<End Type="sap_mobile.Material" Multiplicity="1" Role="FromRole_Material_MaterialUOM">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.MaterialUOM" Multiplicity="*" Role="ToRole_Material_MaterialUOM">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Material_MaterialUOM">
+						<PropertyRef Name="MaterialNum" />
+					</Principal>
+					<Dependent Role="ToRole_Material_MaterialUOM">
+						<PropertyRef Name="MaterialNum" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="MaterialPlant_MaterialSLoc" sap:content-version="1">
+				<End Type="sap_mobile.MaterialPlant" Multiplicity="1" Role="FromRole_MaterialPlant_MaterialSLoc">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.MaterialSLoc" Multiplicity="*" Role="ToRole_MaterialPlant_MaterialSLoc">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_MaterialPlant_MaterialSLoc">
+						<PropertyRef Name="MaterialNum" />
+						<PropertyRef Name="Plant" />
+					</Principal>
+					<Dependent Role="ToRole_MaterialPlant_MaterialSLoc">
+						<PropertyRef Name="MaterialNum" />
+						<PropertyRef Name="Plant" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TOTPDevice_TOTPDeviceValidate" sap:content-version="1">
+				<End Type="sap_mobile.TOTPDevice" Multiplicity="1" Role="FromRole_TOTPDevice_TOTPDeviceValidate">
+					<OnDelete Action="None" />
+				</End>
+				<End Type="sap_mobile.TOTPDeviceValidate" Multiplicity="1" Role="ToRole_TOTPDevice_TOTPDeviceValidate">
+					<OnDelete Action="None" />
+				</End>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TOTPDevice_TOTPDeviceValidate">
+						<PropertyRef Name="DeviceId" />
+					</Principal>
+					<Dependent Role="ToRole_TOTPDevice_TOTPDeviceValidate">
+						<PropertyRef Name="DeviceId" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="sap_mobile_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx" sap:use-batch="true">
+				<EntitySet Name="MobileClientSynchronizationSessions" EntityType="sap_mobile.MobileClientSynchronizationSession" sap:content-version="1" />
+				<EntitySet Name="AppParameters" EntityType="sap_mobile.AppParam" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="BOMHeaders" EntityType="sap_mobile.BOMHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="BOMItems" EntityType="sap_mobile.BOMItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="DigitalSignatureCommit" EntityType="sap_mobile.DigitalSignatureCommit" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="EquipmentBOMs" EntityType="sap_mobile.EquipmentBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="FunctionalLocationBOMs" EntityType="sap_mobile.FunctionalLocationBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="GISMapParameters" EntityType="sap_mobile.GISMapParameter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="GlobalParameters" EntityType="sap_mobile.GlobalParam" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="InventoryObjects" EntityType="sap_mobile.InventoryObject" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="Materials" EntityType="sap_mobile.Material" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="MaterialBOMs" EntityType="sap_mobile.MaterialBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="MaterialPlants" EntityType="sap_mobile.MaterialPlant" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="MaterialSLocs" EntityType="sap_mobile.MaterialSLoc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="MaterialUOMs" EntityType="sap_mobile.MaterialUOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="OauthTokens" EntityType="sap_mobile.OauthToken" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="TOTPDevices" EntityType="sap_mobile.TOTPDevice" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="TOTPDeviceValidates" EntityType="sap_mobile.TOTPDeviceValidate" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="UserFeatures" EntityType="sap_mobile.UserFeature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="UserLocations" EntityType="sap_mobile.UserLocation" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="UserPersonas" EntityType="sap_mobile.UserPersona" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="UserPreferences" EntityType="sap_mobile.UserPreference" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="UserSyncGroupDetails" EntityType="sap_mobile.UserSyncGroupDetail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<EntitySet Name="UserSystemInfos" EntityType="sap_mobile.UserSystemInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+				<AssociationSet Name="Material_MaterialPlant_ASet" Association="sap_mobile.Material_MaterialPlant" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Materials" Role="FromRole_Material_MaterialPlant" />
+					<End EntitySet="MaterialPlants" Role="ToRole_Material_MaterialPlant" />
+				</AssociationSet>
+				<AssociationSet Name="Material_MaterialBOM_ASet" Association="sap_mobile.Material_MaterialBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Materials" Role="FromRole_Material_MaterialBOM" />
+					<End EntitySet="MaterialBOMs" Role="ToRole_Material_MaterialBOM" />
+				</AssociationSet>
+				<AssociationSet Name="Material_MaterialUOM_ASet" Association="sap_mobile.Material_MaterialUOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Materials" Role="FromRole_Material_MaterialUOM" />
+					<End EntitySet="MaterialUOMs" Role="ToRole_Material_MaterialUOM" />
+				</AssociationSet>
+				<AssociationSet Name="BOMHeader_BOMItem_ASet" Association="sap_mobile.BOMHeader_BOMItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="BOMHeaders" Role="FromRole_BOMHeader_BOMItem" />
+					<End EntitySet="BOMItems" Role="ToRole_BOMHeader_BOMItem" />
+				</AssociationSet>
+				<AssociationSet Name="BOMHeader_EquiBOM_ASet" Association="sap_mobile.BOMHeader_EquiBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="BOMHeaders" Role="FromRole_BOMHeader_EquiBOM" />
+					<End EntitySet="EquipmentBOMs" Role="ToRole_BOMHeader_EquiBOM" />
+				</AssociationSet>
+				<AssociationSet Name="BOMHeader_FLocBOM_ASet" Association="sap_mobile.BOMHeader_FLocBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="BOMHeaders" Role="FromRole_BOMHeader_FLocBOM" />
+					<End EntitySet="FunctionalLocationBOMs" Role="ToRole_BOMHeader_FLocBOM" />
+				</AssociationSet>
+				<AssociationSet Name="TOTPDevice_TOTPDeviceValidate_ASet" Association="sap_mobile.TOTPDevice_TOTPDeviceValidate" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="TOTPDevices" Role="FromRole_TOTPDevice_TOTPDeviceValidate" />
+					<End EntitySet="TOTPDeviceValidates" Role="ToRole_TOTPDevice_TOTPDeviceValidate" />
+				</AssociationSet>
+				<AssociationSet Name="Material_MaterialSLoc_ASet" Association="sap_mobile.Material_MaterialSLoc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Materials" Role="FromRole_Material_MaterialSLoc" />
+					<End EntitySet="MaterialSLocs" Role="ToRole_Material_MaterialSLoc" />
+				</AssociationSet>
+				<AssociationSet Name="MaterialPlant_MaterialSLoc_ASet" Association="sap_mobile.MaterialPlant_MaterialSLoc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="MaterialPlants" Role="FromRole_MaterialPlant_MaterialSLoc" />
+					<End EntitySet="MaterialSLocs" Role="ToRole_MaterialPlant_MaterialSLoc" />
+				</AssociationSet>
+				<AssociationSet Name="BOMHeader_MaterialBOM_ASet" Association="sap_mobile.BOMHeader_MaterialBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="BOMHeaders" Role="FromRole_BOMHeader_MaterialBOM" />
+					<End EntitySet="MaterialBOMs" Role="ToRole_BOMHeader_MaterialBOM" />
+				</AssociationSet>
+				<FunctionImport Name="OpenSyncSession" ReturnType="sap_mobile.MobileClientSynchronizationSession" EntitySet="MobileClientSynchronizationSessions" m:HttpMethod="POST" sap:action-for="sap_mobile.MobileClientSynchronizationSession">
+					<Parameter Name="SAPProductTechName" Type="Edm.String" Mode="In" MaxLength="40" />
+				</FunctionImport>
+				<FunctionImport Name="CloseSyncSession" ReturnType="sap_mobile.MobileClientSynchronizationSession" EntitySet="MobileClientSynchronizationSessions" m:HttpMethod="POST">
+					<Parameter Name="SAPProductTechName" Type="Edm.String" Mode="In" MaxLength="40" />
+				</FunctionImport>
+			</EntityContainer>
+			<link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://samcf-sam-cf-sam2210-svb800-prod.cfapps.sap.hana.ondemand.com/DEST_SAM2210_ONLINE_PPROP/$metadata" />
+			<link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://samcf-sam-cf-sam2210-svb800-prod.cfapps.sap.hana.ondemand.com/DEST_SAM2210_ONLINE_PPROP/$metadata" />
+		</Schema>
+	</DataServices>
+</Edmx>

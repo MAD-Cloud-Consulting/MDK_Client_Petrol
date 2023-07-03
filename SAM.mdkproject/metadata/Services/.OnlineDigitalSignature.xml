@@ -1,0 +1,15 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema Namespace="sap_mobile" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+<EntityType Name="DigitalSignatureCommit" sap:content-version="1">
+<Key>
+<PropertyRef Name="Object"/>
+<PropertyRef Name="Application"/><PropertyRef Name="DraftSignatureID"/>
+</Key>
+<Property Name="Object" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Application" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Application" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DraftSignatureID" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="DS Enhancement: Draft Signature ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+
+
+<atom:link rel="self" href="https://ldciqkj.wdf.sap.corp:44300/sap/opu/odata/MERP/SAP_ONLINE_LOOKUP_EXT_2210/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="https://ldciqkj.wdf.sap.corp:44300/sap/opu/odata/MERP/SAP_ONLINE_LOOKUP_EXT_2210/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+</edmx:DataServices>
+</edmx:Edmx>

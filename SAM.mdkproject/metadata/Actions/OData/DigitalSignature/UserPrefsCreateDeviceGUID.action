@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "UserPreferences",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "UserGuid": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "RecordId": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesRecordIdOnCreate.js",
+        "PreferenceGroup": "TOTP_DEVICE",
+        "PreferenceName": "DeviceGUID",
+        "PreferenceValue": "#Application/#ClientData/DeviceId"
+    },
+    "RequestOptions": {
+		"UploadCategory": "TOTPDevicesUpdates"
+	},
+    "OnSuccess": "/SAPAssetManager/Rules/DigitalSignature/TOTPPartialUploadAfterCreate.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

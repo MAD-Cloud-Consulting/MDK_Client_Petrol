@@ -1,0 +1,8 @@
+{
+    "Target": {
+        "EntitySet": "MarkedJobs",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#Property:MarkedJob/#Property:@odata.readLink"
+    },
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

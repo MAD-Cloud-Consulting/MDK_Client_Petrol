@@ -1,0 +1,6 @@
+{
+    "ModalPage": true,
+    "_Type" : "Action.Type.Navigation",
+    "ClearHistory": true,
+    "PageToOpen" : "/SAPAssetManager/Pages/Expense/CreatedExpenseList.page"
+}

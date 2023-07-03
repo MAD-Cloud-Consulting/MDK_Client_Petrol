@@ -1,0 +1,40 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet": "MyEquipGeometries",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+		"ObjectType": "IEQ",
+		"ObjectKey": "/SAPAssetManager/Rules/Geometries/ObjectKeyFromPage.js",
+        "EquipId":"/SAPAssetManager/Rules/Geometries/ObjectKeyFromPage.js"
+	},
+	"Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+		"Transaction.Ignore": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Geometries/ObjectKeyFromPage.js"
+    },
+	"RequestOptions": {
+		"UnmodifiableRequest": true,
+		"SendEmptyUpdate": true
+	},
+	"CreateLinks": [
+		{
+			"Property" : "Geometry",
+			"Target":
+			{
+				"EntitySet" : "Geometries", 
+				"ReadLink" : "/SAPAssetManager/Rules/Geometries/NewGeometryReadLink.js"
+			}
+		},
+		{
+			"Property" : "Equip_Nav",
+			"Target":
+			{
+				"EntitySet" : "MyEquipments",
+				"ReadLink" :"/SAPAssetManager/Rules/Geometries/ReadLinkFromPage.js"
+			}
+		}
+	],
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

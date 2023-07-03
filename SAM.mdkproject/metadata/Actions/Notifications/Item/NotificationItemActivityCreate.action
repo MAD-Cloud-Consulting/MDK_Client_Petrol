@@ -1,0 +1,34 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyNotificationItemActivities",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "NotificationNumber": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js",
+		"ItemNumber" : "/SAPAssetManager/Rules/Notifications/Item/GenerateNotificationItemID.js",
+		"ActivitySequenceNumber" : "/SAPAssetManager/Rules/Notifications/Item/Activity/GenerateNotificationItemActivityID.js",
+		"ActivityText" : "#Control:DescriptionTitle/#Value",
+		"ActivityCodeGroup": "/SAPAssetManager/Rules/Notifications/GroupLstPkrValue.js",
+        "ActivityCode" : "/SAPAssetManager/Rules/Notifications/CodeLstPkrValue.js",
+        "ActivitySortNumber" : "/SAPAssetManager/Rules/Notifications/Item/Activity/ItemActivitySortNumber.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/NotificationTaskActivityParentID.js"
+    },
+	"CreateLinks":
+	[{
+		"Property" : "Item",
+		"Target":
+		{
+			"EntitySet" : "MyNotificationItems",
+			"ReadLink" : "{@odata.readLink}"
+		}
+	}],
+	"OnSuccess" : "/SAPAssetManager/Rules/Notifications/Item/Activity/CreateUpdate/NotificationItemActivityCreateSuccess.js",
+	"OnFailure": "/SAPAssetManager/Actions/OData/ODataCreateFailureMessage.action"
+}

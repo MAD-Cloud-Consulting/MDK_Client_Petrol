@@ -1,0 +1,37 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = '0.8.1'
+}
+
+android {
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+}
+
+dependencies {
+    // Please refer to https://www.telerik.com/account/support-tickets/view-ticket?threadid=1160649
+    // Currently, the only officially supported way of adding dependencies in gradle is via compile
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // To resolve color issue in progress indicator
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    //Gson library
+    implementation "com.google.code.gson:gson:2.8.5"
+
+    implementation 'com.sap.cloud.android:fiori:5.0.10'
+    implementation 'com.sap.cloud.android:onboarding:2.1.0'
+    implementation 'com.sap.cloud.android:google-vision:2.1.0'
+
+    //compile 'com.android.support:appcompat-v7:28.0.0-rc01'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

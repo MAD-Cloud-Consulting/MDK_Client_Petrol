@@ -1,0 +1,45 @@
+{    
+    "Caption": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationListViewCaption.js",
+    "ActionBar": {
+		"Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationCreateUpdateNav.js",
+                "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Confirmations/EnableConfirmationCreate.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections":
+            [{
+                "Header": {
+                     "UseTopPadding": false
+                },
+                "ObjectCell": {
+                    "PreserveIconStackSpacing": true,
+                    "Icons": "/SAPAssetManager/Rules/Confirmations/OverviewListView/OverviewRowIcons.js",
+                    "Title": "/SAPAssetManager/Rules/Confirmations/OverviewListView/FormattedPostingDate.js",
+                    "Subhead": "/SAPAssetManager/Rules/Confirmations/ConfirmationTotalDuration.js",
+                    "AccessoryType": "disclosureIndicator",
+                    "OnPress": "/SAPAssetManager/Actions/Confirmations/ConfirmationsListViewNav.action"
+                },
+                "Target": {
+                    "EntitySet": "ConfirmationOverviewRows",
+                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                    "QueryOptions": "/SAPAssetManager/Rules/Confirmations/ConfirmationOverviewRowsQuery.js"
+                },
+                "_Type" : "Section.Type.ObjectTable",
+                "_Name" : "WorkOrdersListSection"
+            }],
+            "_Type" : "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable",
+            "DataSubscriptions": [
+                "Confirmations", "ConfirmationOverviewRows"
+            ]
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ConfirmationsOverviewListView"
+}

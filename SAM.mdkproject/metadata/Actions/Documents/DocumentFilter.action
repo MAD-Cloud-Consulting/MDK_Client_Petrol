@@ -1,0 +1,5 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Documents/DocumentFilter.page",
+    "Filterable" : "#Page:DocumentsListView/#Control:SectionedTable"
+}

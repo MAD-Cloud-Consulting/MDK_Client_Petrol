@@ -1,0 +1,39 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+		"EntitySet": "MyWorkOrderGeometries",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties": {
+		"ObjectType": "ORH",
+		"ObjectKey": "#Page:WorkOrderDetailsPage/#Property:OrderId",
+		"OrderId": "#Page:WorkOrderDetailsPage/#Property:OrderId"
+	},
+	"Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+		"Transaction.Ignore": "true",
+        "OfflineOData.TransactionID": "#Page:WorkOrderDetailsPage/#Property:OrderId"
+    },
+	"RequestOptions": {
+		"UnmodifiableRequest": true,
+		"SendEmptyUpdate": true
+	},
+	"CreateLinks": [{
+			"Property" : "Geometry",
+			"Target":
+			{
+				"EntitySet" : "Geometries",
+				"ReadLink" : "/SAPAssetManager/Rules/Geometries/GeometryReadLink.js"
+			}
+		},
+		{
+			"Property" : "WOHeader_Nav",
+			"Target":
+			{
+				"EntitySet" : "MyWorkOrderHeaders",
+				"ReadLink" : "#Page:WorkOrderDetailsPage/#Property:@odata.readLink"
+			}
+		}
+	],
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

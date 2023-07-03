@@ -1,0 +1,25 @@
+{
+    "_Type": "Action.Type.ODataService.CreateRelatedEntity",
+    "Target": {
+      "EntitySet": "PhysicalInventoryDocItemSerials",
+      "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+      "FiscalYear": "#Property:TempSerial_FiscalYear",
+      "Item": "#Property:TempSerial_Item",
+      "PhysInvDoc":"#Property:TempSerial_PhysInvDoc",
+      "SerialNumber":"#Property:TempSerial_SerialNumber"
+    },
+    "Headers": {
+      "OfflineOData.RemoveAfterUpload": "true",
+      "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ParentLink": {
+        "Property": "PhysicalInventoryDocItemSerial_Nav",
+        "Target": {
+          "EntitySet": "PhysicalInventoryDocItems",
+          "ReadLink": "#Property:TempHeader_ReadLink"
+        }
+    }
+}

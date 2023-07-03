@@ -1,0 +1,35 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "DisconnectionActivities",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#Property:@odata.readLink"
+    },
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "Properties": {
+        "DisconnectFlag": "/SAPAssetManager/Rules/WorkOrders/Meter/ActivityIsDisconnect.js",
+        "ActivityStatus": "#Control:StatusLstPkr/#Value/#First/#Property:ReturnValue",
+        "ActivityDate": "/SAPAssetManager/Rules/Meter/Common/CurrentBackendDate.js",
+        "ActivityTime": "/SAPAssetManager/Rules/Meter/Common/CurrentBackendTime.js",
+        "OrderId": "/SAPAssetManager/Rules/WorkOrders/Meter/Activity/CreateUpdate/ActivityCreateUpdateOrderId.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "{{#Property:ActivityNum}}{{#Property:DocNum}}",
+        "Transaction.Ignore": "false"
+    },
+    "UpdateLinks": [
+        {
+            "Property": "DisconnectActivityStatus_Nav",
+            "Target": {
+                "EntitySet": "DisconnectActivityStatuses",
+                "QueryOptions": "$filter=Status eq '{{#Control:StatusLstPkr/#Value/#First/#Property:ReturnValue}}'"
+            }
+        }
+    ],
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": "  ",
+    "OnSuccess": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntitySuccessMessage.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action"
+}

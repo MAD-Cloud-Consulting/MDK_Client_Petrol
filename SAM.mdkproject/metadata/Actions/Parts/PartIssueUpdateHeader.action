@@ -1,0 +1,33 @@
+{
+    "Properties": {
+        "MatDocItem":"/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateMatDocItem.js",
+        "OrderNumber": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateOrderNumber.js",
+        "MovementType": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateMovementType.js",
+        "ReservationNumber": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateReservationNumber.js",
+        "ReservationItemNumber": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateReservationItemNumber.js",
+        "Material": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateMaterial.js",
+        "Plant": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdatePlant.js",
+        "StorageLocation": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateStorageLocation.js",
+        "EntryQuantity": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateQuantity.js",
+        "EntryUOM": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateEntryUOM.js",
+        "AutoGenerateSerialNumbers":"/SAPAssetManager/Rules/Parts/Issue/LineItem/PartIssueLineItemAutoGenerateSerial.js",
+        "Batch": "/SAPAssetManager/Rules/Parts/Issue/Header/PartIssueHeaderBatch.js"
+    },
+    "RequestOptions":
+    {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "Target": {
+        "EntitySet": "MaterialDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueUpdateReadLink.js"
+
+    },
+    "Headers": {
+        "OfflineOData.TransactionID":"#Property:MaterialDocNumber"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueCreateUpdateValidation.js"
+}

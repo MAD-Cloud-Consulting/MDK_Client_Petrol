@@ -1,0 +1,7 @@
+{
+  "Target": {
+    "EntitySet" : "FSMFormAttachments",
+    "Service": "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "_Type": "Action.Type.ODataService.DeleteMedia"
+}

@@ -1,0 +1,60 @@
+{
+	"Caption": "$(L, service_report)",
+    "OnUnloaded": "/SAPAssetManager/Rules/PDF/PDFViewOnUnloaded.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Save",
+                "OnPress": "/SAPAssetManager/Rules/PDF/PDFSave.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem":"$(PLT, 'Action', 'ic_menu_share')",
+                "OnPress": "/SAPAssetManager/Rules/PDF/PDFShare.js"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"_Type": "Control.Type.Extension",
+			"Module": "extension-PDFFramework",
+			"Control": "PDFExtension",
+			"Class": "PDFExtension",
+			"_Name": "PDFExtensionControl",
+			"ExtensionProperties": {
+				"Template":"/SAPAssetManager/Rules/PDF/PDFTemplatePath.js",
+				"Data":"/SAPAssetManager/Rules/PDF/PDFData.js"
+			}
+
+		}
+	],
+	"ToolBar": {
+        "Controls": [
+            {
+                "_Name": "FlexibleSpaceLeftTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+            },
+            {
+                "_Name": "CustomerSignatureButton",
+                "_Type": "Control.Type.ToolbarItem",
+                "Caption": "$(L,add_customer_signature)",
+                "OnPress": "/SAPAssetManager/Rules/SignatureControl/SignatureControlCustomerNav.js",
+                "Enabled": "/SAPAssetManager/Rules/PDF/PDFViewIsCustomerSignatureEnabled.js"
+            },
+            {
+                "_Name": "FlexibleSpaceRightTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+            }
+        ]
+    },
+	"_Name": "PDFControl",
+	"_Type": "Page"
+}

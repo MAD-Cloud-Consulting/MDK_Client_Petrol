@@ -1,0 +1,27 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MyEquipObjectStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{{#Property:@odata.readLink}}/Device_Nav/Equipment_Nav/ObjectStatus_Nav"
+    },
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:BatchEquipmentNum",
+        "Transaction.Ignore": "true"
+	},
+    "Properties": {
+        "Status": "/SAPAssetManager/Rules/Meter/CreateUpdate/EquipmentStatusUpdate.js"
+    },
+    "UpdateLinks":
+    [{
+        "Property": "SystemStatus_Nav",
+        "Target":
+        {
+            "EntitySet": "SystemStatuses",
+            "ReadLink": "/SAPAssetManager/Rules/Meter/CreateUpdate/EquipmentStatusReadLink.js"
+        }
+
+    }],
+    "OnSuccess": "/SAPAssetManager/Rules/Meter/PromptReading.js"
+}

@@ -1,0 +1,43 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderTools",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "PRTCategory": "E",
+        "Description": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTDescription.js",
+        "OrderId": "#Property:OrderId",
+        "OperationNo": "#Property:OperationNo",
+        "Equipment": "#Control:EquipmentLstPkr/#SelectedValue",
+        "UsageValue": "#Control:UsageValueField/#Value",
+        "UsageUOM": "#Control:UoMLstPkr/#SelectedValue",
+        "ControlKey": "#Control:ControlKeyLstPkr/#SelectedValue",
+        "ItemCounter": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTItemCounter.js",
+        "ItemCounterChar": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/CreateUpdate/PRTItemCounterChar.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#Property:OrderId"
+    },
+    "CreateLinks": [
+        {
+            "Property": "PRTEquipment",
+            "Target": {
+                "EntitySet": "MyEquipments",
+                "QueryOptions": "$filter=EquipId eq '{{#Control:EquipmentLstPkr/#SelectedValue}}'"
+            }
+        }, 
+        {
+            "Property": "WOOperation_Nav",
+            "Target": {
+                "EntitySet": "MyWorkOrderOperations",
+                "ReadLink": "{@odata.readLink}"
+            }
+        }
+    ],
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/PRTEquipmentCreateSuccessWithAutoSync.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

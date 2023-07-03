@@ -1,0 +1,5 @@
+{
+    "Message": "$(L,sync_in_progress)",
+    "OnSuccess":"/SAPAssetManager/Rules/ApplicationEvents/InitializeOnUserSwitch.js",
+    "_Type": "Action.Type.ProgressBanner"
+}

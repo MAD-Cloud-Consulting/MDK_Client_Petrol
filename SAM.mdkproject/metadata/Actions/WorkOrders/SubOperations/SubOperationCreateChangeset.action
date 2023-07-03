@@ -1,0 +1,10 @@
+{
+    "Actions": [
+        "/SAPAssetManager/Actions/WorkOrders/SubOperations/SubOperationCreateUpdateNav.action"
+    ],
+    "OnSuccess": "/SAPAssetManager/Actions/MobileStatus/MobileStatusSubOperationSetReceived.action",
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

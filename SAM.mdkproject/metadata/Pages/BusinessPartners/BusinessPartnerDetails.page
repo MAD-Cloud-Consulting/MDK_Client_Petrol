@@ -1,0 +1,79 @@
+{
+    "Caption": "$(L,business_partner)",
+    "OnReturning": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerDetailsOnReturning.js",
+    "OnLoaded": "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditIsVisible.js",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "right",
+            "SystemItem": "Edit",
+            "OnPress": "/SAPAssetManager/Actions/BusinessPartners/BusinessPartnerEditNav.action"
+        }]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "BusinessPartnerDetails",
+                    "Header": {
+                        "Caption": "$(L,business_partner_detail)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,name)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerName.js"
+                        },
+                        {
+                            "KeyName": "$(L,partner_id)",
+                            "Value": "{PartnerNum}"
+                        },
+                        {
+                            "KeyName": "$(L,partner_type)",
+                            "Value": "#Property:PartnerFunction_Nav/#Property:Description"
+                        }
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "AddressDetailsSection",
+                    "DataSubscriptions": ["Addresses", "AddressesAtWork", "EmployeeAddresses","AddressCommunications", "AddressesAtWorkComm", "EmployeeCommunications"],
+                    "Header": {
+                        "Caption": "$(L,contact_detail)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,address)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerAddress.js"
+                        },
+                        {
+                            "KeyName": "$(L,office_location)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerOffice.js"
+                        },
+                        {
+                            "KeyName": "$(L,email)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEmail.js"
+                        },
+                        {
+                            "KeyName": "$(L,phone)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerTelephone.js"
+                        },
+                        {
+                            "KeyName": "$(L,mobile)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerMobile.js"
+                        },
+                        {
+                            "KeyName": "$(L,fax)",
+                            "Value": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerFax.js"
+                        }
+                    ]
+                }
+                ],
+                "_Type": "Control.Type.SectionedTable",
+                "_Name": "SectionedTable"
+            }
+        ],
+        "_Type": "Page",
+        "_Name": "BusinessPartnerDetailsPage"
+    }

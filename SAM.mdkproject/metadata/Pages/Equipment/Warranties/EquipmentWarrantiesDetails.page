@@ -1,0 +1,57 @@
+{
+	"_Type": "Page",
+	"_Name": "EquipmentWarrantiesDetailsPage",
+	"Caption": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesDetailCaption.js",
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "EquipmentWarrantiesDetailsSectionedTable",
+			"Sections": [
+				{
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "EquipmentWarrantiesDetailsSection",
+					"Header": {
+						"Caption": "$(L,warranty_details)"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,type)",
+							"Value": "{WarrantyTypeDesc}"
+						},
+						{
+							"KeyName": "$(L,number)",
+							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesNumber.js"
+						},
+						{
+							"KeyName": "$(L,start_date)",
+							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesStartDate.js"
+						},
+						{
+							"KeyName": "$(L,end_date)",
+							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesEndDate.js"
+						},
+						{
+							"KeyName": "$(L,description)",
+							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesDescription.js"
+						}
+						
+					]
+				},
+				{
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "EquipmentWarrantiesNotesSection",
+					"Layout": {
+						"NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)" 
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L, notes)",
+							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesLongText.js"
+						}
+					]
+				}
+			]
+		}
+	]
+}

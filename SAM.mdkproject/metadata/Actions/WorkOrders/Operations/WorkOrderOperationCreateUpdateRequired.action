@@ -1,0 +1,8 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateOnCommit.js",
+    "RequiredFields": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/RequiredFields.js",
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

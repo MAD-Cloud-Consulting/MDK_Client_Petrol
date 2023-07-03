@@ -1,0 +1,9 @@
+{
+    "Actions": ["/SAPAssetManager/Rules/Equipment/Installation/EquipmentInstallationChangeSetActions.js"],
+    "Target":
+    {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

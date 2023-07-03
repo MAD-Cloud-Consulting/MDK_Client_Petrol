@@ -1,0 +1,13 @@
+{
+	"Target":
+	{
+		"EntitySet": "/SAPAssetManager/Rules/Notes/NoteGetEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#Property:LongText/#Property:@odata.readLink"
+	},
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:ConfirmationNum"
+	},
+	"_Type": "Action.Type.ODataService.DeleteEntity"
+}

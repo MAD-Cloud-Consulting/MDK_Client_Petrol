@@ -1,0 +1,4 @@
+{
+    "_Type": "Action.Type.PushNotificationRegister",
+    "OnSuccess": "/SAPAssetManager/Rules/PushNotifications/PushNotificationUserInfoUpdate.js"
+}

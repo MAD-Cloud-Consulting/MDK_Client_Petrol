@@ -1,0 +1,11 @@
+{
+    "_Type": "Action.Type.ODataService.DownloadMedia",
+    "Target" : {
+        "EntitySet" : "Documents",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/Documents/DownloadMediaFailure.action",
+    "ActionResult": {
+        "_Name": "SignatureResult"
+    }
+}

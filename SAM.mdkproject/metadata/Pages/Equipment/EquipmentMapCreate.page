@@ -1,0 +1,184 @@
+{
+   "Caption":"$(L,map)",
+   "Controls":
+   [{
+         "_Type":"Control.Type.Extension",
+         "Module": "extension-MapFramework",
+         "Control":"MapExtensionWithContext",
+         "Class":"MapExtensionWithContext",
+         "_Name":"MapExtensionControl",
+         "ExtensionProperties":{
+            "Config": {
+				"Target": {
+					"EntitySet": "GISMapParameters",
+					"Service": "/SAPAssetManager/Services/AssetManager.service",
+					"Properties": [],
+					"KeyProperties": []
+				},
+				"ViewConfig": {
+                    "ZoomOnLocationEnabled": false,
+                    "UseDynamicLayerDisplayPrefs": true
+				},
+				"BaseMaps": [],
+				"FeatureLayers": []
+			},
+            "EditMode": {
+                "IsInitialOn": true,
+				"InitialParams": {
+					"GeometryValue": "/SAPAssetManager/Rules/Geometries/GeometryValue.js",
+					"EntitySet": "MyEquipments"
+				},
+                "EditModeConfig": {
+                    "EditModePanel": {
+                        "GeometryTypes": ["Point", "Polyline", "Polygon"],
+                        "TitleText": "$(L,action_create_equip)",
+                        "SaveButtonText": "add",
+                        "Symbol": {
+                            "marker" : "MarkerAsset",
+                            "lineColor" : "A100C2",
+                            "fillColor" : "A100C233",
+                            "lineWidth" : 2
+                        }
+                    },
+					"CallbackInfo": {
+						"Action": "/SAPAssetManager/Rules/Equipment/CreateUpdate/EquipmentCreateUpdateGeometryPre.js",
+						"Target": {
+							"EntitySet": "MyEquipments",
+							"Service": "/SAPAssetManager/Services/AssetManager.service",
+							"Properties": [],
+							"KeyProperties": []
+						}
+					}
+                }
+            },
+			"TokenAuthentication": {
+				"Action": "/SAPAssetManager/Rules/Extensions/TokenRequest.js"
+			},
+			"MapToolsetIcons": [{
+					"name": "search",
+					"normalAssetName": "Search",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "settings",
+					"normalAssetName": "Information",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "currentLocation",
+					"normalAssetName": "Location",
+					"selectedAssetName": "LocationEnabled",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "zoomExtents",
+					"normalAssetName": "ZoomExtent",
+					"isVisible": true,
+					"isEnabled": true
+				}
+			],
+            "SettingsControl": {
+                "Title": "$(L, settings)",
+                "CloseActionTitle": "$(L, map_settings_close)",
+                "BasemapsTitle": "$(L,bm_title)",
+				"BatterySavingTitle": "$(L, battery_saving_switch_title)",
+                "BatterySavingDesc": "$(L, battery_saving_switch_desctiption)",
+				"FeatureLayersTitle": "$(L, fl_title)",
+				"NearMe": {
+					"DistanceTitle": "$(L, map_nearme_dist_title)",
+					"UnitsTitle": "$(L, map_nearme_unit_title)",
+					"Distances": [0.5, 1.0, 2.0, 5.0],
+					"Units": [{
+							"Value": "Mi",
+							"Display": "$(L, map_nearme_mi)"
+						},
+						{
+							"Value": "Km",
+							"Display": "$(L, map_nearme_km)"
+						}
+					]
+				}
+			},
+			"SearchControl": {
+				"SearchPlaceholder": "$(L, map_search_placeholder)",
+				"SearchFields": [
+					"Title", "Footnote", "Subhead", "Description"
+				],
+				"IsResultTextDisplayed": true,
+				"ResultsPrefix": "$(L, map_search_results_pref)",
+				"ResultsSuffix": "$(L, map_search_results_sufx)",
+				"NearMeFilterName": "$(L, map_search_nearme)",
+				"QuickFilters": [{
+						"FilterType": "TimeFilter",
+						"Type": [
+							"Job"
+						],
+						"Name": "$(L, map_search_wo_due_today)",
+						"PeriodInDays": 1,
+						"PropertyName": "DueDate"
+					},
+					{
+						"FilterType": "TextFilter",
+						"Name": "$(L, map_search_high_priority)",
+						"Properties": [
+							"StatusText"
+						],
+						"Text": "High"
+					}
+				]
+            },
+            "BusinessObjects":[  
+                {
+					"Type": "Equipment",
+					"Title": "$(L, dl_equip)",
+					"Legend": "IconEquipment",
+					"Target": {
+						"EntitySet": "MyEquipments",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$expand=EquipGeometries/Geometry&$filter=EquipGeometries/any(eg:sap.entityexists(eg/Geometry))",
+						"Properties": [],
+						"KeyProperties": []
+					},
+					"Enable": true,
+					"ObjectScheme": {
+						"Geometry": "EquipGeometries/Geometry/GeometryValue",
+						"Layer": "Equipment",
+						"Properties": {
+							"ID": "{EquipId}",
+							"Title": "{EquipDesc}",
+							"Subhead": "$(L, equipment_x, {EquipId})",
+							"StatusText": "/SAPAssetManager/Rules/Maps/PriorityStatusText.js",
+							"StatusImage": "/SAPAssetManager/Rules/Maps/PriorityBadge.js",
+							"SubstatusText": "/SAPAssetManager/Rules/Maps/PrioritySubstatusText.js",
+							"Tags": [
+								"{EquipType}",
+								"{EquipCategory}"
+							],
+							"BodyText": "/SAPAssetManager/Rules/Maps/MapEquipWorkCenter.js",
+							"Directions": {
+								"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+								"ButtonText": "$(L, map_info_panel_directions)"
+							}
+						},
+						"Symbol": {
+							"marker": "/SAPAssetManager/Rules/Maps/Icons/EquipmentIcon.js",
+							"lineColor": "A100C2",
+							"fillColor": "A100C233",
+							"lineWidth": 2,
+							"onSelect": {
+								"marker": "/SAPAssetManager/Rules/Maps/Icons/SelectedEquipmentIcon.js",
+								"lineWidth": 4
+							}
+						}
+					}
+				}
+            ]
+         }
+      }
+   ],
+   "_Type":"Page",
+   "_Name":"EquipmentMapCreatePage"
+}

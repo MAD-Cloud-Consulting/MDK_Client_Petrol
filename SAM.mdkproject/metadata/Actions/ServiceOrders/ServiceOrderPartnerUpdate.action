@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderPartners",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{soldToPartyPartnerReadLink}"
+    },
+    "Properties": {
+        "Partner": "#Control:SoldToPartyLstPkr/#SelectedValue",
+        "OldPartner": "/SAPAssetManager/Rules/ServiceOrders/Partner/ServiceOrderOldPartner.js",
+        "NewPartner": "#Control:SoldToPartyLstPkr/#SelectedValue"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:OrderId"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/ServiceOrders/Partner/ServiceOrderPartnerCreateUpdateLinks.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+}

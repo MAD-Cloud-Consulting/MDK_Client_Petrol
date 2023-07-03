@@ -1,0 +1,190 @@
+{
+    "Caption":"$(L, map)",
+   "Controls":[
+      {  
+         "_Type":"Control.Type.Extension",
+         "Module": "extension-MapFramework",
+         "Control":"MapExtensionWithContext",
+         "Class":"MapExtensionWithContext",
+         "_Name":"MapExtensionControl",
+         "DataSubscriptions": ["MarkedJob"], 
+         "ExtensionProperties": {
+            "Config": {
+				"Target": {
+					"EntitySet": "GISMapParameters",
+					"Service": "/SAPAssetManager/Services/AssetManager.service",
+					"Properties": [],
+					"KeyProperties": []
+				},
+				"ViewConfig": {
+                    "ZoomOnLocationEnabled": false,
+                    "UseDynamicLayerDisplayPrefs": true
+				},
+				"BaseMaps": [],
+				"FeatureLayers": []
+			},
+            "EditMode": {
+                "IsInitialOn": true,
+				"InitialParams": {
+					"GeometryValue": "/SAPAssetManager/Rules/Geometries/GeometryValue.js",
+					"EntitySet": "MyWorkOrderHeaders"
+				},
+                "EditModeConfig": {
+                    "EditModePanel": {
+                        "GeometryTypes": ["Point", "Polyline", "Polygon"],
+                        "TitleText": "$(L,action_update_workorder)",
+                        "SaveButtonText": "save",
+                        "Symbol": {
+                            "marker" : "MarkerJob",
+                            "lineColor" : "0070F2",
+                            "fillColor" : "0070F233",
+                            "lineWidth" : 2
+                        }
+                    },
+					"CallbackInfo": {
+						"Action": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateUpdateGeometryPre.js",
+						"Target": {
+							"EntitySet": "MyWorkOrderHeaders",
+							"Service": "/SAPAssetManager/Services/AssetManager.service",
+							"Properties": [],
+							"KeyProperties": []
+						}
+					}
+                }
+            },
+			"TokenAuthentication": {
+				"Action": "/SAPAssetManager/Rules/Extensions/TokenRequest.js"
+			},
+			"MapToolsetIcons": [{
+					"name": "search",
+					"normalAssetName": "Search",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "settings",
+					"normalAssetName": "Information",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "currentLocation",
+					"normalAssetName": "Location",
+					"selectedAssetName": "LocationEnabled",
+					"isVisible": true,
+					"isEnabled": true
+				},
+				{
+					"name": "zoomExtents",
+					"normalAssetName": "ZoomExtent",
+					"isVisible": true,
+					"isEnabled": true
+				}
+			],
+            "SettingsControl": {
+                "Title": "$(L, settings)",
+                "CloseActionTitle": "$(L, map_settings_close)",
+                "BasemapsTitle": "$(L,bm_title)",
+				"FeatureLayersTitle": "$(L, fl_title)",
+				"NearMe": {
+					"DistanceTitle": "$(L, map_nearme_dist_title)",
+					"UnitsTitle": "$(L, map_nearme_unit_title)",
+					"Distances": [0.5, 1.0, 2.0, 5.0],
+					"Units": [{
+							"Value": "Mi",
+							"Display": "$(L, map_nearme_mi)"
+						},
+						{
+							"Value": "Km",
+							"Display": "$(L, map_nearme_km)"
+						}
+					]
+				},
+                "BatterySavingTitle": "$(L, battery_saving_switch_title)",
+                "BatterySavingDesc": "$(L, battery_saving_switch_desctiption)"
+			},
+			"SearchControl": {
+				"SearchPlaceholder": "$(L, map_search_placeholder)",
+				"SearchFields": [
+					"Title", "Footnote", "Subhead", "Description"
+				],
+				"IsResultTextDisplayed": true,
+				"ResultsPrefix": "$(L, map_search_results_pref)",
+				"ResultsSuffix": "$(L, map_search_results_sufx)",
+				"NearMeFilterName": "$(L, map_search_nearme)",
+				"QuickFilters": [{
+						"FilterType": "TimeFilter",
+						"Type": [
+							"Job"
+						],
+						"Name": "$(L, map_search_wo_due_today)",
+						"PeriodInDays": 1,
+						"PropertyName": "DueDate"
+					},
+					{
+						"FilterType": "TextFilter",
+						"Name": "$(L, map_search_high_priority)",
+						"Properties": [
+							"StatusText"
+						],
+						"Text": "High"
+					}
+				]
+            },
+            "BusinessObjects": [
+                {
+                    "Type": "Job",
+                    "Title": "$(L,workorders)",
+                    "Legend": "IconWorkOrder",
+                    "Target": {
+                        "EntitySet": "MyWorkOrderHeaders",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=WOGeometries/Geometry,OrderMobileStatus_Nav,MarkedJob&$filter=WOGeometries/any(wg:sap.entityexists(wg/Geometry))"
+                    },
+                    "Enable": true,
+                    "ObjectScheme": {
+                        "Geometry": "WOGeometries/Geometry/GeometryValue",
+                        "Layer": "Job",
+                        "Properties": {
+                            "ID": "{OrderId}",
+                            "Priority": "{Priority}",
+                            "Title": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDescription.js",
+                            "Subhead": "$(L,workorder_x,{OrderId})",
+                            "StatusText": "/SAPAssetManager/Rules/Maps/PriorityStatusText.js",
+                            "StatusImage": "/SAPAssetManager/Rules/Maps/PriorityBadge.js",
+                            "SubstatusText": "/SAPAssetManager/Rules/Maps/PrioritySubstatusText.js",
+                            "Tags": [
+                                "{OrderType}",
+                                "/SAPAssetManager/Rules/Maps/MapWorkOrderStatus.js"
+                            ],
+                            "BodyText": "/SAPAssetManager/Rules/Maps/MapWorkOrderWorkCenter.js",
+                            "Footnote": "/SAPAssetManager/Rules/Maps/MapWorkOrderDueDate.js",
+							"Directions": {
+								"Enabled": "/SAPAssetManager/Rules/Maps/DirectionsButton/IsDirectionsButtonEnabled.js",
+								"ButtonText": "$(L, map_info_panel_directions)"
+							},
+                            "DateProperties": {
+                                "DueDate": "{DueDate}",
+                                "DateFormat": "yyyy-MM-dd"
+                            }
+                        },
+                        "Actions": [
+                        ],
+                        "Symbol": {
+                            "marker": "/SAPAssetManager/Rules/Maps/Icons/WorkOrderIcon.js",
+                            "lineColor": "0070F2",
+                            "fillColor": "0070F233",
+                            "lineWidth": 2,
+                            "onSelect": {
+                                "marker": "/SAPAssetManager/Rules/Maps/Icons/SelectedWorkOrderIcon.js"
+                            }
+                        }
+                    }
+                }
+            ]
+         }
+      }
+   ],
+   "_Type":"Page",
+   "_Name":"WorkOrderUpdateMapDetailsPage"
+}

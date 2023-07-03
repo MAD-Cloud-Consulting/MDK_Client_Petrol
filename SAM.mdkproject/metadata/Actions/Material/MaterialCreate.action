@@ -1,0 +1,32 @@
+{
+  "_Type": "Action.Type.ODataService.CreateEntity",
+  "Target": {
+    "EntitySet": "MaterialSLocs",
+    "Service": "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "Properties": {
+    "MaterialNum": "#ClientData/#Property:MaterialNum",
+    "Plant": "#ClientData/#Property:Plant",
+    "StorageLocation": "#ClientData/#Property:StorageLocation"
+  },
+  "Headers": {
+    "Transaction.Ignore": "true",
+    "OfflineOData.RemoveAfterUpload": "true"
+  },
+  "CreateLinks": [
+    {
+      "Property": "Material",
+      "Target": {
+        "EntitySet": "Materials",
+        "ReadLink": "/SAPAssetManager/Rules/Material/MaterialReadLink.js"
+      }
+    },
+    {
+      "Property": "MaterialPlant",
+      "Target": {
+        "EntitySet": "MaterialPlants",
+        "ReadLink": "/SAPAssetManager/Rules/Material/MaterialPlantReadLink.js"
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+    "Caption": "$(L,confirmation_title, {ConfirmationNum})",
+    "OnLoaded": "/SAPAssetManager/Rules/Confirmations/Details/ConfirmationsOnDetailsPageLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "OnPress": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationUpdateNav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "LaborTimeDetailsSection",
+                    "Header": {
+                        "Caption": "$(L, confirmation_details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,description)",
+                            "Value": "{{#Property:WorkOrderHeader/#Property:OrderDescription}}"
+                        },
+                        {
+                            "KeyName": "$(L,ID)",
+                            "Value": "{{#Property:OrderID}}"
+                        },
+                        {
+                            "KeyName": "$(L,confirmation_title, '') $(L,ID)",
+                            "Value": "{ConfirmationNum}"
+                        },
+                        {
+                            "KeyName": "$(L,duration)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationFormattedActualDuration.js"
+                        },
+                        {
+                            "KeyName": "$(L,start_time)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/Details/ConfirmationsStartDateDetails.js"
+                        },
+                        {
+                            "KeyName": "$(L,end_time)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/Details/ConfirmationsFinishDateDetails.js"
+                        },
+                        {
+                            "KeyName": "$(L,name)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ConfirmationEmployeeName.js"
+                        },
+                        {
+                            "KeyName": "$(L,activity_type)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ConfirmationActivityTypeDetails.js"
+                        },
+                        {
+                            "KeyName": "$(L,operation)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ConfirmationOperationDetails.js"
+                        },
+                        {
+                            "KeyName": "$(L,sub_operation_hyphenated)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ConfirmationSubOperationDetails.js"
+                        },
+                        {
+                            "KeyName": "$(L,variance_reason)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ConfirmationVarianceDetails.js"
+                        },
+                        {
+                            "KeyName": "$(L,account_indicator)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/ConfirmationAcctIndicatorDetails.js"
+                        }
+                    ],
+                    "Target": {
+                        "EntitySet": "{@odata.readLink}",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=WorkOrderHeader,WorkOrderHeader/Operations,WorkOrderHeader/Operations/SubOperations"
+                    }
+                },
+                {
+                    "SimplePropertyCells": [
+                        
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "disclosureIndicator",
+                                "KeyName": "$(L,linear_data)",
+                                "Value": "",
+                                "OnPress": "/SAPAssetManager/Rules/LAM/LAMNav.js",
+                                "Visible": "/SAPAssetManager/Rules/LAM/LAMVisible.js"
+                            }
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1
+                    },
+                    "_Type": "Section.Type.SimplePropertyCollection"
+                },
+                {
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L, notes)",
+                            "Value": "/SAPAssetManager/Rules/Confirmations/Details/ConfirmationDetailsNotes.js"
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)" 
+                    },
+                    "Target": {
+                        "EntitySet": "{@odata.readLink}",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=LongText"
+                    },
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "DescriptionNote"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable",
+            "DataSubscriptions": ["Confirmations", "ConfirmationLongTexts", "LAMObjectData"]
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ConfirmationDetailsPage"
+}

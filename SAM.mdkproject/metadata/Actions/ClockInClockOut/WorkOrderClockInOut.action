@@ -1,0 +1,12 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "UserTimeEntries",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "false"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "Confirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "ConfirmationNum": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GenerateOffsetConfirmationNum.js",
+        "ConfirmationCounter": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GenerateConfirmationCounter.js",
+        "FinalConfirmation": "/SAPAssetManager/Rules/Confirmations/BlankFinal/FinalConfirmation.js",
+        "OrderID": "/SAPAssetManager/Rules/Confirmations/BlankFinal/FinalConfirmationOrderID.js",
+        "Operation": "/SAPAssetManager/Rules/Confirmations/BlankFinal/FinalConfirmationOperation.js",
+        "SubOperation": "/SAPAssetManager/Rules/Confirmations/BlankFinal/FinalConfirmationSubOperation.js",
+        "StartDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "StartTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "FinishDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "FinishTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "PostingDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetCreatedDate.js",
+        "CreatedDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetCreatedDate.js",
+        "CreatedTime": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetCreatedTime.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Confirmations/BlankFinal/ConfirmationCreateBlankReadLink.js"
+}

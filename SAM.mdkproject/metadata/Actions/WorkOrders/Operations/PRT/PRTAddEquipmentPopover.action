@@ -1,0 +1,14 @@
+{
+    "PopoverItems": [
+        {
+            "Title": "$(L,add_equipment)",
+            "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/PRTEquipmentAddNav.js"
+        },
+        {
+           "Title": "/SAPAssetManager/Rules/Operations/PRT/PRTReadings/PRTMeasuringPointTakeReadingsButtonText.js",
+           "Visible":"/SAPAssetManager/Rules/Operations/PRT/PRTReadings/PRTMeasuringPointTakeReadingsNavBtnVisible.js",
+           "OnPress":"/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsDataEntryNavWrapper.js"
+        }
+    ],
+    "_Type": "Action.Type.PopoverMenu"
+}

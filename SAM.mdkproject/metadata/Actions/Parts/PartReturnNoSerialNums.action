@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L,no_serial_numbers)",
+    "Message": "$(L,no_serial_nums_for_return)",
+    "OKCaption": "$(L,ok)"
+}

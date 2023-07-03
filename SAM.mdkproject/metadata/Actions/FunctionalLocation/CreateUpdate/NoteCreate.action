@@ -1,0 +1,27 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MyFuncLocLongTexts",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "FuncLocId": "#ClientData/#Property:LocalID",
+        "NewTextString": "#Control:LongTextNote/#Value",
+        "TextString": "#Control:LongTextNote/#Value"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#ClientData/#Property:LocalID"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/OData/ODataCreateFailureMessage.action",
+    "OnSuccess": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationCreateSuccess.js",
+    "CreateLinks": [
+        {
+            "Property": "FunctionalLocation",
+            "Target": {
+                "EntitySet": "MyFunctionalLocations",
+                "ReadLink": "#ClientData/#Property:LocalLink"
+            }
+        }
+    ]
+}

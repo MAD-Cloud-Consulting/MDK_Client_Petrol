@@ -1,0 +1,42 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MeasurementDocuments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "MeasurementDocNum": "#Property:LocalID",
+        "Point": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPoint.js",
+        "RecordedValue": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentRecordedValue.js",
+        "ReadingValue": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingValue.js",
+        "ReadingTime": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingTime.js",
+        "ShortText": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentShortTextNote.js",
+        "ValuationCode": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentValuationCode.js",
+        "CodeShortText":"/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentValuationCodeDescription.js",
+        "ReadBy": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadBy.js",
+        "ReadingDate": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingDate.js",
+        "CodeGroup": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCodeGroup.js",
+        "ReadingTimestamp": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentReadingTimestamp.js",
+        "HasReadingValue": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentHasReadingValue.js",
+        "UOM": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentUOM.js",
+        "PointObjectKey": "",
+        "SortField": "#Property:LocalID"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "#Property:LocalID"
+    },
+    "CreateLinks": [
+        {
+            "Property": "MeasuringPoint",
+            "Target": {
+                "EntitySet": "MeasuringPoints",
+                "ReadLink": "{@odata.readLink}"
+            }
+        }
+    ],
+    "OnSuccess": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateOnSuccess.js",
+    "ShowActivityIndicator": true,
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateUpdateValidation.js"
+}

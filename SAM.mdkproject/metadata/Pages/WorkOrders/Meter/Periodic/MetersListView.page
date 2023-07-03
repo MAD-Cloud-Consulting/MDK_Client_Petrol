@@ -1,0 +1,41 @@
+{
+	"Caption": "$(L,meters)",
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search_for_meter)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+		 		"UseTopPadding": false
+    		},
+			"ObjectCell": {
+				"AccessoryType": "disclosureIndicator",
+				"Title": "{{#Property:Device_Nav/#Property:Device}} - {{#Property:Device_Nav/#Property:DeviceCategory_Nav/#Property:Description}}",
+				"Subhead": "/SAPAssetManager/Rules/Meter/Periodic/DeviceLocation.js",
+				"Footnote": "{{#Property:Device_Nav/#Property:RegisterGroup_Nav/#Property:Division}} - {{#Property:Device_Nav/#Property:RegisterGroup_Nav/#Property:Division_Nav/#Property:Description}}",
+				"StatusText": "{{#Property:Device_Nav/#Property:Equipment_Nav/#Property:ObjectStatus_Nav/#Property:SystemStatus_Nav/#Property:StatusText}}",
+				"OnPress": "/SAPAssetManager/Actions/WorkOrders/Meter/Periodic/MeterDetailsNav.action",
+				"PreserveIconStackSpacing": false
+			},
+			"Target": {
+				"EntitySet": "{{#Property:@odata.readLink}}/StreetRoute_Nav",
+				"Service": "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Meter/Periodic/MetersListViewQueryOptions.js"
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name" : "MetersListSection"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "PeriodicMetersListViewPage",
+    "DataSubscriptions": []
+}

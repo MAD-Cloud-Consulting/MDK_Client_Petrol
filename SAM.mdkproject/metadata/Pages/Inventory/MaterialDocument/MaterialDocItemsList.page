@@ -1,0 +1,51 @@
+{
+	"Caption": "$(L,documents)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_related_document)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/Inventory/MaterialDocument/MaterialItemsCountCaption.js",
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Icons": "/SAPAssetManager/Rules/Inventory/ProductionOrder/ProductionOrderListViewIconImage.js",
+						"DetailImageIsCircular": false,
+						"PreserveIconStackSpacing": false,
+						"AccessoryButtonIcon": "/SAPAssetManager/Rules/Inventory/MaterialDocument/ShowAccessoryButtonIcon.js",
+						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/SetMaterialDocumentGoodsReceipt.js",
+						"OnPress": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/ItemDetailsPage.js",
+						"Title": "{{#Property:MaterialDocNumber}}/{{#Property:MatDocItem}}",
+						"Subhead": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/GetMaterialDescriptionForPO.js",
+						"Footnote": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/BatchAndStorageBinForPO.js",
+						"Description": "/SAPAssetManager/Rules/Inventory/Overview/GetMaterialDocumentDateText.js",
+						"StatusText": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/MaterialDocItemQtyAndUOM.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/MaterialDocItemPlantAndSLoc.js"
+					},
+					"Search": {
+						"Enabled" : true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+					},
+					"Target": {
+						"EntitySet": "MaterialDocItems",
+						"QueryOptions": "/SAPAssetManager/Rules/Inventory/MaterialDocument/GetMaterialDocItemsOrderByMatNumberQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "MaterialDocItemsListPage",
+	"_Type": "Page"
+}

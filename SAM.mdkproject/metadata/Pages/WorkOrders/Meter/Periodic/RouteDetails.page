@@ -1,0 +1,44 @@
+{
+	"Caption": "$(L,route_details)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"Subhead": "$(L,connection_objects_x, {{#Property:StreetRouteConnObj_Nav/#Count}})",
+						"HeadlineText": "#Property:MeterReadingUnit"
+					},
+					"_Name": "SectionObjectHeader0",
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,connection_objects)",
+						"UseTopPadding": true
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"PreserveIconStackSpacing": false,
+                        "Title": "{{#Property:ConnectionObject_Nav/#Property:Description}}",
+                        "Subhead": "/SAPAssetManager/Rules/WorkOrders/Meter/ReferenceObject/ConnectionObjectAddressInline.js",
+                        "Footnote": "$(L,devices_x, {{#Property:StreetRoute_Nav/#Count}})",
+                        "OnPress": "/SAPAssetManager/Actions/Meters/Periodic/ConnectionObjectNav.action"
+                    },
+                    "Target":
+                    {
+                        "EntitySet": "{{#Property:@odata.readLink}}/StreetRouteConnObj_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$filter=StreetRoute_Nav/any(sr:sap.entityexists(sr/Device_Nav/PeriodicMeterReading_Nav))&$orderby=DeviceSet&$expand=StreetRoute_Nav,ConnectionObject_Nav/AuthorizationGroup_Nav,ConnectionObject_Nav/PolRegStructElement_Nav,ConnectionObject_Nav/ConnectionObjectMRNote_Nav,ConnectionObject_Nav/Devices_Nav,ConnectionObject_Nav/FuncLocation_Nav/Address,ConnectionObject_Nav/FuncLocation_Nav/Partners,ConnectionObject_Nav/FuncLocation_Nav/RelatedWOHistory,ConnectionObject_Nav/FuncLocation_Nav/NotifHistory_Nav,ConnectionObject_Nav/FuncLocation_Nav/ObjectStatus_Nav/SystemStatus_Nav"
+
+                    },
+					"_Name": "SectionObjectTable0",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "MeterRouteDetailsPage",
+	"_Type": "Page"
+}

@@ -1,0 +1,15 @@
+{
+	"Target":
+	{
+		"EntitySet": "MeasurementDocuments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.id}"
+	},
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:Point"
+	},
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+	"OnSuccess": "/SAPAssetManager/Rules/Common/DeleteEntityOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

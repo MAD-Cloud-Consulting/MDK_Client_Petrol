@@ -1,0 +1,23 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyNotificationTasks",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.readLink}"
+	},
+	"Properties":
+	{
+		"TaskText" : "#Control:DescriptionTitle/#Value",
+		"TaskCodeGroup": "/SAPAssetManager/Rules/Notifications/GroupLstPkrValue.js",
+		"TaskCode" : "/SAPAssetManager/Rules/Notifications/CodeLstPkrValue.js"
+	},
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/NotificationTaskActivityParentID.js"
+    },
+	"OnSuccess" : "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"ValidationRule": "/SAPAssetManager/Rules/Notifications/Task/CreateUpdate/NotificationTaskCreateUpdateValidation.js"
+
+}

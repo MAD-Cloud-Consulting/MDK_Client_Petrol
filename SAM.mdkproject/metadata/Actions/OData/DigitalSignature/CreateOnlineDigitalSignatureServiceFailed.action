@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+	"Message": "#ActionResults:result/#Property:error",
+	"ActionLabel": "Tap this banner to try again.",
+	"OnActionLabelPress": "/SAPAssetManager/Actions/OData/DigitalSignature/CreateServiceProgressBanner.action",
+	"DismissBannerOnAction": "/SAPAssetManager/Actions/OData/DigitalSignature/CreateServiceProgressBanner.action",
+	"Duration": 9999
+}

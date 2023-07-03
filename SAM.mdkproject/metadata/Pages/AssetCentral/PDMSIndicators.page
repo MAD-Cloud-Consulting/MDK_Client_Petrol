@@ -1,0 +1,88 @@
+{
+	"Caption": "$(L,indicators_x, {{#Property:AssetCentralIndicators_Nav/#Count}})",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Header": 
+            {
+                "DataTable": 
+                {
+                    "Items": 
+                    [{
+                        "Text": "$(L, indicators)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L, date)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L, time)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L, trend)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L, threshold)",
+                        "TextAlignment": "center"
+                    },
+                    {
+                        "Text": "$(L, last_value)",
+                        "TextAlignment": "center"
+                    }]
+                }
+            },
+            "Row":
+            {
+               "Layout":
+                {
+                    "ColumnWidth": [250, 200, 200, 200, 100, -1]
+                },
+                "Items":
+                [{
+                    "Text": "{{#Property:IndicatorDesc}}",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text": "/SAPAssetManager/Rules/Equipment/Format/DateFormat.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text": "/SAPAssetManager/Rules/Equipment/Format/TimeFormat.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Image": "/SAPAssetManager/Rules/Equipment/Format/TrendImageFormat.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text": "/SAPAssetManager/Rules/Equipment/Format/ThresholdFormat.js",
+                    "Style" : "/SAPAssetManager/Rules/Equipment/Format/ThresholdStyle.js",
+                    "TextAlignment": "center"
+                },
+                {
+                    "Text": "/SAPAssetManager/Rules/Equipment/Format/ValueFormat.js",
+                    "TextAlignment": "center"
+                }],
+                "OnPress": "/SAPAssetManager/Actions/AssetCentral/PDMSIndicatorDetailsNav.action",
+                "AccessoryType": "disclosureIndicator"
+            },
+            "Target":
+            {
+                "EntitySet": "{{#Property:@odata.readLink}}/AssetCentralIndicators_Nav",
+                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "$expand=Equipment_Nav"
+            },
+            "_Name": "SectionDataTable0",
+            "StickyColumn": false,
+            "_Type": "Section.Type.DataTable"
+        }],
+        "_Name": "SectionedTable0",
+        "_Type": "Control.Type.SectionedTable"
+    }],
+	"_Name": "PDMSIndicators",
+	"_Type": "Page"
+}

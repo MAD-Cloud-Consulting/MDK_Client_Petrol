@@ -1,0 +1,13 @@
+{
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+	"Target": {
+        "EntitySet": "MyWorkOrderPartners",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{soldToPartyPartnerReadLink}"
+    },
+	"Headers": {
+        "OfflineOData.TransactionID": "#Property:OrderId"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+}

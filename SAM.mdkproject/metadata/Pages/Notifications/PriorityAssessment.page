@@ -1,0 +1,126 @@
+{
+    "Caption": "Priority Assessment",
+    "Controls":
+    [{
+        "_Type": "Control.Type.Extension",
+        "Module": "extension-FieldDataCapture",
+        "Control": "FieldDataCaptureViewExtension",
+        "Class": "FieldDataCaptureViewExtension",
+        "_Name": "FormCellContainer",
+        "ExtensionProperties":
+        {
+            "Sections":
+            [{
+                "OnLoaded": "/SAPAssetManager/Rules/Notifications/CreateUpdate/PriorityAssessmentRepopulate.js",
+                "Controls":
+                [{
+                    "Caption": "$(L,assessed_priority)",
+                    "Value": "",
+                    "IsEditable": false,
+                    "_Name": "Priority",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,leading_consequence)",
+                    "Value": "",
+                    "IsEditable": false,
+                    "_Name": "LeadingConsequence",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,leading_likelihood)",
+                    "Value": "",
+                    "IsEditable": false,
+                    "_Name": "LeadingLikelihood",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                },
+                {
+                    "Caption": "$(L,final_due_date)",
+                    "Value": "",
+                    "IsEditable": false,
+                    "_Name": "FinalDueDate",
+                    "_Type": "Control.Type.FormCell.SimpleProperty"
+                }]
+            },
+            {
+                "Target":
+                {
+                    "EntitySet": "ConsequenceCategories",
+                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                    "QueryOptions": "/SAPAssetManager/Rules/Notifications/EMP/ConsequenceCategoryFilter.js"
+                },
+                "Controls":
+                [{
+                    "_Type": "Control.Type.FormCell.Extension",
+                    "_Name": "Caption",
+                    "Module": "HeaderFormCellModule",
+                    "Control": "HeaderFormCellExtension",
+                    "Class": "HeaderFormCellClass",
+                    "Height": 44,
+                    "ExtensionProperties":
+                    {
+                        "Title": "{{#Property:Title}} - {{#Property:Subtitle}}"
+                    }
+                },
+                {
+                    "Caption": "$(L,consequence)",
+                    "AllowMultipleSelection": false,
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Value": "",
+                    "PickerItems":
+                    {
+                        "DisplayValue": "{{#Property:Description}}",
+                        "ReturnValue": "{ConsequenceId}",
+                        "Target":
+                        {
+                            "EntitySet": "{{#Property:@odata.readLink}}/ConsequenceSeverity_Nav",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$orderby=Position"
+                        }
+                    },
+                    "OnValueChange": "/SAPAssetManager/Rules/Notifications/CreateUpdate/PriorityAssessment.js",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "_Name": "ConsequencePicker"
+                },
+                {
+                    "Caption": "$(L,likelihood)",
+                    "AllowMultipleSelection": false,
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Value": "",
+                    "PickerItems":
+                    {
+                        "DisplayValue": "{{#Property:Description}}",
+                        "ReturnValue": "{LikelihoodId}",
+                        "Target":
+                        {
+                            "EntitySet": "ConsequenceLikelihoods",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$orderby=Position"
+                        }
+                    },
+                    "OnValueChange": "/SAPAssetManager/Rules/Notifications/CreateUpdate/PriorityAssessment.js",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "_Name": "LikelihoodPicker"
+                }]
+            }]
+        }
+    }],
+    "_Name": "PriorityAssessment",
+    "_Type": "Page"
+}

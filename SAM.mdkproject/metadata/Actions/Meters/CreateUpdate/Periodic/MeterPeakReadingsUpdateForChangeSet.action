@@ -1,0 +1,30 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "PeriodicMeterReadings",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "MeterReadingDate": "/SAPAssetManager/Rules/Meter/CurrentDate.js",
+        "MeterReadingTime": "/SAPAssetManager/Rules/Meter/CurrentTime.js",
+        "ActualMeterReadingDate": "/SAPAssetManager/Rules/Meter/CurrentDate.js",
+        "ActualMeterReadingTime": "/SAPAssetManager/Rules/Meter/CurrentTime.js",
+        "MeterReadingRecorded": "/SAPAssetManager/Rules/Meter/ReadingValueAsDouble.js",
+        "DateMaxRead": "/SAPAssetManager/Rules/Meter/PeakDate.js",
+        "TimeMaxReading": "/SAPAssetManager/Rules/Meter/PeakTime.js",
+        "MeterReaderNote": "/SAPAssetManager/Rules/Meter/Reading/ReadingNoteValue.js",
+        "MeterReadingReason": ""
+    },
+	"Headers":
+    {
+        "OfflineOData.TransactionID": "#Property:DeviceLink/#Property:EquipmentNum",
+        "transaction.omdo_id": "/SAPAssetManager/Rules/Meter/Reading/ReadingTransactionMdoHeader.js"
+    },
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "ValidationRule": "/SAPAssetManager/Rules/Meter/CreateUpdate/MeterReadingCreateUpdateValidation.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

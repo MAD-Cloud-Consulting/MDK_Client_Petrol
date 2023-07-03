@@ -1,0 +1,5 @@
+{
+    "Message": "$(L,equipment_dismantled)",
+    "_Type": "Action.Type.ToastMessage",
+    "OnSuccess": "/SAPAssetManager/Actions/Page/ClosePage.action"
+}

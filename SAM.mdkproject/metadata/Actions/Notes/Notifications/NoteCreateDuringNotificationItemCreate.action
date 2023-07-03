@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Notes/NoteGetEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "NotificationNumber": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js",
+        "ItemNumber": "/SAPAssetManager/Rules/Notifications/Item/GenerateNotificationItemID.js",
+        "NewTextString": "#Control:LongTextNote/#Value",
+        "TextString": "#Control:LongTextNote/#Value"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Notes/SubOperation/NotificationCreateNoteCreate.js",
+    "OnFailure": "/SAPAssetManager/Actions/Notes/NoteCreateFailureMessage.action",
+    "CreateLinks": "/SAPAssetManager/Rules/Notes/NoteCreateLinks.js"
+}

@@ -1,0 +1,21 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyFunctionalLocations",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "#Page:FunctionalLocationDetails/#Property:@odata.readLink"
+	},
+	"CreateLinks":
+    [{
+        "Property": "Geometry_Nav",
+		"Target":
+		{
+			"EntitySet" : "Geometries", 
+			"ReadLink" : "/SAPAssetManager/Rules/Geometries/GeometryReadLink.js"
+		}
+    }],
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText" : "  "
+}

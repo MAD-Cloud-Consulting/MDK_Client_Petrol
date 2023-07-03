@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,validation_error)",
+    "Message": "$(L,validation_absAtt_or_activity_type)",
+    "OKCaption": "$(L,ok)"
+}

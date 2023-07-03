@@ -1,0 +1,23 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Notes/NoteGetEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/Notes/NoteReadlink.js"  
+    },
+    "Properties": {
+        "NotificationNumber": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js",
+        "ItemNumber": "/SAPAssetManager/Rules/Notifications/Item/GenerateNotificationItemID.js",
+        "ActivitySequenceNumber": "/SAPAssetManager/Rules/Notifications/Item/Activity/GenerateNotificationItemActivityID.js",
+        "NewTextString": "/SAPAssetManager/Rules/Notes/NoteUpdateNewTextString.js",
+        "TextString": "/SAPAssetManager/Rules/Notes/NoteUpdateTextString.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/ChangesetSwitchNotificationID.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Notes/SubOperation/NotificationCreateNoteCreate.js",
+    "OnFailure": "/SAPAssetManager/Actions/Notes/NoteCreateFailureMessage.action",
+    "UpdateLinks": "/SAPAssetManager/Rules/Notes/NoteCreateLinks.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

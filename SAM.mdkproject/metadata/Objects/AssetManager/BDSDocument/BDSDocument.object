@@ -1,0 +1,96 @@
+{
+	"Collection": [
+		"BDSDocuments"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "EquipBDSDocuments",
+			"_Type": "MyEquipBDSDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocBDSDocuments",
+			"_Type": "MyFuncLocBDSDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "NotifDocuments",
+			"_Type": "MyNotifDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "WOBDSDocuments",
+			"_Type": "MyWorkOrderDocuments"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "ClassName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ClassType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "DocumentID",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CompCounter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CompSize",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ComponentID",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Description",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DocCounter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FileName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FileSize",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FileType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MimeType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "BDSDocument"
+}

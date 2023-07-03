@@ -1,0 +1,31 @@
+{
+  "_Type": "Action.Type.ODataService.CreateMedia",
+  "Target" : {
+    "EntitySet" : "Documents",
+    "Service" : "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "Headers" : {
+     "slug" : {
+        "ObjectLink": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureCreateObjectLink.js",
+        "ObjectKey": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureObjectKeyForHeader.js",
+        "FileName": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureOnCreateFileName.js",
+        "Description": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureOnCreateFileDescription.js"
+    }
+  },
+  "Properties" : {
+    "ObjectLink": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureCreateObjectLink.js",
+    "ObjectKey": "/SAPAssetManager/Rules/Documents/DocumentTransactionID.js",
+    "FileName": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureOnCreateFileName.js",
+    "Description": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureOnCreateFileDescription.js",
+    "MimeType": "/SAPAssetManager/Rules/SignatureControl/Create/SignatreOnCreateMimeType.js"
+  },
+  "IsOnlineRequest": false,
+  "ShowActivityIndicator": true,
+  "ActivityIndicatorText" : "  ",
+  "Media": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureOnCreateMedia.js",
+  "OnSuccess": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureOnCreateSuccess.js",
+  "OnFailure": "/SAPAssetManager/Rules/SignatureControl/Create/SignatureCreateOnFailure.js",
+  "ActionResult": {
+    "_Name": "SignatureResult"
+  }
+}

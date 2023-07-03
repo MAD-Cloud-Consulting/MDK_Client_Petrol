@@ -1,0 +1,146 @@
+{
+	"Collection": [
+		"MyNotificationItemActivities"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Item",
+			"_Type": "MyNotificationItems"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemActivityLongText",
+			"_Type": "MyNotifItemActivityLongTexts"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "PlannedFinishDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedStartDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ItemNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Language",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityCatalogType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Version",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "QuantityFactor",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivitySortNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedStartTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "PlannedFinishTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "CauseSequenceNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "Deleted",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ActivitySequenceNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemSortNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationDate",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyNotificationItemActivity"
+}

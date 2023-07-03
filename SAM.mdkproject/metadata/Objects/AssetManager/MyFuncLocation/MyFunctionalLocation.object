@@ -1,0 +1,161 @@
+{
+	"Collection": [
+		"MyFunctionalLocations"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "FuncLocBDSDocuments",
+			"_Type": "MyFuncLocBDSDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocGeometries",
+			"_Type": "MyFuncLocGeometries"
+		},
+		{
+			"Key": false,
+			"_Name": "MeasuringPoints",
+			"_Type": "MeasuringPoints"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationHeader",
+			"_Type": "MyNotificationHeaders"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationItem",
+			"_Type": "MyNotificationItems"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectStatuses",
+			"_Type": "MyFuncLocObjectStatuses"
+		},
+		{
+			"Key": false,
+			"_Name": "Partners",
+			"_Type": "MyFuncLocPartners"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderHeader",
+			"_Type": "MyWorkOrderHeaders"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderOperation",
+			"_Type": "MyWorkOrderOperations"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrderSubOperation",
+			"_Type": "MyWorkOrderSubOperations"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "PlanningPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "FuncLocIdIntern",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MasterLanguage",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EquipAllowed",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkCenterObjId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CatalogProfile",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LocAssignment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "EquipType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MaintPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BusinessArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ControllingArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CompanyCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SystemStatus",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserStatus",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SystemStatusId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "UserStatusId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocDesc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "FuncLocId",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyFunctionalLocation"
+}

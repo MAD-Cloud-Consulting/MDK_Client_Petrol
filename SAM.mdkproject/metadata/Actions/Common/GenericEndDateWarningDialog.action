@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, warning)",
+	"Message": "$(L, hold_workorder)",
+	"OKCaption": "$(L, ok)"
+}

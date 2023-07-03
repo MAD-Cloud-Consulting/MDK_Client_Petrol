@@ -1,0 +1,131 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "Text": "$(L,fetch)",
+                "OnPress": "/SAPAssetManager/Actions/Inventory/Search/SearchDocumentsProgressBanner.action"
+            }
+        ]
+    },
+    "Caption":"$(L,fetch_documents)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "DocumentId",
+                            "AlternateInput": "Barcode",
+                            "Caption":"$(L,document_id)",
+                            "Value": "/SAPAssetManager/Rules/Inventory/Fetch/SetSearchString.js"
+                        },
+                        {
+                            "AllowEmptySelection": false,
+                            "AllowMultipleSelection": true,
+                            "Caption": "$(L,document_type_label)",
+                            "IsEditable": true,
+                            "IsSelectedSectionEnabled": false,
+                            "PickerItems": "/SAPAssetManager/Rules/Inventory/Fetch/DocumentTypes.js",
+                            "Value": "/SAPAssetManager/Rules/Inventory/Fetch/DefaultDocumentTypes.js",
+                            "_Name": "DocumentTypeListPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "DateRangeSwitch",
+                            "Caption":"$(L,date_range)",
+                            "IsVisible": true,
+                            "OnValueChange": "/SAPAssetManager/Rules/Inventory/Fetch/SetDateRangeVisibility.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "StartDate",
+                            "Caption": "$(L,start_date)",
+                            "Mode": "Date",
+                            "IsVisible": false
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "EndDate",
+                            "Caption": "$(L,end_date)",
+                            "Mode": "Date",
+                            "IsVisible": false
+                        },
+                        {
+                            "_Name": "PlantLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,plant)",
+                            "AllowMultipleSelection": false,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsPickerDismissedOnSelection" : true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowEmptySelection": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/Inventory/Fetch/StorageLocationOnPlantChange.js",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "IsVisible": true,
+                            "Value": "/SAPAssetManager/Rules/Inventory/Fetch/SetDefaultPlant.js",
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:Plant}} - {{#Property:PlantDescription}}",
+                                "ReturnValue": "{Plant}",
+                                "Target": {
+                                    "EntitySet": "Plants",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=Plant"
+                                }
+                            }
+                        },
+                        {
+                            "_Name": "SLoctLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, storage_location)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection" : true,
+                            "AllowEmptySelection": true,
+                            "IsVisible": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:StorageLocation}} - {{#Property:StorageLocationDesc}}",
+                                "ReturnValue": "{StorageLocation}",
+                                "Target": {
+                                    "EntitySet": "StorageLocations",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Inventory/Fetch/StorageLocationQueryOptions.js"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js",
+                            "ButtonType": "Text",
+                            "Semantic": "Tint",
+                            "Title": "$(L,reset)",
+                            "_Name": "FormCellButton0",
+                            "_Type": "Control.Type.FormCell.Button",
+                            "OnPress": "/SAPAssetManager/Rules/Inventory/Fetch/FetchDocumentsResetFields.js"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type":"Page",
+    "_Name":"FetchDocumentsPage"
+}

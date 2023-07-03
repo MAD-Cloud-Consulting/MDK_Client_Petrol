@@ -1,0 +1,5 @@
+{
+	"Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+	"_Type": "Action.Type.ODataService.Initialize",
+	"OnSuccess": "/SAPAssetManager/Actions/Parts/PartsOpenOnlineService.action"
+}

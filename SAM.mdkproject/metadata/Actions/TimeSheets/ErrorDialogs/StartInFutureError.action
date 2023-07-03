@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,validation_error)",
+    "Message": "$(L,validation_start_time_cannot_be_in_the_future)",
+    "OKCaption": "$(L,ok)"
+}

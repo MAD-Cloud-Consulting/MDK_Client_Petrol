@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Tartózkodási helye meg fog jelenni a térképen";
+
+"NSLocationAlwaysUsageDescription" = "Engedélyezi, hogy az \"SAP Asset Manager\" mindig hozzáférjen a tartózkodási helyéhez?";
+
+"NSCameraUsageDescription" = "Engedélyezze a hozzáférést a kamerához a vonalkódok beolvasása és az alkalmazásban csatolni kívánt fotók készítése céljából";
+
+"NSMicrophoneUsageDescription" = "Kérjük, engedélyezze a hozzáférést a mikrofonhoz";
+
+"NSFaceIDUsageDescription" = "A Face ID engedélyezése gyors és biztonságos hozzáférést tesz lehetővé az SAP Asset Managerhez";
+
+"NSPhotoLibraryUsageDescription" = "Engedélyezze a hozzáférést a fotókönyvtárhoz, hogy csatolhassa az alkalmazásban feltölteni kívánt fényképeket";
+
+"NSPhotoLibraryAddUsageDescription" = "Az alkalmazásnak engedélyre van szüksége a fotók írásához";
+

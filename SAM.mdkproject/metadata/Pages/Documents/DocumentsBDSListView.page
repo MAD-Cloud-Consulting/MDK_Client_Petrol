@@ -1,0 +1,72 @@
+{
+	"Caption": "$(L,documents)",
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "right",
+			"Icon": "$(PLT,'',/SAPAssetManager/Images/filter.android.png)",
+			"Text": "$(L,filter)",
+            "OnPress": "/SAPAssetManager/Actions/Documents/DocumentFilter.action"
+		},
+		{
+			"Position": "right",
+			"SystemItem": "Add",
+			"OnPress": "/SAPAssetManager/Rules/Documents/Create/DocumentCreateBDSNav.js",
+			"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Attachments/EnableAttachmentCreate.js"
+		}]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+				"UseTopPadding": false
+			},
+			"EmptySection": {
+				"Caption": "$(L,no_documents_available)"
+			},
+			"ObjectCell":
+			{
+				"PreserveIconStackSpacing": true,
+				"Icons": "/SAPAssetManager/Rules/Documents/DocumentListViewIconImages.js",
+				"ProgressIndicator": "/SAPAssetManager/Rules/Documents/SetIndicatorStateWrapper.js",
+				"DetailImage": "/SAPAssetManager/Rules/Documents/DocumentTypeIcon.js",
+				"DetailImageIsCircular": false,
+				"Title": "/SAPAssetManager/Rules/Documents/DocumentFileName.js",
+				"Subhead": "/SAPAssetManager/Rules/Documents/DocumentDescription.js",
+				"Footnote": "/SAPAssetManager/Rules/Documents/DocumentFileSizeWrapper.js",
+				"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Documents/DownloadOrOpenDocumentWrapper.js",
+				"ContextMenu": {
+					"PerformFirstActionWithFullSwipe": true,
+					"Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+					"LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+					"TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+			    }
+			},
+			"Target":
+			{
+				"EntitySet" : "/SAPAssetManager/Rules/Documents/DocumentsBDSListEntitySet.js",
+				"Service" : "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Documents/DocumentsBDSQueryOptions.js"
+			},
+			"_Type" : "Section.Type.ObjectTable",
+			"_Name": "DocumentSection"
+		}],
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name": "SectionedTable"
+	}],
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/Documents/DocumentListViewOnLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/Documents/OnBDSListReturning.js",
+	"_Name": "DocumentsListView",
+	"DataSubscriptions": ["Documents","MyFuncLocDocuments","MyEquipDocuments","MyWorkOrderDocuments","MyNotifDocuments"]
+}

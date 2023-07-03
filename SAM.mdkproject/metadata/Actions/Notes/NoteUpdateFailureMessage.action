@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,update_note_failed)",
+    "Duration": 2,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

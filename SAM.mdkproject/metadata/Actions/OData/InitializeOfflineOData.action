@@ -1,0 +1,10 @@
+{
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "StoreName": "SAMStore",
+    "DefiningRequests": [],
+    "StoreEncryptionKey": "SAPTest123",
+    "_Type": "Action.Type.ODataService.Initialize",
+    "ActionResult": {
+       "_Name": "result"
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "Caption": "$(L,support)",
+    "Controls": [
+    {
+      "Sections": [
+        {
+          "ContactCells": [
+            {
+              "ContactCell": {
+              "Headline": "$(L,contact_us)",
+              "ActivityItems": [
+                {
+                  "ActivityType": "Phone",
+                  "ActivityValue": "/SAPAssetManager/Rules/UserSupport/UserSupportPhoneNumber.js"
+                },
+                {
+                  "ActivityType": "VideoCall",
+                  "ActivityValue": "/SAPAssetManager/Rules/UserSupport/UserSupportFacetime.js"
+                },
+                {
+                  "ActivityType": "Email",
+                  "ActivityValue": "/SAPAssetManager/Rules/UserSupport/UserSupportEmailId.js"
+                }
+              ]
+            }
+            }
+          ],
+          "_Type": "Section.Type.ContactCell"
+        },
+        {
+          "SimplePropertyCells": [
+            {
+              "SimplePropertyCell": {
+                "AccessoryType": "disclosureIndicator",
+                "KeyName" : "$(L,activity_log)",
+                "OnPress": "/SAPAssetManager/Actions/User/UserActivityLog.action"
+              }
+            }
+          ],
+          "Layout": {
+            "NumberOfColumns": 1,
+            "MinimumInteritemSpacing": "$(PLT,66,0)" 
+          },
+          "_Type" : "Section.Type.SimplePropertyCollection"
+        }
+      ],
+      "_Type": "Control.Type.SectionedTable",
+      "_Name": "SectionedTable"
+    }
+  ],
+  "_Type": "Page",
+  "_Name": "UserSupport"
+}

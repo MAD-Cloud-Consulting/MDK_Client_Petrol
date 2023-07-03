@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,status_cannot_be_changed)",
+    "Duration": 3,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

@@ -1,0 +1,21 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "PhysicalInventoryDocHeaders",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{Temp_PIHeaderReadlink}"
+    },
+    "Properties": {
+        "CountDate": "{Temp_CountDate}",
+        "FiscalYear": "{Temp_FiscalYear}",
+        "PhysInvDoc": "{Temp_PhysInvDoc}",
+        "UpdateCountFlag": "{Temp_UpdateCountFlag}"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+     "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

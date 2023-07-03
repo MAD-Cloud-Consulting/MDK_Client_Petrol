@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "사용자의 현재 위치가 지도에 표시됩니다.";
+
+"NSLocationAlwaysUsageDescription" = "\"SAP Asset Manager\"에서 항상 사용자의 위치에 액세스하도록 허용하시겠습니까?";
+
+"NSCameraUsageDescription" = "바코드를 스캔하고 앱에 첨부될 사진을 찍을 수 있도록 카메라 액세스를 허용합니다.";
+
+"NSMicrophoneUsageDescription" = "마이크 액세스를 허용하십시오.";
+
+"NSFaceIDUsageDescription" = "Face ID를 사용하면 SAP Asset Manager에 빠르고 안전하게 액세스할 수 있습니다.";
+
+"NSPhotoLibraryUsageDescription" = "앱에 업로드할 사진을 첨부할 수 있도록 사진 라이브러리 액세스를 허용합니다.";
+
+"NSPhotoLibraryAddUsageDescription" = "어플리케이션에서 사진을 작성할 수 있는 권한이 필요합니다.";
+

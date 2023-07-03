@@ -1,0 +1,70 @@
+{
+    "_Type": "Page",
+    "_Name": "FetchOnlineDocumentsPage",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Inventory/Fetch/ClearStateAndExit.js",
+            "Visible": "/SAPAssetManager/Rules/Inventory/Fetch/IsSearchStringAvailable.js"
+        },
+        {
+            "Position": "right",
+            "Text": "$(L,download)",
+            "OnPress": "/SAPAssetManager/Rules/Inventory/Fetch/SetDownloadDocumentsVariable.js"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Search":
+            {
+                "Enabled": false,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 1,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+            },
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection":
+            {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/Inventory/Fetch/OnDocumentSelectedOrUnSelected.js",
+            "ObjectCell":
+            {
+                "PreserveIconStackSpacing": true,
+				"DetailImageIsCircular": true,
+				"Title": "/SAPAssetManager/Rules/Inventory/Fetch/GetInventoryObjectId.js",
+                "Subhead": "/SAPAssetManager/Rules/Inventory/Fetch/GetInventoryObjectSubHeadText.js",
+                "Footnote": "/SAPAssetManager/Rules/Inventory/Fetch/GetDocumentTypeText.js",
+				"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Inventory/Fetch/DownloadDocuments.js",
+                "StatusText": "/SAPAssetManager/Rules/Inventory/Fetch/GeDocumentItemCount.js",
+                "SubstatusText": "/SAPAssetManager/Rules/Inventory/Fetch/GetDocumentDateText.js"
+            },
+            "Target":
+            {
+                "EntitySet": "InventoryObjects",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/Inventory/Fetch/InventoryObjectsQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "OnlineDocumentsListViewSection"
+            }],
+            
+            "_Type": "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable"
+        }
+    ]
+}

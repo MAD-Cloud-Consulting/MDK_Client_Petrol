@@ -1,0 +1,191 @@
+{
+	"Collection": [
+		"MyNotificationItems"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Equipment",
+			"_Type": "MyEquipments"
+		},
+		{
+			"Key": false,
+			"_Name": "FunctionalLocation",
+			"_Type": "MyEquipments"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemActivities",
+			"_Type": "MyNotificationItemActivities"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemCauses",
+			"_Type": "MyNotificationItemCauses"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemLongText",
+			"_Type": "MyNotifItemLongTexts"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemTasks",
+			"_Type": "MyNotificationItemTasks"
+		},
+		{
+			"Key": false,
+			"_Name": "Notification",
+			"_Type": "MyNotificationHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NumDefects",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": true,
+			"_Name": "ItemNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MaintenancePlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MainWorkCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DamageCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemText",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Language",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LongTextFlag",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectPart",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectPartCodeGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectPartCatalogType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Version",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Assembly",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MaterialNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DefectValuationUnit",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemEquipment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemFunctionLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreatedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedBy",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ChangedTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "Deleted",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ItemSortNumber",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyNotificationItem"
+}

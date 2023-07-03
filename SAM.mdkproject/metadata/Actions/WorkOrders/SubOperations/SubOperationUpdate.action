@@ -1,0 +1,24 @@
+{
+    "Target": {
+        "EntitySet": "MyWorkOrderSubOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "OperationShortText": "#Control:DescriptionNote/#Value",
+        "ControlKey": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateControlKeyValue.js",
+        "OperationEquipment": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateEquipmentValue.js",
+        "OperationFunctionLocation": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateFuncLocValue.js",
+        "MainWorkCenterPlant": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateMainWorkCenterPlantValue.js",
+        "MainWorkCenter": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateMainWorkCenterValue.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/SubOperations/CreateUpdate/SubOperationTransactionID.js"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateLinks.js",
+    "DeleteLinks": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationDeleteLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateUpdateValidation.js",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

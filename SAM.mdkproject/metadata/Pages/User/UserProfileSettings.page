@@ -1,0 +1,127 @@
+{
+    "Caption" : "$(L,profile)",
+    "OnLoaded": "/SAPAssetManager/Rules/UserSettings/OnloadUserSettings.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "Text": "$(L,cancel)",
+                "SystemItem": "/SAPAssetManager/Rules/UserPreferences/UserProfileCloseIcon.js",
+                "OnPress": "/SAPAssetManager/Rules/UserPreferences/CheckForChangesBeforeCancel.js"
+            },
+            {
+              "Position": "right",
+              "Text": "$(L, done)",
+              "OnPress": "/SAPAssetManager/Actions/User/UserProfileRequiredFields.action"
+            }
+        ]
+    },
+    "Controls": [
+    {
+      "Sections": [
+        {
+          "SimplePropertyCells": [
+            {
+              "SimplePropertyCell": {
+              "AccessoryType": "disclosureIndicator",
+              "KeyName" : "$(L,passcode)",
+              "IsEditable": true,
+              "OnPress": "/SAPAssetManager/Rules/UserPreferences/ChangeUserPasscode.js"
+              }
+            },
+            {
+              "SimplePropertyCell": {
+                "AccessoryType": "disclosureIndicator",
+                "KeyName" : "$(L,support)",
+                "OnPress": "/SAPAssetManager/Rules/UserPreferences/UserSupportNav.js"
+              }
+            },
+            {
+              "SimplePropertyCell": {
+                "KeyName" : "$(L,privacy_policy)",
+                "OnPress": "/SAPAssetManager/Rules/PrivacyPolicy/PrivacyPolicyLink.js"
+              }
+            }
+          ],
+          "Layout": {
+            "NumberOfColumns": 1,
+            "MinimumInteritemSpacing": "$(PLT,66,0)" 
+          },
+          "Header": {
+            "UseTopPadding": false
+          },
+          "_Type" : "Section.Type.SimplePropertyCollection"
+        },
+        {
+          "Controls": [
+            {
+              "Caption": "$(L,location_tracking)",
+              "Value": "/SAPAssetManager/Rules/UserPreferences/LocationTrackingInitValue.js",
+              "OnValueChange": "/SAPAssetManager/Rules/UserPreferences/LocationTrackingToggle.js",
+              "validationProperties": {
+                  "ValidationMessage": "$(L,location_tracking_enabled_prompt)",
+                  "ValidationMessageColor": "929496",
+                  "SeparatorIsHidden": false,
+                  "ValidationViewIsHidden": false
+              },
+              "_Name": "LocationTrackingSwitch",
+              "_Type": "Control.Type.FormCell.Switch"
+            }
+          ],
+          "Visible":"/SAPAssetManager/Rules/UserPreferences/LocationTrackingIsVisible.js",
+          "_Type": "Section.Type.FormCell",
+          "_Name": "LocationTrackingFormCell"
+        },
+        {
+          "Controls": [
+            {
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"Caption": "$(L, switch_persona)",
+              "OnValueChange": "/SAPAssetManager/Rules/UserPreferences/SetLocationSwitch.js",
+							"IsPickerDismissedOnSelection": true,
+							"AllowMultipleSelection": false,
+              "AllowEmptySelection": false,
+							"IsVisible": "/SAPAssetManager/Rules/UserPersonas/ShowUserPersonas.js",
+							"PickerItems": "/SAPAssetManager/Rules/UserPersonas/UserPersonas.js",
+							"_Name": "SwitchPersonaLstPkr"
+						}
+          ],
+          "_Type": "Section.Type.FormCell"
+        },
+        {
+          "Header": {
+            "UseTopPadding": false
+          },
+          "Visible":"/SAPAssetManager/Rules/DigitalSignature/DeviceRegistrationIsVisible.js",
+          "Buttons": [
+            {
+              "Title" : "$(L,register_digital_signature)",
+              "OnPress" :"/SAPAssetManager/Rules/DigitalSignature/TOTPDeviceRegistration.js",
+              "TextAlignment" : "center"
+            }
+          ],
+          "_Type": "Section.Type.ButtonTable"
+        },
+        {
+          "Header": {
+            "UseTopPadding": false
+          },
+          "Visible":"/SAPAssetManager/Rules/DigitalSignature/DeviceDeRegistrationIsVisible.js",
+          "Buttons": [
+            {
+              "Title" : "$(L,unregister_device)",
+              "OnPress" :"/SAPAssetManager/Rules/DigitalSignature/UnRegisterDevice.js",
+              "TextAlignment" : "center"
+            }
+          ],
+          "_Type": "Section.Type.ButtonTable"
+        }
+      ],
+      "_Type": "Control.Type.SectionedTable",
+      "_Name": "SectionedTable"
+    }
+  ],
+  "ToolBar": {},
+  "_Type": "Page",
+  "_Name": "UserProfileSettings"
+}

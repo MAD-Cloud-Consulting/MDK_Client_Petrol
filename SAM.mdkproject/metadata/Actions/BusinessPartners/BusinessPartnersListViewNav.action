@@ -1,0 +1,6 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/BusinessPartners/BusinessPartnersListView.page",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

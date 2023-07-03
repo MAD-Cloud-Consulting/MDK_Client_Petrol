@@ -1,0 +1,30 @@
+{
+    "PopoverItems": 
+    [{
+        "Title": "$(L,add_workorder)",
+        "OnPress": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderCreateNav.js",
+        "Visible" : "/SAPAssetManager/Rules/FunctionalLocation/WorkOrderIsSamePlanningPlant.js"
+    },
+    {
+        "Title": "$(L,add_notification)",
+        "OnPress": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateChangeSetNav.js",
+        "Visible" : "/SAPAssetManager/Rules/FunctionalLocation/NotificationIsSamePlanningPlant.js"
+    },
+    {
+        "Title": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointTakeReadingsButtonText.js",
+        "Visible": "/SAPAssetManager/Rules/Equipment/EquipmentTakeReadingIsVisible.js",
+        "OnPress": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointsDataEntryNavWrapper.js"
+        
+    },
+    {
+        "Title": "$(L,installation)",
+        "Visible": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentInstallationVisible.js",
+        "OnPress": "/SAPAssetManager/Actions/Equipment/Installation/EquipmentInstallationNav.action"
+    },
+    {
+        "Title": "$(L,dismantle)",
+        "OnPress": "/SAPAssetManager/Actions/Equipment/Uninstall/UninstallEquipmentNav.action",
+        "Visible": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallVisible.js"
+    }],
+    "_Type": "Action.Type.PopoverMenu"
+}

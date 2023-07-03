@@ -1,0 +1,41 @@
+{
+	"_Type": "Page",
+	"_Name": "ClassificationDetailsPage",
+	"Caption": "/SAPAssetManager/Rules/Classification/ClassificationDetailCaption.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+                    "ObjectHeader": {
+						"HeadlineText": "/SAPAssetManager/Rules/Classification/ClassDescription.js",
+						"Subhead": "{ClassId}",
+                        "Footnote": "/SAPAssetManager/Rules/Classification/ClassTypeDescription.js"
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ClassificationObjectHeaderSection"
+				},
+				{
+					"Header": {
+                        "Caption": "$(L, characteristics)"
+                    },
+                    "ObjectCell": {
+						"Icons": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicIsModifiedLocal.js",
+                        "Title": "#Property:Characteristic/#Property:CharDesc",
+						"Subhead": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicDisplayValueWithUOM.js",
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicValueDetailNav.js"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/Classification/ClassCharValueEntitySet.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "$expand=Characteristic/CharacteristicValues"
+                    },    
+                    "_Name": "Classification",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+			],
+            "_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": ["MyEquipClassCharValues", "MyFuncLocClassCharValues", "ClassCharacteristicValues"]
+}

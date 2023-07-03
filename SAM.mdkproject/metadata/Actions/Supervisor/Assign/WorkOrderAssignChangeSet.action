@@ -1,0 +1,14 @@
+{
+    "Actions":
+    [
+        "/SAPAssetManager/Actions/Supervisor/Assign/WorkOrderOrOperationTransferAssignPerson.action",
+        "/SAPAssetManager/Actions/Supervisor/Assign/WorkOrderAssignMobileStatusUpdate.action"
+    ],
+    "Target":
+    {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "_Type": "Action.Type.ODataService.ChangeSet"
+}

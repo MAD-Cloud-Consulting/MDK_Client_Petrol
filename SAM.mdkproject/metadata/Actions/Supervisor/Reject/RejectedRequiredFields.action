@@ -1,0 +1,9 @@
+{
+    "RequiredFields":
+    [
+        "ReasonLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "OnSuccess": "/SAPAssetManager/Rules/Supervisor/Reject/RejectSuccess.js",
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js"
+}

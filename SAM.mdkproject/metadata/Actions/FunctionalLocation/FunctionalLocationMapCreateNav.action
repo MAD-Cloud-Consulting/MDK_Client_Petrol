@@ -1,0 +1,4 @@
+{
+    "PageToOpen" : "/SAPAssetManager/Pages/FunctionalLocation/FunctionalLocationMapCreate.page",
+    "_Type" : "Action.Type.Navigation"
+}

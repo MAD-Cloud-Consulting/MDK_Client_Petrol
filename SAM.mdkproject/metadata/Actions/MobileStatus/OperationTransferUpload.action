@@ -1,0 +1,10 @@
+{
+	"UploadCategories":
+	[
+		"MobileStatusOperationSelfAssign"
+	],
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "$(L,assign_pending)",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Type": "Action.Type.OfflineOData.Upload"
+}

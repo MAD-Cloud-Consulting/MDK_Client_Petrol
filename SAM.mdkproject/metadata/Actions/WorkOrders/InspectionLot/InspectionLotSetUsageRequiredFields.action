@@ -1,0 +1,11 @@
+{
+	"OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Actions/WorkOrders/InspectionLot/InspectionLotSetUsage.action",
+    "RequiredFields": [
+        "CodeListPicker"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+
+}

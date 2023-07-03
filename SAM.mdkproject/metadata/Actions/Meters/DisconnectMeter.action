@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet": "DisconnectionObjects",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{{#Property:@odata.readLink}}"
+    },
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "Properties":
+    {
+        "ActivityDate": "/SAPAssetManager/Rules/Meter/DisconnectReconnect/ActivityDate.js",
+        "ActivityTime": "/SAPAssetManager/Rules/Meter/DisconnectReconnect/ActivityTime.js",
+        "DisconnectType": "#Control:TypeLstPkr/#SelectedValue"
+    },
+    "Headers":
+    {
+        "OfflineOData.TransactionID": "{{#Property:ActivityNum}}{{#Property:DocNum}}"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Measurements/MeasuringPointFilter.page",
+    "Filterable" : "#Page:OverviewPage/#Control:OverviewPageSectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

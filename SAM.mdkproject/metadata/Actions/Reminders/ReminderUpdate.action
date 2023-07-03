@@ -1,0 +1,15 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "UserPreferences",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "PreferenceName": "#Control:Name/#Value",
+        "PreferenceValue": "#Control:Description/#Value"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Reminders/ReminderUpdateOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/Reminders/ReminderCreateUpdateValidation.js"
+}

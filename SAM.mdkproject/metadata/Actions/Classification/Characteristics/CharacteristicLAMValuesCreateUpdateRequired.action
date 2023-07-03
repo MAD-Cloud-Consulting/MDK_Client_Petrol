@@ -1,0 +1,14 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/Classification/Characteristics/LAM/CharacteristicLAMValuesCreateUpdateOnSave.js",
+    "RequiredFields": [
+        "Length",
+        "StartPoint",
+        "EndPoint",
+        "UOMLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ValidationRule": "/SAPAssetManager/Rules/LAM/CharacteristicLAMValuesCreateUpdateValidation.js",
+    "ActivityIndicatorText" : "  "
+}

@@ -1,0 +1,248 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/PageTitle.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationCreateUpdateOnPageLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/IsNotCompleteAction.js",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/BeforeCreateConfirmation.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Name": "WorkOrderLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, workorder)",
+                            "AllowMultipleSelection": false,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L, search)",
+                                "BarcodeScanner": true
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:OrderId}} - {{#Property:OrderDescription}}",
+                                "ReturnValue" : "{OrderId}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderHeaders",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/Confirmations/CreateUpdate/WorkOrderPickerQueryOptions.js"
+                                }
+                            },
+                            "Value": "",
+                            "IsEditable": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsWorkOrderChangable.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnWorkOrderChanged.js"
+                        },
+                        {
+                            "IsEditable": false,
+                            "Value": "{ConfirmationNum}",
+                            "_Name": "ConfirmationIdProperty",
+                            "Caption": "$(L, confirmation_title, '') $(L, ID)",
+                            "IsVisible": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsOnUpdate.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L, posting_date)",
+                            "DateTimeEntryMode" : "date",
+                            "Mode" : "Date",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "PostingDatePicker",
+                            "Value": "{_Posting}",
+                            "IsVisible": "/SAPAssetManager/Rules/Confirmations/ConfirmationsGetPostingDateOverride.js",
+                            "IsEditable": true
+                        },
+                        {
+                            "Caption": "$(L, date)",
+                            "DateTimeEntryMode" : "date",
+                            "Mode" : "Date",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "StartDatePicker",
+                            "Value": "{_Start}",
+                            "IsEditable": "{IsDateChangable}",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/StartDateOnValueChange.js"
+                        },
+                        {
+                            "Caption": "$(L, start_time)",
+                            "DateTimeEntryMode" : "time",
+                            "Mode" : "Time",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "StartTimePicker",
+                            "IsEditable": true,
+                            "Value": "{_Start}"
+                        },
+                        {
+                            "_Name": "DurationPkr",
+                            "Caption": "$(L,duration)",
+                            "_Type": "Control.Type.FormCell.DurationPicker",
+                            "Unit": "M",
+                            "MinuteInterval": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryMinuteInterval.js",
+                            "IsEditable": true,
+                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryMinuteInterval.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/DurationOnValueChange.js"
+                        },
+                        {
+                            "_Name": "OperationPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, operation)",
+                            "AllowMultipleSelection": false,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:OperationNo}} - {{#Property:OperationShortText}}",
+                                "ReturnValue" : "{OperationNo}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderOperations",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OperationPickerQueryOptions.js"
+                                }
+                            },
+                            "IsEditable": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsOperationChangable.js",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnOperationChanged.js"
+                        },
+                        {
+                            "_Name": "SubOperationPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, sub_operation_hyphenated)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:SubOperationNo}} - {{#Property:OperationShortText}}",
+                                "ReturnValue" : "{SubOperationNo}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderSubOperations",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/Confirmations/CreateUpdate/SubOperationPickerQueryOptions.js"
+                                }
+                            },
+                            "IsEditable": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsSubOperationChangable.js",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnListPickerValueChanged.js"
+                        },
+                        {
+                            "_Name": "ActivityTypePkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, activity_type)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:ActivityType}} - {{#Property:ActivityTypeDescription}}",
+                                "ReturnValue" : "{ActivityType}",
+                                "Target":
+                                {
+                                    "EntitySet" : "COActivityTypes",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ActivityPickerQueryOptions.js"
+                                }
+                            },
+                            "IsEditable": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsWorkOrderSelected.js",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnListPickerValueChanged.js"
+
+                        },
+                        {
+                            "_Name": "VarianceReasonPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, variance_reason)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:VarianceReason}} - {{#Property:ReasonText}}",
+                                "ReturnValue" : "{VarianceReason}",
+                                "Target":
+                                {
+                                    "EntitySet" : "VarianceReasons",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/Confirmations/CreateUpdate/VariancePickerQueryOptions.js"
+                                }
+                            },
+                            "IsEditable": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsWorkOrderSelected.js",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnListPickerValueChanged.js"
+                        },
+                        {
+                            "_Name": "AcctIndicatorPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, account_indicator)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:AcctIndicator}} - {{#Property:AcctIndicatorDesc}}",
+                                "ReturnValue" : "{AcctIndicator}",
+                                "Target":
+                                {
+                                    "EntitySet" : "AcctIndicators",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=AcctIndicator asc"
+                                }
+                            },
+                            "IsEditable": true,
+                            "Value": "{{#Property:AccountingIndicator}}",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnListPickerValueChanged.js"
+                        },
+                        {
+                            "Caption": "$(L, confirmation_set_final)",
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "IsFinalConfirmation",
+                            "Value": "{IsFinal}",
+                            "IsVisible": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsFinalConfirmationVisible.js",
+                            "IsEditable": "{IsFinalChangable}"
+                        }
+                    ]
+                },{
+                    "Controls":
+                    [{
+                        "PlaceHolder": "$(L,notes)",
+                        "Value": "#Property:LongText/#Property:TextString",
+                        "_Name": "DescriptionNote",
+                        "Caption": "$(L,notes)",
+                        "IsAutoResizing": true,
+                        "_Type": "Control.Type.FormCell.Note",
+                        "IsVisible": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationNoteIsVisible.js"
+                    }]
+                },{
+                    "Controls":
+                    [{
+                        "Title": "$(L,discard)",
+                        "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+                        "IsVisible": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/IsOnUpdate.js",
+                        "ButtonType": "Text",
+                        "Semantic": "Tint",
+                        "_Type": "Control.Type.FormCell.Button",
+                        "_Name": "DiscardButton",
+                        "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                    }]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "ConfirmationsCreateUpdatePage"
+}

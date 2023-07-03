@@ -1,0 +1,12 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+      "EntitySet": "MyEquipSerialNumbers",
+      "Service": "/SAPAssetManager/Services/AssetManager.service",
+      "ReadLink": "/SAPAssetManager/Rules/Parts/Issue/SerialParts/EquipSerialNumberReadLink.js"
+    },
+    "Properties": {
+      "Issued": "/SAPAssetManager/Rules/Parts/Issue/SerialParts/StatusUpdate.js"
+    },
+    "OnSuccess":"/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialPartLoop.js"
+}

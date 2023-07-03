@@ -1,0 +1,8 @@
+{
+  "Animated": true,
+  "Duration": 2,
+  "Message": "/SAPAssetManager/Rules/SubOperations/MobileStatus/SubOperationMobileStatusSuccessMessage.js",
+  "IsIconHidden": true,
+  "MaxNumberOfLines": 1,
+  "_Type": "Action.Type.ToastMessage"
+}

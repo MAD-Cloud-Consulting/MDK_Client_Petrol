@@ -1,0 +1,15 @@
+{
+    "PopoverItems": 
+      [{
+           "Title": "$(L,edit_characteristic)",
+           "OnPress" : "/SAPAssetManager/Actions/Classification/Characteristics/CharacteristicValueUpdateNav.action",
+          "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Characteristics/EnableCharEdit.js"
+       },
+      {
+          "Title": "$(L,add_characteristic_lam)",
+          "OnPress" : "/SAPAssetManager/Rules/Classification/Characteristics/LAM/CharacteristicLAMValuesCreateNav.js",
+          "Visible": "/SAPAssetManager/Rules/Classification/Characteristics/EnableAddCharLAMValue.js"
+      }
+      ],
+      "_Type": "Action.Type.PopoverMenu"
+  }

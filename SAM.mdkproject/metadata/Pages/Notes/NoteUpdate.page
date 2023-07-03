@@ -1,0 +1,56 @@
+{
+    "Caption": "$(L,edit_note)",
+    "OnLoaded": "/SAPAssetManager/Rules/Notes/NoteOnLoad.js",
+
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "OnPress": "/SAPAssetManager/Rules/Notes/Update/NoteUpdateOnCommit.js"
+            },
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/IsNotCompleteAction.js",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Caption" : "$(L,note)",
+                            "Value": "/SAPAssetManager/Rules/Notes/Update/NoteUpdateLocalText.js",
+                            "_Name": "LongTextNote",
+                            "_Type": "Control.Type.FormCell.Note",
+                            "IsEditable": true,
+                            "IsAutoResizing": true
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Title": "$(L,discard)",
+                            "OnPress": "/SAPAssetManager/Rules/Notes/Delete/DiscardNoteAction.js",
+                            "_Type": "Control.Type.FormCell.Button",
+                            "ButtonType": "Text",
+                            "Semantic": "Tint",
+                            "_Name": "DiscardButton",
+                            "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "NoteUpdate"
+}

@@ -1,0 +1,35 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "Confirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#Property:@odata.editLink"
+    },
+    "Properties":
+    {
+        "PostingDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetPostingDate.js",
+        "StartDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetDate.js",
+        "StartTime": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetStartTime.js",
+        "StartTimeStamp": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetStartDateTime.js",
+        "SubOperation": "#Property:SubOperation",
+        "VarianceReason": "#Property:VarianceReason",
+        "AccountingIndicator": "#Property:AccountingIndicator",
+        "ActivityType": "#Property:ActivityType",
+        "ActualDuration": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetDuration.js",
+        "ActualWork": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetDuration.js",
+        "FinishDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetEndDate.js",
+        "FinishTime": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetEndTime.js",
+        "Operation": "#Property:Operation",
+        "FinalConfirmation": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetIsFinalConfirmation.js",
+        "OrderID": "#Property:OrderID",
+        "PersonnelNumber": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdatePersonnelNumber.js",
+        "Plant": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetPlant.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:ConfirmationNum"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "UpdateLinks": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/CreateLinks.js",
+    "ValidationRule": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/IsValidConfirmation.js"
+}

@@ -1,0 +1,144 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Parts/PartDescription.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Parts/Details/PartDetailsOnPageLoad.js",
+    "OnReturning": "/SAPAssetManager/Rules/Parts/Details/PartDetailsOnReturning.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/Parts/Details/PartDetailsPopover.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "OnPress": "/SAPAssetManager/Rules/Parts/PartUpdateNav.js",
+                "Visible": "/SAPAssetManager/Rules/Parts/PartEditEnable.js"
+            },
+            {
+                "Position": "right",
+			    "Text": "$(L,return_text)",
+                "OnPress": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnCreate.js",
+                "Visible": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnEnable.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,details)"
+                    },
+                    "KeyAndValues": [
+                        {
+
+                            "KeyName": "$(L,part_number)",
+                            "Value": "{MaterialNum}"
+                        },
+                        {
+                            "KeyName": "$(L,reservation)",
+                            "Value": "{RequirementNumber}"
+                        },
+                        {
+                            "KeyName": "$(L,work_center_plant)",
+                            "Value": "{Plant}"
+                        },
+                        {
+                            "KeyName": "$(L,required)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartRequiredQty.js"
+                        },
+                        {
+                            "KeyName": "$(L,withdrawn)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartWithdrawnQty.js"
+                        },
+                        {
+                            "KeyName": "$(L,committed)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartCommittedQty.js"
+                        },
+                        {
+                            "KeyName": "$(L,stock_type)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartStockType.js"
+                        },
+                        {
+                            "KeyName": "$(L,plant)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartPlant.js"
+                        },
+                        {
+                            "KeyName": "$(L,storage_location)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartLocation.js"
+                        },
+                        {
+                            "KeyName": "$(L,batch)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartBatch.js"
+                        },
+                        {
+                            "KeyName": "$(L,bin_number)",
+                            "Value": "/SAPAssetManager/Rules/Parts/PartBinNumber.js"
+                        }
+                    ],
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValuePairs"
+                },
+                {
+                    "Header": {
+                        "Caption": "$(L,related_operation)"
+                    },
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/PartsToOperationDetailsNav.js",
+                        "Title": "{{#Property:OperationShortText}}",
+                        "Subhead": "{{#Property:OperationNo}}",
+                        "Footnote": "{{#Property:ControlKey}}",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/WOOperation",
+                        "QueryOptions": "$expand=OperationMobileStatus_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "RelatedStep"
+                },
+                {
+                    "SimplePropertyCells":
+                    [{
+                        "SimplePropertyCell": {
+                            "AccessoryType": "disclosureIndicator",
+                            "KeyName": "$(L,notes)",
+                            "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
+                            "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
+                        }
+                    }],
+                    "Layout":
+                    {
+                        "NumberOfColumns" : 1
+                    },
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                },{
+                    "SimplePropertyCells":
+                    [{
+                        "SimplePropertyCell": {
+                            "AccessoryType": "disclosureIndicator",
+                            "KeyName": "$(L,serial_numbers)",
+                            "Value": "/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialNumbersCount.js",
+                            "OnPress": "/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialNumbersListView.js",
+                            "Visible": "/SAPAssetManager/Rules/Parts/Issue/SerialParts/SerialPartsAreAllowed.js"
+                        }
+                    }],
+                    "Layout":
+                    {
+                        "NumberOfColumns" : 1
+                    },
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "PartDetailsPage",
+    "DataSubscriptions": ["MaterialDocItems"]
+
+}

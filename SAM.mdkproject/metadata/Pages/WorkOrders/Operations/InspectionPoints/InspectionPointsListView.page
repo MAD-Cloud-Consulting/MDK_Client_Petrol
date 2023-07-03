@@ -1,0 +1,46 @@
+{
+    "_Type": "Page",
+    "_Name": "InspectionPointsListViewPage",
+    "Caption": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointsCaption.js",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Search":
+            {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+            },
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+             "ObjectCell": {
+                "PreserveIconStackSpacing": false,
+                "AccessoryType": "disclosureIndicator",
+                "Title": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/TechnicalObjectIdAndDescription.js",
+                "StatusText": "#Property:InspCode_Nav/#Property:CodeDesc",
+                "SubstatusText": "#Property:InspValuation_Nav/#Property:ShortText",
+                "Subhead": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDescriptionOrId.js",
+                "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/InspectionPointDetailsNav.action",
+                "Styles": {
+                    "SubstatusText": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPointValuationFont.js"
+                }
+            },
+            "Target": {
+                "EntitySet": "{{#Property:@odata.readLink}}/InspectionPoint_Nav",
+                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                "QueryOptions": "$expand=WOOperation_Nav/WOHeader/OrderMobileStatus_Nav,Equip_Nav,InspValuation_Nav,InspCode_Nav,InspectionChar_Nav,InspectionLot_Nav,FuncLoc_Nav"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "InspectionPointsListViewSection",
+            "DataSubscriptions": ["InspectionPoints"]
+            }],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable"
+        }
+    ]
+}

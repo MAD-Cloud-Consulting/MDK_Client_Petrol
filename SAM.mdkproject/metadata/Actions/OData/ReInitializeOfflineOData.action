@@ -1,0 +1,12 @@
+{
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "StoreName": "SAMStore",
+    "StoreEncryptionKey": "SAPTest123",
+    "_Type": "Action.Type.ODataService.Initialize",
+    "OnFailure": "/SAPAssetManager/Rules/Sync/OnReInitializeOfflineODataFailure.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "$(L,loading)",
+    "ActionResult": {
+       "_Name": "result"
+    }
+}

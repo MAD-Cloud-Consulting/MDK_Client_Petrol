@@ -1,0 +1,12 @@
+{
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+	
+	"Target": {
+		"EntitySet": "/SAPAssetManager/Globals/EmptyString.global",
+		"Service": "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink": ""
+	},
+	"Properties": {
+
+	}
+}

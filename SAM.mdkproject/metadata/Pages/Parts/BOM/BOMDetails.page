@@ -1,0 +1,77 @@
+{
+    "Caption": "{MaterialDesc}",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "$(L,add_to)",
+                "OnPress": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateNav.js",
+                "Visible": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateIsVisible.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,details)"
+                    },
+                    "KeyAndValues": [
+                        {
+
+                            "KeyName": "$(L,part_number)",
+                            "Value": "{Component}"
+                        },
+                        {
+                            "KeyName": "$(L,reservation)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,work_center_plant)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,required)",
+                            "Value": "{{#Property:Quantity}} {{#Property:UoM}}"
+                        },
+                        {
+                            "KeyName": "$(L,withdrawn)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,committed)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,stock_type)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,plant)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,storage_location)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,batch)",
+                            "Value": "-"
+                        },
+                        {
+                            "KeyName": "$(L,bin_number)",
+                            "Value": "-"
+                        }
+                    ],
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValuePairs"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "BOMDetailsPage"
+}

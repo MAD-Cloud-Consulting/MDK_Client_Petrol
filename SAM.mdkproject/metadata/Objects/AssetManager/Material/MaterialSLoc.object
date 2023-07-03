@@ -1,0 +1,51 @@
+{
+	"Collection": [
+		"MaterialSLocs"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Material",
+			"_Type": "Materials"
+		},
+		{
+			"Key": false,
+			"_Name": "MaterialPlant",
+			"_Type": "MaterialPlants"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "Plant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "StorageLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StorageBin",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BatchIndicator",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "MaterialNum",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "StorageLocationDesc",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MaterialSLoc"
+}

@@ -1,0 +1,24 @@
+{
+	"Collection": [
+		"UserGeneralInfos"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "UserGuid",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MobileApp",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SAPUserName",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "UserGeneralInfo"
+}

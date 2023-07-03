@@ -1,0 +1,10 @@
+{
+	"Target":
+	{
+		"EntitySet": "MyInventoryObjects",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/GetMyInventoryObjectReadLinkDuringDelete.js"
+	},
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

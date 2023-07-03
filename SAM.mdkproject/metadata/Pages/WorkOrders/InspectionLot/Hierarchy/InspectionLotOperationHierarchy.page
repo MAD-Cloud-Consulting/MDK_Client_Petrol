@@ -1,0 +1,212 @@
+{
+	"Caption": "$(L, hierarchy)",
+	"Controls": [
+		{
+			"_Type": "Control.Type.Extension",
+			"Module": "extension-HierarchyFramework",
+			"Control": "HierarchyExtension",
+			"Class": "HierarchyExtension",
+			"_Name": "HierarchyExtensionControl",
+			"DataSubscriptions": ["MyWorkOrderHeaders"],
+			"ExtensionProperties": {
+				"Root":{},
+				"BusinessObjects": [
+					{
+						"Target": { 
+							"EntitySet" : "MyWorkOrderHeaders",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"{OrderDescription}",
+							"Subhead":"{OrderId}",
+							"Footnote": "WorkOrder",
+							"ChildCount": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionLotsCount.js",
+							"Parent": [],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "InspectionLots",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"$expand=InspValuation_Nav,InspectionCode_Nav,InspectionPoints_Nav&$filter=OrderId eq '{OrderId}'"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/Page/ClosePage.action"
+						}
+					},
+					{
+						"Target": { 
+							"EntitySet" : "InspectionLots",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"$expand=WOHeader_Nav/OrderMobileStatus_Nav,InspValuation_Nav,InspectionCode_Nav,InspectionPoints_Nav",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotShortDescription.js",
+							"Subhead":"{InspectionLot}",
+							"Footnote": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsUsage.js",
+							"StatusText": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDetailsValuation.js",
+							"Styles":
+							{
+								"StatusText": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionValuationStatusStyle.js"
+							},
+							"ChildCount": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/OperationsCount.js",
+							"Parent": [
+							],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "MyWorkOrderOperations",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"$expand=OperationMobileStatus_Nav&$filter=OrderId eq '{OrderId}' and sap.entityexists(InspectionPoint_Nav)&$orderby=OperationNo"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/WorkOrders/InspectionLot/InspectionLotDetails.action",
+							"Target": {
+								"EntitySet": "InspectionLots",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "$expand=WOHeader_Nav/OrderMobileStatus_Nav,InspectionChars_Nav,InspValuation_Nav,InspectionCode_Nav,InspectionPoints_Nav&$filter=OrderId eq '{OrderId}'",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+          			},
+					{
+						"Target": { 
+							"EntitySet" : "MyWorkOrderOperations",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"{OperationShortText}",
+							"Subhead":"{OperationNo}",
+							"Footnote": "$(L, operation)",
+							"StatusText": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotOperationMobileStatus.js",
+							"ChildCount": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionPointsCount.js",
+							"Parent": [
+							],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "InspectionPoints",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"$expand=WOOperation_Nav/WOHeader/OrderMobileStatus_Nav,Equip_Nav,InspValuation_Nav,InspCode_Nav,InspectionChar_Nav,InspectionLot_Nav,FuncLoc_Nav&$filter=OrderId eq '{OrderId}' and OperationNo eq '{OperationNo}'"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationDetailsNav.action",
+							"Target": {
+								"EntitySet": "MyWorkOrderOperations",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/OperationQueryOptions.js",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+          			},
+					{
+						"Target": { 
+							"EntitySet" : "InspectionPoints",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"$expand=WOOperation_Nav/WOHeader/OrderMobileStatus_Nav,Equip_Nav,InspValuation_Nav,InspCode_Nav,InspectionChar_Nav,InspectionLot_Nav,FuncLoc_Nav",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/TechnicalObjectIdAndDescription.js",
+							"Subhead":"/SAPAssetManager/Rules/WorkOrders/InspectionLot/InspectionLotDescriptionOrId.js",
+							"Footnote": "$(L,inspection_point)",
+							"StatusText": "/SAPAssetManager/Rules/WorkOrders/Operations/InspectionPoints/InspectionPointValuationStatus.js",
+							"Styles":
+							{
+								"StatusText": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionValuationStatusStyle.js"
+							},
+							"ChildCount": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionCharacteristicsCount.js",
+							"Parent": [
+							],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "InspectionCharacteristics",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"$expand=InspectionCode_Nav,NotifItems_Nav,InspectionPoint_Nav/WOOperation_Nav,InspectionLot_Nav/WOHeader_Nav,InspectionPoint_Nav/Equip_Nav,InspectionLot_Nav/WOHeader_Nav,InspectionPoint_Nav/FuncLoc_Nav&$filter=InspectionLot eq '{InspectionLot}' and InspectionNode eq '{InspectionNode}' and SampleNum eq '{SampleNum}'&$orderby=InspectionPoint_Nav/OperationNo,InspectionPoint_Nav/EquipNum,InspectionPoint_Nav/FuncLocIntern,InspectionChar"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/WorkOrders/Operations/InspectionPointDetailsNav.action",
+							"Target": {
+								"EntitySet": "InspectionPoints",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "$expand=WOOperation_Nav/WOHeader/OrderMobileStatus_Nav,Equip_Nav,InspValuation_Nav,InspCode_Nav,InspectionChar_Nav,InspectionLot_Nav,FuncLoc_Nav&$filter=InspectionLot eq '{InspectionLot}' and InspectionNode eq '{InspectionNode}' and SampleNum eq '{SampleNum}'",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+          			},
+					{
+						"Target": { 
+							"EntitySet" : "InspectionCharacteristics",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"{ShortDesc}",
+							"StatusText": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionCharacteristicsValue.js",
+							"Styles":
+							{
+								"StatusText": "/SAPAssetManager/Rules/WorkOrders/InspectionLot/Hierarchy/InspectionValuationStyle.js"
+							},
+							"ChildCount": "0",
+							"Parent": [
+							],
+							"Children": [
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/WorkOrders/InspectionCharacteristics/InspectionCharacteristicNav.action",
+							"Target": {
+								"EntitySet": "InspectionCharacteristics",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "$expand=InspectionCode_Nav,NotifItems_Nav,InspectionPoint_Nav/WOOperation_Nav,InspectionLot_Nav/WOHeader_Nav/OrderMobileStatus_Nav,InspectionPoint_Nav/Equip_Nav,InspectionPoint_Nav/FuncLoc_Nav&$filter=InspectionLot eq '{InspectionLot}' and InspectionNode eq '{InspectionNode}' and InspectionChar eq '{InspectionChar}' and SampleNum eq '{SampleNum}'",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+          			}        
+				]
+			}
+		}
+	],
+	"_Name": "InspectionLotHierarchyPage",
+	"_Type": "Page"
+}

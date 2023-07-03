@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "SystemStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+	"Headers":
+	{
+        "Transaction.Ignore": "true"
+	},
+    "Properties": {
+        "SystemStatus": "LOC01",
+        "Status": "UNST",
+        "StatusText": "#ClientData/#Property:UninstallText",
+        "Language": "EN"
+    }
+}

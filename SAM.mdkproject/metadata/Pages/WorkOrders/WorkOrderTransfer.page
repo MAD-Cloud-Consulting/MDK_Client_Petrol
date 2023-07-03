@@ -1,0 +1,96 @@
+{
+	"Caption": "$(L,work_order_transfer)",
+    "OnLoaded": "/SAPAssetManager/Rules/ErrorArchive/HideCancelForErrorArchiveFix.js",
+    "ActionBar": {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+        },
+        {
+            "Position": "right",
+            "Text": "$(L,transfer)",
+            "OnPress": "/SAPAssetManager/Actions/WorkOrders/MobileStatus/TransferPageRequiredFields.action"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "Caption": "$(L,workorder)",
+                "IsEditable": false,
+                "Value": "{OrderId}",
+                "_Name": "WorkOrderNumber",
+                "_Type": "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L,reason)",
+                "Value": "{TransferReason}",
+                "IsEditable": true,
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "AllowDefaultValueIfOneItem": true,
+                "OnValueChange": "/SAPAssetManager/Rules/Common/Validation/ListPickerValidation.js",
+                "PickerItems": "/SAPAssetManager/Rules/MobileStatus/ReasonCodes.js",
+                "Search":
+                {
+                    "Enabled": true
+                },
+                "_Name": "TransferReasonLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L,transfer_to)",
+                "IsEditable": true,
+                "Value": "/SAPAssetManager/Rules/WorkOrders/ListView/TransferToUpdate.js",
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "AllowDefaultValueIfOneItem": true,
+                "OnValueChange": "/SAPAssetManager/Rules/Common/Validation/ListPickerValidation.js",
+                "PickerItems": "/SAPAssetManager/Rules/WorkOrders/ListView/TransferToListItems.js",
+                "Search":
+                {
+                    "Enabled": true
+                },
+                "_Name": "TransferToLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "IsAutoResizing": false,
+                "IsEditable": true,
+                "Value": "{HeaderNotes}",
+                "_Name": "TransferNote",
+                "Caption": "$(L,notes)",
+                "PlaceHolder": "$(L,notes)",
+                "_Type": "Control.Type.FormCell.Note"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "Title": "$(L,discard)",
+                "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+                "IsVisible": "/SAPAssetManager/Rules/Common/IsDiscardButtonVisible.js",
+                "_Type": "Control.Type.FormCell.Button",
+                "ButtonType": "Text",
+                "Semantic": "Tint",
+                "_Name": "DiscardButton",
+                "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+	"_Name": "WorkOrderTransfer",
+	"_Type": "Page"
+}

@@ -1,0 +1,84 @@
+{
+    "ActionBar": {
+		"Items": [
+			{
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetCreateUpdateButtonIcon.js",
+                "Text": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetCreateUpdateButtonText.js",
+                "OnPress": "/SAPAssetManager/Actions/Inventory/PhysicalInventory/CloseTopModal.action"
+			}
+		]
+	},
+    "Caption": "$(L,serial_serial_numbers)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "MaterialBatch",
+                            "Caption": "$(L,material_bin_batch)",
+                            "IsEditable": false,
+                            "Value": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/GetMaterialBinBatchPISerialScreen.js"
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection0"
+                },
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SerialNum",
+                            "Value": "",
+                            "Caption": "$(L,serial_number)",
+                            "AlternateInput": "Barcode"
+                        },
+                        {
+                            "Title": "$(L,serial_add_serial_number)",
+                            "IsVisible": true,
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "SerialButton",
+                            "TextAlignment": "center",
+                            "OnPress": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/AddSerialNumber.js"
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection1"
+                },
+                {
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/SerialNumbersCaption.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "ObjectCell": {
+                        "Title": "{SerialNumber}",
+                        "ContextMenu": {
+							"PerformFirstActionWithFullSwipe": true,
+							"Items": [
+								{
+									"_Name": "Delete_Item",
+									"Image": "$(PLT, /SAPAssetManager/Images/trash.png, /SAPAssetManager/Images/trash.android.png)",
+									"Text": "$(L, delete)",
+									"Mode": "Deletion",
+									"OnSwipe": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/SerialNumberDeleteFromSwipe.js"
+								}
+							],
+                            "TrailingItems": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/SerialNumbersTrailingItems.js"
+						}
+                    },
+                    "Target": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/Count/SerialNumbersTarget.js",
+                    "_Name": "SerialNumbersObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Name": "PhysicalInventoryCountSerialNumbersPage",
+	"_Type": "Page"
+}

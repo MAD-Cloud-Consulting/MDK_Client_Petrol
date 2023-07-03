@@ -1,0 +1,41 @@
+{
+    "Caption": "$(L,fow_stops_title)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Search": {
+                        "Enabled" : true,
+                        "Delay": 0,
+                        "MinimumCharacterThreshold": 0,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "ObjectCell": {
+                        "Title": "{Description}",
+                        "Subhead": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopLocationFormat.js",
+                        "Footnote": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopListAssetCountCaption.js",
+                        "StatusText": "/SAPAssetManager/Rules/FOW/Routes/MobileStatusCaption.js",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress" : "/SAPAssetManager/Rules/FOW/Routes/Stops/StopDetailsNav.js",
+                        "PreserveIconStackSpacing":false
+                    },
+                    "Target": {
+                        "EntitySet" : "{{#Property:@odata.readLink}}/Stops",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/ListView/StopsListViewQueryOption.js"
+                    },
+                    "_Type" : "Section.Type.ObjectTable",
+                    "_Name" : "RoutesListSection"
+                }
+            ],
+            "_Type" : "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "StopListPage"
+}

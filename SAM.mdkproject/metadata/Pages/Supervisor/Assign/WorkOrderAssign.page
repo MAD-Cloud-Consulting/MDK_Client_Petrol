@@ -1,0 +1,72 @@
+{
+	"Caption": "$(L,workorders_assign)",
+    "OnLoaded": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderAssignOnLoad.js",
+    "ActionBar": {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+        },
+        {
+            "Position": "right",
+            "Text": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderAssignButtonCaption.js",
+            "OnPress": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderAssignOnPress.js"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowMultipleSelection": true,
+                "Caption": "$(L,workorder)",
+                "IsVisible": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderListPickerIsVisible.js",
+                "Value": "/SAPAssetManager/Rules/WorkOrders/WorkOrderId.js",
+                "IsSelectedSectionEnabled": false,
+                "PickerItems":"/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderPickItems.js",
+                "Search":
+                {
+                    "Enabled": true
+                },
+                "_Name": "WorkorderLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L,assign_to)",
+                "IsEditable": true,
+                "IsSelectedSectionEnabled": false,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems": "/SAPAssetManager/Rules/Supervisor/Assign/UserRolesAssignListPickerItems.js",
+                "_Name": "AssignToLstPkr",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "_Type": "Control.Type.FormCell.Switch",
+                "_Name": "ApprovalSwitch",
+                "Caption": "$(L,approval_required)",
+                "IsEditable": true,
+                "IsVisible": false
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "IsAutoResizing": false,
+                "IsEditable": true,
+                "Value": "",
+                "Caption": "$(L,notes)",
+                "PlaceHolder": "$(L,notes)",
+                "_Name": "TransferNote",
+                "_Type": "Control.Type.FormCell.Note"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+	"_Name": "WorkOrderAssign",
+	"_Type": "Page"
+}

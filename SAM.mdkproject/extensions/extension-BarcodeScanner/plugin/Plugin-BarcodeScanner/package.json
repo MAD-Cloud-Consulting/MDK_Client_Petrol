@@ -1,0 +1,17 @@
+{
+  "name": "extension-BarcodeScanner",
+  "version": "2210.0.7",
+  "description": "A Barcode scanner plugin for MDK",
+  "main": "index.js",
+   "nativescript": {
+      "platforms": {
+         "ios": "2210.0.7",
+         "android": "2210.0.7"
+      }
+   },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "SAP",
+  "license": "ISC"
+}

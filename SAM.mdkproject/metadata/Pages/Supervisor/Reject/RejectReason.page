@@ -1,0 +1,79 @@
+{
+    "Caption": "/SAPAssetManager/Rules/Supervisor/Reject/RejectReasonCaption.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Supervisor/Reject/RejectOnPageLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "Text": "$(PLT,'','$(L,save)')",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "OnPress": "/SAPAssetManager/Actions/Supervisor/Reject/RejectedRequiredFields.action"
+            },
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Caption": "$(L,workorder)",
+                            "IsEditable": false,
+                            "Value": "/SAPAssetManager/Rules/Supervisor/Reject/RejectWorkOrderCaption.js",
+                            "_Name": "WorkOrderNumber",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L,operation)",
+                            "IsEditable": false,
+                            "Value": "{OperationNo} - {OperationShortText}",
+                            "_Name": "OperationNumber",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "IsVisible": "/SAPAssetManager/Rules/Supervisor/Reject/RejectShowOperation.js"
+                        },
+                        {
+                            "AllowMultipleSelection": false,
+                            "Caption": "$(L,reject_reason)",
+                            "IsEditable": true,
+                            "IsSelectedSectionEnabled": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue": "{ReasonDescription}",
+                                "ReturnValue": "{ReasonCode}",
+                                "Target": {
+                                    "EntitySet": "RejectionReasons",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=ReasonDescription"
+                                }
+                            },
+                            "Search":
+                            {
+                                "Enabled": true
+                            },
+                            "_Name": "ReasonLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+                            "Caption": "$(L,supervisor_note_caption)",
+                            "PlaceHolder": "$(L,supervisor_note_caption)",
+                            "Value": "",
+                            "_Name": "LongTextNote",
+                            "_Type": "Control.Type.FormCell.Note",
+                            "IsAutoResizing": true
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "RejectReason"
+}

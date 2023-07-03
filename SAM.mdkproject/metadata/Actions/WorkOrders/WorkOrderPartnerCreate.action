@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderPartners",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "OrderId": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js",
+        "Partner": "/SAPAssetManager/Rules/Common/Partner/PartnerPersonnelNumberForWO.js",
+        "PartnerFunction": "/SAPAssetManager/Rules/Common/Partner/PartnerFunction.js",
+        "PersonNum": "/SAPAssetManager/Rules/Common/Partner/PartnerPersonnelNumberForWO.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/WorkOrders/Partner/WorkOrderPartnerCreateUpdateLinks.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+    
+}

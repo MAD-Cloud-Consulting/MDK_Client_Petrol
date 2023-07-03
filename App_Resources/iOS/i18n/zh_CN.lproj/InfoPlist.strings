@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "您的当前位置将显示在地图上";
+
+"NSLocationAlwaysUsageDescription" = "是否允许 \"SAP Asset Manager\" 始终访问您的位置？";
+
+"NSCameraUsageDescription" = "允许访问相机以扫描条形码并拍摄要附加在应用中的图片";
+
+"NSMicrophoneUsageDescription" = "请允许访问麦克风";
+
+"NSFaceIDUsageDescription" = "启用面容 ID 可以快速安全地访问 SAP Asset Manager";
+
+"NSPhotoLibraryUsageDescription" = "允许访问照片库以在应用中附加要上载的照片";
+
+"NSPhotoLibraryAddUsageDescription" = "我们的应用程序需要写入照片的权限";
+

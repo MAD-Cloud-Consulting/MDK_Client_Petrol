@@ -1,0 +1,42 @@
+{
+    "_Name": "LocationButtonsSection",
+    "_Type": "Section.Type.ButtonTable",
+    "Header": {
+        "UseTopPadding": false
+    },  
+    "Layout": {
+        "LayoutType": "Horizontal"
+    },
+    "Buttons": [
+        {
+            "Title" : "$(L,use_current)",
+            "Visible": "/SAPAssetManager/Rules/Geometries/IsGeometryEditAllowed.js",
+            "Alignment": "Left",
+            "FullWidth": false,
+            "OnPress": "",
+            "Semantic": "Tint",
+            "ButtonType": "Secondary",
+            "_Name": "CurrentLocationButtonTablet"                            
+        },
+        {
+            "Title" : "$(L,use_map)",
+            "Visible": "/SAPAssetManager/Rules/Geometries/IsGeometryEditAllowed.js",
+            "Alignment": "Center",
+            "FullWidth": false,
+            "OnPress": "",
+            "Semantic": "Tint",
+            "ButtonType": "Secondary",
+            "_Name": "EditGeometryButtonTablet"
+        },
+        {
+            "Title" : "$(L,remove)",
+            "Visible": "/SAPAssetManager/Rules/Geometries/IsGeometryEditAllowed.js",
+            "Alignment": "Right",
+            "FullWidth": false,
+            "Semantic": "Negative",
+            "ButtonType": "Secondary",
+            "OnPress": "",
+            "_Name": "DeleteGeometryButtonTablet"
+        }
+    ]
+}

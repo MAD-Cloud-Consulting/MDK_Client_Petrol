@@ -1,0 +1,13 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MaterialDocItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/Inventory/MaterialDocumentItem/GetMaterialDocumentItemReadLink.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "UpdateLinks": "/SAPAssetManager/Rules/Inventory/MaterialDocumentItem/MaterialDocumentItemCreateLinks.js"
+}

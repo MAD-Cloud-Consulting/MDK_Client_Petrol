@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditAddressCommEntitySet.js",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "CommType": "#ClientData/#Property:commType",
+        "Country": "/SAPAssetManager/Rules/BusinessPartners/Edit/BusinessPartnerEditCountryPickerValue.js",        
+        "SequenceNum":"/SAPAssetManager/Rules/BusinessPartners/Edit/GenerateCommPropertySequenceNumber.js",
+        "TelNumber": "#ClientData/#Property:telNumber",
+        "TelNumberCall": "#ClientData/#Property:telNumberCall",
+        "TelNumberLong": "#ClientData/#Property:telNumberLong",
+        "TelExtension": "#ClientData/#Property:telNumberExt",
+        "EMail": "#ClientData/#Property:email",
+        "AddressNum": "#ClientData/#Property:addressNum",
+        "PersonNum": "#ClientData/#Property:personelNum"
+    },
+    "CreateLinks": "#ClientData/#Property:communicationLinks"
+}

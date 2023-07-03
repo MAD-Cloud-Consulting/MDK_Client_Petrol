@@ -1,0 +1,10 @@
+{
+    "Target":
+    {
+        "EntitySet": "DisconnectionActivities",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "$filter=DocNum eq '{{#Property:DocNum}}' and ActivityNum eq '{{#Property:ActivityNum}}'"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action",
+    "_Type": "Action.Type.OfflineOData.UndoPendingChanges"
+}

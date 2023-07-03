@@ -1,0 +1,173 @@
+{
+	"Caption": "$(L,material_document_title)",
+	"OnReturning": "/SAPAssetManager/Rules/Inventory/MaterialDocument/MaterialDocDetailsOnPageReturn.js",
+    "ActionBar": {
+        "Items": [
+			{
+                "Position": "right",
+                "SystemItem": "Add",
+                "Visible": "/SAPAssetManager/Rules/Inventory/MaterialDocument/EnableItemsScreen.js",
+                "OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/OpenMaterialDocumentItemsScreen.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "Visible": "/SAPAssetManager/Rules/Inventory/MaterialDocument/EnableMaterialDocumentEditable.js",
+                "OnPress": "/SAPAssetManager/Actions/Inventory/MaterialDocument/MaterialDocumentUpdateNav.action"
+            },
+			{
+				"Position": "right",
+				"_Name": "Sync",
+				"Caption": "Sync",
+				"IconText": "SyncIcon",
+				"Icon": "/SAPAssetManager/Rules/Sync/SyncIcon.js",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js"
+			}
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "{MaterialDocNumber}",
+						"Subhead": "{AssociatedMaterialDoc/HeaderText}",
+						"Tags": "/SAPAssetManager/Rules/Inventory/MaterialDocument/MaterialDocumentTags.js",
+						"Footnote": "/SAPAssetManager/Rules/Inventory/IssueOrReceipt/GetDocumentDate.js"
+					},
+					"_Name": "SectionObjectHeader0",
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"Header": {
+                        "DataTable": {
+                            "Items": [
+                                {
+									"Text": "$(L,item_number)",
+									"TextAlignment": "center"
+								},
+                                {
+                                    "Text": "$(L,plant)",
+									"TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,s_loc)",
+									"TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,material)",
+									"TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,material_description)",
+									"TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,bin)",
+									"TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,batch)",
+									"TextAlignment": "center"
+                                },
+                                {
+                                    "Text": "$(L,valuation_type)",
+									"TextAlignment": "center"
+                                },
+								{
+                                	"Text": "$(L, quantity)",
+									"TextAlignment": "center"
+                            	},
+                            	{
+                                	"Text": "$(L, uom)",
+									"TextAlignment": "center"
+                            	}
+                            ]
+                        }
+                    },
+					"Row": {
+						"Layout": {
+                            "ColumnWidth": [200,100,100,100,150,100,100,100,100,-1]
+                        },
+						"Items": [
+							{
+								"Text": "{MatDocItem}",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "{Plant}",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "{StorageLocation}",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "{Material}",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "/SAPAssetManager/Rules/Inventory/Item/GetMaterialDesc.js",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "{StorageBin}",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "{Batch}",
+								"TextAlignment": "center"
+							},
+							{
+								"Text": "{ValuationType}",
+								"TextAlignment": "center"
+							},
+							{
+                 				"Text": "/SAPAssetManager/Rules/Inventory/Item/GridQuantity.js",
+							   	"TextAlignment": "center"
+               				},
+               				{
+                 				"Text": "{EntryUOM}",
+								"TextAlignment": "center"
+               				}			
+						],
+						"OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/SetMaterialDocumentGoodsReceipt.js"
+					},
+					"Target": {
+						"EntitySet": "MaterialDocItems",
+						"QueryOptions": "$filter=MaterialDocNumber eq '{{#Property:MaterialDocNumber}}'&$expand=AssociatedMaterialDoc,SerialNum,PurchaseOrderItem_Nav,StockTransportOrderItem_Nav,ReservationItem_Nav,PurchaseOrderItem_Nav/MaterialPlant_Nav,StockTransportOrderItem_Nav/MaterialPlant_Nav,ReservationItem_Nav/MaterialPlant_Nav,StockTransportOrderItem_Nav/StockTransportOrderHeader_Nav,ReservationItem_Nav/ReservationHeader_Nav&$orderby=MatDocItem",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Type": "Section.Type.DataTable",
+					"StickyColumn": false,
+                    "_Name": "DataTableSection"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"ToolBar": {
+		"Controls":[
+            {
+                "_Name": "FlexibleSpaceLeftTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+		    },
+			{
+                "_Name": "NextItem",
+                "_Type": "Control.Type.ToolbarItem",
+                "Caption": "$(L, delete)",
+                "Enabled": "/SAPAssetManager/Rules/Inventory/MaterialDocument/EnableMaterialDocumentEditable.js",
+				"OnPress": "/SAPAssetManager/Rules/Inventory/MaterialDocument/RemoveCreatedMaterialDocuments.js"
+            },
+			{
+                "_Name": "FlexibleSpaceRightTbI",
+                "_Type": "Control.Type.ToolbarItem",
+                "SystemItem": "FlexibleSpace"
+		    }
+        ]
+    },
+	"_Name": "MaterialDocumentDetails",
+	"_Type": "Page"
+}

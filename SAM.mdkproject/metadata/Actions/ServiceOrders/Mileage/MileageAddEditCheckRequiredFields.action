@@ -1,0 +1,15 @@
+{
+	"_Type": "Action.Type.CheckRequiredFields",
+	"RequiredFields": [
+		"OrderLstPkr",
+		"OperationPkr",
+		"WorkCenterPicker",
+		"MileageSim",
+		"UOMLstPkr"
+	],
+	"OnSuccess": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOnCommit.js",
+	"OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+	"ValidationRule": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditValidation.js",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": " "
+}

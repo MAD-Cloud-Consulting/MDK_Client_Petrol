@@ -1,0 +1,18 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "OnDemandObjects",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "ObjectId" : "/SAPAssetManager/Rules/Inventory/Fetch/OnDemandObjectId.js",
+        "ObjectType": "/SAPAssetManager/Rules/Inventory/Fetch/OnDemandObjectType.js",
+        "Action": "/SAPAssetManager/Rules/Inventory/Fetch/OnDemandObjectAction.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Inventory/Fetch/OnDemandObjectId.js"
+    }
+}

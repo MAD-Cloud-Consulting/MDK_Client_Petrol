@@ -1,0 +1,20 @@
+{
+    "Properties":
+	{
+        "NotificationNumber": "/SAPAssetManager/Rules/Notifications/GenerateNotificationID.js",
+        "PartnerFunction": "#ClientData/#Property:PartnerFunction",
+        "PartnerNum": "#ClientData/#Property:PartnerNum"
+    },
+    "Target":
+	{
+        "EntitySet": "MyNotificationPartners",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Notifications/GenerateNotificationID.js"
+    },
+	"CreateLinks": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationPartnerLinks.js",
+    "_Type": "Action.Type.ODataService.CreateEntity"
+}

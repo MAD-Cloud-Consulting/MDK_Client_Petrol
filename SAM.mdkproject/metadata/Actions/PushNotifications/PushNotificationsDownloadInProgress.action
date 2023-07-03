@@ -1,0 +1,7 @@
+{
+    "Message": "$(L,download_progress)",
+    "CompletionMessage": "$(L,download_complete)",
+    "CompletionTimeout": 7,
+    "Animated": true,
+    "_Type": "Action.Type.ProgressBanner"
+}

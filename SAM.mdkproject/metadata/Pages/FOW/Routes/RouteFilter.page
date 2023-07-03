@@ -1,0 +1,76 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result":
+    [
+        "#Page:RouteFilterPage/#Control:SortFilter/#Value",
+        "#Page:RouteFilterPage/#Control:MobileStatusFilter/#Value"
+    ],
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [{
+                    "ReturnValue":"Description",
+                    "DisplayValue":"$(L,description)"
+                },
+                {
+                    "ReturnValue":"RouteID",
+                    "DisplayValue":"$(L,fow_route_id)"
+                }],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "AllowMultipleSelection":true,
+                "AllowEmptySelection":true,
+                "Caption":"$(L,mobile_status)",
+                "FilterProperty": "/SAPAssetManager/Rules/FOW/Routes/MobileStatusFilter.js",
+                "_Name":"MobileStatusFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"RouteFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

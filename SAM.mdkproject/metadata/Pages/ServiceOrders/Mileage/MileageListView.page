@@ -1,0 +1,113 @@
+{
+    "Caption": "$(L,mileage_list)",
+    "ActionBar": {
+		"Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddNav.js",
+                "Visible": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddIsEnabled.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Name": "GridTableSection",
+                    "_Type": "Section.Type.DataTable",
+                    "StickyColumn": false,
+                    "EmptySection": {
+                        "Caption": "$(L,no_mileage_available)"
+                    },
+                    "Header": {
+                        "DataTable": {
+                            "Items": [
+                                {
+                                    "Text": " ",
+                                    "TextAlignment": "center",
+                                    "Style": "GridTableHeaderText"
+                                },
+                                {
+                                    "Text": "$(L,service_order)",
+                                    "TextAlignment": "center",
+                                    "Style": "GridTableHeaderText"
+                                },
+                                {
+                                    "Text": "$(L,operation)",
+                                    "TextAlignment": "center",
+                                    "Style": "GridTableHeaderText"
+                                },
+                                {
+                                    "Text": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAndUOM.js",
+                                    "TextAlignment": "center",
+                                    "Style": "GridTableHeaderText"
+                                },
+                                {
+                                    "Text": "$(L,time_stamp)",
+                                    "TextAlignment": "center",
+                                    "Style": "GridTableHeaderText"
+                                },
+                                {
+                                    "Text": "",
+                                    "TextAlignment": "center",
+                                    "Style": "GridTableHeaderText"
+                                }
+                            ]
+                        }
+					},
+                    "Row": {
+                         "Layout": {
+                           "ColumnWidth": [100,200,200,200,200,-1]
+                         },
+                        "Items": [
+                            {
+                                "Image": "/SAPAssetManager/Rules/Common/DataTableSyncIcon.js",
+                                "TextAlignment": "center"
+                            },
+                            {
+                                "Text": "{OrderID}",
+                                "TextAlignment": "center",
+                                "Style": "GridTableRowText"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationOperationDescription.js",
+                                "TextAlignment": "center",
+                                "Style": "GridTableRowText"
+                            },
+                            {
+                                "Text": "$(N,{ActualWork})",
+                                "TextAlignment": "center",
+                                "Style": "GridTableRowText"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationDateDetails.js",
+                                "TextAlignment": "center",
+                                "Style": "GridTableRowText"
+                            },
+                            {
+                                "Image": "/SAPAssetManager/Rules/Common/DataTableEditIcon.js"
+                            }
+                        ],
+                        "OnPress": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageEditNav.js"
+                    },
+                    "Footer": {
+                        "AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageTotalDuration.js",
+                        "AccessoryType": "none",
+                        "FooterStyle": "attribute"
+                    },
+                    "Target": {
+                        "EntitySet": "Confirmations",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Confirmations/ListView/WorkOrderConfirmationsQueryOptions.js"
+                    }
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "TimeEntriesSection"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "MileageListView",
+    "DataSubscriptions": ["Confirmations", "ConfirmationOverviewRows"]
+}

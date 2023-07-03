@@ -1,0 +1,9 @@
+{
+	"Target":
+	{
+		"EntitySet": "CatsTimesheetOverviewRows",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:TimesheetOverviewRowReadlink"
+	},
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

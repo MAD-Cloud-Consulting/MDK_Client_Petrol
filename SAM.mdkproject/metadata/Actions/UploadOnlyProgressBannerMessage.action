@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+    "Message": "$(L,upload_in_progress)",
+    "OnSuccess": "/SAPAssetManager/Actions/OData/UploadOnlyOfflineData.action"
+}

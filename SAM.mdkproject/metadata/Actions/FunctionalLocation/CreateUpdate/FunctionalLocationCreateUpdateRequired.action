@@ -1,0 +1,9 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationCreateUpdateOnCommit.js",
+    "RequiredFields": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationRequiredFields.js",
+    "ValidationRule": "/SAPAssetManager/Rules/Common/Validation/TechnicalObjectCreateUpdateValidation.js",
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

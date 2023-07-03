@@ -1,0 +1,65 @@
+{
+	"Caption": "{{#Property:IndicatorDesc}}",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"DetailImageIsCircular": false,
+						"HeadlineText": "/SAPAssetManager/Rules/Equipment/Format/DateFormat.js",
+						"PreserveIconStackSpacing": true,
+						"Subhead": "/SAPAssetManager/Rules/Equipment/Format/TimeFormat.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Equipment/Format/ThresholdFormat.js",
+						"Styles": {
+							"SubstatusText":"/SAPAssetManager/Rules/Equipment/Format/ThresholdStyle.js"
+						}
+					},
+					"_Name": "SectionObjectHeader0",
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,value)",
+							"Value": "/SAPAssetManager/Rules/Equipment/Format/ValueFormat.js"
+						},
+						{
+							"KeyName": "$(L,trend)",
+							"Value": "{{#Property:Trend}}"
+						},
+						{
+							"KeyName": "$(L,equipment)",
+							"Value": "{{#Property:Equipment_Nav/#Property:EquipDesc}}"
+						},
+						{
+							"KeyName": "$(L,ID)",
+							"Value": "{{#Property:Equipment_Nav/#Property:EquipId}}"
+						},
+						{
+							"KeyName": "$(L,indicator_group)",
+							"Value": "{{#Property:IndicatorGroupDesc}}"
+						},
+						{
+							"KeyName": "$(L,unit)",
+							"Value": "{{#Property:UoMDescription}}"
+						},
+						{
+							"KeyName": "$(L,type)",
+							"Value": "{{#Property:IndicatorType}}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "SectionKeyValue0",
+					"_Type": "Section.Type.KeyValue"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "PDMSIndicatorDetails",
+	"_Type": "Page"
+}

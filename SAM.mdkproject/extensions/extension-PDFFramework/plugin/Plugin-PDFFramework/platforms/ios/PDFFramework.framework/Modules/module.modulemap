@@ -1,0 +1,11 @@
+framework module PDFFramework {
+  umbrella header "PDFFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module PDFFramework.Swift {
+  header "PDFFramework-Swift.h"
+  requires objc
+}

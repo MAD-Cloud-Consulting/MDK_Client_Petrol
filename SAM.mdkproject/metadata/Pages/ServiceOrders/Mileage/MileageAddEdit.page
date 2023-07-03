@@ -1,0 +1,165 @@
+{
+	"Caption": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditCaption.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/IsNotCompleteAction.js",
+                "OnPress": "/SAPAssetManager/Rules/ServiceOrders/Mileage/CheckForChangesOnMileageCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Actions/ServiceOrders/Mileage/MileageAddEditCheckRequiredFields.action"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+                            "_Name": "OrderLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,service_order)",
+                            "AllowMultipleSelection": false,
+							"AllowDefaultValueIfOneItem": true,
+							"Value": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditInitialOrderId.js",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L, search)",
+                                "BarcodeScanner": true
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:OrderId}} - {{#Property:OrderDescription}}",
+                                "ReturnValue" : "{OrderId}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderHeaders",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOrderQueryOptions.js"
+                                }
+                            },
+                            "IsEditable": true,
+							"OnValueChange": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditServiceOrderOnValueChange.js"
+                        },
+						{
+                            "_Name": "OperationPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L, operation)",
+							"Value": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditInitialOperation.js",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "PickerItems": {
+                                "DisplayValue" : "{{#Property:OperationNo}} - {{#Property:OperationShortText}}",
+                                "ReturnValue" : "{OperationNo}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderOperations",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOperationQueryOptions.js"
+                            	}
+							},
+                            "IsEditable": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOperationIsEditable.js",
+							"OnValueChange": "/SAPAssetManager/Rules/Common/Controls/Handlers/OnServiceOperationValueChange.js"
+						},
+						{
+							"AllowMultipleSelection": false,
+							"Caption": "$(L, workcenter)",
+							"IsPickerDismissedOnSelection": true,
+							"IsSearchCancelledAfterSelection": true,
+							"Value": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditInitialWorkCenter.js",
+							"Search": { 
+								"Enabled": true,
+								"Delay": 500,
+								"MinimumCharacterThreshold": 3,
+								"Placeholder": "$(L, search)",
+								"BarcodeScanner": true
+							},
+							"PickerItems":
+							{
+								"DisplayValue" : "{ExternalWorkCenterId}",
+								"ReturnValue" : "{ExternalWorkCenterId}",
+								"Target":
+								{
+									"EntitySet" : "WorkCenters",
+									"Service" : "/SAPAssetManager/Services/AssetManager.service",
+									"QueryOptions": "$orderby=ExternalWorkCenterId"
+								}
+							},
+							"IsEditable": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditIsWorkCenterEditable.js",
+							"_Name": "WorkCenterPicker",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				}, 
+				{
+					"Controls": [
+						{
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"Caption": "$(L,mileage)",
+							"_Name": "MileageSim",
+							"KeyboardType": "Number",
+                            "PlaceHolder": "$(L,value)",
+							"IsEditable": true,
+							"Value": "{ActualWork}"
+						},
+						{
+							"Caption": "$(L,unit_of_measure)",
+							"AllowDefaultValueIfOneItem": true,
+							"IsEditable": false,
+							"PickerItems":
+							{
+								"DisplayValue" : "{Description}",
+								"ReturnValue": "{UoM}",
+								"Target":
+								{
+									"EntitySet" : "UsageUoMs",
+									"Service" : "/SAPAssetManager/Services/AssetManager.service",
+									"QueryOptions" : "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditUOMQueryOptions.js"
+								}
+							},
+							"_Name": "UOMLstPkr",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}, 
+						{
+							"Caption": "$(L, note)",
+							"PlaceHolder": "$(L,note)",
+							"IsAutoResizing": true,
+							"_Name": "DescriptionNote",
+							"_Type": "Control.Type.FormCell.Note",
+							"IsVisible": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditIsNoteVisible.js",
+							"Value": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditNoteValue.js"
+						}
+					]
+				},{
+                    "Controls":
+                    [{
+                        "Title": "$(L,discard)",
+                        "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js",
+                        "IsVisible": "/SAPAssetManager/Rules/Common/IsNotOnCreate.js",
+                        "ButtonType": "Text",
+						"Semantic": "Tint",
+                        "_Type": "Control.Type.FormCell.Button",
+                        "_Name": "DiscardButton",
+                        "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js",
+						"Styles": {
+                    		"Value": "ObjectCellStyleRed"
+						}
+                    }]
+                }
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "ServiceOrderMileageAddEdit",
+	"_Type": "Page"
+}

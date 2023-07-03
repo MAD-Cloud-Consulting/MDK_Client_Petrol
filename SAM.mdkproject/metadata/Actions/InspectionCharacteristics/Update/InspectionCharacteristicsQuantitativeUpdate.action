@@ -1,0 +1,30 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "InspectionCharacteristics",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "ResultValue": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsQuantitativeValue.js",
+        "Valuation": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsValuation.js"
+    },
+    "UpdateLinks":
+    [{
+        "Property": "InspValuation_Nav",
+        "Target": {
+            "EntitySet": "InspectionResultValuations",
+            "ReadLink": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsValuationReadLink.js"
+        }
+    }],
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "{{#Property:InspectionLot_Nav/#Property:OrderId}}"
+    },
+    "RequestOptions": {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "ValidationRule": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/InspectionCharacteristicsUpdateValidation.js"
+}

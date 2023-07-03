@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"PageToOpen": "/SAPAssetManager/Pages/Forms/Empty.page",
+	"ModalPage": true,
+	"ModalPageFullscreen": true
+}

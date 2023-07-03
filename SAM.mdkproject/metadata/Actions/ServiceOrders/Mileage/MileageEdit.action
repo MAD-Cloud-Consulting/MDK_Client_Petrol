@@ -1,0 +1,31 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "Confirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "PostingDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "StartDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "StartTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "ActualDuration": "0",
+        "ActualWork": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditMileage.js",
+        "ActualWorkUOM": "MIN",
+        "FinishDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "FinishTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "Operation": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOperationNo.js",
+        "OrderID": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditOrderId.js",
+        "Plant": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditPlant.js",
+        "CreatedDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+        "CreatedTime": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentTime.js",
+        "WorkCenter": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditWorkCenter.js",
+        "FinalConfirmation": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/GetIsFinal.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "{ConfirmationNum}"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddEditCreateLinks.js"
+}

@@ -1,0 +1,39 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "LAMObjectData",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+	},
+	"Properties":
+	{
+        "LRPId": "/SAPAssetManager/Rules/LAM/CreateUpdate/LinearReferencePatternID.js",
+        "UOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMCreateUOM.js",
+        "Length": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMLength.js",
+        "StartPoint": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMStartPoint.js",
+        "EndPoint": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEndPoint.js",
+        "StartMarker": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMStartMarker.js",
+        "EndMarker": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEndMarker.js",
+        "MarkerUOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMMarkerUOM.js",
+        "Offset1Type": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset1Type.js",
+        "Offset1Value": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset1Value.js",
+        "Offset1UOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset1UOM.js",
+        "Offset2Type": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset2Type.js",
+        "Offset2Value": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset2Value.js",
+        "Offset2UOM": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMOffset2UOM.js",
+        "StartMarkerDistance": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMStartMarkerDistance.js",
+        "EndMarkerDistance": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMEndMarkerDistance.js"
+	},
+    "RequestOptions":
+    {
+        "UpdateMode": "/SAPAssetManager/Rules/Common/ODataUpdateMode.js"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "{{#Property:TableKey}}{{#Property:ObjectType}}"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "ValidationRule": "/SAPAssetManager/Rules/LAM/CreateUpdate/LAMUpdateValidation.js"
+}

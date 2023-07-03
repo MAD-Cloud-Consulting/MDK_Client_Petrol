@@ -1,0 +1,24 @@
+{
+    "Headers": {
+        "OfflineOData.TransactionID": "#ClientData/#Property:ObjectKey",
+        "Transaction.Ignore": "#ClientData/#Property:Ignore"
+    },
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "Properties": {
+        "MobileStatus": "/SAPAssetManager/Rules/MobileStatus/MobileStatusReceived.js",
+        "ObjectType": "#ClientData/#Property:ObjectType",
+        "ObjectKey": "#ClientData/#Property:ObjectKey",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+        "CreateUserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "CreateUserId": "/SAPAssetManager/Rules/MobileStatus/GetSAPUserId.js"
+    },
+    "Target": {
+        "EntitySet": "PMMobileStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : "#ClientData/#Property:MobileStatusReadLink"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

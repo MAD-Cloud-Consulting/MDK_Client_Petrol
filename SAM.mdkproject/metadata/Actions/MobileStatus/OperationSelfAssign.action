@@ -1,0 +1,16 @@
+{
+	"Properties": {
+		"OperationNo": "",
+		"OrderId": "",
+		"EmployeeTo": ""
+	},
+	"Target":
+	{
+		"EntitySet": "WorkOrderTransfers",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"RequestOptions": {
+		"UploadCategory": "MobileStatusOperationSelfAssign"
+	},
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

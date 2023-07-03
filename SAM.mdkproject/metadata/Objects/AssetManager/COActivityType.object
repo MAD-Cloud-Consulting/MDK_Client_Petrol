@@ -1,0 +1,39 @@
+{
+	"Collection": [
+		"COActivityTypes"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ActivityType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "ControllingArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "CostCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "FiscalYear",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ActivityTypeDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CostCenterDescription",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "COActivityType"
+}

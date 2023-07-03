@@ -1,0 +1,81 @@
+{
+	"Caption": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderRelatedHistoryCaption.js",
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,previous_workorders)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_recent_workorders_available)"
+                    },
+                    "MaxItemCount": 3,
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Description": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryLongText.js",
+                        "Title": "{OrderDescription}",
+                        "Subhead": "{OrderId}",
+                        "Footnote": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryStartEndDate.js",
+                        "StatusText": "#Property:HistoryPriority/#Property:PriorityDescription",
+                        "SubstatusText": "{OrderType}",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryDetailsNav.js",
+                        "PreserveIconStackSpacing":false
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryRecentCount.js",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoriesRecentListViewNav.js"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"$filter=ReferenceType eq 'H'&$expand=HistoryLongText,HistoryPriority&$top=3&$orderby=Priority,OrderId desc"
+                    },
+                    "_Name": "WorkorderHistoryListViewSection",
+                    "_Type": "Section.Type.ObjectTable"
+                },
+				{
+                    "Header": {
+                        "Caption": "$(L,pending_workorders)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_pending_workorders_available)"
+
+                    },
+                    "MaxItemCount": 3,
+                    "ObjectCell": {
+                        "AccessoryType": "disclosureIndicator",
+                        "Description": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryLongText.js",
+                        "Title": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDescription.js",
+                        "Subhead": "{OrderId}",
+                        "Footnote": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryStartEndDate.js",
+                        "StatusText": "#Property:HistoryPriority/#Property:PriorityDescription",
+                        "SubstatusText": "{OrderType}",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryDetailsNav.js",
+                        "PreserveIconStackSpacing":false
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryPendingCount.js",
+                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoriesPendingListViewNav.js"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"$filter=ReferenceType eq 'P'&$expand=HistoryLongText,HistoryPriority&$top=3&$orderby=Priority,OrderId desc"
+                    },
+                    "_Name": "WorkorderPendingListViewSection",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "WorkOrderRelatedHistoriesListViewPage"
+}

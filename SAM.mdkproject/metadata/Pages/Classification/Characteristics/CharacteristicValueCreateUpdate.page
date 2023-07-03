@@ -1,0 +1,218 @@
+{
+    "_Type": "Page",
+    "_Name": "CharacteristicValuePage",
+    "Caption": "$(L, edit_characteristic)",
+    "OnLoaded": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicCreateUpdatePageOnLoad.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/Classification/Characteristics/CheckForChangesBeforeCancel.js"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicUpdateOrCreateLoop.js",
+                "Visible": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicDoneButtonVisible.js"
+
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "Value": "#Property:Characteristic/#Property:CharDesc",
+                            "_Name": "Description",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "Caption": "$(L, description)",
+                            "IsEditable": false
+                        },
+                        {
+                            "Value": "#Property:Characteristic/#Property:CharName",
+                            "_Name": "Name",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "Caption": "$(L, name)",
+                            "IsEditable": false
+                        },
+                        {
+                            "Value": "#Property:Characteristic/#Property:UoMExt",
+                            "_Name": "Unit",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "Caption": "$(L, unit)",
+                            "IsEditable": false,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicsUOMVisible.js"
+
+                        }
+                    ]
+                },
+                {
+                    "Controls": [
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnValue.js",
+                            "_Name": "NumberSingleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "IsEditable": true,
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Number/CharacteristicNumberSingleValueVisible.js",
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicSingleValues.js"
+                        },
+                        {
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Number/CharacteristicNumberMultiValueVisible.js",
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnMultipleValue.js",
+                            "_Name": "NumberMultipleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": true,
+                            "IsEditable": true,
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicMultiValues.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Classification/Characteristics/CharactertiscticsMultipleOnValueChange.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicValueNumber.js",
+                            "_Name": "NumberFreeForm",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Number/CharacteristicNumberFreeFormVisible.js",
+                            "KeyboardType": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicValueKeyboardType.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnValue.js",
+                            "_Name": "CurrencySingleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": false,
+                            "IsEditable": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Currency/CharacteristicCurrencySingleValueVisible.js",
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicSingleValues.js"
+                        },
+                        {
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Currency/CharacteristicCurrencyMultiValueVisible.js",
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnMultipleValue.js",
+                            "_Name": "CurrencyMultipleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": true,
+                            "IsEditable": true,
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicMultiValues.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Classification/Characteristics/CharactertiscticsMultipleOnValueChange.js"
+
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicValueFrom.js",
+                            "_Name": "CurrencyFreeForm",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Currency/CharacteristicCurrencyFreeFormVisible.js",
+                            "KeyboardType": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicValueKeyboardType.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/Character/CharacteristicsCharacterValue.js",
+                            "_Name": "CharacterSingleValue",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Character/CharacteristicsCharacterSingleValueVisible.js",
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicSingleValues.js"
+                        },
+                        {
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Character/CharacteristicsCharacterMultipleValueVisible.js",
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnMultipleValue.js",
+                            "_Name": "CharacterMultipleValue",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": true,
+                            "IsEditable": true,
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicMultiValues.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Classification/Characteristics/CharactertiscticsMultipleOnValueChange.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/Character/CharacteristicsCharacterValue.js",
+                            "_Name": "CharacterFreeForm",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Character/CharacteristicCharacterFreeFormVisible.js",
+                            "KeyboardType": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicValueKeyboardType.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/Date/CharacteristicAssembleReturnValueForDate.js",
+                            "_Name": "DateSingleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Date/CharacteristicsDateSingleValueVisible.js",
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicSingleValuesForDate.js"
+                        },
+                        {
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Date/CharacteristicsDateMultipleValueVisible.js",
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/Date/CharacteristicAssembleReturnMultipleValueForDate.js",
+                            "_Name": "DateMultipleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": true,
+                            "IsEditable": true,
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicMultiValuesForDate.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Classification/Characteristics/CharactertiscticsMultipleOnValueChange.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/Date/CharacteristicsDate.js",
+                            "_Name": "DateFreeForm",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "Mode" : "Date",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Date/CharacteristicsDateFreeFormVisible.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnValue.js",
+                            "_Name": "TimeSingleValue",
+                            "Caption": "$(L,value)",
+                            "AllowMultipleSelection": false,
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "IsPickerDismissedOnSelection": true,
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Time/CharacteristicsTimeSingleValueVisible.js",
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicSingleValueForTime.js"
+                        },
+                        {
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Time/CharacteristicsTimeMultipleValueVisible.js",
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicAssembleReturnMultipleValue.js",
+                            "_Name": "TimeMultipleValue",
+                            "Caption": "$(L,value)",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "AllowMultipleSelection": true,
+                            "IsEditable": true,
+                            "PickerItems": "/SAPAssetManager/Rules/Classification/Characteristics/CharacteristicMultiValuesForTime.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Classification/Characteristics/CharactertiscticsMultipleOnValueChange.js"
+                        },
+                        {
+                            "Value": "/SAPAssetManager/Rules/Classification/Characteristics/Time/CharacteristicsTime.js",
+                            "_Name": "TimeFreeForm",
+                            "Caption": "/SAPAssetManager/Rules/Classification/Characteristics/Relationship/CharacteristicsRelationshipFromSign.js",
+                            "Mode" : "Time",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "IsEditable": true,
+                            "IsVisible": "/SAPAssetManager/Rules/Classification/Characteristics/Time/CharacteristicsTimeFreeFormVisible.js"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ]
+}

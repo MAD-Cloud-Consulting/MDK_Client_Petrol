@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "/SAPAssetManager/Rules/Notes/NoteGetEntitySet.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "ConfirmationNum": "#Property:ConfirmationNum",
+        "NewTextString": "#Control:DescriptionNote/#Value",
+        "TextString": "#Control:DescriptionNote/#Value"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:ConfirmationNum"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/Notes/NoteCreateFailureMessage.action",
+    "CreateLinks": "/SAPAssetManager/Rules/Notes/NoteCreateLinks.js"
+}

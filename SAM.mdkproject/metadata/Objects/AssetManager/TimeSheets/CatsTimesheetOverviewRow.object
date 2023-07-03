@@ -1,0 +1,26 @@
+{
+	"Collection": [
+		"CatsTimesheetOverviewRows"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "TimesheetEntry",
+			"_Type": "CatsTimesheets"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "Hours",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": true,
+			"_Name": "Date",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "CatsTimesheetOverviewRow"
+}

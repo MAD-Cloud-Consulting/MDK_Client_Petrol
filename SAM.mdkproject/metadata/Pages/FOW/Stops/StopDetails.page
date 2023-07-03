@@ -1,0 +1,269 @@
+{
+    "Caption": "$(L,fow_stop_with_stop_id,'{StopID}')",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "ObjectHeader": {
+                        "HeadlineText": "{Description}",
+                        "Tags": ["#Property:Operation/#Property:ControlKey", "#Property:Operation/#Property:MainWorkCenterPlant", "#Property:Operation/#Property:MainWorkCenter"],
+                        "Target": {
+                            "EntitySet": "{{#Property:@odata.readLink}}",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$select=Description,Operation/ControlKey,Operation/MainWorkCenterPlant,Operation/MainWorkCenter&$expand=Operation"
+                        }
+
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                },
+                {
+                    "Header": {
+                         "UseTopPadding": false
+                    },
+                    "Module": "extension-MapFramework",
+                    "Control": "MapViewExtensionWithContext",
+                    "Class": "MapViewExtensionWithContext",
+                    "Height": 233,
+                    "ExtensionProperties": {
+                        "Config": {
+                            "Target": {
+                                "EntitySet": "GISMapParameters",
+                                "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                "Properties": [],
+                                "KeyProperties": []
+                            },
+                            "ViewConfig": {
+                                "UseDynamicLayerDisplayPrefs": false,
+                                "EnableCurrentLocation": true,
+                                "EnableNearMe": true,
+                                "EnableDynamicLayers": true,
+                                "EnableFeatureLayers": true,
+                                "EnableBaseMaps": true,
+                                "ZoomOnLocationEnabled": false,
+                                "UserInteractionEnabled": false
+                            },
+                            "BaseMaps": [],
+                            "FeatureLayers": []
+                        },
+                        "BusinessObjects": [
+                            {
+                                "Type": "Equipment",
+                                "Title": "$(L, dl_equip)",
+                                "Legend": "IconEquipment",
+                                "Target": {
+                                    "EntitySet": "MyEquipments",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$expand=EquipGeometries/Geometry&$filter=EquipGeometries/any(eg:sap.entityexists(eg/Geometry))",
+                                    "Properties": [],
+                                    "KeyProperties": []
+                                },
+                                "Enable": true,
+                                "ObjectScheme": {
+                                    "Geometry": "EquipGeometries/Geometry/GeometryValue",
+                                    "Layer": "Equipment",
+                                    "Properties": {
+                                        "ID": "{EquipId}"
+                                    },
+                                    "Actions": [],
+                                    "Symbol": {
+                                        "marker": "/SAPAssetManager/Rules/Maps/Icons/EquipmentIcon.js",
+                                        "lineColor": "FFA02B",
+                                        "lineWidth": 2
+                                    }
+                                }
+                            },
+                            {
+                                "Type": "FunctionalLocation",
+                                "Title": "$(L, dl_floc)",
+                                "Legend": "IconFloc",
+                                "Target": {
+                                    "EntitySet": "MyFunctionalLocations",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$expand=FuncLocGeometries/Geometry&$filter=FuncLocGeometries/any(fg:sap.entityexists(fg/Geometry))",
+                                    "Properties": [],
+                                    "KeyProperties": []
+                                },
+                                "Enable": true,
+                                "ObjectScheme": {
+                                    "Geometry": "FuncLocGeometries/Geometry/GeometryValue",
+                                    "Layer": "FunctionalLocation",
+                                    "Properties": {
+                                        "ID": "{FuncLocIdIntern}"
+                                    },
+                                    "Actions": [],
+                                    "Symbol": {
+                                        "marker": "MarkerFunctionalLocation",
+                                        "lineColor": "E9573E",
+                                        "fillColor": "E9573E33",
+                                        "lineWidth": 2
+                                    }
+                                }
+                            },
+                            {
+                                "Type": "RouteStop",
+                                "Title": "$(L, fow_dl_stops)",
+                                "Legend": "IconRouteStop",
+                                "Target": {
+                                    "EntitySet": "MyRouteStops",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$expand=Operation/OperationMobileStatus_Nav,FuncLoc/FuncLocGeometries/Geometry,Equipment/EquipGeometries/Geometry,TechObjects&$filter=FuncLoc/FuncLocGeometries/any(fg:sap.entityexists(fg/Geometry)) or Equipment/EquipGeometries/any(eg:sap.entityexists(eg/Geometry))",
+                                    "Properties": [],
+                                    "KeyProperties": []
+                                },
+                                "Enable": true,
+                                "ObjectScheme": {
+                                    "Geometry": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopGeometry.js",
+                                    "Layer": "RouteStop",
+                                    "Properties": {
+                                        "ID": "{RouteID}{StopID}",
+                                        "RouteID": "{RouteID}",
+                                        "StopID": "{StopID}",
+                                        "Title":"{Description}",
+                                        "Subhead":"$(L, fow_stop_with_stop_id, {StopID})",
+                                        "Tags": ["/SAPAssetManager/Rules/Maps/FOW/Stops/StopTags.js"],
+                                        "BodyText":"/SAPAssetManager/Rules/FOW/Routes/Stops/StopListAssetCountCaption.js",
+                                        "Footnote": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopFootnote.js"
+                                    },
+                                    "GroupOf": {
+                                            "Equipment": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopEquipIds.js",
+                                            "FunctionalLocation": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopFuncLocIds.js"
+                                    },
+                                    "Actions": [
+                                        {
+                                            "Title":"$(L, fow_map_view_stop_details)",
+                                            "Icon":"ActionView",
+                                            "Type":"View",
+                                            "CallbackInfo": {
+                                                "Action":"/SAPAssetManager/Rules/FOW/Routes/Stops/StopDetailsNav.js",
+                                                "Target":{
+                                                    "EntitySet" : "MyRouteStops",
+                                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                                    "QueryOptions": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopDetailsMapNavQueryOptions.js",
+                                                    "Properties": [],
+                                                    "KeyProperties": []
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "Symbol": {
+                                        "marker": "MarkerGroup",
+                                        "Composite": {
+                                            "Text": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopAssetNumber.js",
+                                            "TextColor": "FFFFFF"
+                                        },
+                                        "onSelect": {
+                                            "marker": "MarkerGroupSelected",
+                                            "Composite": {
+                                                "Text": "/SAPAssetManager/Rules/Maps/FOW/Stops/StopAssetNumber.js",
+                                                "TextColor": "FFFFFF",
+                                                "FontSize": 18
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopMapNav.js",
+                    "_Type": "Section.Type.Extension"
+                },
+                {
+                    "Header": {
+                        "Caption": "$(L,location)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_location_available)"
+                    },
+                    "ObjectCells": [
+                        {
+                            "ObjectCell": {
+                                "Title": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopLocationFormat.js",
+                                "AccessoryType": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopLocationFormat.js",
+                                "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/StopMapNav.js",
+                                "PreserveIconStackSpacing": false
+                            }
+                        }
+                    ],
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "StopLocationSection"
+                },
+                {
+                    "_Type": "Section.Type.ObjectCollection",
+                    "_Name": "EquipmentSection",
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": 66
+                    },
+                    "Header": {
+                        "Caption": "$(L,equipment)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_equipment_available)",
+                        "HidesFooter": true
+                    },
+                    "MaxItemCount": 4,
+                    "ObjectCell": {
+                        "Title": "{EquipDesc}",
+                        "Subhead": "{Equipment}",
+                        "Footnote": "{FuncLocID}",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/EquipDetailsNav.js",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/TechObjects",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/EquipmentTableQueryOption.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/EquipmentCount.js",
+                        "OnPress": "/SAPAssetManager/Actions/FOW/Routes/Stops/Assets/EquipmentListNav.action"
+                    }
+                },
+                {
+                    "_Type": "Section.Type.ObjectCollection",
+                    "_Name": "FuncLocSection",
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": 66
+                    },
+                    "Header": {
+                        "Caption": "$(L,functional_locations)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,fow_no_functional_location)",
+                        "HidesFooter": true
+                    },
+                    "MaxItemCount": 4,
+                    "ObjectCell": {
+                        "Title": "{FuncLocDesc}",
+                        "Subhead": "{FuncLocID}",
+                        "AccessoryType": "disclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocDetailsNav.js",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/TechObjects",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocTableQueryOption.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "disclosureIndicator",
+                        "FooterStyle": "attribute",
+                        "AttributeLabel": "/SAPAssetManager/Rules/FOW/Routes/Stops/Assets/FuncLocCount.js",
+                        "OnPress": "/SAPAssetManager/Actions/FOW/Routes/Stops/Assets/FuncLocListNav.action"
+                    }
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "StopDetailsPage"
+}

@@ -1,0 +1,117 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/FunctionalLocation/FLOCFilteringResult.js",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "AllowEmptySelection":false,
+                "Caption":"$(L,sort_by)",
+                "SortByItems":
+                [{
+                    "ReturnValue":"FuncLocId",
+                    "DisplayValue":"$(L,ID)"
+                },
+                {
+                    "ReturnValue":"FuncLocDesc",
+                    "DisplayValue":"$(L,description)"
+                },
+                {
+                    "ReturnValue":"PlanningPlant",
+                    "DisplayValue":"$(L,plant)"
+                },
+                {
+                    "ReturnValue":"WorkCenter",
+                    "DisplayValue":"$(L,workcenter)"
+                },
+                {
+                    "ReturnValue":"Location",
+                    "DisplayValue":"$(L,location)"
+                }
+                ],
+                "_Name":"SortFilter",
+                "_Type":"Control.Type.FormCell.Sorter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "_Name": "WorkCenterFilter",
+                "_Type": "Control.Type.FormCell.ListPicker",
+                "AllowMultipleSelection": true,
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": {
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L,search)",
+                    "BarcodeScanner": true
+                },
+                "Caption": "$(L,work_center)",
+                "PlaceHolder": "",
+                "Value": "{ExternalWorkCenterId}",
+                "PickerItems": {
+                    "DisplayValue": "{ExternalWorkCenterId}",
+                    "ReturnValue": "{WorkCenterId}",
+                    "Target": {
+                        "EntitySet": "WorkCenters",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=ExternalWorkCenterId"
+                    }
+                },
+                "FilterProperty": "WorkCenter"
+            },
+            {
+                "AllowEmptySelection":true,
+                "Caption":"$(L,filter_by)",
+                "FilterProperty": {
+                    "name": "local",
+                    "values": [{
+                        "DisplayValue": "$(L,is_local)",
+                        "ReturnValue": "true"
+                    }]
+                },
+                "_Name":"LocalFilter",
+                "_Type":"Control.Type.FormCell.Filter",
+                "IsEditable":true
+            }]
+        },
+        {
+            "Controls": [
+                {
+                    "Title": "$(L,reset_all)",
+                    "OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "ButtonType": "Text",
+                    "Semantic": "Tint",
+                    "_Name": "ResetButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }
+            ]
+        }],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "_Type":"Page",
+    "_Name":"FunctionalLocationFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

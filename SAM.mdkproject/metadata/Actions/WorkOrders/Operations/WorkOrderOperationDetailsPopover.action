@@ -1,0 +1,51 @@
+{
+    "PopoverItems": [
+        {
+            "Title": "$(L,add_suboperation)",
+            "OnPress": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableSubOperation.js"
+        },
+        {
+            "Title": "$(L,add_notification)",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreateFromWorkOrder.js",
+            "OnPress" : "/SAPAssetManager/Rules/Operations/WorkOrderOperationNotificationCreateNav.js"
+        },
+        {
+            "Title" : "$(L,add_part)",
+            "OnPress" : "/SAPAssetManager/Rules/Parts/CreateUpdate/PartCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+
+        },
+        {
+            "Title" : "/SAPAssetManager/Rules/Notes/NotePopoverSelectionText.js",
+            "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+        },
+        {
+            "Title" : "$(L,record_results)",
+            "OnPress": "/SAPAssetManager/Actions/InspectionCharacteristics/Update/InspectionCharacteristicsUpdateNav.action",
+            "Visible": "/SAPAssetManager/Rules/InspectionCharacteristics/Update/EnableRecordResultsFromOperationDetails.js"
+        },
+        {
+            "Title": "$(L,add_attachment)",
+            "OnPress": "/SAPAssetManager/Rules/Documents/Create/DocumentCreateBDSNav.js",
+            "Visible": "/SAPAssetManager/Rules/Documents/DocumentAddFromOperationDetails.js"
+        },
+        {
+            "Title": "$(L,add_expense)",
+            "OnPress" : "/SAPAssetManager/Rules/Expense/CreateUpdate/ExpenseCreateNav.js",
+            "Visible":  "/SAPAssetManager/Rules/Expense/CreateUpdate/IsAllowedExpenseCreate.js"
+        },
+        {
+            "Title": "$(L,add_mileage)",
+            "OnPress": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddNav.js",
+            "Visible": "/SAPAssetManager/Rules/ServiceOrders/Mileage/MileageAddIsEnabled.js"
+        },
+        {
+            "Title": "$(L,generate_service_report)",
+            "OnPress": "/SAPAssetManager/Rules/PDF/PDFGenerate.js",
+            "Visible": "/SAPAssetManager/Rules/PDF/IsPDFAllowedForOperation.js"
+        }
+    ],
+    "_Type": "Action.Type.PopoverMenu"
+}

@@ -1,0 +1,60 @@
+{
+	"_Type": "Page",
+	"_Name": "PRTMaterialDetailsPage",
+	"Caption": "/SAPAssetManager/Rules/Material/MaterialDetailsCaption.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTAddNotePopover.action"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "PRTMaterialDetailsSectionedTable",
+			"Sections": [
+				{
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "PRTMaterialDetailsSection",
+					"Header": {
+						"Caption": "Material Details"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,description)",
+							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTDescriptionValue.js"
+						},
+						{
+							"KeyName": "$(L,quantity)",
+							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTQuantityValue.js"
+						},
+						{
+							"KeyName": "$(L,plant)",
+							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTPlantValue.js"
+						},
+						{
+							"KeyName": "$(L,item)",
+							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTItemValue.js"
+						}
+					]
+				},
+				{
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "disclosureIndicator",
+                                "KeyName": "$(L,notes)",
+                                "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
+                                "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
+                            }
+                        }
+                    ],
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                }
+			]
+		}
+	]
+}

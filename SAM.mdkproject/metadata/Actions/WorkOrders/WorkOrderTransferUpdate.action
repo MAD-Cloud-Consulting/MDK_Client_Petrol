@@ -1,0 +1,28 @@
+{
+    "Target":
+    {
+        "EntitySet": "WorkOrderTransfers",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+         "ReadLink": "{@odata.readLink}"
+    },
+    "Properties":
+    {
+        "OrderId": "#Property:OrderId",
+        "OperationNo": "#Property:OperationNo",
+        "SubOperationNo": "#Property:SubOperationNo",
+        "EmployeeFrom": "#ClientData/#Property:EmployeeFrom",
+        "EmployeeTo": "#ClientData/#Property:EmployeeTo",
+        "PlannerGroupFrom": "#ClientData/#Property:PlannerGroupFrom",
+        "PlannerGroupTo": "#ClientData/#Property:PlannerGroupTo",
+        "UserFrom": "#ClientData/#Property:UserFrom",
+        "UserTo": "#ClientData/#Property:UserTo",
+        "WorkCenterFrom": "#ClientData/#Property:WorkCenterFrom",
+        "WorkCenterTo": "#ClientData/#Property:WorkCenterTo",
+        "HeaderNotes": "#ClientData/#Property:TransferNote",
+        "TransferReason": "#ClientData/#Property:TransferReason",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/AutoSync/actions/UpdateEntitySuccessMessageWithAutoSave.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

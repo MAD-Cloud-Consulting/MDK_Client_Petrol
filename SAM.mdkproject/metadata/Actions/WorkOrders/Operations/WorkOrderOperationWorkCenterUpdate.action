@@ -1,0 +1,21 @@
+{
+    "Properties": {
+        "MainWorkCenter": "#ClientData/#Property:WorkCenterTo",
+        "MainWorkCenterPlant":"#ClientData/#Property:PlantId"
+    },
+    "Target": {
+        "EntitySet": "MyWorkOrderOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateLinks.js",
+    "DeleteLinks": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationDeleteLinks.js",
+    "OnSuccess": "/SAPAssetManager/Actions/WorkOrders/WorkOrderTransfer.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  ",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

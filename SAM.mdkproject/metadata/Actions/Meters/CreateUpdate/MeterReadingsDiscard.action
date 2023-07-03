@@ -1,0 +1,22 @@
+{
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+    "Target": {
+        "EntitySet": "MeterReadings",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{{#ClientData/#Property:binding/#Property:@odata.readLink}}"
+    },
+    "DeleteLinks":
+    [{
+        "Property": "Device_Nav",
+        "Target":
+        {
+            "EntitySet": "Devices",
+            "QueryOptions": "$filter=EquipmentNum eq '{{#Property:EquipmentNum}}'"
+        }
+    }],
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:Device_Nav/#Property:EquipmentNum",
+        "Transaction.Ignore": "false"
+    }
+}

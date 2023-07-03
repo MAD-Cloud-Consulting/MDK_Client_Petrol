@@ -1,0 +1,9 @@
+{
+    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+    "_Type": "Action.Type.OfflineOData.Upload",
+    "OnFailure": "/SAPAssetManager/Rules/Sync/OnUploadFailure.js",
+    "ActionResult": {
+       "_Name": "result"
+    }
+ }
+  

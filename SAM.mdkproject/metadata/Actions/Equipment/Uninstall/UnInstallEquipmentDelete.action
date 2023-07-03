@@ -1,0 +1,19 @@
+{
+    "Properties":
+    {
+        "DismantleEquip": "",
+        "DismantleFuncLocIdIntern": ""
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentInstallationCreateLinksById.js",
+    "Target":
+    {
+        "EntitySet": "MyEquipments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Equipment/EquipmentOrFLOCTransactionID.js"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

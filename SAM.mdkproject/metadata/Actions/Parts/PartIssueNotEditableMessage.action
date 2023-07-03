@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,part_issue_not_editable)",
+    "Duration": 3,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

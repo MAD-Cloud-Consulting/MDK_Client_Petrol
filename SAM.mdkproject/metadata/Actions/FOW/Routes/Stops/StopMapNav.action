@@ -1,0 +1,4 @@
+{
+    "PageToOpen" : "/SAPAssetManager/Pages/FOW/Routes/Stops/StopMapDetails.page",
+    "_Type" : "Action.Type.Navigation"
+}

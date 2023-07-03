@@ -1,0 +1,135 @@
+{
+	"Caption": "$(L, bom)",
+	"Controls": [
+		{
+			"_Type": "Control.Type.Extension",
+			"Module": "extension-HierarchyFramework",
+			"Control": "HierarchyExtension",
+			"Class": "HierarchyExtension",
+			"_Name": "HierarchyExtensionControl",
+			"DataSubscriptions": ["MyEquipments"],
+			"ExtensionProperties": {
+				"Root":{},
+				"BusinessObjects": [
+					{
+						"Target": { 
+							"EntitySet" : "MyEquipments",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"{EquipDesc}",
+							"Subhead":"{EquipId}",
+							"Footnote": "$(L, equipment)",
+							"ChildCount": "/SAPAssetManager/Rules/Equipment/BOM/EquipmentBOMCount.js",
+							"Parent": [],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "BOMItems",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"/SAPAssetManager/Rules/Equipment/BOM/EquipmentBOMItemsQueryOptions.js"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/Equipment/EquipmentDetailsNav.action",
+							"Target": {
+								"EntitySet": "MyEquipments",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "$filter=EquipId eq '{EquipId}'&$expand=MeasuringPoints,MeasuringPoints/MeasurementDocs,EquipDocuments,WorkOrderHeader,FunctionalLocation,SystemStatuses_Nav/SystemStatus_Nav,UserStatuses_Nav/UserStatus_Nav",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+					},
+					{
+						"Target": { 
+							"EntitySet" : "MyFunctionalLocations",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"{FuncLocDesc}",
+							"Subhead":"{FuncLocId}",
+							"Footnote": "$(L, functional_location)",
+							"ChildCount": "/SAPAssetManager/Rules/FunctionalLocation/BOM/FunctionalLocationBOMCount.js",
+							"Parent": [],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "BOMItems",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"/SAPAssetManager/Rules/FunctionalLocation/BOM/FunctionalLocationBOMItemsQueryOptions.js"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationDetailsNav.action",
+							"Target": {
+								"EntitySet": "MyFunctionalLocations",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "$filter=FuncLocIdIntern eq '{FuncLocIdIntern}'&$expand=WorkOrderHeader",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+					},
+					{
+						"Target": { 
+							"EntitySet" : "BOMItems",
+							"Service" : "/SAPAssetManager/Services/AssetManager.service",
+							"QueryOptions":"",
+							"Properties": [],
+							"KeyProperties": []
+						},
+						"Properties":{
+							"ID":"{@odata.readLink}",
+							"Title":"{MaterialDesc} {ItemText2}",
+							"Subhead":"/SAPAssetManager/Rules/Material/BOM/BOMTypeAndMaterial.js",
+							"Footnote": "{Quantity} {UoM}",
+							"ChildCount": "/SAPAssetManager/Rules/Material/BOM/BOMChildrenCount.js",
+							"Parent": [
+							],
+							"Children": [
+								{ 
+									"Target": { 
+										"EntitySet" : "BOMItems",
+										"Service" : "/SAPAssetManager/Services/AssetManager.service",
+										"Properties": [],
+										"KeyProperties": [],
+										"QueryOptions":"$filter=BOMId eq '{ChildBoMId}' and BOMCategory eq '{ChildBoMCategory}'&$orderby=ItemId"
+									}
+								}
+							]
+						},
+						"OnPress": {
+							"Action": "/SAPAssetManager/Actions/Parts/BOM/BOMDetailsNav.action",
+							"Target": {
+								"EntitySet": "BOMItems",
+								"Service": "/SAPAssetManager/Services/AssetManager.service",
+								"QueryOptions": "$filter=BOMId eq '{BOMId}' and BOMCategory eq '{BOMCategory}' and ItemNode eq '{ItemNode}'",
+								"Properties": [],
+								"KeyProperties": []
+							}
+						}
+          			}               
+				]
+			}
+		}
+	],
+	"_Name": "BOMHierarchyControl",
+	"_Type": "Page"
+}

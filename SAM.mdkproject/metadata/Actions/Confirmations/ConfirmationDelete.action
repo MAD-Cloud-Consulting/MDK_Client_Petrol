@@ -1,0 +1,15 @@
+{
+	"Target":
+	{
+		"EntitySet": "Confirmations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.id}"
+	},
+	"Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:ConfirmationNum"
+	},
+	"_Type": "Action.Type.ODataService.DeleteEntity",
+	"OnSuccess": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationDeleteOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/DeleteEntityFailureMessage.action"
+}

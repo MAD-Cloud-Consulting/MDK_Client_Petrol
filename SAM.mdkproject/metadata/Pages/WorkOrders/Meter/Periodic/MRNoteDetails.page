@@ -1,0 +1,24 @@
+{
+	"Caption": "$(L,notes)",
+	"Controls":
+	[{
+		"Sections":
+		[{
+            "KeyAndValues": [
+                {
+                    "KeyName": "",
+                    "Value": "/SAPAssetManager/Rules/Meter/Periodic/MRNoteDetailsText.js"
+                }
+            ],
+            "Layout": {
+                "NumberOfColumns": 1,
+                "MinimumInteritemSpacing": 66
+            },
+            "_Type": "Section.Type.KeyValue",
+            "_Name": "Notes"
+        }],
+		"_Type" : "Control.Type.SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "MRNoteDetails"
+}

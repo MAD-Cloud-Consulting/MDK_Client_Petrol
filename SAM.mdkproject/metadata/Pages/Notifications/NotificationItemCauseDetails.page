@@ -1,0 +1,71 @@
+{
+	"Caption": "/SAPAssetManager/Rules/Notifications/Item/Cause/NotificationItemCauseHeader.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsOnPageLoad.js",
+
+	"ActionBar": {
+		"Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Item/Cause/NotificationItemCauseUpdateNav.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+			},
+			{
+                "Position": "right",
+            	"SystemItem": "Add",
+                "OnPress": "/SAPAssetManager/Rules/Notifications/Item/Cause/Details/NotificationItemCauseDetailsPopover.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationEdit.js"
+            }
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "$(L,notification_item_cause_detail)"
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,description)",
+							"Value": "{CauseText}"
+						},
+						{
+							"KeyName": "$(L,sort_number)",
+							"Value": "{CauseSortNumber}"
+						},
+						{
+							"KeyName": "$(L,group)",
+							"Value": "/SAPAssetManager/Rules/Notifications/Cause/NotificationCauseDetailsGroup.js"
+						},
+						{
+							"KeyName": "$(L,code)",
+							"Value": "/SAPAssetManager/Rules/Notifications/Cause/NotificationCauseDetailsCode.js"
+						}
+					],
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+                    "SimplePropertyCells":
+                    [{
+                        "SimplePropertyCell": {
+                            "AccessoryType": "disclosureIndicator",
+                            "KeyName": "$(L,notes)",
+                            "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
+                            "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
+                        }
+                    }],
+                    "Layout":
+                    {
+                        "NumberOfColumns" : 1
+                    },
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                }
+			],
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "NotificationItemCauseDetailsPage"
+}

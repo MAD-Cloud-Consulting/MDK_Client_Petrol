@@ -1,0 +1,239 @@
+{
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeClose.js"
+        },
+        {
+            "Position": "right",
+            "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+            "Text": "/SAPAssetManager/Rules/Filter/FilterSaveText.js",
+            "OnPress": "/SAPAssetManager/Rules/TimeSheets/CreateUpdate/TimeSheetCreateUpdateOnCommit.js"
+        }]
+    },
+    "Controls" :
+    [
+        {
+            "Sections" :
+            [
+                {
+                    "Controls":
+                    [
+                        {
+                            "Caption": "$(L,date)",
+                            "Value": "",
+                            "Mode" : "Date",
+                            "DateTimeEntryMode" : "date",
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "HourEndDtPicker",
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/TimeSheetEntryStartDateOnValueChange.js"
+                        },
+                        {
+                            "_Name": "DurationPkr",
+                            "Caption": "$(L,duration)",
+                            "_Type": "Control.Type.FormCell.DurationPicker",
+                            "Unit": "H",
+                            "MinuteInterval": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryMinuteInterval.js",
+                            "IsEditable": true,
+                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryMinuteIntervalDecimal.js"
+                        },
+                        {
+                            "IsSelectedSectionEnabled": true,
+                            "AllowMultipleSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "Search",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "Name",
+                            "PlaceHolder": "",
+                            "Value": "/SAPAssetManager/Rules/Crew/Employees/DefaultEmployees.js",
+                            "_Name": "MemberLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:Employee/#Property:EmployeeName}} - {{#Property:Employee/#Property:PersonnelNumber}}",
+                                "ReturnValue": "{Employee/PersonnelNumber}",
+                                "Target": {
+                                    "EntitySet": "CrewListItems",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Crew/Employees/EmployeeQueryOptions.js"
+                                }
+                            },
+                            "OnValueChange": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnTimeSheetEntryNameChanged.js"
+                        },
+                        {
+                            "Caption": "$(L,absence_attendance_code)",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowMultipleSelection": false,
+                            "PickerItems" :
+                            {
+                                "DisplayValue" : "{{#Property:AttendanceType}} - {{#Property:AttendanceTypeText}}",
+                                "ReturnValue" : "{AttendanceType}",
+                                "Target":
+                                {
+                                    "EntitySet" : "AttendanceTypes",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryAttendAbsenceQueryOptions.js"
+                                }
+                            },
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "AbsAttLstPkr"
+                        },
+                        {
+                            "Caption": "$(L,workorder)",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "AllowMultipleSelection": false,
+                            "PickerItems":
+                            {
+                                "DisplayValue" : "{{#Property:OrderId}} - {{#Property:OrderDescription}}",
+                                "ReturnValue" : "{@odata.readLink}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderHeaders",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "/SAPAssetManager/Rules/TimeSheets/TimeSheetWorkOrderFilter.js"
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "OnValueChange" : "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryCreateUpdateRecOrderUpdate.js",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "RecOrderLstPkr"
+                        },
+                        {
+                            "Caption": "$(L,operation)",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "AllowMultipleSelection": false,
+                            "PickerItems":
+                            {
+                                "DisplayValue" : "{{#Property:OperationNo}} - {{#Property:OperationShortText}}",
+                                "ReturnValue" : "{@odata.readLink}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderOperations",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : ""
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "OnValueChange": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryCreateUpdateOperationUpdate.js",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "OperationLstPkr"
+                        },
+                        {
+                            "Caption": "$(L,suboperation)",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "AllowMultipleSelection": false,
+                            "PickerItems":
+                            {
+                                "DisplayValue" : "{{#Property:SubOperationNo}} - {{#Property:OperationShortText}}",
+                                "ReturnValue" : "{@odata.readLink}",
+                                "Target":
+                                {
+                                    "EntitySet" : "MyWorkOrderSubOperations",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=SubOperationNo asc"
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "OnValueChange": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryCreateUpdateSubOperationUpdate.js",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "SubOperationLstPkr"
+                        },
+                        {
+                            "Caption": "$(L,activity_type)",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "AllowMultipleSelection": false,
+                            "PickerItems":
+                            {
+                                "DisplayValue" : "{{#Property:ActivityType}} - {{#Property:ActivityTypeDescription}}",
+                                "ReturnValue" : "{ActivityType}",
+                                "Target":
+                                {
+                                    "EntitySet" : "COActivityTypes",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/TimeSheets/TimeSheetActivityTypeCostCenter.js"
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "ActivityTypeLstPkr"
+                        },
+                        {
+                            "Caption": "$(L,work_center)",
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "AllowMultipleSelection": false,
+                            "PickerItems" :
+                            {
+                                "DisplayValue" : "{ExternalWorkCenterId}",
+                                "ReturnValue" : "{ExternalWorkCenterId}",
+                                "Target":
+                                {
+                                    "EntitySet" : "WorkCenters",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : ""
+                                }
+                            },
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "WorkCenterLstPkr"
+                        }
+                    ]
+
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "TimeEntryCreateUpdatePage",
+    "OnLoaded": "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryCreateUpdateOnPageLoad.js"
+}

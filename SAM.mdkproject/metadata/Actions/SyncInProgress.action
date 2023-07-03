@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,sync_in_progress_banner)",
+    "Duration": 4,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

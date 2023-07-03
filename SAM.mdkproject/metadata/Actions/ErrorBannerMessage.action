@@ -1,0 +1,7 @@
+{
+    "Message": "#ClientData/#Property:Error",
+    "Duration": 9999,
+    "Animated": true,
+    "DismissBannerOnAction": true,
+    "_Type": "Action.Type.BannerMessage"
+}

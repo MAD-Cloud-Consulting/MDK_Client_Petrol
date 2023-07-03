@@ -1,0 +1,23 @@
+{
+    "Properties": {
+        "PersonNum": "#ClientData/#Property:EmployeeTo"
+    },
+    "Headers": {
+        "Transaction.Ignore":"true"
+    },
+    "Target": {
+        "EntitySet": "MyWorkOrderOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#ClientData/#Property:OperationReadLink"
+    },
+    "UpdateLinks": [{
+        "Property": "Employee_Nav",
+        "Target": {
+            "EntitySet": "Employees",
+            "ReadLink": "#ClientData/#Property:EmployeeReadLink"
+        }
+    }],
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}
+

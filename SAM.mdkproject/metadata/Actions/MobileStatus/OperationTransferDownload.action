@@ -1,0 +1,11 @@
+{
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"DefiningRequests":
+	[{
+		"Name": "",
+		"Query": ""
+	}],
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "$(L,download_progress)",
+	"_Type": "Action.Type.OfflineOData.Download"
+}

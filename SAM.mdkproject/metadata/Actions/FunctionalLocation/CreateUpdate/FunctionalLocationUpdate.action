@@ -1,0 +1,40 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Properties": {
+        "FuncLocId": "#Property:LocalID",
+        "FuncLocDesc": "#Control:DescriptionNote/#Value",
+        "FuncLocType": "#Control:CategoryLstPkr/#SelectedValue",
+        "FuncLocStructInd": "#Control:StrcutureIndLstPkr/#SelectedValue",
+        "PlanningPlant": "#Control:MaintenacePlantLstPkr/#SelectedValue",
+        "MaintPlant": "#Control:MaintenacePlantLstPkr/#SelectedValue",
+        "SuperiorFuncLocInternId": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/Data/SuperiorFloc.js",
+        "Manufacturer": "#Control:ManufactureNameProperty/#Value",
+        "StartDate": "/SAPAssetManager/Rules/Common/Controls/Data/StartDate.js",
+        "ConstYear": "/SAPAssetManager/Rules/Common/Controls/Data/ConstYear.js",
+        "ConstMonth": "/SAPAssetManager/Rules/Common/Controls/Data/ConstMonth.js",
+        "ModelNumber": "#Control:ModelNumberProperty/#Value",
+        "SerialNumber": "#Control:SerialNumberProperty/#Value",
+        "Location": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/Data/Location.js",
+        "Room": "#Control:RoomProperty/#Value",
+        "CopyFuncLocIdIntern": "/SAPAssetManager/Rules/Common/Controls/Data/CopyFrom.js",
+        "CopyClassification": "/SAPAssetManager/Rules/Common/Controls/Data/CopyClassifications.js",
+        "CopyDocuments":  "/SAPAssetManager/Rules/Common/Controls/Data/CopyDocuments.js",
+        "CopyMeasuringPoints": "/SAPAssetManager/Rules/Common/Controls/Data/CopyMeasuringPoints.js",
+        "CopyPartners":"/SAPAssetManager/Rules/Common/Controls/Data/CopyPartners.js",
+        "CopyNote":"/SAPAssetManager/Rules/Common/Controls/Data/CopyLongText.js"
+    },
+    "Target": {
+        "EntitySet" : "MyFunctionalLocations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "#Property:@odata.readLink"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:FuncLocIdIntern"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationUpdateLinks.js",
+    "DeleteLinks": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationDeleteLinks.js",
+    "OnSuccess": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationUpdateOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

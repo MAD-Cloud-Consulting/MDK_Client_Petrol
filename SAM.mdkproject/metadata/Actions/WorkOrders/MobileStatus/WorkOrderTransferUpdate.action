@@ -1,0 +1,20 @@
+{
+    "Headers": {
+        "OfflineOData.NonMergeable": true
+    },
+    "Properties": {
+        "MobileStatus": "/SAPAssetManager/Rules/MobileStatus/MobileStatusTransfer.js",
+        "ObjectType": "/SAPAssetManager/Rules/MobileStatus/MobileStatusObjectType.js",
+        "ObjectKey": "/SAPAssetManager/Rules/MobileStatus/MobileStatusObjectKey.js",
+        "EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+        "CreateUserGUID": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUserGuidOnCreate.js",
+        "CreateUserId": "/SAPAssetManager/Rules/MobileStatus/GetSAPUserId.js"
+    },
+    "Target": {
+        "EntitySet": "PMMobileStatuses",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink" : "/SAPAssetManager/Rules/MobileStatus/MobileStatusReadLink.js"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "OnSuccess": "/SAPAssetManager/Actions/Page/ClosePage.action"
+}

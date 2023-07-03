@@ -1,0 +1,36 @@
+{
+	"_Type": "Action.Type.ODataService.CallFunction",
+	"Target":{
+		"Service": "/SAPAssetManager/Services/OnlineDigitalSignature.service",
+		"Function": {
+			"Name": "Sign",
+			"Parameters": {
+				"SigningApplication":"#ClientData/#Property:SigningApplication",
+				"SigningApplicationSubObject":"#ClientData/#Property:SigningApplicationSubObject",
+				"DigitalSignatureStrategy":"#ClientData/#Property:DigitalSignatureStrategy",
+				"DigitalSignatureType":"#ClientData/#Property:DigitalSignatureType",
+				"SigningApplicationMetadataBin":"#ClientData/#Property:SigningApplicationMetadataBin", 
+				"DigitalSignatureProcessID":"#ClientData/#Property:DigitalSignatureProcessID", 
+				"ApplicationObjectSignKey":"#ClientData/#Property:ApplicationObjectSignKey",
+				"DigitalSignatureDocumentBin":"#ClientData/#Property:DigitalSignatureDocumentBin",
+				"DigitalSignatureUser":"#ClientData/#Property:DigitalSignatureUser",
+				"DigitalSignatureNoteText":"#ClientData/#Property:DigitalSignatureNoteDesc",
+				"DSgntrAuthorizationGroup":"#ClientData/#Property:DSgntrAuthorizationGroup",
+				"DSgntrSignatoryComment":"#ClientData/#Property:DSgntrSignatoryComment",
+				"DSgntrUserPassword":"#ClientData/#Property:DSgntrUserPassword",
+				"DSgntrUserTimeBasedToken":"#Control:passcode/#Value",
+				"DSgntrUserPassphrase":"/SAPAssetManager/Rules/DigitalSignature/CreateSignaturePassphrase.js",
+				"DigitalSignatureMethod":"#ClientData/#Property:DigitalSignatureMethod",
+				"DigitalSignatureNoteID":"#ClientData/#Property:DigitalSignatureNoteID",
+				"DSgntrDocContentType":"#ClientData/#Property:DSgntrDocContentType"
+			}
+		}
+	},
+	"ActionResult":{
+		"_Name": "result"
+	},
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "Submitting signature...",
+	"OnSuccess":"/SAPAssetManager/Rules/DigitalSignature/CreateDigitalSignatureSuccess.js",
+	"OnFailure":"/SAPAssetManager/Actions/OData/DigitalSignature/CreateSignatureFailure.action"
+}

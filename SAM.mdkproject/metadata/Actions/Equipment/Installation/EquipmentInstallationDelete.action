@@ -1,0 +1,19 @@
+{
+    "Properties":
+    {
+        "SuperiorEquip": "",
+        "FuncLocIdIntern": ""
+    },
+    "Target":
+    {
+        "EntitySet": "MyEquipments",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Equipment/EquipmentOrFLOCTransactionID.js"
+    },
+    "DeleteLinks" : "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallDeleteLinksById.js",
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

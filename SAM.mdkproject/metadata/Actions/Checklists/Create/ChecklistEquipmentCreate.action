@@ -1,0 +1,42 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target":
+	{
+		"EntitySet" : "ChecklistBusObjects",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"Properties":
+	{
+        "ObjectType" : "EQU",
+        "Status": "INC",
+        "FormId" : "/SAPAssetManager/Rules/Checklists/Create/FormFormId.js",
+        "TemplateId" : "/SAPAssetManager/Rules/Checklists/Create/ChecklistBusObjectTemplateId.js",
+        "ObjectId" : "/SAPAssetManager/Rules/Checklists/Create/ChecklistBusObjectObjectId.js",
+        "ChecklistTemplateOrder": "1"
+	},
+    "Headers":
+	{
+        "OfflineOData.RemoveAfterUpload": "true",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Checklists/Create/FormFormId.js"
+    },
+    "CreateLinks":
+    [{
+        "Property": "Equipment_Nav",
+        "Target":
+        {
+            "EntitySet": "MyEquipments",
+            "ReadLink": "#Property:@odata.readLink"
+        }
+    },
+    {
+        "Property": "Form_Nav",
+        "Target":
+        {
+            "EntitySet": "Forms",
+            "ReadLink": "pending_1"
+        }
+    }],
+    "OnFailure": "/SAPAssetManager/Rules/Checklists/Create/ChecklistChangesetFailureMessage.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

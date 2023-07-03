@@ -1,0 +1,24 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target":
+	{
+		"EntitySet" : "MyNotificationHeaders",
+		"Service" : "/SAPAssetManager/Services/AssetManager.service",
+		"ReadLink" : "{@odata.readLink}"
+	},
+	"Properties":
+	{
+        "BreakdownIndicator" : "/SAPAssetManager/Rules/Notifications/BreakdownSwitchValue.js",
+        "MalfunctionStartDate": "/SAPAssetManager/Rules/Notifications/MalfunctionStartDate.js",
+        "MalfunctionStartTime": "/SAPAssetManager/Rules/Notifications/MalfunctionStartTime.js",
+        "MalfunctionEndDate" : "/SAPAssetManager/Rules/Notifications/MalfunctionEndDate.js",
+		"MalfunctionEndTime" : "/SAPAssetManager/Rules/Notifications/MalfunctionEndTime.js"
+	},
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:NotificationNumber"
+    },
+    "ShowActivityIndicator": true,
+    "ValidationRule": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationUpdateMalfunctionEndValidation.js",
+	"ActivityIndicatorText" : "  "
+}

@@ -1,0 +1,196 @@
+{
+	"Collection": [
+		"MyNotificationHeaders"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Activities",
+			"_Type": "MyNotificationActivities"
+		},
+		{
+			"Key": false,
+			"_Name": "Equipment",
+			"_Type": "MyEquipments"
+		},
+		{
+			"Key": false,
+			"_Name": "FunctionalLocation",
+			"_Type": "MyFunctionalLocations"
+		},
+		{
+			"Key": false,
+			"_Name": "HeaderLongText",
+			"_Type": "MyNotifHeaderLongTexts"
+		},
+		{
+			"Key": false,
+			"_Name": "Items",
+			"_Type": "MyNotificationItems"
+		},
+		{
+			"Key": false,
+			"_Name": "MobileStatus",
+			"_Type": "MobileStatuses"
+		},
+		{
+			"Key": false,
+			"_Name": "NotifDocuments",
+			"_Type": "MyNotifDocuments"
+		},
+		{
+			"Key": false,
+			"_Name": "NotifGeometries",
+			"_Type": "MyNotifGeometries"
+		},
+		{
+			"Key": false,
+			"_Name": "Partners",
+			"_Type": "MyNotificationPartners"
+		},
+		{
+			"Key": false,
+			"_Name": "Tasks",
+			"_Type": "MyNotificationTasks"
+		},
+		{
+			"Key": false,
+			"_Name": "WorkOrder",
+			"_Type": "MyWorkOrderHeaders"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "ObjectKey",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RequiredStartDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "RequiredEndDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "DateForCompletion",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LastChangeTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": true,
+			"_Name": "NotificationNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationType",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "NotificationDescription",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderCurrency",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "HeaderEquipment",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "HeaderFunctionLocation",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "SortField",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlanningPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "PlanningGroup",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MaintenancePlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "BusinessArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ControllingArea",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MainWorkCenter",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "MainWorkCenterPlant",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "Priority",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "ObjectNumber",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationDate",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "LogicalSystem",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "OrderId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "CreationTime",
+			"_Type": "Edm.Time"
+		},
+		{
+			"Key": false,
+			"_Name": "BreakdownIndicator",
+			"_Type": "Edm.Boolean"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "MyNotificationHeader"
+}

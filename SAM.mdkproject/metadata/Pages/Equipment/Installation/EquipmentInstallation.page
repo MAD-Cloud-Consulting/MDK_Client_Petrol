@@ -1,0 +1,187 @@
+{
+    "Caption": "$(L, install_equipment)",
+    "OnLoaded": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentPickerUpdateQueryOptions.js",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "Position": "left",
+            "SystemItem": "Cancel",
+            "OnPress": "/SAPAssetManager/Rules/Common/CheckForChangesBeforeCancel.js"
+        },
+        {
+            "Position": "right",
+            "SystemItem": "$(PLT,'Done','')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+            "OnPress": "/SAPAssetManager/Actions/Equipment/Installation/EquipmentInstallRequiredFields.action"
+        }]
+    },
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Controls":
+            [{
+                "Caption" : "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallCaption.js",
+                "Value" : "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallValue.js",
+                "IsEditable": false,
+                "_Name": "SuperiorEquipment",
+                "_Type": "Control.Type.FormCell.SimpleProperty"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "AllowMultipleSelection": false,
+                "Caption": "$(L, category)",
+                "Search": { 
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L, search)",
+                    "BarcodeScanner": true
+                },
+                
+                "PickerItems":
+                {
+                    "DisplayValue" : "{{#Property:EquipCategory}} - {{#Property:EquipCategoryDesc}}",
+                    "ReturnValue" : "{EquipCategory}",
+                    "Target":
+                    {
+                        "EntitySet" : "EquipmentCategories",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentPickerUpdateQueryOptions.js",
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "_Name": "EquipmentCategoryPicker",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L, plant)",
+                "Search": { 
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L, search)",
+                    "BarcodeScanner": true
+                },
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "PickerItems":
+                {
+                    "DisplayValue" : "{{#Property:Plant}} - {{#Property:PlantDescription}}",
+                    "ReturnValue" : "{Plant}",
+                    "Target":
+                    {
+                        "EntitySet" : "Plants",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentPickerUpdateQueryOptions.js",
+                "Value": "{MaintPlant}",
+                "_Name": "PlantPicker",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L, workcenter)",
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": { 
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L, search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems":
+                {
+                    "DisplayValue" : "{{#Property:ExternalWorkCenterId}}",
+                    "ReturnValue" : "{WorkCenterId}",
+                    "Target":
+                    {
+                        "EntitySet" : "WorkCenters",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+                    }
+                },
+                "OnValueChange": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentPickerUpdateQueryOptions.js",
+                "Value": "{MaintWorkCenter}",
+                "_Name": "WorkCenterPicker",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            },
+            {
+                "AllowMultipleSelection": false,
+                "Caption": "$(L, functional_location)",
+                "IsPickerDismissedOnSelection": true,
+                "IsSearchCancelledAfterSelection": true,
+                "Search": { 
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L, search)",
+                    "BarcodeScanner": true
+                },
+                "PickerItems":
+                {
+                    "DisplayValue" : "{{#Property:FuncLocId}} - {{#Property:FuncLocDesc}}",
+                    "ReturnValue" : "{FuncLocIdIntern}",
+                    "Target":
+                    {
+                        "EntitySet" : "MyFunctionalLocations",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=FuncLocId"
+                    }
+                },
+                "Value": "{{#Property:FunctionalLocation/#Property:FuncLocIdIntern}}",
+                "OnValueChange": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentPickerUpdateQueryOptions.js",
+                "IsVisible": "/SAPAssetManager/Rules/FunctionalLocation/Installation/FLOCPickerVisible.js",
+                "IsEditable": false,
+                "_Name": "FLOCPicker",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        },
+        {
+            "Controls":
+            [{
+                "IsSelectedSectionEnabled": true,
+                "AllowMultipleSelection": "/SAPAssetManager/Rules/Equipment/Installation/AllowMultipleEquipments.js",
+                "AllowDefaultValueIfOneItem": true,
+                "Caption": "$(L, equipment)",
+                "Search": { 
+                    "Enabled": true,
+                    "Delay": 500,
+                    "MinimumCharacterThreshold": 3,
+                    "Placeholder": "$(L, search)",
+                    "BarcodeScanner": true
+                }, 
+                "IsPickerDismissedOnSelection": "/SAPAssetManager/Rules/Equipment/Installation/AllowPickerDismissOnSelection.js",
+                "PickerItems":
+                {
+                    "ObjectCell":
+                    {
+                        "PreserveIconStackSpacing": false,
+                        "Title" : "{{#Property:EquipDesc}}",
+                        "Subhead" : "/SAPAssetManager/Rules/Equipment/FormatWorkCenterAndPlant.js",
+                        "Footnote" : "{{#Property:EquipId}}"
+                    },
+                    "ReturnValue" : "{EquipId}",
+                    "Target":
+                    {
+                        "EntitySet" : "MyEquipments",
+                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/Equipment/Installation/EquipmentPickerInitialQueryOptions.js"
+                    }
+                },
+                "_Name": "EquipmentPicker",
+                "_Type": "Control.Type.FormCell.ListPicker"
+            }]
+        }],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.FormCellContainer"
+    }],
+    "_Type": "Page",
+    "_Name": "EquipmentInstallationPage"
+}

@@ -1,0 +1,4 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/Inventory/Item/ItemDetails.page",
+	"_Type": "Action.Type.Navigation"
+}

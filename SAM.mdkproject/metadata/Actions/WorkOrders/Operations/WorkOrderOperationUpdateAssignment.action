@@ -1,0 +1,14 @@
+{
+    "Properties": {
+
+    },
+    "Target": {
+        "EntitySet": "MyWorkOrderOperations",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "_Type": "Action.Type.ODataService.UpdateEntity"
+}

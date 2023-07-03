@@ -1,0 +1,10 @@
+{
+  "AppName": "SvcAssetMgr",
+  "AppDisplayName": "Svc&AssetMgr",
+  "AppVersion": "2210.0.7",
+  "BundleID": "com.sap.mobile.apps.assetmanager.release",
+  "Externals": ["@nativescript/geolocation", "extension-MapFramework", "uuid"],
+  "NSPlugins": ["@nativescript/geolocation"],
+  "NPMPlugins": ["uuid"],
+  "UrlScheme": "samclient"
+}
